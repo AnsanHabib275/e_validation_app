@@ -1,0 +1,70 @@
+import 'package:get/get_navigation/src/root/internacionalization.dart';
+
+class Languages extends Translations {
+  @override
+  Map<String, Map<String, String>> get keys => {
+        'en_US': {
+          'app_title': 'E-VALIDATION',
+          'where_fraud_fails': 'Where fraud fails...',
+          'powered_by_blockchain': 'Powered by Blockchain',
+          'login': 'Login',
+          'don’t_have_an_account_yet': 'Don’t have an account yet? ',
+          'signup': 'Signup',
+          'welcome': 'Welcome!',
+          'your_account_has_been_created': 'Your account has been created',
+          'you_can_now': 'You can now ',
+          'first_name': 'First Name',
+          'last_name': 'Last Name',
+          'user_name': 'George Oliver',
+          'user_email': 'Georgeoliver@gmail.com',
+          'profile': 'Profile',
+          'redeem': 'Redeem',
+          'kyc': 'KYC',
+          'faqs': 'FAQS',
+          'settings': 'Settings',
+          'complaints': 'Complaints',
+          'points': 'Points',
+          'delete_account': 'Delete Account',
+          'logout': 'Logout',
+          'tap_the_bellow_button_to_scan_the_product':
+              'Tap the bellow button to scan the product',
+          'scan_now': 'Scan now',
+          'product_verified': 'Product Verified!',
+          'submit': 'Submit',
+          'product_id': 'Product ID',
+          'attach_file': 'Attach File',
+          'message': 'Message',
+          'complain': 'Complain',
+          'rewards': 'Rewards',
+          'products_scanned': 'Products scanned',
+          'solved_complaints': 'Solved Complaints',
+          'history': 'History',
+          'error': 'Error',
+          'email': 'Email',
+          'email_hint': 'Enter email',
+          'password': 'Password',
+          'password_hint': 'Enter password',
+          'internet_exception':
+              "We're unable to show results.\nPlease check your data\nconnection",
+          'general_exception':
+              "We're unable to unable to process your request.\nPlease try again",
+          'retry': 'Retry',
+          'error_while_communicating_with_server':
+              'Error while communicating with server',
+          'no_internet': 'No Internet',
+          'request_time_out': 'Request Time Out',
+          'internal_server_error': 'Internal server error',
+          'invalid_url': 'Invalid Url',
+          'error_while_communication': 'Error while communication',
+          'forgot_your_password': 'Forgot your Password?',
+          'create_account': 'Create Account',
+          'sign_up': 'Sign Up',
+          'full_name': 'Full Name',
+          'full_name_hint': 'Enter Full Name',
+        },
+        'ur_PK': {
+          'email_hint': 'ای میل درج کریں',
+          'splash_screen': 'سپلیش اسکرین',
+        },
+      };
+}
