@@ -10,7 +10,6 @@ class DoneButtonWidget extends StatelessWidget {
   DoneButtonWidget({Key? key}) : super(key: key);
 
   final complaintVM = Get.put(ComplainViewModel());
-
   @override
   Widget build(BuildContext context) {
     return Obx(() {
