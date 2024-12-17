@@ -12,10 +12,11 @@ class RoutesName {
   static const String historyScreen = '/history_screen';
   static const String homeScreen = '/home_screen';
   static const String notificationScreen = '/notification_screen';
-  static const String complaintScreen = '/complaint_screen';
+  static const String complaintsScreen = '/complaints_screen';
   static const String scanProductScreen = '/scan_product_screen';
   static const String productVerifiedScreen = '/product_verified_screen';
   static const String productVerifyDoneScreen = '/product_verify_done_screen';
   static const String productDetailScreen = '/product_detail_screen';
   static const String fakeProductScreen = '/fake_product_screen';
+  static const String complainScreen = '/complain_screen';
 }

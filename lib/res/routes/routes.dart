@@ -1,6 +1,5 @@
 import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/view/account_created/account_created_screen.dart';
-import 'package:e_validation/view/navigation/complaint/complaint_screen.dart';
 import 'package:e_validation/view/navigation/home/product/fake_product_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_detail_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_verified_screen.dart';
@@ -9,8 +8,10 @@ import 'package:e_validation/view/navigation/reward/reward_screen.dart';
 import 'package:get/get.dart';
 
 import '../../view/login/login_screen.dart';
+import '../../view/navigation/complaints/complaints_screen.dart';
 import '../../view/navigation/history/history_screen.dart';
 import '../../view/navigation/home/home_screen.dart';
+import '../../view/navigation/home/product/complain_screen.dart';
 import '../../view/navigation/home/product/scan_product_screen.dart';
 import '../../view/navigation/navigation_screen.dart';
 import '../../view/navigation/notification/notification_screen.dart';
@@ -94,8 +95,8 @@ class AppRoutes {
           transition: Transition.leftToRightWithFade,
         ),
         GetPage(
-          name: RoutesName.complaintScreen,
-          page: () => ComplaintScreen(),
+          name: RoutesName.complaintsScreen,
+          page: () => ComplaintsScreen(),
           transitionDuration: Duration(milliseconds: 200),
           transition: Transition.leftToRightWithFade,
         ),
@@ -126,6 +127,12 @@ class AppRoutes {
         GetPage(
           name: RoutesName.fakeProductScreen,
           page: () => FakeProductScreen(),
+          transitionDuration: Duration(milliseconds: 200),
+          transition: Transition.leftToRightWithFade,
+        ),
+        GetPage(
+          name: RoutesName.complainScreen,
+          page: () => ComplainScreen(),
           transitionDuration: Duration(milliseconds: 200),
           transition: Transition.leftToRightWithFade,
         ),

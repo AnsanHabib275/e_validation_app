@@ -1,15 +1,15 @@
 import 'package:e_validation/res/routes/routes_name.dart';
-import 'package:e_validation/view_models/controller/navigation/reward/reward_view_model.dart';
+import 'package:e_validation/view_models/controller/navigation/complain/complain_view_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../res/componants/RoundButton.dart';
+import '../../../../../res/componants/RoundButton.dart';
 
-class GetRewardButtonWidget extends StatelessWidget {
-  GetRewardButtonWidget({Key? key}) : super(key: key);
+class DoneButtonWidget extends StatelessWidget {
+  DoneButtonWidget({Key? key}) : super(key: key);
 
-  final rewardVM = Get.put(RewardViewModel());
+  final complaintVM = Get.put(ComplainViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,8 @@ class GetRewardButtonWidget extends StatelessWidget {
       return RoundButton(
         width: double.infinity,
         height: 55,
-        title: 'submit'.tr,
-        loading: rewardVM.loading.value,
+        title: 'done'.tr,
+        loading: complaintVM.loading.value,
         onPress: () {
           // Get.toNamed(RoutesName.accountCreatedScreen);
           // if (formkey.currentState!.validate()) {

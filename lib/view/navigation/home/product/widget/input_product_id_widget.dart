@@ -1,13 +1,13 @@
-import 'package:e_validation/view_models/controller/navigation/complaint/complaint_view_model.dart';
+import 'package:e_validation/view_models/controller/navigation/complain/complain_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../utils/utils.dart';
+import '../../../../../utils/utils.dart';
 
 class InputProductIdWidget extends StatelessWidget {
   InputProductIdWidget({super.key});
 
-  final complaintVM = Get.put(ComplaintViewModel());
+  final complaintVM = Get.put(ComplainViewModel());
 
   @override
   Widget build(BuildContext context) {

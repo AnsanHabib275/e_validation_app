@@ -1,30 +1,28 @@
+import 'package:e_validation/res/assets/font_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../res/colors/app_color.dart';
+import '../../../../view_models/controller/navigation/history/history_view_model.dart';
+import '../../../../view_models/controller/user_preference/user_preference_view_model.dart';
 
-class CartWidget extends StatefulWidget {
-  final CartListModel cart;
-  final VoidCallback onItemDeleted;
+class HistoryCartWidget extends StatefulWidget {
+  // final HistoryListModel history;
 
-  const CartWidget({
+  const HistoryCartWidget({
     super.key,
-    required this.cart,
-    required this.onItemDeleted,
+    // required this.history,
   });
 
   @override
-  State<CartWidget> createState() => _CartWidgetState();
+  State<HistoryCartWidget> createState() => _HistoryCartWidgetState();
 }
 
-class _CartWidgetState extends State<CartWidget> {
-  final cartVM = Get.put(CartViewModel());
+class _HistoryCartWidgetState extends State<HistoryCartWidget> {
+  final historyVM = Get.put(HistoryViewModel());
 
   late String userId;
   late String apiKey;
-  late int price;
-  late int quantity;
-  late double subTotal;
 
   @override
   void initState() {
@@ -34,91 +32,42 @@ class _CartWidgetState extends State<CartWidget> {
       userId = user.uid!;
       apiKey = user.apiKey!;
     });
-    price = widget.cart.price;
-    quantity = widget.cart.quantity;
-    subTotal = price.toDouble() * quantity;
-  }
-
-  Future<void> _deleteItem() async {
-    final isSuccess = await cartVM.removeFromCartApi(
-      widget.cart.productId,
-      userId,
-      widget.cart.quantity,
-      apiKey,
-    );
-
-    if (isSuccess) {
-      widget.onItemDeleted(); // Notify parent to refresh
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('failed_to_delete_item'.tr)),
-      );
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 100,
+      height: 60,
       child: Card(
-        color: AppColor.whiteColor,
-        child: Row(
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(
-              width: 10,
-            ),
-            Image(
-              image: NetworkImage(widget.cart.imageUrl.isNotEmpty
-                  ? widget.cart.imageUrl.first
-                  : ''),
-              width: 50,
-              height: 90,
-              fit: BoxFit.cover,
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-            SizedBox(
-              width: 170,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    widget.cart.productName,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontSize: 18),
-                  ),
-                  Text(
-                    '\$${price.toStringAsFixed(1)} × $quantity = \$${subTotal.toStringAsFixed(1)}',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey, // Strikethrough effect
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              child: Align(
-                alignment: Alignment.topRight,
-                child: IconButton(
-                  onPressed: _deleteItem,
-                  //     () {
-                  //   cartVM.removeFromCartApi(widget.cart.productId, userId,
-                  //       widget.cart.quantity, apiKey);
-                  // },
-                  icon: Icon(Icons.close),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 16),
+          child: SizedBox(
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Products with QR code no. 55676',
+                  // widget.history.qrCodeNo,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontFamily: FontAssets.poppins_medium,
+                      color: AppColor.textBlackPrimary),
                 ),
-              ),
+                Text(
+                  'scanned on 5 oct,2022',
+                  // widget.history.scanedOn,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontFamily: FontAssets.poppins_regular,
+                    color: AppColor.textBlackPrimary, // Strikethrough effect
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

@@ -1,9 +1,9 @@
-import 'package:e_validation/repository/complaint_repository/complaint_repository.dart';
+import 'package:e_validation/repository/complain_repository/complain_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-class ComplaintViewModel extends GetxController {
-  final _api = ComplaintRepository();
+class ComplainViewModel extends GetxController {
+  final _api = ComplainRepository();
 
   final productIdController = TextEditingController().obs;
   final attachFileController = TextEditingController().obs;

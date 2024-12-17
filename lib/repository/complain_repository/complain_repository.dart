@@ -1,7 +1,7 @@
 import '../../data/network/network_api_services.dart';
 import '../../res/urls/app_url.dart';
 
-class ComplaintRepository {
+class ComplainRepository {
   final _apiServices = NetworkApiServices();
 
   Future<dynamic> complaintApi(var data) async {

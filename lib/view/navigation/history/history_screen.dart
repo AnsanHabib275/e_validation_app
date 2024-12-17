@@ -1,7 +1,10 @@
+import 'package:e_validation/view/navigation/history/widget/history_cart_widget.dart';
+import 'package:e_validation/view_models/controller/navigation/history/history_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+import '../../../models/navigation/history_list_model.dart';
 import '../../../res/assets/font_assets.dart';
 import '../../../res/assets/image_assets.dart';
 import '../../../res/colors/app_color.dart';
@@ -15,6 +18,7 @@ class HistoryScreen extends StatefulWidget {
 }
 
 class _HistoryScreenState extends State<HistoryScreen> {
+  final historyVM = Get.put(HistoryViewModel());
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -56,42 +60,37 @@ class _HistoryScreenState extends State<HistoryScreen> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 10.0, vertical: 20),
-                  child: FutureBuilder<List<HistoryListModel>>(
-                    future: historyVM.cartListApi(), // Call your function
+                      horizontal: 16.0, vertical: 56),
+                  child: FutureBuilder<List<ComplaintsListModel>>(
+                    future: historyVM.historyListApi(), // Call your function
                     builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return Center(
-                            child:
-                                CircularProgressIndicator()); // Loading indicator
-                      } else if (snapshot.hasError) {
-                        return Center(
-                            child: Text(
-                                'Error: ${snapshot.error}')); // Error message
-                      } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                        return Center(
-                            child:
-                                Text('your_cart_is_empty'.tr)); // Empty state
-                      } else {
-                        final carts = snapshot.data!;
-                        items = carts.length;
-                        grandSubTotal = carts.fold(0.0,
-                            (sum, item) => sum + (item.price * item.quantity));
-                        return SizedBox(
-                          height: 90,
-                          child: ListView.builder(
-                            scrollDirection: Axis.vertical,
-                            itemCount: carts.length,
-                            itemBuilder: (context, index) {
-                              final cart = carts[index];
-                              return CartWidget(
-                                cart: cart,
-                                onItemDeleted: _refreshCartItems,
-                              );
-                            },
-                          ),
-                        );
-                      }
+                      // if (snapshot.connectionState == ConnectionState.waiting) {
+                      //   return Center(
+                      //       child:
+                      //           CircularProgressIndicator()); // Loading indicator
+                      // } else if (snapshot.hasError) {
+                      //   return Center(
+                      //       child: Text(
+                      //           'Error: ${snapshot.error}')); // Error message
+                      // } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                      //   return Center(
+                      //       child:
+                      //           Text('your_cart_is_empty'.tr)); // Empty state
+                      // } else {
+                      // final histories = snapshot.data!;
+
+                      return SizedBox(
+                        height: 56,
+                        child: ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          itemCount: 6,
+                          itemBuilder: (context, index) {
+                            // final history = histories[index];
+                            return HistoryCartWidget();
+                          },
+                        ),
+                      );
+                      // }
                     },
                   ),
                 ),

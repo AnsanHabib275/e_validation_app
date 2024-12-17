@@ -1,4 +1,8 @@
+import 'package:e_validation/res/assets/image_assets.dart';
+import 'package:e_validation/utils/utils.dart';
+import 'package:e_validation/view/navigation/home/product/widget/done_button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProductVerifyDoneScreen extends StatefulWidget {
   const ProductVerifyDoneScreen({super.key});
@@ -14,7 +18,15 @@ class _ProductVerifyDoneScreenState extends State<ProductVerifyDoneScreen> {
     return Scaffold(
       body: SafeArea(
           child: Column(
-        children: [],
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(ImageAssets.done_logo),
+          SizedBox(
+            height: Get.height * Utils.getResponsiveHeight(102),
+          ),
+          DoneButtonWidget(),
+        ],
       )),
     );
   }

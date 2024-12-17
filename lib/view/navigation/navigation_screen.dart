@@ -1,5 +1,5 @@
 import 'package:e_validation/res/assets/image_assets.dart';
-import 'package:e_validation/view/navigation/complaint/complaint_screen.dart';
+import 'package:e_validation/view/navigation/complaints/complaints_screen.dart';
 import 'package:e_validation/view/navigation/history/history_screen.dart';
 import 'package:e_validation/view/navigation/home/home_screen.dart';
 import 'package:e_validation/view/navigation/notification/notification_screen.dart';
@@ -67,7 +67,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         _child = NotificationScreen();
         break;
       case 4:
-        _child = ComplaintScreen();
+        _child = ComplaintsScreen();
         break;
       default:
         _child = RewardScreen();
@@ -284,7 +284,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
           _child = NotificationScreen();
           break;
         case 4:
-          _child = ComplaintScreen();
+          _child = ComplaintsScreen();
           break;
         default:
           _child = HomeScreen();
