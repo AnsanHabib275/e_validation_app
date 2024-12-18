@@ -34,7 +34,12 @@ class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SvgPicture.asset(ImageAssets.account_created_logo),
+                      InkWell(
+                          onTap: () {
+                            Get.toNamed(RoutesName.productDetailScreen);
+                          },
+                          child: SvgPicture.asset(
+                              ImageAssets.account_created_logo)),
                       Text(
                         'product_verified'.tr,
                         style: const TextStyle(
