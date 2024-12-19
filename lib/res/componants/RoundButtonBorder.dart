@@ -10,9 +10,9 @@ class RoundButtonBorder extends StatelessWidget {
       this.textColor = AppColor.colorPrimary,
       required this.title,
       required this.onPress,
-      this.width = 60,
-      this.height = 50,
-      this.borderWidth = 2,
+      this.width = double.infinity,
+      this.height = 64,
+      this.borderWidth = 1,
       this.loading = false})
       : super(key: key);
 

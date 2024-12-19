@@ -16,7 +16,7 @@ class LoginButtonWidget extends StatelessWidget {
     return Obx(() {
       return RoundButton(
         width: double.infinity,
-        height: 55,
+        height: 64,
         title: 'login'.tr,
         loading: loginVM.loading.value,
         onPress: () {

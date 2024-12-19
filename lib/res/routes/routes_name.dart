@@ -19,4 +19,5 @@ class RoutesName {
   static const String productDetailScreen = '/product_detail_screen';
   static const String fakeProductScreen = '/fake_product_screen';
   static const String complainScreen = '/complain_screen';
+  static const String notEligibleScreen = '/not_eligible_screen';
 }

@@ -9,8 +9,8 @@ class RoundButton extends StatelessWidget {
       this.textColor = AppColor.textWhite,
       required this.title,
       required this.onPress,
-      this.width = 60,
-      this.height = 50,
+      this.width = double.infinity,
+      this.height = 64,
       this.loading = false})
       : super(key: key);
 

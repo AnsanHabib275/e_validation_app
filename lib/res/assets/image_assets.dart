@@ -25,4 +25,7 @@ class ImageAssets {
   static const String tp_1 = 'assets/images/tp_1.svg';
   static const String tp_2 = 'assets/images/tp_2.svg';
   static const String tp_3 = 'assets/images/tp_3.svg';
+  static const String img_logout = 'assets/images/img_logout.svg';
+  static const String img_delete = 'assets/images/img_delete.png';
+  static const String img_not_eligible = 'assets/images/img_not_eligible.svg';
 }

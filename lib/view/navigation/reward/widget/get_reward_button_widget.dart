@@ -16,7 +16,7 @@ class GetRewardButtonWidget extends StatelessWidget {
     return Obx(() {
       return RoundButton(
         width: double.infinity,
-        height: 55,
+        height: 64,
         title: 'submit'.tr,
         loading: rewardVM.loading.value,
         onPress: () {

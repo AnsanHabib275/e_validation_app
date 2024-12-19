@@ -18,7 +18,7 @@ class CreateAccountButtonWidget extends StatelessWidget {
     return Obx(() {
       return RoundButton(
         width: double.infinity,
-        height: 55,
+        height: 64,
         title: 'create_account'.tr,
         loading: signUpVM.loading.value,
         onPress: () {

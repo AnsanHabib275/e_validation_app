@@ -1,3 +1,4 @@
+import 'package:e_validation/res/assets/gif_assets.dart';
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/utils/utils.dart';
 import 'package:e_validation/view/navigation/home/product/widget/done_button_widget.dart';
@@ -21,11 +22,18 @@ class _ProductVerifyDoneScreenState extends State<ProductVerifyDoneScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(ImageAssets.done_logo),
+          Image.asset(
+            GifAssets.gif_done,
+            height: Get.height * Utils.getResponsiveHeight(300),
+            width: Get.width * Utils.getResponsiveWidth(300),
+          ),
           SizedBox(
             height: Get.height * Utils.getResponsiveHeight(102),
           ),
-          DoneButtonWidget(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: DoneButtonWidget(),
+          ),
         ],
       )),
     );

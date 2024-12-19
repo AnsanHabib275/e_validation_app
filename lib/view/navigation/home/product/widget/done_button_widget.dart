@@ -15,11 +15,11 @@ class DoneButtonWidget extends StatelessWidget {
     return Obx(() {
       return RoundButton(
         width: double.infinity,
-        height: 55,
+        height: 64,
         title: 'done'.tr,
         loading: complaintVM.loading.value,
         onPress: () {
-          // Get.toNamed(RoutesName.accountCreatedScreen);
+          Get.toNamed(RoutesName.notEligibleScreen);
           // if (formkey.currentState!.validate()) {
           //   signUpVM.signUpApi();
           // }

@@ -1,11 +1,18 @@
 import 'package:e_validation/res/assets/image_assets.dart';
+import 'package:e_validation/utils/utils.dart';
 import 'package:e_validation/view/navigation/complaints/complaints_screen.dart';
 import 'package:e_validation/view/navigation/history/history_screen.dart';
 import 'package:e_validation/view/navigation/home/home_screen.dart';
 import 'package:e_validation/view/navigation/notification/notification_screen.dart';
 import 'package:e_validation/view/navigation/reward/reward_screen.dart';
+import 'package:e_validation/view/navigation/widget/cancel_button_widget.dart';
+import 'package:e_validation/view/navigation/widget/delete_button_widget.dart';
+import 'package:e_validation/view/navigation/widget/input_email_widget.dart';
+import 'package:e_validation/view/navigation/widget/no_button_widget.dart';
+import 'package:e_validation/view/navigation/widget/yes_button_widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../models/navigation/menu_items_model.dart';
@@ -175,13 +182,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
                               // Get.toNamed(RoutesName.ordersScreen);
                               break;
                             case 'Delete Account':
-                              // showDeleteAccountDialog();
+                              showDeleteAccountDialog();
                               break;
                             case 'Logout':
-                              UserPreference userpreference = UserPreference();
-                              userpreference.removeUser();
-                              Get.offAllNamed(RoutesName
-                                  .loginScreen); // Clears navigation stack
+                              showLogoutDialog();
                               break;
                             default:
                             // Get.toNamed(RoutesName.menuScreen);
@@ -193,53 +197,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
                     ],
                   );
                 }).toList()
-                // ListView.builder(
-                //   itemCount: items.length, // Length of the list
-                //   itemBuilder: (context, index) {
-                //     return InkWell(
-                //         onTap: () {
-                //           switch (items[index].name) {
-                //             case 'Profile':
-                //               // Get.toNamed(RoutesName.navigationScreen);
-                //               break;
-                //             case 'Redeem':
-                //               // Get.toNamed(RoutesName.benefitVerificationScreen);
-                //               break;
-                //             case 'KYC':
-                //               // Get.toNamed(RoutesName.favoritesScreen);
-                //               break;
-                //             case 'FAQS':
-                //               // Get.toNamed(RoutesName.productsScreen);
-                //               break;
-                //             case 'Settings':
-                //               // Get.toNamed(RoutesName.patientsScreen);
-                //               break;
-                //             case 'Complaints':
-                //               // Get.toNamed(RoutesName.historyScreen);
-                //               break;
-                //             case 'Points':
-                //               // Get.toNamed(RoutesName.ordersScreen);
-                //               break;
-                //             case 'Delete Account':
-                //               // showDeleteAccountDialog();
-                //               break;
-                //             case 'Logout':
-                //               UserPreference userpreference = UserPreference();
-                //               userpreference.removeUser();
-                //               Get.offAllNamed(RoutesName
-                //                   .loginScreen); // Clears navigation stack
-                //               break;
-                //             default:
-                //             // Get.toNamed(RoutesName.menuScreen);
-                //             // Get.snackbar('Error',
-                //             //     'Unknown menu item'); // Handle unknown cases
-                //           }
-                //         },
-                //         child: ListTile(
-                //             leading: Image.asset(items[index].imagePath),
-                //             title: Text(items[index].name)));
-                //   },
-                // ),
               ],
             ),
           ),
@@ -297,5 +254,97 @@ class _NavigationScreenState extends State<NavigationScreen> {
         child: _child,
       );
     });
+  }
+  void showDeleteAccountDialog() {
+    Get.dialog(
+      Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.0), // Rounded corners
+        ),
+        backgroundColor: Colors.white, // White background
+        child: SizedBox(
+          height: Get.height * Utils.getResponsiveHeight(364),
+          width: Get.width * Utils.getResponsiveWidth(368),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center, // Center alignment
+              children: [
+                Image.asset(
+                  height: 52,
+                  width: 39,
+                  ImageAssets.img_delete,
+                ),
+                SizedBox(height: Get.height * Utils.getResponsiveHeight(22),),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: InputEmailWidget(),
+                ),
+                SizedBox(height: Get.height * Utils.getResponsiveHeight(22),),
+                Text(
+                  'are_you_sure_you_want_to_delete'.tr,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 16, fontFamily: FontAssets.poppins_regular, color: AppColor.textBlackPrimary),
+                ),
+                SizedBox(height: Get.height * Utils.getResponsiveHeight(32),),
+                // Quantity Row
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    DeleteButtonWidget(),
+                    SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
+                    CancelButtonWidget(),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+  void showLogoutDialog() {
+    Get.dialog(
+      Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.0), // Rounded corners
+        ),
+        backgroundColor: Colors.white, // White background
+        child: SizedBox(
+          height: Get.height * Utils.getResponsiveHeight(301),
+          width: Get.width * Utils.getResponsiveWidth(368),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center, // Center alignment
+            children: [
+              SvgPicture.asset(
+                height: 69,
+                width: 69,
+                ImageAssets.img_logout,
+              ),
+               SizedBox(height: Get.height * Utils.getResponsiveHeight(40),),
+              Text(
+                'are_you_sure_you_want_to_logout'.tr,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16,fontFamily: FontAssets.poppins_regular, color: AppColor.textBlackPrimary),
+              ),
+              SizedBox(height: Get.height * Utils.getResponsiveHeight(30),),
+              // Quantity Row
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  YesButtonWidget(),
+                  SizedBox(width: Get.width * Utils.getResponsiveWidth(6)),
+                  NoButtonWidget(),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

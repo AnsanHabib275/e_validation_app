@@ -41,9 +41,24 @@ class Languages extends Translations {
           'history': 'History',
           'error': 'Error',
           'email': 'Email',
-          'email_hint': 'Enter email',
           'password': 'Password',
           'password_hint': 'Enter password',
+          'product_details': 'Product Details',
+          'product_name': 'Product Name',
+          'barcode': 'Barcode',
+          'product_sku': 'Product SKU',
+          'supplier': 'Supplier',
+          'created_at': 'Created At',
+          'expiry_date': 'Expiry Date',
+          'fake_product': 'Fake Product',
+          'product_scanned': 'Product Scanned',
+          'yes': 'Yes',
+          'no': 'No',
+          'are_you_sure_you_want_to_logout': 'Are You Sure You Want To Logout?',
+          'are_you_sure_you_want_to_delete': "Are You Sure You Want To Delete?\nPlease Enter Your Registered Email Here.",
+          'email_hint': 'Enter Your Email Here',
+          'email_star': 'Email*',
+          'sorry_you_are_not_eligible_right_now': 'Sorry! You are not eligible right now.',
           'internet_exception':
               "We're unable to show results.\nPlease check your data\nconnection",
           'general_exception':
@@ -63,7 +78,6 @@ class Languages extends Translations {
           'full_name_hint': 'Enter Full Name',
         },
         'ur_PK': {
-          'email_hint': 'ای میل درج کریں',
           'splash_screen': 'سپلیش اسکرین',
         },
       };
