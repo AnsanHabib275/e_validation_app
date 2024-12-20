@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../res/componants/RoundButton.dart';
+import '../product/fake_product_screen.dart';
 
 class ScanNowButtonWidget extends StatelessWidget {
   ScanNowButtonWidget({Key? key}) : super(key: key);
@@ -17,7 +18,8 @@ class ScanNowButtonWidget extends StatelessWidget {
       title: 'scan_now'.tr,
       // loading: loginVM.loading.value,
       onPress: () {
-        Get.toNamed(RoutesName.scanProductScreen);
+        Get.to(() => const FakeProductScreen());
+        // Get.toNamed(RoutesName.scanProductScreen);
         // if (formkey.currentState!.validate()) {
         //   loginVM.loginApi();
         // }

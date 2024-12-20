@@ -5,6 +5,18 @@ class Languages extends Translations {
   Map<String, Map<String, String>> get keys => {
         'en_US': {
           'app_title': 'E-VALIDATION',
+          'internet_exception':
+              "We're unable to show results.\nPlease check your data\nconnection",
+          'general_exception':
+              "We're unable to unable to process your request.\nPlease try again",
+          'retry': 'Retry',
+          'error_while_communicating_with_server':
+              'Error while communicating with server',
+          'no_internet': 'No Internet',
+          'request_time_out': 'Request Time Out',
+          'internal_server_error': 'Internal server error',
+          'invalid_url': 'Invalid Url',
+          'error_while_communication': 'Error while communication',
           'where_fraud_fails': 'Where fraud fails...',
           'powered_by_blockchain': 'Powered by Blockchain',
           'login': 'Login',
@@ -55,27 +67,23 @@ class Languages extends Translations {
           'yes': 'Yes',
           'no': 'No',
           'are_you_sure_you_want_to_logout': 'Are You Sure You Want To Logout?',
-          'are_you_sure_you_want_to_delete': "Are You Sure You Want To Delete?\nPlease Enter Your Registered Email Here.",
+          'are_you_sure_you_want_to_delete':
+              "Are You Sure You Want To Delete?\nPlease Enter Your Registered Email Here.",
           'email_hint': 'Enter Your Email Here',
           'email_star': 'Email*',
-          'sorry_you_are_not_eligible_right_now': 'Sorry! You are not eligible right now.',
-          'internet_exception':
-              "We're unable to show results.\nPlease check your data\nconnection",
-          'general_exception':
-              "We're unable to unable to process your request.\nPlease try again",
-          'retry': 'Retry',
-          'error_while_communicating_with_server':
-              'Error while communicating with server',
-          'no_internet': 'No Internet',
-          'request_time_out': 'Request Time Out',
-          'internal_server_error': 'Internal server error',
-          'invalid_url': 'Invalid Url',
-          'error_while_communication': 'Error while communication',
+          'sorry_you_are_not_eligible_right_now':
+              'Sorry! You are not eligible right now.',
           'forgot_your_password': 'Forgot your Password?',
           'create_account': 'Create Account',
           'sign_up': 'Sign Up',
           'full_name': 'Full Name',
           'full_name_hint': 'Enter Full Name',
+          'username': 'Username',
+          'phone_number': 'Phone Number',
+          'gender': 'Gender',
+          'birthday': 'Birthday',
+          'frequently_asked_questions': 'Frequently Asked Questions',
+          'know_your_customer': 'Know Your Customer',
         },
         'ur_PK': {
           'splash_screen': 'سپلیش اسکرین',

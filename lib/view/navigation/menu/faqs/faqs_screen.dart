@@ -1,5 +1,6 @@
 import 'package:e_validation/view/navigation/home/product/widget/done_button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../res/assets/font_assets.dart';
@@ -7,14 +8,14 @@ import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
 
-class ProductDetailScreen extends StatefulWidget {
-  const ProductDetailScreen({super.key});
+class FAQSScreen extends StatefulWidget {
+  const FAQSScreen({super.key});
 
   @override
-  State<ProductDetailScreen> createState() => _ProductDetailScreenState();
+  State<FAQSScreen> createState() => _FAQSScreenState();
 }
 
-class _ProductDetailScreenState extends State<ProductDetailScreen> {
+class _FAQSScreenState extends State<FAQSScreen> {
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -24,7 +25,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           children: [
             Container(
               width: Get.width * Utils.getResponsiveWidth(428),
-              height: Get.height * Utils.getResponsiveHeight(408),
+              height: Get.height * Utils.getResponsiveHeight(461),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(ImageAssets
@@ -32,14 +33,24 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   fit: BoxFit.cover, // Adjust the image to fill the screen
                 ),
               ),
-              child: Align(
-                alignment: Alignment.center,
-                child: Image.asset(
-                  ImageAssets.product_with_qr_code,
-                  fit: BoxFit.contain,
-                  height: Get.height * Utils.getResponsiveHeight(254),
-                  width: Get.width * Utils.getResponsiveWidth(93),
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    ImageAssets.img_faqs,
+                    height: Get.height * Utils.getResponsiveHeight(216),
+                    width: Get.width * Utils.getResponsiveWidth(262),
+                  ),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                  Text(
+                    'frequently_asked_questions'.tr,
+                    style: TextStyle(
+                        color: AppColor.textColorPrimary,
+                        fontSize: 26,
+                        fontFamily: FontAssets.poppins_semi_bold),
+                  )
+                ],
               ),
             ),
             Padding(

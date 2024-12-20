@@ -20,4 +20,8 @@ class RoutesName {
   static const String fakeProductScreen = '/fake_product_screen';
   static const String complainScreen = '/complain_screen';
   static const String notEligibleScreen = '/not_eligible_screen';
+  static const String profileScreen = '/profile_screen';
+  static const String kycScreen = '/kyc_screen';
+  static const String faqsScreen = '/faqs_screen';
+  static const String settingsScreen = '/settings_screen';
 }

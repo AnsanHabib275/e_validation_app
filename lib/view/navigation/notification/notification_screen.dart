@@ -19,6 +19,7 @@ class NotificationScreen extends StatefulWidget {
 
 class _NotificationScreenState extends State<NotificationScreen> {
   final notificationVM = Get.put(NotificationViewModel());
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -28,7 +29,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
             children: [
               Container(
                 width: Get.width * Utils.getResponsiveWidth(428),
-                height: Get.height * Utils.getResponsiveHeight(300),
+                height: Get.height * Utils.getResponsiveHeight(365),
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(ImageAssets

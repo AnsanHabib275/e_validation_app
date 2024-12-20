@@ -19,6 +19,7 @@ class HistoryScreen extends StatefulWidget {
 
 class _HistoryScreenState extends State<HistoryScreen> {
   final historyVM = Get.put(HistoryViewModel());
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -28,7 +29,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
             children: [
               Container(
                 width: Get.width * Utils.getResponsiveWidth(428),
-                height: Get.height * Utils.getResponsiveHeight(300),
+                height: Get.height * Utils.getResponsiveHeight(365),
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(ImageAssets

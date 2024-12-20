@@ -21,6 +21,7 @@ class ComplaintsScreen extends StatefulWidget {
 class _ComplaintsScreenState extends State<ComplaintsScreen> {
   final complaintsVM = Get.put(ComplaintsViewModel());
   final _formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -32,7 +33,7 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
           children: [
             Container(
               width: Get.width * Utils.getResponsiveWidth(428),
-              height: Get.height * Utils.getResponsiveHeight(300),
+              height: Get.height * Utils.getResponsiveHeight(365),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(ImageAssets
@@ -60,36 +61,43 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                 ],
               ),
             ),
-            SizedBox(
-              width: Get.width * 1,
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: Image.asset(
-                    ImageAssets.dummy_profile,
-                    height: 84,
-                    width: 84,
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 42,
+                    backgroundColor: AppColor.lightGreyColor,
+                    backgroundImage: AssetImage(ImageAssets.dummy_profile),
                   ),
-                  title: Text(
-                    'user_name'.tr,
+                  SizedBox(
+                    width: Get.width * Utils.getResponsiveWidth(12),
                   ),
-                  titleTextStyle: TextStyle(
-                      fontSize: 20,
-                      fontFamily: FontAssets.poppins_semi_bold,
-                      color: Color(0xFF00005A)),
-                  subtitle: Text('user_email'.tr),
-                  subtitleTextStyle: TextStyle(
-                      fontSize: 16,
-                      fontFamily: FontAssets.poppins_regular,
-                      color: AppColor.textBlackPrimary),
-                ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'user_name'.tr,
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: FontAssets.poppins_semi_bold,
+                            color: Color(0xFF00005A)),
+                      ),
+                      Text('user_email'.tr,
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: FontAssets.poppins_regular,
+                              color: AppColor.textBlackPrimary)),
+                    ],
+                  )
+                ],
               ),
             ),
             Expanded(
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 26),
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
                 child: FutureBuilder<List<ComplaintsListModel>>(
                   future:
                       complaintsVM.complaintsListApi(), // Call your function
@@ -110,7 +118,7 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                     // final histories = snapshot.data!;
 
                     return SizedBox(
-                      height: 56,
+                      height: 60,
                       child: ListView.builder(
                         scrollDirection: Axis.vertical,
                         itemCount: 6,

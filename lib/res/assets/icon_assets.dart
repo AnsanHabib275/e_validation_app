@@ -28,5 +28,6 @@ class IconAssets {
   static const String ic_submitted_complaint =
       'assets/icons/ic_submitted_complaint.png';
   static const String ic_close_with_white_bg = 'assets/icons/ic_close_with_white_bg.png';
+  static const String ic_edit = 'assets/icons/ic_edit.svg';
 
 }

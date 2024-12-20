@@ -4,7 +4,11 @@ import 'package:e_validation/view/navigation/home/product/fake_product_screen.da
 import 'package:e_validation/view/navigation/home/product/product_detail_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_verified_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_verify_done_screen.dart';
+import 'package:e_validation/view/navigation/menu/faqs/faqs_screen.dart';
+import 'package:e_validation/view/navigation/menu/kyc/kyc_screen.dart';
 import 'package:e_validation/view/navigation/menu/not_eligible_screen/not_eligible_screen.dart';
+import 'package:e_validation/view/navigation/menu/profile/profile_screen.dart';
+import 'package:e_validation/view/navigation/menu/settings/settings_screen.dart';
 import 'package:e_validation/view/navigation/reward/reward_screen.dart';
 import 'package:get/get.dart';
 
@@ -137,11 +141,35 @@ class AppRoutes {
           transitionDuration: Duration(milliseconds: 100),
           transition: Transition.leftToRightWithFade,
         ),
-    GetPage(
-      name: RoutesName.notEligibleScreen,
-      page: () => NotEligibleScreen(),
-      transitionDuration: Duration(milliseconds: 100),
-      transition: Transition.leftToRightWithFade,
-    ),
+        GetPage(
+          name: RoutesName.notEligibleScreen,
+          page: () => NotEligibleScreen(),
+          transitionDuration: Duration(milliseconds: 100),
+          transition: Transition.leftToRightWithFade,
+        ),
+        GetPage(
+          name: RoutesName.profileScreen,
+          page: () => ProfileScreen(),
+          transitionDuration: Duration(milliseconds: 100),
+          transition: Transition.leftToRightWithFade,
+        ),
+        GetPage(
+          name: RoutesName.kycScreen,
+          page: () => KYCScreen(),
+          transitionDuration: Duration(milliseconds: 100),
+          transition: Transition.leftToRightWithFade,
+        ),
+        GetPage(
+          name: RoutesName.faqsScreen,
+          page: () => FAQSScreen(),
+          transitionDuration: Duration(milliseconds: 100),
+          transition: Transition.leftToRightWithFade,
+        ),
+        GetPage(
+          name: RoutesName.settingsScreen,
+          page: () => SettingsScreen(),
+          transitionDuration: Duration(milliseconds: 100),
+          transition: Transition.leftToRightWithFade,
+        ),
       ];
 }

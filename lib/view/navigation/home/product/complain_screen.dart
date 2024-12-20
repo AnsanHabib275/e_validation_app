@@ -22,6 +22,7 @@ class ComplainScreen extends StatefulWidget {
 class _ComplainScreenState extends State<ComplainScreen> {
   final complaintVM = Get.put(ComplainViewModel());
   final _formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -31,7 +32,7 @@ class _ComplainScreenState extends State<ComplainScreen> {
           children: [
             Container(
               width: Get.width * Utils.getResponsiveWidth(428),
-              height: Get.height * Utils.getResponsiveHeight(300),
+              height: Get.height * Utils.getResponsiveHeight(365),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(ImageAssets

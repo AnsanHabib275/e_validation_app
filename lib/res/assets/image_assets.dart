@@ -28,4 +28,9 @@ class ImageAssets {
   static const String img_logout = 'assets/images/img_logout.svg';
   static const String img_delete = 'assets/images/img_delete.png';
   static const String img_not_eligible = 'assets/images/img_not_eligible.svg';
+  static const String img_kyc = 'assets/images/img_kyc.svg';
+  static const String img_faqs = 'assets/images/img_faqs.svg';
+  static const String img_settings = 'assets/images/img_settings.svg';
+  static const String img_attach_document =
+      'assets/images/img_attach_document.svg';
 }

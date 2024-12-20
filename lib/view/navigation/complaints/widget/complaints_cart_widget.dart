@@ -43,45 +43,43 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
       width: double.infinity,
       height: 60,
       child: Card(
+        elevation: 0,
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 16),
-          child: SizedBox(
-            width: double.infinity,
-            child: Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'QR code no. 3342567',
-                        // widget.history.qrCodeNo,
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontFamily: FontAssets.poppins_medium,
-                            color: AppColor.textBlackPrimary),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'QR code no. 3342567',
+                      // widget.history.qrCodeNo,
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: FontAssets.poppins_medium,
+                          color: AppColor.textBlackPrimary),
+                    ),
+                    Text(
+                      'Submitted',
+                      // widget.history.scanedOn,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontFamily: FontAssets.poppins_regular,
+                        color:
+                            AppColor.textBlackPrimary, // Strikethrough effect
                       ),
-                      Text(
-                        'Submitted',
-                        // widget.history.scanedOn,
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: FontAssets.poppins_regular,
-                          color:
-                              AppColor.textBlackPrimary, // Strikethrough effect
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                Image.asset(
-                  IconAssets.ic_submitted_complaint,
-                  height: 15,
-                  width: 15,
-                )
-              ],
-            ),
+              ),
+              Image.asset(
+                IconAssets.ic_submitted_complaint,
+                height: 15,
+                width: 15,
+              )
+            ],
           ),
         ),
       ),

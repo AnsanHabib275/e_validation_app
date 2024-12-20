@@ -1,8 +1,11 @@
 import 'package:e_validation/view/navigation/reward/widget/get_reward_button_widget.dart';
+import 'package:e_validation/view/navigation/reward/widget/reward_cart_widget.dart';
+import 'package:e_validation/view_models/controller/navigation/reward/reward_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
+import '../../../models/navigation/reward_list_model.dart';
 import '../../../res/assets/font_assets.dart';
 import '../../../res/assets/image_assets.dart';
 import '../../../res/colors/app_color.dart';
@@ -16,6 +19,8 @@ class RewardScreen extends StatefulWidget {
 }
 
 class _RewardScreenState extends State<RewardScreen> {
+  final rewardVM = Get.put(RewardViewModel());
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -24,7 +29,7 @@ class _RewardScreenState extends State<RewardScreen> {
         body: Column(children: [
           Container(
             width: Get.width * Utils.getResponsiveWidth(428),
-            height: Get.height * Utils.getResponsiveHeight(300),
+            height: Get.height * Utils.getResponsiveHeight(365),
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(ImageAssets
@@ -52,189 +57,42 @@ class _RewardScreenState extends State<RewardScreen> {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Column(
-              children: [
-                Card(
-                  child: Row(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(ImageAssets
-                                .reward_points_box), // Replace with your image path
-                            fit: BoxFit
-                                .cover, // Adjust the image to fill the screen
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                '+180',
-                                style: TextStyle(
-                                    color: AppColor.textWhite,
-                                    fontFamily: FontAssets.poppins_semi_bold,
-                                    fontSize: 22),
-                              ),
-                              Text(
-                                'points'.tr,
-                                style: TextStyle(
-                                    color: AppColor.textWhite,
-                                    fontFamily: FontAssets.poppins_regular,
-                                    fontSize: 12),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          height: Get.width * Utils.getResponsiveWidth(16)),
-                      Text(
-                        'products_scanned'.tr,
-                        style: TextStyle(
-                            color: AppColor.textBlackPrimary,
-                            fontFamily: FontAssets.poppins_medium,
-                            fontSize: 18),
-                      ),
-                      Spacer(),
-                      Text(
-                        '56',
-                        style: TextStyle(
-                            color: AppColor.textBlackPrimary,
-                            fontFamily: FontAssets.poppins_medium,
-                            fontSize: 18),
-                      ),
-                      SizedBox(
-                          height: Get.width * Utils.getResponsiveWidth(16)),
-                    ],
-                  ),
-                ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(5)),
-                Card(
-                  child: Row(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(ImageAssets
-                                .reward_points_box), // Replace with your image path
-                            fit: BoxFit
-                                .cover, // Adjust the image to fill the screen
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                '+20',
-                                style: TextStyle(
-                                    color: AppColor.textWhite,
-                                    fontFamily: FontAssets.poppins_semi_bold,
-                                    fontSize: 22),
-                              ),
-                              Text(
-                                'points'.tr,
-                                style: TextStyle(
-                                    color: AppColor.textWhite,
-                                    fontFamily: FontAssets.poppins_regular,
-                                    fontSize: 12),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          height: Get.width * Utils.getResponsiveWidth(16)),
-                      Text(
-                        'complaints'.tr,
-                        style: TextStyle(
-                            color: AppColor.textBlackPrimary,
-                            fontFamily: FontAssets.poppins_medium,
-                            fontSize: 18),
-                      ),
-                      Spacer(),
-                      Text(
-                        '23',
-                        style: TextStyle(
-                            color: AppColor.textBlackPrimary,
-                            fontFamily: FontAssets.poppins_medium,
-                            fontSize: 18),
-                      ),
-                      SizedBox(
-                          height: Get.width * Utils.getResponsiveWidth(16)),
-                    ],
-                  ),
-                ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(5)),
-                Card(
-                  child: Row(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(ImageAssets
-                                .reward_points_box), // Replace with your image path
-                            fit: BoxFit
-                                .cover, // Adjust the image to fill the screen
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                '+40',
-                                style: TextStyle(
-                                    color: AppColor.textWhite,
-                                    fontFamily: FontAssets.poppins_semi_bold,
-                                    fontSize: 22),
-                              ),
-                              Text(
-                                'points'.tr,
-                                style: TextStyle(
-                                    color: AppColor.textWhite,
-                                    fontFamily: FontAssets.poppins_regular,
-                                    fontSize: 12),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          height: Get.width * Utils.getResponsiveWidth(16)),
-                      Text(
-                        'solved_complaints'.tr,
-                        style: TextStyle(
-                            color: AppColor.textBlackPrimary,
-                            fontFamily: FontAssets.poppins_medium,
-                            fontSize: 18),
-                      ),
-                      Spacer(),
-                      Text(
-                        '10',
-                        style: TextStyle(
-                            color: AppColor.textBlackPrimary,
-                            fontFamily: FontAssets.poppins_medium,
-                            fontSize: 18),
-                      ),
-                      SizedBox(
-                          height: Get.width * Utils.getResponsiveWidth(16)),
-                    ],
-                  ),
-                ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(30)),
-                GetRewardButtonWidget(),
-              ],
+          Expanded(
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
+              child: FutureBuilder<List<RewardListModel>>(
+                future: rewardVM.rewardListApi(), // Call your function
+                builder: (context, snapshot) {
+                  // if (snapshot.connectionState == ConnectionState.waiting) {
+                  //   return Center(
+                  //       child:
+                  //           CircularProgressIndicator()); // Loading indicator
+                  // } else if (snapshot.hasError) {
+                  //   return Center(
+                  //       child: Text(
+                  //           'Error: ${snapshot.error}')); // Error message
+                  // } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                  //   return Center(
+                  //       child:
+                  //           Text('your_cart_is_empty'.tr)); // Empty state
+                  // } else {
+                  // final histories = snapshot.data!;
+
+                  return SizedBox(
+                    height: 88,
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      itemCount: 3,
+                      itemBuilder: (context, index) {
+                        // final history = histories[index];
+                        return RewardCartWidget();
+                      },
+                    ),
+                  );
+                  // }
+                },
+              ),
             ),
           ),
         ]),

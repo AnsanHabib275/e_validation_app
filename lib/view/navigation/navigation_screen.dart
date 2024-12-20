@@ -3,6 +3,15 @@ import 'package:e_validation/utils/utils.dart';
 import 'package:e_validation/view/navigation/complaints/complaints_screen.dart';
 import 'package:e_validation/view/navigation/history/history_screen.dart';
 import 'package:e_validation/view/navigation/home/home_screen.dart';
+import 'package:e_validation/view/navigation/home/product/complain_screen.dart';
+import 'package:e_validation/view/navigation/home/product/fake_product_screen.dart';
+import 'package:e_validation/view/navigation/home/product/product_verified_screen.dart';
+import 'package:e_validation/view/navigation/home/product/product_verify_done_screen.dart';
+import 'package:e_validation/view/navigation/home/product/scan_product_screen.dart';
+import 'package:e_validation/view/navigation/menu/faqs/faqs_screen.dart';
+import 'package:e_validation/view/navigation/menu/kyc/kyc_screen.dart';
+import 'package:e_validation/view/navigation/menu/profile/profile_screen.dart';
+import 'package:e_validation/view/navigation/menu/settings/settings_screen.dart';
 import 'package:e_validation/view/navigation/notification/notification_screen.dart';
 import 'package:e_validation/view/navigation/reward/reward_screen.dart';
 import 'package:e_validation/view/navigation/widget/cancel_button_widget.dart';
@@ -19,6 +28,7 @@ import '../../models/navigation/menu_items_model.dart';
 import '../../res/assets/font_assets.dart';
 import '../../res/assets/icon_assets.dart';
 import '../../res/colors/app_color.dart';
+import '../../res/componants/MenuIcon.dart';
 import '../../res/routes/routes_name.dart';
 import '../../view_models/controller/user_preference/user_preference_view_model.dart';
 
@@ -48,6 +58,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
   Widget? _child;
   int _selectedIndex = 0;
   final initialIndex = Get.arguments?['initialIndex'] ?? 0;
+
   @override
   void initState() {
     // _child = HomeScreen();
@@ -96,15 +107,15 @@ class _NavigationScreenState extends State<NavigationScreen> {
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            title: Text(''),
-            leading: Builder(
-              builder: (context) => IconButton(
-                icon: Image.asset(IconAssets.ic_menu, width: 24, height: 24),
-                onPressed: () => Scaffold.of(context).openDrawer(),
-              ),
-            ),
-          ),
+          // appBar: AppBar(
+          //   title: Text(''),
+          //   leading: Builder(
+          //     builder: (context) => IconButton(
+          //       icon: Image.asset(IconAssets.ic_menu, width: 24, height: 24),
+          //       onPressed: () => Scaffold.of(context).openDrawer(),
+          //     ),
+          //   ),
+          // ),
           // body: _pages[_selectedIndex],
           drawer: Drawer(
             child: ListView(
@@ -159,39 +170,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                               color: AppColor.textBlackPrimary),
                         ),
                         onTap: () {
-                          switch (item.name) {
-                            case 'Profile':
-                              // Get.toNamed(RoutesName.navigationScreen);
-                              break;
-                            case 'Redeem':
-                              // Get.toNamed(RoutesName.benefitVerificationScreen);
-                              break;
-                            case 'KYC':
-                              // Get.toNamed(RoutesName.favoritesScreen);
-                              break;
-                            case 'FAQS':
-                              // Get.toNamed(RoutesName.productsScreen);
-                              break;
-                            case 'Settings':
-                              // Get.toNamed(RoutesName.patientsScreen);
-                              break;
-                            case 'Complaints':
-                              // Get.toNamed(RoutesName.historyScreen);
-                              break;
-                            case 'Points':
-                              // Get.toNamed(RoutesName.ordersScreen);
-                              break;
-                            case 'Delete Account':
-                              showDeleteAccountDialog();
-                              break;
-                            case 'Logout':
-                              showLogoutDialog();
-                              break;
-                            default:
-                            // Get.toNamed(RoutesName.menuScreen);
-                            // Get.snackbar('Error',
-                            //     'Unknown menu item'); // Handle unknown cases
-                          }
+                          _handleDrawerNavigationChange(item.name);
                         },
                       )
                     ],
@@ -200,7 +179,38 @@ class _NavigationScreenState extends State<NavigationScreen> {
               ],
             ),
           ),
-          body: _child,
+          // body: _child,
+          body: Stack(
+            children: [
+              Center(
+                child: _child,
+              ),
+              SafeArea(
+                child:
+                    Align(alignment: Alignment.topLeft, child: const MenuIcon()
+                        // IconButton(
+                        //   icon: Image.asset(
+                        //     IconAssets.ic_menu,
+                        //     width: 24,
+                        //     height: 18,
+                        //   ),
+                        //   onPressed: () => Scaffold.of(context).openDrawer(),
+                        // ),
+                        ),
+              ),
+            ],
+          ),
+
+          // body: SafeArea(
+          //   child: Stack(
+          //     children: [
+          //       const MenuIcon(),
+          //       Center(
+          //         child: _child,
+          //       ),
+          //     ],
+          //   ),
+          // ),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: _selectedIndex,
             onTap: _handleNavigationChange,
@@ -225,6 +235,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
   }
 
   void _handleNavigationChange(int index) {
+    // Get.back();
     setState(() {
       _selectedIndex = index;
       switch (_selectedIndex) {
@@ -255,6 +266,69 @@ class _NavigationScreenState extends State<NavigationScreen> {
       );
     });
   }
+
+  void _handleDrawerNavigationChange(String menuItem) {
+    Get.back();
+    setState(() {
+      switch (menuItem) {
+        case 'Profile':
+          _child = ProfileScreen();
+          break;
+        case 'Redeem':
+          // _child = ProfileScreen();
+          break;
+        case 'KYC':
+          _child = KYCScreen();
+          break;
+        case 'FAQS':
+          _child = FAQSScreen();
+          break;
+        case 'Settings':
+          _child = SettingsScreen();
+          break;
+        case 'Complaints':
+          // _child = ProfileScreen();
+          break;
+        case 'Points':
+          // _child = ProfileScreen();
+          break;
+        case 'Delete Account':
+          showDeleteAccountDialog();
+          break;
+        case 'Logout':
+          showLogoutDialog();
+          break;
+        case 'Scan Product':
+          _child = ScanProductScreen();
+          break;
+        case 'Product Verified':
+          _child = ProductVerifiedScreen();
+          break;
+        case 'Product Detail':
+          _child = FAQSScreen();
+          break;
+        case 'Fake Product':
+          _child = FakeProductScreen();
+          break;
+        case 'Complain':
+          _child = ComplainScreen();
+          break;
+        case 'Product Verify Done':
+          _child = ProductVerifyDoneScreen();
+          break;
+        default:
+          _child = HomeScreen();
+          break;
+      }
+      _child = AnimatedSwitcher(
+        switchInCurve: Curves.bounceIn,
+        switchOutCurve: Curves.bounceOut,
+        duration: Duration(milliseconds: 100),
+        child: _child,
+      );
+    });
+  }
+
   void showDeleteAccountDialog() {
     Get.dialog(
       Dialog(
@@ -276,18 +350,27 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   width: 39,
                   ImageAssets.img_delete,
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(22),),
+                SizedBox(
+                  height: Get.height * Utils.getResponsiveHeight(22),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: InputEmailWidget(),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(22),),
+                SizedBox(
+                  height: Get.height * Utils.getResponsiveHeight(22),
+                ),
                 Text(
                   'are_you_sure_you_want_to_delete'.tr,
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16, fontFamily: FontAssets.poppins_regular, color: AppColor.textBlackPrimary),
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontFamily: FontAssets.poppins_regular,
+                      color: AppColor.textBlackPrimary),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(32),),
+                SizedBox(
+                  height: Get.height * Utils.getResponsiveHeight(32),
+                ),
                 // Quantity Row
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -305,6 +388,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
       ),
     );
   }
+
   void showLogoutDialog() {
     Get.dialog(
       Dialog(
@@ -324,13 +408,20 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 width: 69,
                 ImageAssets.img_logout,
               ),
-               SizedBox(height: Get.height * Utils.getResponsiveHeight(40),),
+              SizedBox(
+                height: Get.height * Utils.getResponsiveHeight(40),
+              ),
               Text(
                 'are_you_sure_you_want_to_logout'.tr,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16,fontFamily: FontAssets.poppins_regular, color: AppColor.textBlackPrimary),
+                style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: FontAssets.poppins_regular,
+                    color: AppColor.textBlackPrimary),
               ),
-              SizedBox(height: Get.height * Utils.getResponsiveHeight(30),),
+              SizedBox(
+                height: Get.height * Utils.getResponsiveHeight(30),
+              ),
               // Quantity Row
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
