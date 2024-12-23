@@ -1,6 +1,7 @@
 import 'package:e_validation/res/assets/icon_assets.dart';
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/res/routes/routes_name.dart';
+import 'package:e_validation/view/navigation/home/product/product_verified_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -36,7 +37,8 @@ class _ScanProductScreenState extends State<ScanProductScreen> {
                 bottom: 0,
                 child: InkWell(
                     onTap: () {
-                      Get.toNamed(RoutesName.productVerifiedScreen);
+                      Get.to(() => const ProductVerifiedScreen());
+                      // Get.toNamed(RoutesName.productVerifiedScreen);
                     },
                     child: Image.asset(ImageAssets.product_with_qr_code))),
           ],

@@ -1,6 +1,8 @@
 import 'package:e_validation/res/assets/icon_assets.dart';
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/res/routes/routes_name.dart';
+import 'package:e_validation/view/navigation/home/product/fake_product_screen.dart';
+import 'package:e_validation/view/navigation/home/product/product_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -36,16 +38,23 @@ class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
                     children: [
                       InkWell(
                           onTap: () {
-                            Get.toNamed(RoutesName.productDetailScreen);
+                            Get.to(() => const ProductDetailScreen());
+                            // Get.toNamed(RoutesName.productDetailScreen);
                           },
                           child: SvgPicture.asset(
                               ImageAssets.account_created_logo)),
-                      Text(
-                        'product_verified'.tr,
-                        style: const TextStyle(
-                          color: AppColor.textColorPrimary,
-                          fontSize: 30,
-                          fontFamily: FontAssets.poppins_semi_bold,
+                      InkWell(
+                        onTap: () {
+                          Get.to(() => const FakeProductScreen());
+                          // Get.toNamed(RoutesName.productDetailScreen);
+                        },
+                        child: Text(
+                          'product_verified'.tr,
+                          style: const TextStyle(
+                            color: AppColor.textColorPrimary,
+                            fontSize: 30,
+                            fontFamily: FontAssets.poppins_semi_bold,
+                          ),
                         ),
                       )
                     ],

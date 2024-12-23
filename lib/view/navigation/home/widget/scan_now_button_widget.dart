@@ -1,4 +1,5 @@
 import 'package:e_validation/res/routes/routes_name.dart';
+import 'package:e_validation/view/navigation/home/product/scan_product_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +19,7 @@ class ScanNowButtonWidget extends StatelessWidget {
       title: 'scan_now'.tr,
       // loading: loginVM.loading.value,
       onPress: () {
-        Get.to(() => const FakeProductScreen());
+        Get.to(() => const ScanProductScreen());
         // Get.toNamed(RoutesName.scanProductScreen);
         // if (formkey.currentState!.validate()) {
         //   loginVM.loginApi();

@@ -38,65 +38,69 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Text(
-                    //   'fake_product'.tr,
-                    //   style: TextStyle(
-                    //       color: AppColor.textColorPrimary,
-                    //       fontSize: 22,
-                    //       fontFamily: FontAssets.poppins_semi_bold),
-                    // ),
-                    // SizedBox(height: Get.height * Utils.getResponsiveHeight(8),),
-                    // Card(
-                    //   elevation: 0,
-                    //   child: Padding(
-                    //     padding: const EdgeInsets.all(10.0),
-                    //     child: Row(
-                    //       children: [
-                    //         Text(
-                    //           'product_scanned'.tr,
-                    //           style: TextStyle(
-                    //               color: AppColor.textBlackPrimary,
-                    //               fontSize: 16,
-                    //               fontFamily: FontAssets.poppins_regular),
-                    //         ),
-                    //         Spacer(),
-                    //         Text(
-                    //           '5',
-                    //           style: TextStyle(
-                    //               color: AppColor.textRedPrimary,
-                    //               fontSize: 16,
-                    //               fontFamily: FontAssets.poppins_regular),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
-                    // Card(
-                    //   elevation: 0,
-                    //   child: Padding(
-                    //     padding: const EdgeInsets.all(10.0),
-                    //     child: Text(
-                    //       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-                    //       style: TextStyle(
-                    //           color: AppColor.textBlackPrimary,
-                    //           fontSize: 16,
-                    //           fontFamily: FontAssets.poppins_regular),
-                    //     ),
-                    //   ),
-                    // ),
-                    // Spacer(),
-                    // SizedBox(height: Get.height * Utils.getResponsiveHeight(63),),
-                    // Padding(
-                    //   padding: const EdgeInsets.all(10.0),
-                    //   child: Row(
-                    //     children: [
-                    //       LeaveButtonWidget(),
-                    //       ComplainButtonWidget(),
-                    //     ],
-                    //   ),
-                    // ),
-                    LeaveButtonWidget(),
-                    ComplainButtonWidget(),
+                    Text(
+                      'fake_product'.tr,
+                      style: TextStyle(
+                          color: AppColor.textColorPrimary,
+                          fontSize: 22,
+                          fontFamily: FontAssets.poppins_semi_bold),
+                    ),
+                    SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(8),
+                    ),
+                    Card(
+                      elevation: 0,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          children: [
+                            Text(
+                              'product_scanned'.tr,
+                              style: TextStyle(
+                                  color: AppColor.textBlackPrimary,
+                                  fontSize: 16,
+                                  fontFamily: FontAssets.poppins_regular),
+                            ),
+                            Spacer(),
+                            Text(
+                              '5',
+                              style: TextStyle(
+                                  color: AppColor.textRedPrimary,
+                                  fontSize: 16,
+                                  fontFamily: FontAssets.poppins_regular),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Card(
+                      elevation: 0,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                          style: TextStyle(
+                              color: AppColor.textBlackPrimary,
+                              fontSize: 16,
+                              fontFamily: FontAssets.poppins_regular),
+                        ),
+                      ),
+                    ),
+                    Spacer(),
+                    SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(63),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        children: [
+                          LeaveButtonWidget(),
+                          ComplainButtonWidget(),
+                        ],
+                      ),
+                    ),
+                    // LeaveButtonWidget(),
+                    // ComplainButtonWidget(),
                   ]),
             ),
           ],

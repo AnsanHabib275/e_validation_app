@@ -33,4 +33,6 @@ class ImageAssets {
   static const String img_settings = 'assets/images/img_settings.svg';
   static const String img_attach_document =
       'assets/images/img_attach_document.svg';
+  static const String img_chat_admin = 'assets/images/img_chat_admin.png';
+  static const String img_chat_user = 'assets/images/img_chat_user.png';
 }

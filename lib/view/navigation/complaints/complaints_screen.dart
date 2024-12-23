@@ -78,13 +78,13 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'user_name'.tr,
+                        'George Oliver',
                         style: TextStyle(
                             fontSize: 20,
                             fontFamily: FontAssets.poppins_semi_bold,
                             color: Color(0xFF00005A)),
                       ),
-                      Text('user_email'.tr,
+                      Text('Georgeoliver@gmail.com',
                           style: TextStyle(
                               fontSize: 16,
                               fontFamily: FontAssets.poppins_regular,

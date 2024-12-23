@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../res/assets/font_assets.dart';
+import '../../../../res/assets/icon_assets.dart';
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
@@ -54,174 +55,136 @@ class _FAQSScreenState extends State<FAQSScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              padding:
+                  const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
                   children: [
-                    Text(
-                      'product_details'.tr,
-                      style: TextStyle(
-                          color: AppColor.textColorPrimary,
-                          fontSize: 22,
-                          fontFamily: FontAssets.poppins_semi_bold),
-                    ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(8),
-                    ),
                     Card(
                       elevation: 0,
                       child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
+                        padding: const EdgeInsets.all(14.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Row(
-                              children: [
-                                Text(
-                                  'product_name'.tr,
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                                Spacer(),
-                                Text(
-                                  'lorem ipsum',
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                              ],
+                            Expanded(
+                              child: Text(
+                                'what_are_the_benefits_of_points'.tr,
+                                style: TextStyle(
+                                    color: AppColor.textBlackPrimary,
+                                    fontSize: 13,
+                                    fontFamily: FontAssets.poppins_regular),
+                              ),
                             ),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(10),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  'barcode'.tr,
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                                Spacer(),
-                                Text(
-                                  '3425168789',
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(10),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  'product_sku'.tr,
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                                Spacer(),
-                                Text(
-                                  '24-mb04',
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(10),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  'supplier'.tr,
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                                Spacer(),
-                                Text(
-                                  'lorem ipsum',
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(10),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  'created_at'.tr,
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                                Spacer(),
-                                Text(
-                                  '10-24-2022',
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(10),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  'expiry_date'.tr,
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                                Spacer(),
-                                Text(
-                                  '10-24-2022',
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                              ],
+                            Image.asset(
+                              IconAssets.ic_submitted_complaint,
+                              height: 15,
+                              width: 15,
                             ),
                           ],
                         ),
                       ),
                     ),
                     SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(63),
+                      height: 2,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: DoneButtonWidget(),
-                    )
-                  ]),
+                    Card(
+                      elevation: 0,
+                      child: Padding(
+                        padding: const EdgeInsets.all(14.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'what_is_kyc'.tr,
+                                style: TextStyle(
+                                    color: AppColor.textBlackPrimary,
+                                    fontSize: 13,
+                                    fontFamily: FontAssets.poppins_regular),
+                              ),
+                            ),
+                            Image.asset(
+                              IconAssets.ic_submitted_complaint,
+                              height: 15,
+                              width: 15,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 2,
+                    ),
+                    Card(
+                      elevation: 0,
+                      child: Padding(
+                        padding: const EdgeInsets.all(14.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'lorem_ipsum_is_simply_dummy_text'.tr,
+                                style: TextStyle(
+                                    color: AppColor.textBlackPrimary,
+                                    fontSize: 13,
+                                    fontFamily: FontAssets.poppins_regular),
+                              ),
+                            ),
+                            Image.asset(
+                              IconAssets.ic_submitted_complaint,
+                              height: 15,
+                              width: 15,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 2,
+                    ),
+                    Card(
+                      elevation: 0,
+                      child: Padding(
+                        padding: const EdgeInsets.all(14.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'generate_lorem_ipsum_which_looks_reasonable'
+                                    .tr,
+                                style: TextStyle(
+                                    color: AppColor.textBlackPrimary,
+                                    fontSize: 13,
+                                    fontFamily: FontAssets.poppins_regular),
+                              ),
+                            ),
+                            Image.asset(
+                              IconAssets.ic_submitted_complaint,
+                              height: 15,
+                              width: 15,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Spacer(),
+                  Image.asset(IconAssets.ic_question_with_bg)
+                ],
+              ),
+            )
           ],
         ),
       ),

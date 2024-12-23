@@ -9,9 +9,21 @@ class ComplainViewModel extends GetxController {
   final attachFileController = TextEditingController().obs;
   final messageController = TextEditingController().obs;
 
+  final userNameController = TextEditingController().obs;
+  final userLatLngController = TextEditingController().obs;
+  final titleController = TextEditingController().obs;
+  final userAddressController = TextEditingController().obs;
+  final detailController = TextEditingController().obs;
+
   final productIdFocusNode = FocusNode().obs;
   final attachFileFocusNode = FocusNode().obs;
   final messageFocusNode = FocusNode().obs;
+
+  final userNameFocusNode = FocusNode().obs;
+  final userLatLngFocusNode = FocusNode().obs;
+  final titleFocusNode = FocusNode().obs;
+  final userAddressFocusNode = FocusNode().obs;
+  final detailFocusNode = FocusNode().obs;
 
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;

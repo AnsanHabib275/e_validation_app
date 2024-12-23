@@ -62,19 +62,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SizedBox(
                   height: Get.height * 0.04,
                 ),
-                Form(
+                SingleChildScrollView(
+                  child: Form(
                     key: _formkey,
                     child: Column(
                       children: [
                         InputFirstNameWidget(),
-                        SizedBox(height: Get.height * Utils.getResponsiveHeight(22)),
+                        SizedBox(
+                            height: Get.height * Utils.getResponsiveHeight(22)),
                         InputLastNameWidget(),
-                        SizedBox(height: Get.height * Utils.getResponsiveHeight(22)),
+                        SizedBox(
+                            height: Get.height * Utils.getResponsiveHeight(22)),
                         InputEmailWidget(),
-                        SizedBox(height: Get.height * Utils.getResponsiveHeight(22)),
+                        SizedBox(
+                            height: Get.height * Utils.getResponsiveHeight(22)),
                         InputPasswordWidget(),
                       ],
-                    )),
+                    ),
+                  ),
+                ),
                 SizedBox(
                   height: Get.height * 0.06,
                 ),

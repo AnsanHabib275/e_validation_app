@@ -45,7 +45,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   // SizedBox(height: Get.height * 0.01),
                   Text(
-                    'user_name'.tr,
+                    'George Oliver',
                     textAlign: TextAlign.start,
                     style: TextStyle(
                         color: AppColor.textColorPrimary,
@@ -53,7 +53,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         fontFamily: FontAssets.poppins_semi_bold),
                   ),
                   Text(
-                    'user_email'.tr,
+                    'Georgeoliver@gmail.com',
                     textAlign: TextAlign.start,
                     style: TextStyle(
                         color: AppColor.textBlackPrimary,

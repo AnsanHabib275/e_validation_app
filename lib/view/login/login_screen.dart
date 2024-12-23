@@ -65,16 +65,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: Get.height * Utils.getResponsiveHeight(130),
                 ),
-                Form(
-                    key: _formkey,
-                    child: Column(
-                      children: [
-                        InputEmailWidget(),
-                        SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(22)),
-                        InputPasswordWidget(),
-                      ],
-                    )),
+                SingleChildScrollView(
+                  child: Form(
+                      key: _formkey,
+                      child: Column(
+                        children: [
+                          InputEmailWidget(),
+                          SizedBox(
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(22)),
+                          InputPasswordWidget(),
+                        ],
+                      )),
+                ),
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(10)),
                 Row(
                   children: [

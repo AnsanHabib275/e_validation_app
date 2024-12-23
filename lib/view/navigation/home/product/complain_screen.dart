@@ -3,8 +3,13 @@ import 'package:e_validation/res/assets/font_assets.dart';
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/res/colors/app_color.dart';
 import 'package:e_validation/view/navigation/home/product/widget/attach_file_widget.dart';
+import 'package:e_validation/view/navigation/home/product/widget/input_detail_widget.dart';
 import 'package:e_validation/view/navigation/home/product/widget/input_message_widget.dart';
 import 'package:e_validation/view/navigation/home/product/widget/input_product_id_widget.dart';
+import 'package:e_validation/view/navigation/home/product/widget/input_title_widget.dart';
+import 'package:e_validation/view/navigation/home/product/widget/input_user_address_widget.dart';
+import 'package:e_validation/view/navigation/home/product/widget/input_user_lat_lng_widget.dart';
+import 'package:e_validation/view/navigation/home/product/widget/input_user_name_widget.dart';
 import 'package:e_validation/view/navigation/home/product/widget/submit_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -62,15 +67,34 @@ class _ComplainScreenState extends State<ComplainScreen> {
             ),
             Padding(
               padding: const EdgeInsets.all(30.0),
-              child: Form(
-                key: _formkey,
-                child: Column(children: [
-                  InputProductIdWidget(),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(22)),
-                  AttachFileWidget(),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(22)),
-                  InputMessageWidget()
-                ]),
+              child: SingleChildScrollView(
+                child: Form(
+                  key: _formkey,
+                  child: Column(children: [
+                    InputUserNameWidget(),
+                    SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(22)),
+                    InputUserLatLngWidget(),
+                    SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(22)),
+                    InputTitleWidget(),
+                    SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(22)),
+                    InputUserAddressWidget(),
+                    SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(22)),
+                    InputProductIdWidget(),
+                    SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(22)),
+                    InputDetailWidget(),
+                    SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(22)),
+                    AttachFileWidget(),
+                    SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(22)),
+                    InputMessageWidget()
+                  ]),
+                ),
               ),
             ),
             Padding(

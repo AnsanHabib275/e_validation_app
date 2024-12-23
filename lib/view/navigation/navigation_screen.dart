@@ -134,7 +134,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                       ),
                       // SizedBox(height: Get.height * 0.01),
                       Text(
-                        'user_name'.tr,
+                        'George Oliver',
                         textAlign: TextAlign.start,
                         style: TextStyle(
                             color: AppColor.textBlackPrimary,
@@ -142,7 +142,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                             fontFamily: FontAssets.poppins_semi_bold),
                       ),
                       Text(
-                        'user_email'.tr,
+                        'Georgeoliver@gmail.com',
                         textAlign: TextAlign.start,
                         style: TextStyle(
                             color: AppColor.textBlackPrimary,

@@ -1,3 +1,4 @@
+import 'package:e_validation/res/assets/icon_assets.dart';
 import 'package:e_validation/view/navigation/home/product/widget/done_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -54,173 +55,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'product_details'.tr,
-                      style: TextStyle(
-                          color: AppColor.textColorPrimary,
-                          fontSize: 22,
-                          fontFamily: FontAssets.poppins_semi_bold),
-                    ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(8),
-                    ),
-                    Card(
-                      elevation: 0,
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  'product_name'.tr,
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                                Spacer(),
-                                Text(
-                                  'lorem ipsum',
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(10),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  'barcode'.tr,
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                                Spacer(),
-                                Text(
-                                  '3425168789',
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(10),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  'product_sku'.tr,
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                                Spacer(),
-                                Text(
-                                  '24-mb04',
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(10),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  'supplier'.tr,
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                                Spacer(),
-                                Text(
-                                  'lorem ipsum',
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(10),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  'created_at'.tr,
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                                Spacer(),
-                                Text(
-                                  '10-24-2022',
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(10),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  'expiry_date'.tr,
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                                Spacer(),
-                                Text(
-                                  '10-24-2022',
-                                  style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
-                                      fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
-                                ),
-                              ],
-                            ),
-                          ],
+              padding:
+                  const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16),
+              child: Card(
+                elevation: 0,
+                child: Padding(
+                  padding: const EdgeInsets.all(14.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(IconAssets.ic_change_password),
+                      SizedBox(
+                        width: Get.width * Utils.getResponsiveWidth(16),
+                      ),
+                      Expanded(
+                        child: Text(
+                          'change_password'.tr,
+                          style: TextStyle(
+                              color: AppColor.textBlackPrimary,
+                              fontSize: 13,
+                              fontFamily: FontAssets.poppins_regular),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(63),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: DoneButtonWidget(),
-                    )
-                  ]),
+                      Image.asset(
+                        IconAssets.ic_submitted_complaint,
+                        height: 15,
+                        width: 15,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ],
         ),
