@@ -25,8 +25,10 @@ class _KYCScreenState extends State<KYCScreen> {
         body: Column(
           children: [
             Container(
-              width: Get.width * Utils.getResponsiveWidth(428),
-              height: Get.height * Utils.getResponsiveHeight(461),
+              // width: Get.width * Utils.getResponsiveWidth(428),
+              // height: Get.height * Utils.getResponsiveHeight(461),
+              height: 401,
+              width: Get.width * 1,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(ImageAssets
@@ -34,24 +36,27 @@ class _KYCScreenState extends State<KYCScreen> {
                   fit: BoxFit.cover, // Adjust the image to fill the screen
                 ),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(
-                    ImageAssets.img_kyc,
-                    height: Get.height * Utils.getResponsiveHeight(216),
-                    width: Get.width * Utils.getResponsiveWidth(262),
-                  ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
-                  Text(
-                    'know_your_customer'.tr,
-                    style: TextStyle(
-                        color: AppColor.textColorPrimary,
-                        fontSize: 26,
-                        fontFamily: FontAssets.poppins_semi_bold),
-                  )
-                ],
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      ImageAssets.img_kyc,
+                      height: Get.height * Utils.getResponsiveHeight(216),
+                      width: Get.width * Utils.getResponsiveWidth(262),
+                    ),
+                    SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(16)),
+                    Text(
+                      'know_your_customer'.tr,
+                      style: TextStyle(
+                          color: AppColor.textColorPrimary,
+                          fontSize: 26,
+                          fontFamily: FontAssets.poppins_semi_bold),
+                    )
+                  ],
+                ),
               ),
             ),
             Padding(

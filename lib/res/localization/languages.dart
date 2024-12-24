@@ -101,6 +101,9 @@ class Languages extends Translations {
           'user_address_cannot_be_blank': 'User Address cannot be blank',
           'user_lat_lng_cannot_be_blank': 'User LatLng cannot be blank',
           'user_name_cannot_be_blank': 'User Name cannot be blank',
+          'redeem_your_rewards': 'Redeem Your Rewards',
+          'transportation': 'Transportation',
+          'restaurants': 'Restaurants',
         },
         'ur_PK': {
           'splash_screen': 'سپلیش اسکرین',

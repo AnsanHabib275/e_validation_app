@@ -11,6 +11,7 @@ import 'package:e_validation/view/navigation/home/product/scan_product_screen.da
 import 'package:e_validation/view/navigation/menu/faqs/faqs_screen.dart';
 import 'package:e_validation/view/navigation/menu/kyc/kyc_screen.dart';
 import 'package:e_validation/view/navigation/menu/profile/profile_screen.dart';
+import 'package:e_validation/view/navigation/menu/redeem/redeem_reward_screen.dart';
 import 'package:e_validation/view/navigation/menu/settings/settings_screen.dart';
 import 'package:e_validation/view/navigation/notification/notification_screen.dart';
 import 'package:e_validation/view/navigation/reward/reward_screen.dart';
@@ -186,17 +187,18 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 child: _child,
               ),
               SafeArea(
-                child:
-                    Align(alignment: Alignment.topLeft, child: const MenuIcon()
-                        // IconButton(
-                        //   icon: Image.asset(
-                        //     IconAssets.ic_menu,
-                        //     width: 24,
-                        //     height: 18,
-                        //   ),
-                        //   onPressed: () => Scaffold.of(context).openDrawer(),
-                        // ),
-                        ),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: const MenuIcon(),
+                  // IconButton(
+                  //   icon: Image.asset(
+                  //     IconAssets.ic_menu,
+                  //     width: 63,
+                  //     height: 63,
+                  //   ),
+                  //   onPressed: () => Scaffold.of(context).openDrawer(),
+                  // ),
+                ),
               ),
             ],
           ),
@@ -275,7 +277,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
           _child = ProfileScreen();
           break;
         case 'Redeem':
-          // _child = ProfileScreen();
+          _child = RedeemRewardScreen();
           break;
         case 'KYC':
           _child = KYCScreen();

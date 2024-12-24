@@ -1,4 +1,8 @@
+import 'package:e_validation/res/assets/font_assets.dart';
+import 'package:e_validation/res/assets/image_assets.dart';
+import 'package:e_validation/res/colors/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class RewardCard extends StatelessWidget {
   const RewardCard({super.key});
@@ -12,9 +16,17 @@ class RewardCard extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              image: DecorationImage(
-                image: AssetImage(
-                    'assets/sample_image.jpg'), // Replace with your asset
+              // image: DecorationImage(
+              //   image: AssetImage(
+              //       ImageAssets.splash_bg), // Replace with your asset
+              //   fit: BoxFit.cover,
+              // ),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(
+                  8), // Ensure clipping to the border radius
+              child: SvgPicture.asset(
+                ImageAssets.tp_1, // Replace with the path to your SVG file
                 fit: BoxFit.cover,
               ),
             ),
@@ -34,8 +46,9 @@ class RewardCard extends StatelessWidget {
             Text(
               "12,000 VP",
               style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
+                color: AppColor.textColorPrimary,
+                fontFamily: FontAssets.poppins_medium,
+                fontSize: 12,
               ),
             ),
             ElevatedButton(

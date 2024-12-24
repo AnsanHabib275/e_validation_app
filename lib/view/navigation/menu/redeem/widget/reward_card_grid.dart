@@ -13,7 +13,7 @@ class RewardCardGrid extends StatelessWidget {
         crossAxisCount: 3,
         childAspectRatio: 0.7,
         crossAxisSpacing: 8,
-        mainAxisSpacing: 8,
+        mainAxisSpacing: 10,
       ),
       itemBuilder: (context, index) {
         return RewardCard();

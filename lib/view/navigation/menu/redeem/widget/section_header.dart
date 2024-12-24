@@ -1,3 +1,5 @@
+import 'package:e_validation/res/assets/font_assets.dart';
+import 'package:e_validation/res/colors/app_color.dart';
 import 'package:flutter/material.dart';
 
 class SectionHeader extends StatelessWidget {
@@ -11,9 +13,9 @@ class SectionHeader extends StatelessWidget {
       child: Text(
         title,
         style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
+            color: AppColor.textColorPrimary,
+            fontSize: 20,
+            fontFamily: FontAssets.poppins_semi_bold),
       ),
     );
   }

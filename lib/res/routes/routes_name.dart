@@ -24,4 +24,5 @@ class RoutesName {
   static const String kycScreen = '/kyc_screen';
   static const String faqsScreen = '/faqs_screen';
   static const String settingsScreen = '/settings_screen';
+  static const String redeemRewardScreen = '/redeem_reward_screen';
 }

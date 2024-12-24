@@ -1,6 +1,12 @@
+import 'package:e_validation/res/assets/font_assets.dart';
+import 'package:e_validation/res/assets/image_assets.dart';
+import 'package:e_validation/res/colors/app_color.dart';
 import 'package:e_validation/view/navigation/menu/redeem/widget/reward_card_grid.dart';
 import 'package:e_validation/view/navigation/menu/redeem/widget/section_header.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class RedeemRewardScreen extends StatefulWidget {
   const RedeemRewardScreen({super.key});
@@ -24,26 +30,27 @@ class _RedeemRewardScreenState extends State<RedeemRewardScreen> {
                 Center(
                   child: Column(
                     children: [
-                      Image.asset(
-                        'assets/reward_icon.png', // Replace with your asset
-                        height: 150,
+                      SvgPicture.asset(
+                        ImageAssets.img_redeem_reward,
+                        height: 193,
                       ),
                       SizedBox(height: 16),
                       Text(
-                        "Redeem Your Rewards",
+                        Get.height.toString(),
+                        // "redeem_your_rewards".tr,
                         style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
+                            color: AppColor.textColorPrimary,
+                            fontSize: 26,
+                            fontFamily: FontAssets.poppins_semi_bold),
                       ),
                     ],
                   ),
                 ),
                 SizedBox(height: 24),
-                SectionHeader(title: "Transportation"),
+                SectionHeader(title: 'transportation'.tr),
                 RewardCardGrid(),
                 SizedBox(height: 24),
-                SectionHeader(title: "Restaurants"),
+                SectionHeader(title: 'restaurants'.tr),
                 RewardCardGrid(),
               ],
             ),

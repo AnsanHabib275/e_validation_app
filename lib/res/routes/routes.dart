@@ -8,6 +8,7 @@ import 'package:e_validation/view/navigation/menu/faqs/faqs_screen.dart';
 import 'package:e_validation/view/navigation/menu/kyc/kyc_screen.dart';
 import 'package:e_validation/view/navigation/menu/not_eligible_screen/not_eligible_screen.dart';
 import 'package:e_validation/view/navigation/menu/profile/profile_screen.dart';
+import 'package:e_validation/view/navigation/menu/redeem/redeem_reward_screen.dart';
 import 'package:e_validation/view/navigation/menu/settings/settings_screen.dart';
 import 'package:e_validation/view/navigation/reward/reward_screen.dart';
 import 'package:get/get.dart';
@@ -168,6 +169,12 @@ class AppRoutes {
         GetPage(
           name: RoutesName.settingsScreen,
           page: () => SettingsScreen(),
+          transitionDuration: Duration(milliseconds: 100),
+          transition: Transition.leftToRightWithFade,
+        ),
+        GetPage(
+          name: RoutesName.redeemRewardScreen,
+          page: () => RedeemRewardScreen(),
           transitionDuration: Duration(milliseconds: 100),
           transition: Transition.leftToRightWithFade,
         ),
