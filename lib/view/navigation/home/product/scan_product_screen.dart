@@ -22,14 +22,17 @@ class _ScanProductScreenState extends State<ScanProductScreen> {
             Positioned(
                 right: 20, top: 20, child: Image.asset(IconAssets.ic_close)),
             Positioned(
-                left: 0,
-                right: 0,
-                top: 0,
-                bottom: 0,
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+              child: Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(60.0),
-                  child: Expanded(child: Image.asset(ImageAssets.scan_bg)),
-                )),
+                  child: Image.asset(ImageAssets.scan_bg),
+                ),
+              ),
+            ),
             Positioned(
                 left: 0,
                 right: 0,

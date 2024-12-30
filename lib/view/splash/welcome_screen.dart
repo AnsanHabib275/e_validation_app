@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:e_validation/view/splash/widget/login_button_widget.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,8 +23,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   void initState() {
     super.initState();
-    // Timer(const Duration(seconds: 2),
-    //     () => Get.toNamed(RoutesName.splashScreenTwo));
   }
 
   @override
@@ -86,28 +85,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: LoginButtonWidget(),
-                      // child: InkWell(
-                      //   onTap: () {
-                      //     Get.toNamed(RoutesName.loginScreen);
-                      //   },
-                      //   child: Container(
-                      //     height: 64,
-                      //     width: double.infinity,
-                      //     decoration: BoxDecoration(
-                      //       color: AppColor.colorPrimary,
-                      //       borderRadius: BorderRadius.circular(8),
-                      //     ),
-                      //     child: Center(
-                      //       child: Text(
-                      //         'login'.tr,
-                      //         style: Theme.of(context)
-                      //             .textTheme
-                      //             .titleMedium!
-                      //             .copyWith(color: AppColor.whiteColor),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
                     ),
                     SizedBox(
                       height: Get.height * Utils.getResponsiveHeight(20),

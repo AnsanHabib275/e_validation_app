@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../../res/assets/font_assets.dart';
 import '../../res/assets/image_assets.dart';
 import '../../res/colors/app_color.dart';
+import '../../utils/utils.dart';
 
 class AccountCreatedScreen extends StatefulWidget {
   const AccountCreatedScreen({super.key});
@@ -35,6 +36,9 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SvgPicture.asset(ImageAssets.account_created_logo),
+              SizedBox(
+                height: Get.height * Utils.getResponsiveHeight(36),
+              ),
               Text(
                 'your_account_has_been_created'.tr,
                 textScaleFactor: 1,
@@ -43,6 +47,9 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
                   fontSize: 20,
                   fontFamily: FontAssets.poppins_medium,
                 ),
+              ),
+              SizedBox(
+                height: Get.height * Utils.getResponsiveHeight(6),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

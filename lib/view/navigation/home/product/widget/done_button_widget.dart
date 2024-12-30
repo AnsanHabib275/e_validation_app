@@ -6,17 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../res/componants/RoundButton.dart';
+import '../../../../../utils/utils.dart';
 
 class DoneButtonWidget extends StatelessWidget {
   DoneButtonWidget({Key? key}) : super(key: key);
 
   final complaintVM = Get.put(ComplainViewModel());
+
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButton(
-        width: double.infinity,
-        height: 64,
         title: 'done'.tr,
         loading: complaintVM.loading.value,
         onPress: () {

@@ -42,28 +42,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: Get.height * 0.05,
-                ),
-                SvgPicture.asset(ImageAssets.splash_screen_logo),
-                Text(
-                  'signup'.tr,
-                  textAlign: TextAlign.left,
-                  style: const TextStyle(
-                      color: AppColor.colorPrimary,
-                      fontSize: 30,
-                      fontFamily: FontAssets.poppins_regular,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: Get.height * 0.04,
-                ),
-                SingleChildScrollView(
-                  child: Form(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: Get.height * Utils.getResponsiveHeight(150),
+                  ),
+                  SvgPicture.asset(
+                    ImageAssets.splash_screen_logo,
+                    height: Get.height * Utils.getResponsiveHeight(106),
+                  ),
+                  SizedBox(
+                    height: Get.height * Utils.getResponsiveHeight(36),
+                  ),
+                  Text(
+                    'signup'.tr,
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        color: AppColor.colorPrimary,
+                        fontSize: 30,
+                        fontFamily: FontAssets.poppins_regular,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: Get.height * Utils.getResponsiveHeight(40),
+                  ),
+                  Form(
                     key: _formkey,
                     child: Column(
                       children: [
@@ -80,15 +86,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ],
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: Get.height * 0.06,
-                ),
-                CreateAccountButtonWidget(formkey: _formkey),
-                SizedBox(
-                  height: Get.height * 0.02,
-                ),
-              ],
+                  SizedBox(
+                    height: Get.height * Utils.getResponsiveHeight(50),
+                  ),
+                  CreateAccountButtonWidget(formkey: _formkey),
+                ],
+              ),
             ),
           ),
         ),

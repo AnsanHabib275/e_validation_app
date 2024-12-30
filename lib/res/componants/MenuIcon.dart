@@ -13,8 +13,8 @@ class MenuIcon extends StatelessWidget {
       child: IconButton(
         icon: Image.asset(
           IconAssets.ic_menu, // Replace with your icon asset
-          width: 24,
-          height: 18,
+          width: 63,
+          height: 63,
         ),
         onPressed: () => Scaffold.of(context).openDrawer(),
       ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../res/componants/RoundButton.dart';
+import '../../../utils/utils.dart';
 import '../../../view_models/controller/login/login_view_model.dart';
 
 class LoginButtonWidget extends StatelessWidget {
@@ -15,8 +16,6 @@ class LoginButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButton(
-        width: double.infinity,
-        height: 64,
         title: 'login'.tr,
         loading: loginVM.loading.value,
         onPress: () {

@@ -1,6 +1,7 @@
 import 'package:e_validation/res/assets/font_assets.dart';
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/res/colors/app_color.dart';
+import 'package:e_validation/utils/utils.dart';
 import 'package:e_validation/view/navigation/menu/redeem/widget/reward_card_grid.dart';
 import 'package:e_validation/view/navigation/menu/redeem/widget/section_header.dart';
 import 'package:flutter/foundation.dart';
@@ -36,8 +37,7 @@ class _RedeemRewardScreenState extends State<RedeemRewardScreen> {
                       ),
                       SizedBox(height: 16),
                       Text(
-                        Get.height.toString(),
-                        // "redeem_your_rewards".tr,
+                        "redeem_your_rewards".tr,
                         style: TextStyle(
                             color: AppColor.textColorPrimary,
                             fontSize: 26,

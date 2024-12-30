@@ -17,8 +17,6 @@ class SubmitButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButton(
-        width: double.infinity,
-        height: 64,
         title: 'submit'.tr,
         loading: complaintVM.loading.value,
         onPress: () {

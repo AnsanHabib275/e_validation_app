@@ -1,5 +1,7 @@
+import 'package:e_validation/res/routes/routes.dart';
 import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/view/navigation/home/product/scan_product_screen.dart';
+import 'package:e_validation/view/navigation/navigation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,13 +16,10 @@ class ScanNowButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RoundButton(
-      width: double.infinity,
-      height: 64,
       title: 'scan_now'.tr,
       // loading: loginVM.loading.value,
       onPress: () {
-        Get.to(() => const ScanProductScreen());
-        // Get.toNamed(RoutesName.scanProductScreen);
+        Get.toNamed(RoutesName.scanProductScreen);
         // if (formkey.currentState!.validate()) {
         //   loginVM.loginApi();
         // }

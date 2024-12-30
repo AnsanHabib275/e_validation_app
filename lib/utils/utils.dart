@@ -5,6 +5,11 @@ import 'package:get/get.dart';
 import '../res/colors/app_color.dart';
 
 class Utils {
+  static double baseHeight = 926;
+  static double baseWidth = 428;
+  static double deviceHeight = Get.height;
+  static double deviceWidth = Get.width;
+
   static void fieldFocusChange(
       BuildContext context, FocusNode current, FocusNode nextFocus) {
     current.unfocus();
@@ -30,12 +35,10 @@ class Utils {
   }
 
   static double getResponsiveHeight(double figmaHeight) {
-    double deviceHeight = Get.height; // Get the actual device height
-    return figmaHeight / deviceHeight;
+    return (figmaHeight / baseHeight);
   }
 
   static double getResponsiveWidth(double figmaWidth) {
-    double deviceWidth = Get.width; // Get the actual device height
-    return figmaWidth / deviceWidth;
+    return (figmaWidth / baseWidth);
   }
 }

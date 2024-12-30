@@ -5,6 +5,7 @@ import 'package:e_validation/view/navigation/history/history_screen.dart';
 import 'package:e_validation/view/navigation/home/home_screen.dart';
 import 'package:e_validation/view/navigation/home/product/complain_screen.dart';
 import 'package:e_validation/view/navigation/home/product/fake_product_screen.dart';
+import 'package:e_validation/view/navigation/home/product/product_detail_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_verified_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_verify_done_screen.dart';
 import 'package:e_validation/view/navigation/home/product/scan_product_screen.dart';
@@ -36,7 +37,7 @@ import '../../view_models/controller/user_preference/user_preference_view_model.
 class NavigationScreen extends StatefulWidget {
   final int initialIndex;
 
-  const NavigationScreen({Key? key, this.initialIndex = 0}) : super(key: key);
+  const NavigationScreen({Key? key, this.initialIndex = 2}) : super(key: key);
 
   // const NavigationScreen({super.key});
 
@@ -58,7 +59,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
   ];
   Widget? _child;
   int _selectedIndex = 0;
-  final initialIndex = Get.arguments?['initialIndex'] ?? 0;
+  final initialIndex = Get.arguments?['initialIndex'] ?? 2;
 
   @override
   void initState() {
@@ -69,6 +70,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
       print(_selectedIndex);
     }
     _setInitialScreen();
+    _handleScreenChange();
   }
 
   void _setInitialScreen() {
@@ -88,8 +90,26 @@ class _NavigationScreenState extends State<NavigationScreen> {
       case 4:
         _child = ComplaintsScreen();
         break;
+      case 5:
+        _child = ScanProductScreen();
+        break;
+      case 6:
+        _child = ProductVerifiedScreen();
+        break;
+      case 7:
+        _child = ProductDetailScreen();
+        break;
+      case 8:
+        _child = FakeProductScreen();
+        break;
+      case 9:
+        _child = ComplainScreen();
+        break;
+      case 10:
+        _child = ProductVerifyDoneScreen();
+        break;
       default:
-        _child = RewardScreen();
+        _child = HomeScreen();
         break;
     }
   }
@@ -108,16 +128,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
-          // appBar: AppBar(
-          //   title: Text(''),
-          //   leading: Builder(
-          //     builder: (context) => IconButton(
-          //       icon: Image.asset(IconAssets.ic_menu, width: 24, height: 24),
-          //       onPressed: () => Scaffold.of(context).openDrawer(),
-          //     ),
-          //   ),
-          // ),
-          // body: _pages[_selectedIndex],
           drawer: Drawer(
             child: ListView(
               padding: EdgeInsets.zero,
@@ -133,7 +143,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
                         backgroundColor: AppColor.lightGreyColor,
                         backgroundImage: AssetImage(ImageAssets.dummy_profile),
                       ),
-                      // SizedBox(height: Get.height * 0.01),
                       Text(
                         'George Oliver',
                         textAlign: TextAlign.start,
@@ -150,11 +159,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
                             fontSize: 16,
                             fontFamily: FontAssets.poppins_regular),
                       ),
-                      // SizedBox(height: Get.height * 0.01),
                     ],
                   ),
                 ),
-                // SizedBox(height: Get.height * 0.01),
                 ...items.asMap().entries.map((entry) {
                   int index = entry.key;
                   MenuItemsModel item = entry.value;
@@ -292,7 +299,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
           // _child = ProfileScreen();
           break;
         case 'Points':
-          // _child = ProfileScreen();
+          // _child = ScanProductScreen();
           break;
         case 'Delete Account':
           showDeleteAccountDialog();
@@ -300,22 +307,57 @@ class _NavigationScreenState extends State<NavigationScreen> {
         case 'Logout':
           showLogoutDialog();
           break;
-        case 'Scan Product':
+        // case 'scanProductScreen':
+        //   _child = ScanProductScreen();
+        //   break;
+        // case 'product_verified_screen':
+        //   _child = ProductVerifiedScreen();
+        //   break;
+        // case 'Product Detail':
+        //   _child = ProductDetailScreen();
+        //   break;
+        // case 'Fake Product':
+        //   _child = FakeProductScreen();
+        //   break;
+        // case 'Complain':
+        //   _child = ComplainScreen();
+        //   break;
+        // case 'Product Verify Done':
+        //   _child = ProductVerifyDoneScreen();
+        //   break;
+        default:
+          _child = HomeScreen();
+          break;
+      }
+      _child = AnimatedSwitcher(
+        switchInCurve: Curves.bounceIn,
+        switchOutCurve: Curves.bounceOut,
+        duration: Duration(milliseconds: 100),
+        child: _child,
+      );
+    });
+  }
+
+  void _handleScreenChange() {
+    // Get.back();
+    setState(() {
+      switch (initialIndex) {
+        case 5:
           _child = ScanProductScreen();
           break;
-        case 'Product Verified':
+        case 6:
           _child = ProductVerifiedScreen();
           break;
-        case 'Product Detail':
-          _child = FAQSScreen();
+        case 7:
+          _child = ProductDetailScreen();
           break;
-        case 'Fake Product':
+        case 8:
           _child = FakeProductScreen();
           break;
-        case 'Complain':
+        case 9:
           _child = ComplainScreen();
           break;
-        case 'Product Verify Done':
+        case 10:
           _child = ProductVerifyDoneScreen();
           break;
         default:
