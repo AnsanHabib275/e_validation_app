@@ -6,12 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../res/componants/RoundButton.dart';
+import '../../../../../view_models/controller/navigation/navigation_view_model.dart';
 
 class SubmitButtonWidget extends StatelessWidget {
   SubmitButtonWidget({Key? key, required this.formkey}) : super(key: key);
 
   final formkey;
   final complaintVM = Get.put(ComplainViewModel());
+  final navigationVM = Get.put(NavigationViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,8 @@ class SubmitButtonWidget extends StatelessWidget {
         title: 'submit'.tr,
         loading: complaintVM.loading.value,
         onPress: () {
-          Get.to(() => const ProductVerifyDoneScreen());
+          navigationVM.changeScreen(ProductVerifyDoneScreen());
+          // Get.to(() => const ProductVerifyDoneScreen());
           // if (formkey.currentState!.validate()) {
           //   signUpVM.signUpApi();
           // }

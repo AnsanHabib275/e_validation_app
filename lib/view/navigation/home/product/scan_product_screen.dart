@@ -5,6 +5,8 @@ import 'package:e_validation/view/navigation/home/product/product_verified_scree
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../view_models/controller/navigation/navigation_view_model.dart';
+
 class ScanProductScreen extends StatefulWidget {
   const ScanProductScreen({super.key});
 
@@ -13,6 +15,8 @@ class ScanProductScreen extends StatefulWidget {
 }
 
 class _ScanProductScreenState extends State<ScanProductScreen> {
+  final navigationVM = Get.put(NavigationViewModel());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,8 +44,7 @@ class _ScanProductScreenState extends State<ScanProductScreen> {
                 bottom: 0,
                 child: InkWell(
                     onTap: () {
-                      Get.to(() => const ProductVerifiedScreen());
-                      // Get.toNamed(RoutesName.productVerifiedScreen);
+                      navigationVM.changeScreen(ProductVerifiedScreen());
                     },
                     child: Image.asset(ImageAssets.product_with_qr_code))),
           ],

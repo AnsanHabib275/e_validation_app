@@ -5,6 +5,7 @@ import 'package:e_validation/res/colors/app_color.dart';
 import 'package:e_validation/utils/utils.dart';
 import 'package:e_validation/view/navigation/home/widget/scan_now_button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
@@ -16,6 +17,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

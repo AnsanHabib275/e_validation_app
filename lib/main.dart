@@ -1,6 +1,7 @@
 import 'package:e_validation/res/colors/app_color.dart';
 import 'package:e_validation/res/localization/languages.dart';
 import 'package:e_validation/res/routes/routes.dart';
+import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/view/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
             ),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      initialRoute: RoutesName.splashScreen,
       getPages: AppRoutes.appRoutes(),
     );
   }

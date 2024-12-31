@@ -21,6 +21,7 @@ import 'package:e_validation/view/navigation/widget/delete_button_widget.dart';
 import 'package:e_validation/view/navigation/widget/input_email_widget.dart';
 import 'package:e_validation/view/navigation/widget/no_button_widget.dart';
 import 'package:e_validation/view/navigation/widget/yes_button_widget.dart';
+import 'package:e_validation/view_models/controller/navigation/navigation_view_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -35,17 +36,19 @@ import '../../res/routes/routes_name.dart';
 import '../../view_models/controller/user_preference/user_preference_view_model.dart';
 
 class NavigationScreen extends StatefulWidget {
-  final int initialIndex;
+  // final int initialIndex;
 
-  const NavigationScreen({Key? key, this.initialIndex = 2}) : super(key: key);
+  // const NavigationScreen({Key? key, this.initialIndex = 2}) : super(key: key);
 
-  // const NavigationScreen({super.key});
+  const NavigationScreen({super.key});
 
   @override
   State<NavigationScreen> createState() => _NavigationScreenState();
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
+  final navigationVM = Get.put(NavigationViewModel());
+
   final List<MenuItemsModel> items = [
     MenuItemsModel(IconAssets.ic_menu_profile, 'Profile'),
     MenuItemsModel(IconAssets.ic_menu_redeem, 'Redeem'),
@@ -58,61 +61,66 @@ class _NavigationScreenState extends State<NavigationScreen> {
     MenuItemsModel(IconAssets.ic_menu_logout, 'Logout'),
   ];
   Widget? _child;
-  int _selectedIndex = 0;
-  final initialIndex = Get.arguments?['initialIndex'] ?? 2;
+
+  // int _selectedIndex = 0;
+  // final initialIndex = Get.arguments?['initialIndex'] ?? 2;
+  // final String? routeArg = Get.parameters['screen'];
 
   @override
   void initState() {
     // _child = HomeScreen();
     super.initState();
-    _selectedIndex = widget.initialIndex;
-    if (kDebugMode) {
-      print(_selectedIndex);
-    }
-    _setInitialScreen();
-    _handleScreenChange();
+    // _selectedIndex = widget.initialIndex;
+    // if (kDebugMode) {
+    //   print(_selectedIndex);
+    //   print(routeArg);
+    //   print(Get.arguments?['initialIndex']);
+    // }
+
+    // _setInitialScreen();
+    // _handleScreenChange();
   }
 
-  void _setInitialScreen() {
-    switch (_selectedIndex) {
-      case 0:
-        _child = RewardScreen();
-        break;
-      case 1:
-        _child = HistoryScreen();
-        break;
-      case 2:
-        _child = HomeScreen();
-        break;
-      case 3:
-        _child = NotificationScreen();
-        break;
-      case 4:
-        _child = ComplaintsScreen();
-        break;
-      case 5:
-        _child = ScanProductScreen();
-        break;
-      case 6:
-        _child = ProductVerifiedScreen();
-        break;
-      case 7:
-        _child = ProductDetailScreen();
-        break;
-      case 8:
-        _child = FakeProductScreen();
-        break;
-      case 9:
-        _child = ComplainScreen();
-        break;
-      case 10:
-        _child = ProductVerifyDoneScreen();
-        break;
-      default:
-        _child = HomeScreen();
-        break;
-    }
-  }
+  // void _setInitialScreen() {
+  //   switch (_selectedIndex) {
+  //     case 0:
+  //       _child = RewardScreen();
+  //       break;
+  //     case 1:
+  //       _child = HistoryScreen();
+  //       break;
+  //     case 2:
+  //       _child = HomeScreen();
+  //       break;
+  //     case 3:
+  //       _child = NotificationScreen();
+  //       break;
+  //     case 4:
+  //       _child = ComplaintsScreen();
+  //       break;
+  //     case 5:
+  //       _child = ScanProductScreen();
+  //       break;
+  //     case 6:
+  //       _child = ProductVerifiedScreen();
+  //       break;
+  //     case 7:
+  //       _child = ProductDetailScreen();
+  //       break;
+  //     case 8:
+  //       _child = FakeProductScreen();
+  //       break;
+  //     case 9:
+  //       _child = ComplainScreen();
+  //       break;
+  //     case 10:
+  //       _child = ProductVerifyDoneScreen();
+  //       break;
+  //     default:
+  //       _child = HomeScreen();
+  //       break;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +135,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
           ),
         ),
         Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
+          extendBody: true,
           drawer: Drawer(
             child: ListView(
               padding: EdgeInsets.zero,
@@ -188,13 +197,15 @@ class _NavigationScreenState extends State<NavigationScreen> {
             ),
           ),
           // body: _child,
-          body: Stack(
-            children: [
-              Center(
-                child: _child,
-              ),
-              SafeArea(
-                child: Align(
+          body: SafeArea(
+            child: Stack(
+              children: [
+                Center(
+                  child:
+                      Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
+                  // child: _child,
+                ),
+                Align(
                   alignment: Alignment.topLeft,
                   child: const MenuIcon(),
                   // IconButton(
@@ -206,8 +217,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   //   onPressed: () => Scaffold.of(context).openDrawer(),
                   // ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
 
           // body: SafeArea(
@@ -221,7 +232,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
           //   ),
           // ),
           bottomNavigationBar: BottomNavigationBar(
-            currentIndex: _selectedIndex,
+            // currentIndex: _selectedIndex,
             onTap: _handleNavigationChange,
             backgroundColor: Colors.transparent,
             elevation: 0,
@@ -246,25 +257,31 @@ class _NavigationScreenState extends State<NavigationScreen> {
   void _handleNavigationChange(int index) {
     // Get.back();
     setState(() {
-      _selectedIndex = index;
-      switch (_selectedIndex) {
+      // _selectedIndex = index;
+      switch (index) {
         case 0:
-          _child = RewardScreen();
+          navigationVM.changeScreen(RewardScreen());
+          // _child = RewardScreen();
           break;
         case 1:
-          _child = HistoryScreen();
+          navigationVM.changeScreen(HistoryScreen());
+          // _child = HistoryScreen();
           break;
         case 2:
-          _child = HomeScreen();
+          navigationVM.changeScreen(HomeScreen());
+          // _child = HomeScreen();
           break;
         case 3:
-          _child = NotificationScreen();
+          navigationVM.changeScreen(NotificationScreen());
+          // _child = NotificationScreen();
           break;
         case 4:
-          _child = ComplaintsScreen();
+          navigationVM.changeScreen(ComplaintsScreen());
+          // _child = ComplaintsScreen();
           break;
         default:
-          _child = HomeScreen();
+          navigationVM.changeScreen(HomeScreen());
+          // _child = HomeScreen();
           break;
       }
       _child = AnimatedSwitcher(
@@ -281,19 +298,24 @@ class _NavigationScreenState extends State<NavigationScreen> {
     setState(() {
       switch (menuItem) {
         case 'Profile':
-          _child = ProfileScreen();
+          navigationVM.changeScreen(ProfileScreen());
+          // _child = ProfileScreen();
           break;
         case 'Redeem':
-          _child = RedeemRewardScreen();
+          navigationVM.changeScreen(RedeemRewardScreen());
+          // _child = RedeemRewardScreen();
           break;
         case 'KYC':
-          _child = KYCScreen();
+          navigationVM.changeScreen(KYCScreen());
+          // _child = KYCScreen();
           break;
         case 'FAQS':
-          _child = FAQSScreen();
+          navigationVM.changeScreen(FAQSScreen());
+          // _child = FAQSScreen();
           break;
         case 'Settings':
-          _child = SettingsScreen();
+          navigationVM.changeScreen(SettingsScreen());
+          // _child = SettingsScreen();
           break;
         case 'Complaints':
           // _child = ProfileScreen();
@@ -326,7 +348,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
         //   _child = ProductVerifyDoneScreen();
         //   break;
         default:
-          _child = HomeScreen();
+          navigationVM.changeScreen(HomeScreen());
+          // _child = HomeScreen();
           break;
       }
       _child = AnimatedSwitcher(
@@ -338,40 +361,41 @@ class _NavigationScreenState extends State<NavigationScreen> {
     });
   }
 
-  void _handleScreenChange() {
-    // Get.back();
-    setState(() {
-      switch (initialIndex) {
-        case 5:
-          _child = ScanProductScreen();
-          break;
-        case 6:
-          _child = ProductVerifiedScreen();
-          break;
-        case 7:
-          _child = ProductDetailScreen();
-          break;
-        case 8:
-          _child = FakeProductScreen();
-          break;
-        case 9:
-          _child = ComplainScreen();
-          break;
-        case 10:
-          _child = ProductVerifyDoneScreen();
-          break;
-        default:
-          _child = HomeScreen();
-          break;
-      }
-      _child = AnimatedSwitcher(
-        switchInCurve: Curves.bounceIn,
-        switchOutCurve: Curves.bounceOut,
-        duration: Duration(milliseconds: 100),
-        child: _child,
-      );
-    });
-  }
+  // void _handleScreenChange() {
+  //   String? screenParam = Get.parameters['screen'];
+  //   // Get.back();
+  //   setState(() {
+  //     switch (screenParam) {
+  //       case RoutesName.scanProductScreen:
+  //         _child = ScanProductScreen();
+  //         break;
+  //       case RoutesName.productVerifiedScreen:
+  //         _child = ProductVerifiedScreen();
+  //         break;
+  //       case 'Product Detail':
+  //         _child = ProductDetailScreen();
+  //         break;
+  //       case 'Fake Product':
+  //         _child = FakeProductScreen();
+  //         break;
+  //       case 'Complain':
+  //         _child = ComplainScreen();
+  //         break;
+  //       case 'Product Verify Done':
+  //         _child = ProductVerifyDoneScreen();
+  //         break;
+  //       default:
+  //         _child = HomeScreen();
+  //         break;
+  //     }
+  //     _child = AnimatedSwitcher(
+  //       switchInCurve: Curves.bounceIn,
+  //       switchOutCurve: Curves.bounceOut,
+  //       duration: Duration(milliseconds: 100),
+  //       child: _child,
+  //     );
+  //   });
+  // }
 
   void showDeleteAccountDialog() {
     Get.dialog(

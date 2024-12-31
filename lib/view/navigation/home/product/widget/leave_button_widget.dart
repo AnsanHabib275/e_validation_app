@@ -6,11 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../res/componants/RoundButton.dart';
+import '../../../../../view_models/controller/navigation/navigation_view_model.dart';
 
 class LeaveButtonWidget extends StatelessWidget {
   LeaveButtonWidget({Key? key}) : super(key: key);
 
   final complaintVM = Get.put(ComplainViewModel());
+  final navigationVM = Get.put(NavigationViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,7 @@ class LeaveButtonWidget extends StatelessWidget {
         title: 'leave'.tr,
         loading: complaintVM.loading.value,
         onPress: () {
+          navigationVM.changeScreen(HomeScreen());
           Get.to(() => const HomeScreen());
           // if (formkey.currentState!.validate()) {
           //   signUpVM.signUpApi();

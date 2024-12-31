@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 
 import '../../../../res/assets/font_assets.dart';
 import '../../../../res/colors/app_color.dart';
+import '../../../../view_models/controller/navigation/navigation_view_model.dart';
 
 class ProductVerifiedScreen extends StatefulWidget {
   const ProductVerifiedScreen({super.key});
@@ -18,6 +19,8 @@ class ProductVerifiedScreen extends StatefulWidget {
 }
 
 class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
+  final navigationVM = Get.put(NavigationViewModel());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,14 +41,16 @@ class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
                     children: [
                       InkWell(
                           onTap: () {
-                            Get.to(() => const ProductDetailScreen());
+                            navigationVM.changeScreen(ProductDetailScreen());
+                            // Get.to(() => const ProductDetailScreen());
                             // Get.toNamed(RoutesName.productDetailScreen);
                           },
                           child: SvgPicture.asset(
                               ImageAssets.account_created_logo)),
                       InkWell(
                         onTap: () {
-                          Get.to(() => const FakeProductScreen());
+                          navigationVM.changeScreen(FakeProductScreen());
+                          // Get.to(() => const FakeProductScreen());
                           // Get.toNamed(RoutesName.productDetailScreen);
                         },
                         child: Text(

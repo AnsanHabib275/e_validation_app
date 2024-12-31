@@ -1,4 +1,6 @@
+import 'package:e_validation/view/navigation/home/product/product_verify_done_screen.dart';
 import 'package:e_validation/view/navigation/home/product/widget/done_button_widget.dart';
+import 'package:e_validation/view/navigation/home/product/widget/product_verify_done_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,6 +8,7 @@ import '../../../../res/assets/font_assets.dart';
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
+import '../../../../view_models/controller/navigation/navigation_view_model.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   const ProductDetailScreen({super.key});
@@ -24,7 +27,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           children: [
             Container(
               width: Get.width * Utils.getResponsiveWidth(428),
-              height: Get.height * Utils.getResponsiveHeight(408),
+              height: Get.height * Utils.getResponsiveHeight(348),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(ImageAssets
@@ -32,13 +35,16 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   fit: BoxFit.cover, // Adjust the image to fill the screen
                 ),
               ),
-              child: Align(
-                alignment: Alignment.center,
-                child: Image.asset(
-                  ImageAssets.product_with_qr_code,
-                  fit: BoxFit.contain,
-                  height: Get.height * Utils.getResponsiveHeight(254),
-                  width: Get.width * Utils.getResponsiveWidth(93),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 60.0),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Image.asset(
+                    ImageAssets.product_with_qr_code,
+                    fit: BoxFit.contain,
+                    height: Get.height * Utils.getResponsiveHeight(254),
+                    width: Get.width * Utils.getResponsiveWidth(93),
+                  ),
                 ),
               ),
             ),
@@ -207,7 +213,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: DoneButtonWidget(),
+                      child: ProductVerifyDoneButtonWidget(),
                     )
                   ]),
             ),

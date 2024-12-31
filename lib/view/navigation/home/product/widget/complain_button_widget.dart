@@ -6,11 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../res/componants/RoundButtonBorder.dart';
+import '../../../../../view_models/controller/navigation/navigation_view_model.dart';
 
 class ComplainButtonWidget extends StatelessWidget {
   ComplainButtonWidget({Key? key}) : super(key: key);
 
   final complaintVM = Get.put(ComplainViewModel());
+  final navigationVM = Get.put(NavigationViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,8 @@ class ComplainButtonWidget extends StatelessWidget {
         title: 'complain'.tr,
         loading: complaintVM.loading.value,
         onPress: () {
-          Get.to(() => const ComplainScreen());
+          navigationVM.changeScreen(ComplainScreen());
+          // Get.to(() => const ComplainScreen());
           // Get.toNamed(RoutesName.complainScreen);
           // if (formkey.currentState!.validate()) {
           //   signUpVM.signUpApi();
