@@ -7,17 +7,13 @@ class MenuIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      top: 23, // Adjust padding based on your layout
-      left: 20,
-      child: IconButton(
-        icon: Image.asset(
-          IconAssets.ic_menu, // Replace with your icon asset
-          width: 63,
-          height: 63,
-        ),
-        onPressed: () => Scaffold.of(context).openDrawer(),
+    return IconButton(
+      icon: Image.asset(
+        IconAssets.ic_menu,
+        width: 63,
+        height: 63,
       ),
+      onPressed: () => Scaffold.of(context).openDrawer(),
     );
   }
 }

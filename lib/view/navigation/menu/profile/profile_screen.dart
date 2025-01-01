@@ -43,7 +43,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     backgroundColor: AppColor.lightGreyColor,
                     backgroundImage: AssetImage(ImageAssets.dummy_profile),
                   ),
-                  // SizedBox(height: Get.height * 0.01),
                   Text(
                     'George Oliver',
                     textAlign: TextAlign.start,
@@ -60,7 +59,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         fontSize: 16,
                         fontFamily: FontAssets.poppins_regular),
                   ),
-                  // SizedBox(height: Get.height * 0.01),
                 ],
               ),
             ),

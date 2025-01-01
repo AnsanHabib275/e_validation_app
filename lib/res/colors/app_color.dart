@@ -19,8 +19,10 @@ class AppColor {
   static const underlineTextColor = Color(0xFF00005A);
   static const textBlackPrimary = Color(0xFF100E0E);
   static const textRedPrimary = Color(0xFFE52D2D);
+  static const textGreyPrimary = Color(0xFF797979);
   static const textColorPrimary = Color(0xFF13267D);
   static const lightGreyColor = Color(0xffD9D9D9);
+  static const lightGreyButtonColor = Color(0xFFD6D6D6);
 
   static const colorPrimary = Color(0xFF113380);
 
