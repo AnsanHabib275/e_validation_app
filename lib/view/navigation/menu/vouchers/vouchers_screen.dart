@@ -10,45 +10,44 @@ import 'package:e_validation/view/navigation/menu/points/widget/points_card_widg
 import 'package:e_validation/view/navigation/menu/redeem/widget/restaurants_card_widget.dart';
 import 'package:e_validation/view/navigation/menu/redeem/widget/transportation_card_widget.dart';
 import 'package:e_validation/view/navigation/menu/redeem/widget/section_header.dart';
+import 'package:e_validation/view/navigation/menu/vouchers/widget/vouchers_card_widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class PointsScreen extends StatefulWidget {
-  const PointsScreen({super.key});
+import '../../../../models/navigation/menu/vouchers/vouchers_list_model.dart';
+
+class VouchersScreen extends StatefulWidget {
+  const VouchersScreen({super.key});
 
   @override
-  State<PointsScreen> createState() => _PointsScreenState();
+  State<VouchersScreen> createState() => _VouchersScreenState();
 }
 
-class _PointsScreenState extends State<PointsScreen> {
+class _VouchersScreenState extends State<VouchersScreen> {
   late int earnPoints;
   late int totalPoints;
   late String redeemText;
-  final List<PointsListModel> entertainmentItems = [
-    PointsListModel(ImageAssets.tp_1, 'movie ticket', 'Rs = 500pkr'),
-    PointsListModel(ImageAssets.tp_2, 'concert ticket', 'Rs = 1000pkr'),
-    PointsListModel(ImageAssets.tp_3, 'movie ticket', 'Rs = 200pkr'),
-    PointsListModel(ImageAssets.tp_1, 'playland', 'Rs = 250pkr'),
-    PointsListModel(ImageAssets.tp_2, 'movie ticket', 'Rs = 500pkr'),
-    PointsListModel(ImageAssets.tp_3, 'concert ticket', 'Rs = 1000pkr'),
-  ];
-  final List<PointsListModel> restaurantsItems = [
-    PointsListModel(ImageAssets.tp_1, 'restaurant name', 'Rs = 500pkr'),
-    PointsListModel(ImageAssets.tp_2, 'restaurant name', 'Rs = 1000pkr'),
-    PointsListModel(ImageAssets.tp_3, 'restaurant name', 'Rs = 200pkr'),
-    PointsListModel(ImageAssets.tp_1, 'restaurant name', 'Rs = 250pkr'),
-    PointsListModel(ImageAssets.tp_2, 'restaurant name', 'Rs = 500pkr'),
-    PointsListModel(ImageAssets.tp_3, 'restaurant name', 'Rs = 1000pkr'),
-  ];
-  final List<PointsListModel> vouchersItems = [
-    PointsListModel(ImageAssets.tp_1, 'discount card', 'Rs = 500pkr'),
-    PointsListModel(ImageAssets.tp_2, 'discount card', 'Rs = 1000pkr'),
-    PointsListModel(ImageAssets.tp_3, 'discount card', 'Rs = 200pkr'),
-    PointsListModel(ImageAssets.tp_1, 'discount card', 'Rs = 250pkr'),
-    PointsListModel(ImageAssets.tp_2, 'discount card', 'Rs = 500pkr'),
-    PointsListModel(ImageAssets.tp_3, 'discount card', 'Rs = 1000pkr'),
+  final List<VouchersListModel> vouchersItems = [
+    VouchersListModel(
+        ImageAssets.voucher_1,
+        'Arcadian Cafe',
+        'gift voucher',
+        'specially for you',
+        'this voucher entitles the holder to spend at resturant ',
+        '200rs',
+        '02348916473912',
+        '28 june 2023'),
+    VouchersListModel(
+        ImageAssets.voucher_2,
+        'freddy’s Cafe',
+        'gift voucher',
+        'specially for you',
+        'this voucher entitles the holder to spend at resturant ',
+        '500rs',
+        '02348916473912',
+        '28 june 2023'),
   ];
 
   @override
@@ -60,9 +59,7 @@ class _PointsScreenState extends State<PointsScreen> {
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(
         backgroundColor: AppColor.whiteColor,
-        body: ListView(
-          padding: EdgeInsets.zero,
-          scrollDirection: Axis.vertical,
+        body: Column(
           children: [
             Container(
               height: Get.height * Utils.getResponsiveHeight(270),
@@ -206,17 +203,25 @@ class _PointsScreenState extends State<PointsScreen> {
               ),
             ),
             SizedBox(height: Get.height * Utils.getResponsiveHeight(12)),
-            SectionHeader(title: 'entertainment'.tr),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
-            PointsCardWidget(items: entertainmentItems),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(5)),
-            SectionHeader(title: 'restaurants'.tr),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
-            PointsCardWidget(items: restaurantsItems),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(5)),
-            SectionHeader(title: 'vouchers'.tr),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
-            PointsCardWidget(items: vouchersItems),
+            // Text(
+            //   'data',
+            //   style: TextStyle(fontSize: 56),
+            // )
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+              child: SizedBox(
+                height: Get.height * Utils.getResponsiveHeight(500),
+                child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: vouchersItems.length,
+                  itemBuilder: (context, index) {
+                    final voucher = vouchersItems[index];
+                    return VouchersCardWidget(items: voucher);
+                  },
+                ),
+              ),
+            ),
+            // VouchersCardWidget(items: vouchersItems),
           ],
         ),
       ),

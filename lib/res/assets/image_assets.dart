@@ -35,4 +35,8 @@ class ImageAssets {
       'assets/images/img_attach_document.svg';
   static const String img_chat_admin = 'assets/images/img_chat_admin.png';
   static const String img_chat_user = 'assets/images/img_chat_user.png';
+  static const String img_profile_dummy = 'assets/images/img_profile_dummy.png';
+  static const String img_points = 'assets/images/img_points.png';
+  static const String voucher_1 = 'assets/images/voucher_1.png';
+  static const String voucher_2 = 'assets/images/voucher_2.png';
 }

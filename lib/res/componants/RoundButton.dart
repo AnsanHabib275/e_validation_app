@@ -7,19 +7,24 @@ class RoundButton extends StatelessWidget {
       {Key? key,
       this.buttonColor = AppColor.colorPrimary,
       this.textColor = AppColor.textWhite,
+      this.progressColor = AppColor.whiteColor,
       required this.title,
       required this.onPress,
       this.width = double.infinity,
       this.height = 64,
+      this.fontSize = 20,
+      this.fontWeight = FontWeight.w400,
+      this.radius = 8,
       this.loading = false})
       : super(key: key);
 
   final bool loading;
   final String title;
-  final double height, width;
+  final double height, width, fontSize, radius;
+  final FontWeight fontWeight;
   final VoidCallback onPress;
 
-  final Color textColor, buttonColor;
+  final Color textColor, buttonColor, progressColor;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +35,7 @@ class RoundButton extends StatelessWidget {
         width: width,
         decoration: BoxDecoration(
           color: buttonColor,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(radius),
         ),
         child: loading
             ? Center(
@@ -40,10 +45,15 @@ class RoundButton extends StatelessWidget {
             : Center(
                 child: Text(
                   title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(color: AppColor.whiteColor),
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontWeight: fontWeight,
+                      fontSize: fontSize,
+                      color: textColor),
+                  // style: Theme.of(context)
+                  //     .textTheme
+                  //     .titleMedium!
+                  //     .copyWith(color: AppColor.whiteColor),
                 ),
               ),
       ),

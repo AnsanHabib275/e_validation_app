@@ -26,4 +26,5 @@ class RoutesName {
   static const String settingsScreen = '/settings_screen';
   static const String redeemRewardScreen = '/redeem_reward_screen';
   static const String pointsScreen = '/points_screen';
+  static const String vouchersScreen = '/vouchers_screen';
 }

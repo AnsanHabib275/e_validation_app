@@ -8,8 +8,8 @@ import 'package:get/get.dart';
 import '../../../../../res/componants/RoundButton.dart';
 import '../../../../../view_models/controller/navigation/navigation_view_model.dart';
 
-class RedeemButtonWidget extends StatelessWidget {
-  RedeemButtonWidget({Key? key}) : super(key: key);
+class EarnMoreButtonWidget extends StatelessWidget {
+  EarnMoreButtonWidget({Key? key}) : super(key: key);
 
   final complaintVM = Get.put(ComplainViewModel());
   final navigationVM = Get.put(NavigationViewModel());
@@ -18,7 +18,12 @@ class RedeemButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButton(
-        title: 'redeem'.tr,
+        title: 'earn_more'.tr,
+        radius: 1.34,
+        height: 14,
+        width: 40,
+        fontWeight: FontWeight.w400,
+        fontSize: 6,
         loading: complaintVM.loading.value,
         onPress: () {
           // navigationVM.changeScreen(ProductVerifyDoneScreen());

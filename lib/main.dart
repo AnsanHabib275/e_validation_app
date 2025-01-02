@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
             ),
         useMaterial3: true,
       ),
-      initialRoute: RoutesName.navigationScreen,
+      initialRoute: RoutesName.splashScreen,
       getPages: AppRoutes.appRoutes(),
     );
   }

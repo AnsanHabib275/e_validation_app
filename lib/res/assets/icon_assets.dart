@@ -34,4 +34,5 @@ class IconAssets {
       'assets/icons/ic_change_password.svg';
   static const String ic_question_with_bg =
       'assets/icons/ic_question_with_bg.png';
+  static const String ic_edit_image = 'assets/icons/ic_edit_image.png';
 }

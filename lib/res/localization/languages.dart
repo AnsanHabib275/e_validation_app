@@ -104,6 +104,11 @@ class Languages extends Translations {
           'redeem_your_rewards': 'Redeem Your Rewards',
           'transportation': 'Transportation',
           'restaurants': 'Restaurants',
+          'entertainment': 'Entertainment',
+          'vouchers': 'Vouchers',
+          'earn_more': 'Earn More',
+          'voucher_#': 'Voucher #',
+          'valid_unit': 'Valid Unit',
         },
         'ur_PK': {
           'splash_screen': 'سپلیش اسکرین',

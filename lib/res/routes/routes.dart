@@ -11,6 +11,7 @@ import 'package:e_validation/view/navigation/menu/points/points_screen.dart';
 import 'package:e_validation/view/navigation/menu/profile/profile_screen.dart';
 import 'package:e_validation/view/navigation/menu/redeem/redeem_reward_screen.dart';
 import 'package:e_validation/view/navigation/menu/settings/settings_screen.dart';
+import 'package:e_validation/view/navigation/menu/vouchers/vouchers_screen.dart';
 import 'package:e_validation/view/navigation/reward/reward_screen.dart';
 import 'package:get/get.dart';
 
@@ -182,6 +183,12 @@ class AppRoutes {
         GetPage(
           name: RoutesName.pointsScreen,
           page: () => PointsScreen(),
+          transitionDuration: Duration(milliseconds: 100),
+          transition: Transition.leftToRightWithFade,
+        ),
+        GetPage(
+          name: RoutesName.vouchersScreen,
+          page: () => VouchersScreen(),
           transitionDuration: Duration(milliseconds: 100),
           transition: Transition.leftToRightWithFade,
         ),
