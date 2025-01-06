@@ -41,8 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
             Text(
               'tap_the_bellow_button_to_scan_the_product'.tr,
               style: TextStyle(
-                  color: AppColor.textBlackPrimary,
-                  fontFamily: FontAssets.poppins_medium,
+                  color: AppColor.textBlack80Per,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w500,
                   fontSize: 20),
               textAlign: TextAlign.center,
             ),

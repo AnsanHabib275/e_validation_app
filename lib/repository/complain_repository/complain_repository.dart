@@ -5,7 +5,8 @@ class ComplainRepository {
   final _apiServices = NetworkApiServices();
 
   Future<dynamic> complaintApi(var data) async {
-    dynamic response = await _apiServices.postApi(data, AppUrl.forgetpass);
+    dynamic response =
+        await _apiServices.postApi(data, AppUrl.submitComplaintUrl);
     return response;
   }
 }

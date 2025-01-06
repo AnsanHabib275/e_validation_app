@@ -56,7 +56,8 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                     style: TextStyle(
                         color: AppColor.textColorPrimary,
                         fontSize: 26,
-                        fontFamily: FontAssets.poppins_semi_bold),
+                        fontFamily: 'Poppins',
+fontWeight: FontWeight.w600),
                   )
                 ],
               ),
@@ -81,14 +82,16 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                         'George Oliver',
                         style: TextStyle(
                             fontSize: 20,
-                            fontFamily: FontAssets.poppins_semi_bold,
+                            fontFamily: 'Poppins',
+fontWeight: FontWeight.w600,
                             color: Color(0xFF00005A)),
                       ),
                       Text('Georgeoliver@gmail.com',
                           style: TextStyle(
                               fontSize: 16,
-                              fontFamily: FontAssets.poppins_regular,
-                              color: AppColor.textBlackPrimary)),
+                              fontFamily: 'Poppins',
+fontWeight: FontWeight.w400,
+                              color: AppColor.textBlack80Per)),
                     ],
                   )
                 ],

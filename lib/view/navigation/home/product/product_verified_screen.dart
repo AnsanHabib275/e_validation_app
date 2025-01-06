@@ -58,7 +58,8 @@ class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
                           style: const TextStyle(
                             color: AppColor.textColorPrimary,
                             fontSize: 30,
-                            fontFamily: FontAssets.poppins_semi_bold,
+                            fontFamily: 'Poppins',
+fontWeight: FontWeight.w600,
                           ),
                         ),
                       )

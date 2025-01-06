@@ -69,7 +69,8 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: AppColor.textWhite,
-                            fontFamily: FontAssets.poppins_semi_bold,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600,
                             fontSize: 22),
                       ),
                       Text(
@@ -77,7 +78,8 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: AppColor.textWhite,
-                            fontFamily: FontAssets.poppins_regular,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
                             fontSize: 12),
                       ),
                     ],
@@ -89,8 +91,9 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
                 child: Text(
                   'products_scanned'.tr,
                   style: TextStyle(
-                      color: AppColor.textBlackPrimary,
-                      fontFamily: FontAssets.poppins_medium,
+                      color: AppColor.textBlack80Per,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w500,
                       fontSize: 18),
                 ),
               ),
@@ -99,8 +102,9 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
                 child: Text(
                   '56',
                   style: TextStyle(
-                      color: AppColor.textBlackPrimary,
-                      fontFamily: FontAssets.poppins_medium,
+                      color: AppColor.textBlack80Per,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w500,
                       fontSize: 18),
                 ),
               ),

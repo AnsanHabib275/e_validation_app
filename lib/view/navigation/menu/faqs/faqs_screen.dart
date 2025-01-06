@@ -49,7 +49,8 @@ class _FAQSScreenState extends State<FAQSScreen> {
                     style: TextStyle(
                         color: AppColor.textColorPrimary,
                         fontSize: 26,
-                        fontFamily: FontAssets.poppins_semi_bold),
+                        fontFamily: 'Poppins',
+fontWeight: FontWeight.w600),
                   )
                 ],
               ),
@@ -72,9 +73,10 @@ class _FAQSScreenState extends State<FAQSScreen> {
                               child: Text(
                                 'what_are_the_benefits_of_points'.tr,
                                 style: TextStyle(
-                                    color: AppColor.textBlackPrimary,
+                                    color: AppColor.textBlack80Per,
                                     fontSize: 13,
-                                    fontFamily: FontAssets.poppins_regular),
+                                    fontFamily: 'Poppins',
+fontWeight: FontWeight.w400),
                               ),
                             ),
                             Image.asset(
@@ -100,9 +102,10 @@ class _FAQSScreenState extends State<FAQSScreen> {
                               child: Text(
                                 'what_is_kyc'.tr,
                                 style: TextStyle(
-                                    color: AppColor.textBlackPrimary,
+                                    color: AppColor.textBlack80Per,
                                     fontSize: 13,
-                                    fontFamily: FontAssets.poppins_regular),
+                                    fontFamily: 'Poppins',
+fontWeight: FontWeight.w400),
                               ),
                             ),
                             Image.asset(
@@ -128,9 +131,10 @@ class _FAQSScreenState extends State<FAQSScreen> {
                               child: Text(
                                 'lorem_ipsum_is_simply_dummy_text'.tr,
                                 style: TextStyle(
-                                    color: AppColor.textBlackPrimary,
+                                    color: AppColor.textBlack80Per,
                                     fontSize: 13,
-                                    fontFamily: FontAssets.poppins_regular),
+                                    fontFamily: 'Poppins',
+fontWeight: FontWeight.w400),
                               ),
                             ),
                             Image.asset(
@@ -157,9 +161,10 @@ class _FAQSScreenState extends State<FAQSScreen> {
                                 'generate_lorem_ipsum_which_looks_reasonable'
                                     .tr,
                                 style: TextStyle(
-                                    color: AppColor.textBlackPrimary,
+                                    color: AppColor.textBlack80Per,
                                     fontSize: 13,
-                                    fontFamily: FontAssets.poppins_regular),
+                                    fontFamily: 'Poppins',
+fontWeight: FontWeight.w400),
                               ),
                             ),
                             Image.asset(

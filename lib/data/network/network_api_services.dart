@@ -43,11 +43,6 @@ class NetworkApiServices extends BaseApiServices {
     if (apiKey != null) {
       headers['api-key'] = apiKey; // Adjust as needed
     }
-    if (kDebugMode) {
-      print(data);
-      print(headers);
-      print(url);
-    }
     dynamic responseJson;
     try {
       final response = await http

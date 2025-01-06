@@ -33,7 +33,9 @@ class _NotEligibleScreenState extends State<NotEligibleScreen> {
         child: Stack(
           children: [
             Positioned(
-                right: 20, top: 60, child: Image.asset(IconAssets.ic_close_with_white_bg)),
+                right: 20,
+                top: 60,
+                child: Image.asset(IconAssets.ic_close_with_white_bg)),
             Positioned(
                 left: 0,
                 right: 0,
@@ -45,20 +47,23 @@ class _NotEligibleScreenState extends State<NotEligibleScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       InkWell(
-                          onTap: () {
-                            // Get.toNamed(RoutesName.productDetailScreen);
-                          },
-                          child: SvgPicture.asset(
-                              ImageAssets.img_not_eligible),),
-                      SizedBox(height: Get.height * Utils.getResponsiveHeight(30),),
+                        onTap: () {
+                          // Get.toNamed(RoutesName.productDetailScreen);
+                        },
+                        child: SvgPicture.asset(ImageAssets.img_not_eligible),
+                      ),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(30),
+                      ),
                       Text(
                         'sorry_you_are_not_eligible_right_now'.tr,
                         textScaleFactor: 1,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
-                          color: AppColor.textBlackPrimary,
+                          color: AppColor.textBlack80Per,
                           fontSize: 20,
-                          fontFamily: FontAssets.poppins_medium,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
                         ),
                       )
                     ],

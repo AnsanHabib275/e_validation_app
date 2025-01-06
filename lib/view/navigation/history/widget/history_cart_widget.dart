@@ -53,16 +53,18 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
                   // widget.history.qrCodeNo,
                   style: TextStyle(
                       fontSize: 16,
-                      fontFamily: FontAssets.poppins_medium,
-                      color: AppColor.textBlackPrimary),
+                      fontFamily: 'Poppins',
+fontWeight: FontWeight.w500,
+                      color: AppColor.textBlack80Per),
                 ),
                 Text(
                   'scanned on 5 oct,2022',
                   // widget.history.scanedOn,
                   style: TextStyle(
                     fontSize: 12,
-                    fontFamily: FontAssets.poppins_regular,
-                    color: AppColor.textBlackPrimary, // Strikethrough effect
+                    fontFamily: 'Poppins',
+fontWeight: FontWeight.w400,
+                    color: AppColor.textBlack80Per, // Strikethrough effect
                   ),
                 ),
               ],

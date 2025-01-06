@@ -47,7 +47,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 Text(
                   'welcome'.tr,
                   style: TextStyle(
-                      fontFamily: FontAssets.poppins_semi_bold,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
                       fontSize: 51,
                       color: AppColor.textColorPrimary),
                 ),
@@ -62,9 +63,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Text(
                       'app_title'.tr,
                       style: TextStyle(
-                          fontFamily: FontAssets.poppins_semi_bold,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
                           fontSize: 30,
-                          color: AppColor.textBlackPrimary),
+                          color: AppColor.textBlack80Per),
                     ),
                     SizedBox(
                       height: Get.height * Utils.getResponsiveHeight(5),
@@ -72,9 +74,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Text(
                       'where_fraud_fails'.tr,
                       style: TextStyle(
-                          fontFamily: FontAssets.poppins_regular,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
                           fontSize: 20,
-                          color: AppColor.textBlackPrimary),
+                          color: AppColor.textBlack80Per),
                     ),
                   ],
                 ),
@@ -96,9 +99,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         Text(
                           'don’t_have_an_account_yet'.tr,
                           style: TextStyle(
-                              fontFamily: FontAssets.poppins_regular,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w400,
                               fontSize: 19,
-                              color: AppColor.textBlackPrimary),
+                              color: AppColor.textBlack80Per),
                         ),
                         InkWell(
                           onTap: () {
@@ -108,7 +112,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             'signup'.tr,
                             style: TextStyle(
                                 decoration: TextDecoration.underline,
-                                fontFamily: FontAssets.poppins_regular,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400,
                                 fontSize: 19,
                                 color: AppColor.underlineTextColor),
                           ),

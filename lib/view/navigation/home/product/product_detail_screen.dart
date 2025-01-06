@@ -59,7 +59,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       style: TextStyle(
                           color: AppColor.textColorPrimary,
                           fontSize: 22,
-                          fontFamily: FontAssets.poppins_semi_bold),
+                          fontFamily: 'Poppins',
+fontWeight: FontWeight.w600),
                     ),
                     SizedBox(
                       height: Get.height * Utils.getResponsiveHeight(8),
@@ -75,17 +76,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 Text(
                                   'product_name'.tr,
                                   style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
+                                      color: AppColor.textBlack80Per,
                                       fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
                                 ),
                                 Spacer(),
                                 Text(
                                   'lorem ipsum',
                                   style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
+                                      color: AppColor.textBlack80Per,
                                       fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
                                 ),
                               ],
                             ),
@@ -98,17 +101,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 Text(
                                   'barcode'.tr,
                                   style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
+                                      color: AppColor.textBlack80Per,
                                       fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
                                 ),
                                 Spacer(),
                                 Text(
                                   '3425168789',
                                   style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
+                                      color: AppColor.textBlack80Per,
                                       fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
                                 ),
                               ],
                             ),
@@ -121,17 +126,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 Text(
                                   'product_sku'.tr,
                                   style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
+                                      color: AppColor.textBlack80Per,
                                       fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
                                 ),
                                 Spacer(),
                                 Text(
                                   '24-mb04',
                                   style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
+                                      color: AppColor.textBlack80Per,
                                       fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
                                 ),
                               ],
                             ),
@@ -144,17 +151,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 Text(
                                   'supplier'.tr,
                                   style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
+                                      color: AppColor.textBlack80Per,
                                       fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
                                 ),
                                 Spacer(),
                                 Text(
                                   'lorem ipsum',
                                   style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
+                                      color: AppColor.textBlack80Per,
                                       fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
                                 ),
                               ],
                             ),
@@ -167,17 +176,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 Text(
                                   'created_at'.tr,
                                   style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
+                                      color: AppColor.textBlack80Per,
                                       fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
                                 ),
                                 Spacer(),
                                 Text(
                                   '10-24-2022',
                                   style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
+                                      color: AppColor.textBlack80Per,
                                       fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
                                 ),
                               ],
                             ),
@@ -190,17 +201,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 Text(
                                   'expiry_date'.tr,
                                   style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
+                                      color: AppColor.textBlack80Per,
                                       fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
                                 ),
                                 Spacer(),
                                 Text(
                                   '10-24-2022',
                                   style: TextStyle(
-                                      color: AppColor.textBlackPrimary,
+                                      color: AppColor.textBlack80Per,
                                       fontSize: 16,
-                                      fontFamily: FontAssets.poppins_regular),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
                                 ),
                               ],
                             ),

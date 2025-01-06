@@ -19,11 +19,50 @@ class InputPasswordWidget extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           hintText: 'password'.tr,
+          hintStyle: TextStyle(
+            color: AppColor.textBlack80Per,
+            fontSize: 16,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+          ),
           labelText: 'password'.tr,
+          labelStyle: TextStyle(
+            color: AppColor.textColorPrimary,
+            fontSize: 14,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w400,
+          ),
           errorText: loginVM.errorMessage.value.isEmpty
               ? null
               : loginVM.errorMessage.value,
-          border: OutlineInputBorder(),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderSide: BorderSide(
+              color: AppColor.textColorPrimary, // Default border color
+              width: 1.0, // Default border width
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderSide: BorderSide(
+              color: AppColor.textColorPrimary, // Default border color
+              width: 1.0, // Default border width
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderSide: BorderSide(
+              color: AppColor.textColorPrimary, // Default border color
+              width: 1.0, // Default border width
+            ),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderSide: BorderSide(
+              color: AppColor.textColorPrimary, // Default border color
+              width: 1.0, // Default border width
+            ),
+          ),
           suffixIcon: IconButton(
             icon: Icon(
               loginVM.isVisible.value ? Icons.visibility : Icons.visibility_off,

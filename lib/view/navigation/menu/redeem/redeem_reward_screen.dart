@@ -84,7 +84,8 @@ class _RedeemRewardScreenState extends State<RedeemRewardScreen> {
                     style: TextStyle(
                         color: AppColor.textColorPrimary,
                         fontSize: 26,
-                        fontFamily: FontAssets.poppins_semi_bold),
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600),
                   ),
                 ],
               ),
@@ -98,7 +99,7 @@ class _RedeemRewardScreenState extends State<RedeemRewardScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Divider(
                 height: 1,
-                color: AppColor.textBlackPrimary.withOpacity(0.06),
+                color: AppColor.textBlack80Per.withOpacity(0.06),
               ),
             ),
             SizedBox(height: Get.height * Utils.getResponsiveHeight(11)),

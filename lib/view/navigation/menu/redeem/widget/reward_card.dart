@@ -48,7 +48,8 @@ class RewardCard extends StatelessWidget {
               "12,000 VP",
               style: TextStyle(
                 color: AppColor.textColorPrimary,
-                fontFamily: FontAssets.poppins_medium,
+                fontFamily: 'Poppins',
+fontWeight: FontWeight.w500,
                 fontSize: 12,
               ),
             ),

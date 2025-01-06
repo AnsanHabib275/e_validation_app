@@ -49,15 +49,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     style: TextStyle(
                         color: AppColor.textColorPrimary,
                         fontSize: 20,
-                        fontFamily: FontAssets.poppins_semi_bold),
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600),
                   ),
                   Text(
                     'Georgeoliver@gmail.com',
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                        color: AppColor.textBlackPrimary,
+                        color: AppColor.textBlack80Per,
                         fontSize: 16,
-                        fontFamily: FontAssets.poppins_regular),
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w400),
                   ),
                 ],
               ),
@@ -81,7 +83,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             style: TextStyle(
                                 color: AppColor.textColorPrimary,
                                 fontSize: 20,
-                                fontFamily: FontAssets.poppins_medium),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500),
                           ),
                           SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(5),
@@ -89,9 +92,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Text(
                             'george oliver',
                             style: TextStyle(
-                                color: AppColor.textBlackPrimary,
+                                color: AppColor.textBlack80Per,
                                 fontSize: 16,
-                                fontFamily: FontAssets.poppins_regular),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400),
                           ),
                           SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(12),
@@ -101,7 +105,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             style: TextStyle(
                                 color: AppColor.textColorPrimary,
                                 fontSize: 20,
-                                fontFamily: FontAssets.poppins_medium),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500),
                           ),
                           SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(5),
@@ -109,9 +114,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Text(
                             '+92345789902',
                             style: TextStyle(
-                                color: AppColor.textBlackPrimary,
+                                color: AppColor.textBlack80Per,
                                 fontSize: 16,
-                                fontFamily: FontAssets.poppins_regular),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400),
                           ),
                           SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(12),
@@ -121,7 +127,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             style: TextStyle(
                                 color: AppColor.textColorPrimary,
                                 fontSize: 20,
-                                fontFamily: FontAssets.poppins_medium),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500),
                           ),
                           SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(5),
@@ -129,9 +136,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Text(
                             'georgeoliver@gmail.com',
                             style: TextStyle(
-                                color: AppColor.textBlackPrimary,
+                                color: AppColor.textBlack80Per,
                                 fontSize: 16,
-                                fontFamily: FontAssets.poppins_regular),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400),
                           ),
                           SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(12),
@@ -141,7 +149,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             style: TextStyle(
                                 color: AppColor.textColorPrimary,
                                 fontSize: 20,
-                                fontFamily: FontAssets.poppins_medium),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500),
                           ),
                           SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(5),
@@ -149,9 +158,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Text(
                             'Male',
                             style: TextStyle(
-                                color: AppColor.textBlackPrimary,
+                                color: AppColor.textBlack80Per,
                                 fontSize: 16,
-                                fontFamily: FontAssets.poppins_regular),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400),
                           ),
                           SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(12),
@@ -161,7 +171,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             style: TextStyle(
                                 color: AppColor.textColorPrimary,
                                 fontSize: 20,
-                                fontFamily: FontAssets.poppins_medium),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500),
                           ),
                           SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(5),
@@ -169,9 +180,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Text(
                             '10-26-2001',
                             style: TextStyle(
-                                color: AppColor.textBlackPrimary,
+                                color: AppColor.textBlack80Per,
                                 fontSize: 16,
-                                fontFamily: FontAssets.poppins_regular),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400),
                           ),
                         ],
                       ),

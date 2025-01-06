@@ -11,7 +11,7 @@ class NotificationRepository {
   Future<List<NotificationListModel>> notificationListApi(
       String uid, String apiKey) async {
     dynamic response = await _apiServices
-        .getApi(AppUrl.signupurl + '?uid=' + uid, apiKey: apiKey);
+        .getApi(AppUrl.loginUrl + '?uid=' + uid, apiKey: apiKey);
     // return response;
     if (response is List) {
       return response.map((e) => NotificationListModel.fromJson(e)).toList();

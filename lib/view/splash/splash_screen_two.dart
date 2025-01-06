@@ -21,7 +21,7 @@ class _SplashScreenTwoState extends State<SplashScreenTwo> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 2),
+    Timer(const Duration(milliseconds: 400),
         () => Get.toNamed(RoutesName.welcomeScreen));
   }
 
@@ -42,7 +42,8 @@ class _SplashScreenTwoState extends State<SplashScreenTwo> {
                 'powered_by_blockchain'.tr,
                 textScaleFactor: 1,
                 style: TextStyle(
-                    fontFamily: FontAssets.poppins_medium,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w500,
                     color: AppColor.textWhite),
               ),
             ],

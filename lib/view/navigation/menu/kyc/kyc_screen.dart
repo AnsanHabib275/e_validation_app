@@ -53,7 +53,8 @@ class _KYCScreenState extends State<KYCScreen> {
                       style: TextStyle(
                           color: AppColor.textColorPrimary,
                           fontSize: 26,
-                          fontFamily: FontAssets.poppins_semi_bold),
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600),
                     )
                   ],
                 ),
@@ -76,9 +77,10 @@ class _KYCScreenState extends State<KYCScreen> {
                         'upload_your_identity_card_front_and_back'.tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: AppColor.textBlackPrimary,
+                            color: AppColor.textBlack80Per,
                             fontSize: 13,
-                            fontFamily: FontAssets.poppins_regular),
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400),
                       ),
                     ],
                   ),

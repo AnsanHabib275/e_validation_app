@@ -20,10 +20,10 @@ class CreateAccountButtonWidget extends StatelessWidget {
         title: 'create_account'.tr,
         loading: signUpVM.loading.value,
         onPress: () {
-          Get.toNamed(RoutesName.accountCreatedScreen);
-          // if (formkey.currentState!.validate()) {
-          //   signUpVM.signUpApi();
-          // }
+          // Get.toNamed(RoutesName.accountCreatedScreen);
+          if (formkey.currentState!.validate()) {
+            signUpVM.signUpApi();
+          }
         },
       );
     });

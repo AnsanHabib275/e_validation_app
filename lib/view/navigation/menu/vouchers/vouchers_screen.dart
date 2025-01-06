@@ -140,7 +140,7 @@ class _VouchersScreenState extends State<VouchersScreen> {
                                         Text(
                                           'Lorem Ipsum',
                                           style: TextStyle(
-                                              color: AppColor.textBlackPrimary,
+                                              color: AppColor.textBlack80Per,
                                               fontSize: 8,
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w400),
@@ -185,7 +185,7 @@ class _VouchersScreenState extends State<VouchersScreen> {
                                       'you need $earnPoints pts more to redeem'
                                           .toTitleCase(),
                                       style: TextStyle(
-                                          color: AppColor.textBlackPrimary,
+                                          color: AppColor.textBlack80Per,
                                           fontWeight: FontWeight.w400,
                                           fontFamily: 'Poppins',
                                           fontSize: 10),

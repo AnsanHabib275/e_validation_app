@@ -43,9 +43,10 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
                 'your_account_has_been_created'.tr,
                 textScaleFactor: 1,
                 style: const TextStyle(
-                  color: AppColor.textBlackPrimary,
+                  color: AppColor.textBlack80Per,
                   fontSize: 20,
-                  fontFamily: FontAssets.poppins_medium,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               SizedBox(
@@ -59,9 +60,10 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
                     'you_can_now'.tr,
                     textScaleFactor: 1,
                     style: const TextStyle(
-                      color: AppColor.textBlackPrimary,
+                      color: AppColor.textBlack80Per,
                       fontSize: 19,
-                      fontFamily: FontAssets.poppins_medium,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   InkWell(
@@ -74,7 +76,8 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
                       style: const TextStyle(
                         color: AppColor.textColorPrimary,
                         fontSize: 19,
-                        fontFamily: FontAssets.poppins_semi_bold,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),

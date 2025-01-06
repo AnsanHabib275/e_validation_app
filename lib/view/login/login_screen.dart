@@ -9,8 +9,8 @@ import '../../res/assets/image_assets.dart';
 import '../../res/colors/app_color.dart';
 import '../../res/routes/routes_name.dart';
 import '../../view_models/controller/login/login_view_model.dart';
-import '../signup/widget/input_email_widget.dart';
-import '../signup/widget/input_password_widget.dart';
+import '../login/widget/input_email_widget.dart';
+import '../login/widget/input_password_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -58,9 +58,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text(
                     'login'.tr,
                     style: const TextStyle(
-                      color: AppColor.colorPrimary,
-                      fontSize: 30,
-                      fontFamily: FontAssets.poppins_regular,
+                      color: AppColor.textColorPrimary,
+                      fontSize: 51,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   SizedBox(
@@ -88,9 +89,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           'forgot_your_password'.tr,
                           style: const TextStyle(
-                            color: AppColor.colorPrimary,
+                            color: AppColor.textColorPrimary,
                             fontSize: 16,
-                            fontFamily: FontAssets.poppins_medium,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
@@ -106,10 +108,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         'don’t_have_an_account_yet'.tr,
                         textScaler: TextScaler.linear(1),
                         style: TextStyle(
-                            fontFamily: FontAssets.poppins_regular,
-                            fontSize:
-                                Get.height * Utils.getResponsiveHeight(19),
-                            color: AppColor.textBlackPrimary),
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 19,
+                            color: AppColor.textBlack80Per),
                       ),
                       InkWell(
                         onTap: () {
@@ -119,9 +121,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           'signup'.tr,
                           style: TextStyle(
                               decoration: TextDecoration.underline,
-                              fontFamily: FontAssets.poppins_regular,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveHeight(19),
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w400,
+                              fontSize: 19,
                               color: AppColor.underlineTextColor),
                         ),
                       ),

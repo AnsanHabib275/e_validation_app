@@ -9,7 +9,7 @@ class RewardRepository {
 
   Future<List<RewardListModel>> rewardListApi(String uid, String apiKey) async {
     dynamic response = await _apiServices
-        .getApi(AppUrl.signupurl + '?uid=' + uid, apiKey: apiKey);
+        .getApi(AppUrl.forgetPassUrl + '?uid=' + uid, apiKey: apiKey);
     // return response;
     if (response is List) {
       return response.map((e) => RewardListModel.fromJson(e)).toList();
@@ -19,7 +19,7 @@ class RewardRepository {
   }
 
   Future<dynamic> getRewardApi(var data) async {
-    dynamic response = await _apiServices.postApi(data, AppUrl.forgetpass);
+    dynamic response = await _apiServices.postApi(data, AppUrl.forgetPassUrl);
     return response;
   }
 }

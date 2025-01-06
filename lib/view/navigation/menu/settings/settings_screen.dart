@@ -49,7 +49,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     style: TextStyle(
                         color: AppColor.textColorPrimary,
                         fontSize: 26,
-                        fontFamily: FontAssets.poppins_semi_bold),
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600),
                   )
                 ],
               ),
@@ -72,9 +73,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         child: Text(
                           'change_password'.tr,
                           style: TextStyle(
-                              color: AppColor.textBlackPrimary,
+                              color: AppColor.textBlack80Per,
                               fontSize: 13,
-                              fontFamily: FontAssets.poppins_regular),
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w400),
                         ),
                       ),
                       Image.asset(

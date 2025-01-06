@@ -84,17 +84,19 @@ class _NavigationScreenState extends State<NavigationScreen> {
                         'George Oliver',
                         textAlign: TextAlign.start,
                         style: TextStyle(
-                            color: AppColor.textBlackPrimary,
+                            color: AppColor.textBlack80Per,
                             fontSize: 20,
-                            fontFamily: FontAssets.poppins_semi_bold),
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600),
                       ),
                       Text(
                         'Georgeoliver@gmail.com',
                         textAlign: TextAlign.start,
                         style: TextStyle(
-                            color: AppColor.textBlackPrimary,
+                            color: AppColor.textBlack80Per,
                             fontSize: 16,
-                            fontFamily: FontAssets.poppins_regular),
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400),
                       ),
                     ],
                   ),
@@ -110,9 +112,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
                         title: Text(
                           item.name,
                           style: TextStyle(
-                              fontFamily: FontAssets.poppins_medium,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
                               fontSize: 18,
-                              color: AppColor.textBlackPrimary),
+                              color: AppColor.textBlack80Per),
                         ),
                         onTap: () {
                           _handleDrawerNavigationChange(item.name);
@@ -267,8 +270,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 16,
-                      fontFamily: FontAssets.poppins_regular,
-                      color: AppColor.textBlackPrimary),
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w400,
+                      color: AppColor.textBlack80Per),
                 ),
                 SizedBox(
                   height: Get.height * Utils.getResponsiveHeight(32),
@@ -318,8 +322,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 16,
-                    fontFamily: FontAssets.poppins_regular,
-                    color: AppColor.textBlackPrimary),
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w400,
+                    color: AppColor.textBlack80Per),
               ),
               SizedBox(
                 height: Get.height * Utils.getResponsiveHeight(30),

@@ -26,6 +26,7 @@ class Languages extends Translations {
           'your_account_has_been_created': 'Your account has been created',
           'you_can_now': 'You can now ',
           'first_name': 'First Name',
+          'email_not_valid': 'Email not valid',
           'last_name': 'Last Name',
           'profile': 'Profile',
           'redeem': 'Redeem',
@@ -109,6 +110,7 @@ class Languages extends Translations {
           'earn_more': 'Earn More',
           'voucher_#': 'Voucher #',
           'valid_unit': 'Valid Unit',
+          'send_otp': 'Send OTP',
         },
         'ur_PK': {
           'splash_screen': 'سپلیش اسکرین',

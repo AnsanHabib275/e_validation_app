@@ -5,7 +5,7 @@ class SignUpRepository {
   final _apiServices = NetworkApiServices();
 
   Future<dynamic> signUpApi(var data) async {
-    dynamic response = await _apiServices.postApi(data, AppUrl.signupurl);
+    dynamic response = await _apiServices.postApi(data, AppUrl.signupUrl);
     return response;
   }
 }

@@ -48,7 +48,7 @@ class PointsCardWidget extends StatelessWidget {
                             fontSize: 10,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
-                            color: AppColor.textBlackPrimary),
+                            color: AppColor.textBlack80Per),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -56,7 +56,7 @@ class PointsCardWidget extends StatelessWidget {
                         items[index].price,
                         textAlign: TextAlign.start,
                         style: TextStyle(
-                          color: AppColor.textBlackPrimary,
+                          color: AppColor.textBlack80Per,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                           fontSize: 10,

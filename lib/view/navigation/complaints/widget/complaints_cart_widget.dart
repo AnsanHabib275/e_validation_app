@@ -58,17 +58,19 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
                       // widget.history.qrCodeNo,
                       style: TextStyle(
                           fontSize: 16,
-                          fontFamily: FontAssets.poppins_medium,
-                          color: AppColor.textBlackPrimary),
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                          color: AppColor.textBlack80Per),
                     ),
                     Text(
                       'Submitted',
                       // widget.history.scanedOn,
                       style: TextStyle(
                         fontSize: 12,
-                        fontFamily: FontAssets.poppins_regular,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w400,
                         color:
-                            AppColor.textBlackPrimary, // Strikethrough effect
+                            AppColor.textBlack80Per, // Strikethrough effect
                       ),
                     ),
                   ],

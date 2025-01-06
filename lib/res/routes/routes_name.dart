@@ -5,7 +5,6 @@ class RoutesName {
   static const String welcomeScreen = '/welcome_screen';
   static const String loginScreen = '/login_screen';
   static const String signUpScreen = '/sign_up_screen';
-  static const String forgetPasswordScreen = '/forget_password_screen';
   static const String accountCreatedScreen = '/account_created_screen';
   static const String navigationScreen = '/navigation_screen';
   static const String rewardScreen = '/reward_screen';
@@ -27,4 +26,6 @@ class RoutesName {
   static const String redeemRewardScreen = '/redeem_reward_screen';
   static const String pointsScreen = '/points_screen';
   static const String vouchersScreen = '/vouchers_screen';
+  static const String verifyEmailScreen = '/verify_email_screen';
+  static const String forgetPasswordScreen = '/forget_password_screen';
 }

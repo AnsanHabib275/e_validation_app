@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../../models/signUp/sign_up_model.dart';
 import '../../../repository/signup_repository/sign_up_repository.dart';
 import '../../../res/routes/routes_name.dart';
+import '../../../utils/utils.dart';
 
 class SignUpViewModel extends GetxController {
   final _api = SignUpRepository();
@@ -28,27 +29,21 @@ class SignUpViewModel extends GetxController {
     Map data = {
       'email': emailController.value.text,
       'password': passwordController.value.text,
-      'first_name': firstNameController.value.text,
-      'last_name': lastNameController.value.text,
+      'FirstName': firstNameController.value.text,
+      'LastName': lastNameController.value.text,
+      'PhoneNumber': '0000',
     };
     _api.signUpApi(data).then((value) {
       loading.value = false;
-      if (value['error_code'] == 3083) {
+      if (value['errorcode'] == 1002) {
         errorMessage.value = 'email_already_exists'.tr;
-      } else if (value['error_code'] == 3084) {
+      } else if (value['errorcode'] == 3084) {
         errorMessage.value = 'email_verification_failed'.tr;
-      } else if (value['error_code'] == 3064) {
+      } else if (value['errorcode'] == 3064) {
         errorMessage.value = 'invalid_email'.tr;
       } else {
-        SignUpModel signUpModel = SignUpModel.fromJson(value);
-        // userPreference.saveUser(userModel).then((value) {
-        //   Get.delete<SignUpViewModel>();
-        // }).onError((error, stackTrace) {});
-        // Get.toNamed(RoutesName.otpVerificationScreen, arguments: {
-        //   'email': emailController.value.text,
-        //   'uid': signUpModel.uid
-        // })!
-        //     .then((value) {});
+        Utils.toastMessage("Success");
+        Get.toNamed(RoutesName.verifyEmailScreen);
       }
     }).onError((error, stackTrace) {
       loading.value = false;

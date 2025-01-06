@@ -39,11 +39,11 @@ class ComplainViewModel extends GetxController {
   //   };
   //   _api.signUpApi(data).then((value) {
   //     loading.value = false;
-  //     if (value['error_code'] == 3083) {
+  //     if (value['errorcode'] == 3083) {
   //       errorMessage.value = 'email_already_exists'.tr;
-  //     } else if (value['error_code'] == 3084) {
+  //     } else if (value['errorcode'] == 3084) {
   //       errorMessage.value = 'email_verification_failed'.tr;
-  //     } else if (value['error_code'] == 3064) {
+  //     } else if (value['errorcode'] == 3064) {
   //       errorMessage.value = 'invalid_email'.tr;
   //     } else {
   //       // SignUpModel signUpModel = SignUpModel.fromJson(value);

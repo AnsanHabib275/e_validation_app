@@ -10,7 +10,7 @@ class HistoryRepository {
   Future<List<ComplaintsListModel>> historyListApi(
       String uid, String apiKey) async {
     dynamic response = await _apiServices
-        .getApi(AppUrl.signupurl + '?uid=' + uid, apiKey: apiKey);
+        .getApi(AppUrl.scanHistoryUrl + '?uid=' + uid, apiKey: apiKey);
     // return response;
     if (response is List) {
       return response.map((e) => ComplaintsListModel.fromJson(e)).toList();

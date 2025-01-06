@@ -11,8 +11,8 @@ import '../../res/colors/app_color.dart';
 import '../../res/routes/routes_name.dart';
 import '../../utils/utils.dart';
 import '../../view_models/controller/signup/sign_up_view_model.dart';
-import '../login/widget/input_email_widget.dart';
-import '../login/widget/input_password_widget.dart';
+import '../signup/widget/input_email_widget.dart';
+import '../signup/widget/input_password_widget.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -61,10 +61,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     'signup'.tr,
                     textAlign: TextAlign.left,
                     style: const TextStyle(
-                        color: AppColor.colorPrimary,
-                        fontSize: 30,
-                        fontFamily: FontAssets.poppins_regular,
-                        fontWeight: FontWeight.bold),
+                      color: AppColor.textColorPrimary,
+                      fontSize: 51,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   SizedBox(
                     height: Get.height * Utils.getResponsiveHeight(40),

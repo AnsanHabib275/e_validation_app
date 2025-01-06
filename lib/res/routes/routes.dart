@@ -1,5 +1,6 @@
 import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/view/account_created/account_created_screen.dart';
+import 'package:e_validation/view/forget_password/forget_password_screen.dart';
 import 'package:e_validation/view/navigation/home/product/fake_product_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_detail_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_verified_screen.dart';
@@ -13,6 +14,8 @@ import 'package:e_validation/view/navigation/menu/redeem/redeem_reward_screen.da
 import 'package:e_validation/view/navigation/menu/settings/settings_screen.dart';
 import 'package:e_validation/view/navigation/menu/vouchers/vouchers_screen.dart';
 import 'package:e_validation/view/navigation/reward/reward_screen.dart';
+import 'package:e_validation/view_models/controller/verifyEmail/verify_email_view_model.dart';
+import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 
 import '../../view/login/login_screen.dart';
@@ -27,170 +30,205 @@ import '../../view/signup/sign_up_screen.dart';
 import '../../view/splash/splash_screen.dart';
 import '../../view/splash/splash_screen_two.dart';
 import '../../view/splash/welcome_screen.dart';
+import '../../view/verifyEmail/verify_email_screen.dart';
 
 class AppRoutes {
   static appRoutes() => [
         GetPage(
           name: RoutesName.splashScreen,
           page: () => SplashScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.splashScreenTwo,
           page: () => SplashScreenTwo(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.downToUp,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.welcomeScreen,
           page: () => WelcomeScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.loginScreen,
           page: () => LoginScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.signUpScreen,
           page: () => SignUpScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
-        // GetPage(
-        //   name: RoutesName.forgetPasswordScreen,
-        //   page: () => ForgetPasswordScreen(),
-        //   transitionDuration: Duration(milliseconds: 100),
-        //   transition: Transition.leftToRightWithFade,
-        // ),
         GetPage(
           name: RoutesName.accountCreatedScreen,
           page: () => AccountCreatedScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.navigationScreen,
           page: () => NavigationScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.rewardScreen,
           page: () => RewardScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.historyScreen,
           page: () => HistoryScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.homeScreen,
           page: () => HomeScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.notificationScreen,
           page: () => NotificationScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.complaintsScreen,
           page: () => ComplaintsScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.scanProductScreen,
           page: () => ScanProductScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.productVerifiedScreen,
           page: () => ProductVerifiedScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.productVerifyDoneScreen,
           page: () => ProductVerifyDoneScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.productDetailScreen,
           page: () => ProductDetailScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.fakeProductScreen,
           page: () => FakeProductScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.complainScreen,
           page: () => ComplainScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.notEligibleScreen,
           page: () => NotEligibleScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.profileScreen,
           page: () => ProfileScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.kycScreen,
           page: () => KYCScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.faqsScreen,
           page: () => FAQSScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.settingsScreen,
           page: () => SettingsScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.redeemRewardScreen,
           page: () => RedeemRewardScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.pointsScreen,
           page: () => PointsScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
         GetPage(
           name: RoutesName.vouchersScreen,
           page: () => VouchersScreen(),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
+        ),
+        GetPage(
+          name: RoutesName.verifyEmailScreen,
+          page: () => VerifyEmailScreen(),
+          transitionDuration: Duration(milliseconds: 300),
+          transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
+        ),
+        GetPage(
+          name: RoutesName.forgetPasswordScreen,
+          page: () => ForgetPasswordScreen(),
+          transitionDuration: Duration(milliseconds: 300),
+          transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
         ),
       ];
 }

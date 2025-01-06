@@ -35,15 +35,17 @@ class LoginViewModel extends GetxController {
     };
     _api.loginApi(data).then((value) {
       loading.value = false;
-      if (value['error_code'] == 4024) {
+      if (value['errorcode'] == 4024) {
         errorMessage.value = 'invalid_credentials'.tr;
-      } else if (value['error_code'] == 1017) {
+      } else if (value['errorcode'] == 1017) {
         errorMessage.value = 'invalid_credentials'.tr;
-      } else if (value['error_code'] == 3067) {
+      } else if (value['errorcode'] == 3067) {
         errorMessage.value = 'invalid_credentials'.tr;
-      } else if (value['error_code'] == 1018) {
+      } else if (value['errorcode'] == 1018) {
         errorMessage.value = 'invalid_credentials'.tr;
       } else {
+        Utils.toastMessage("Success");
+        Get.toNamed(RoutesName.navigationScreen);
         errorMessage.value = '';
         // UserModel userModel = UserModel(token: value['token'], isLogin: true);
         // LoginModel loginModel = LoginModel.fromJson(value);

@@ -55,7 +55,8 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                 style: TextStyle(
                     color: AppColor.textColorPrimary,
                     fontSize: 22,
-                    fontFamily: FontAssets.poppins_semi_bold),
+                    fontFamily: 'Poppins',
+fontWeight: FontWeight.w600),
               ),
               SizedBox(
                 height: Get.height * Utils.getResponsiveHeight(8),
@@ -70,9 +71,10 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                       Text(
                         'product_scanned'.tr,
                         style: TextStyle(
-                            color: AppColor.textBlackPrimary,
+                            color: AppColor.textBlack80Per,
                             fontSize: 16,
-                            fontFamily: FontAssets.poppins_regular),
+                            fontFamily: 'Poppins',
+fontWeight: FontWeight.w400),
                       ),
                       Spacer(),
                       Text(
@@ -80,7 +82,8 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                         style: TextStyle(
                             color: AppColor.textRedPrimary,
                             fontSize: 16,
-                            fontFamily: FontAssets.poppins_regular),
+                            fontFamily: 'Poppins',
+fontWeight: FontWeight.w400),
                       ),
                     ],
                   ),
@@ -94,9 +97,10 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                   child: Text(
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                     style: TextStyle(
-                        color: AppColor.textBlackPrimary,
+                        color: AppColor.textBlack80Per,
                         fontSize: 16,
-                        fontFamily: FontAssets.poppins_regular),
+                        fontFamily: 'Poppins',
+fontWeight: FontWeight.w400),
                   ),
                 ),
               ),

@@ -62,7 +62,8 @@ class _ComplainScreenState extends State<ComplainScreen> {
                       style: TextStyle(
                           color: AppColor.textColorPrimary,
                           fontSize: 26,
-                          fontFamily: FontAssets.poppins_semi_bold),
+                          fontFamily: 'Poppins',
+fontWeight: FontWeight.w600),
                     )
                   ],
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
 import '../../../view_models/controller/login/login_view_model.dart';
 
@@ -31,12 +32,45 @@ class InputEmailWidget extends StatelessWidget {
               loginVM.passwordFocusNode.value);
         },
         decoration: InputDecoration(
-            hintText: 'email'.tr,
-            labelText: 'email'.tr,
-            errorText: loginVM.errorMessage.value.isEmpty
-                ? null
-                : loginVM.errorMessage.value,
-            border: OutlineInputBorder()),
+          hintText: 'email'.tr,
+          hintStyle: TextStyle(
+            color: AppColor.textBlack80Per,
+            fontSize: 16,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+          ),
+          labelText: 'email'.tr,
+          labelStyle: TextStyle(
+            color: AppColor.textColorPrimary,
+            fontSize: 14,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w400,
+          ),
+          errorText: loginVM.errorMessage.value.isEmpty
+              ? null
+              : loginVM.errorMessage.value,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderSide: BorderSide(
+              color: AppColor.textColorPrimary, // Default border color
+              width: 1.0, // Default border width
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderSide: BorderSide(
+              color: AppColor.textColorPrimary, // Default border color
+              width: 1.0, // Default border width
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderSide: BorderSide(
+              color: AppColor.textColorPrimary, // Default border color
+              width: 1.0, // Default border width
+            ),
+          ),
+        ),
         keyboardType: TextInputType.emailAddress,
       );
     });

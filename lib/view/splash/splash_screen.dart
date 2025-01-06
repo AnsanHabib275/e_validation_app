@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 2),
+    Timer(const Duration(milliseconds: 900),
         () => Get.toNamed(RoutesName.splashScreenTwo));
   }
 
@@ -53,9 +53,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 Text(
                   'app_title'.tr,
                   style: TextStyle(
-                      fontFamily: FontAssets.poppins_semi_bold,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
                       fontSize: 30,
-                      color: AppColor.textBlackPrimary),
+                      color: AppColor.textBlack80Per),
                 ),
                 SizedBox(
                   height: Get.height * Utils.getResponsiveHeight(5),
@@ -63,9 +64,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 Text(
                   'where_fraud_fails'.tr,
                   style: TextStyle(
-                      fontFamily: FontAssets.poppins_regular,
+                      fontFamily: 'Poppins',
+fontWeight: FontWeight.w400,
                       fontSize: 20,
-                      color: AppColor.textBlackPrimary),
+                      color: AppColor.textBlack80Per),
                 ),
               ],
             ),
@@ -93,7 +95,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   Text(
                     'powered_by_blockchain'.tr,
                     style: TextStyle(
-                        fontFamily: FontAssets.poppins_medium,
+                        fontFamily: 'Poppins',
+fontWeight: FontWeight.w500,
                         color: AppColor.textWhite),
                   ),
                 ],
