@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -22,6 +24,16 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+
+    <!-- Permissions -->
+	<key>NSCameraUsageDescription</key>
+    <string>We need access to your camera to scan QR codes.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>We need access to your photo library to save or select photos.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>We need access to your microphone for audio recording.</string>
+
+	<!-- Device requirements -->
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

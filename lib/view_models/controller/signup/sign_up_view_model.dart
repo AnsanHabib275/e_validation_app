@@ -37,9 +37,9 @@ class SignUpViewModel extends GetxController {
       loading.value = false;
       if (value['errorcode'] == 1002) {
         errorMessage.value = 'email_already_exists'.tr;
-      } else if (value['errorcode'] == 3084) {
+      } else if (value['errorcode'] == 1003) {
         errorMessage.value = 'email_verification_failed'.tr;
-      } else if (value['errorcode'] == 3064) {
+      } else if (value['errorcode'] == 1004) {
         errorMessage.value = 'invalid_email'.tr;
       } else {
         Utils.toastMessage("Success");

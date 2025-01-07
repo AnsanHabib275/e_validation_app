@@ -38,15 +38,17 @@ class _ScanProductScreenState extends State<ScanProductScreen> {
               ),
             ),
             Positioned(
-                left: 0,
-                right: 0,
-                top: 100,
-                bottom: 0,
-                child: InkWell(
-                    onTap: () {
-                      navigationVM.changeScreen(ProductVerifiedScreen());
-                    },
-                    child: Image.asset(ImageAssets.product_with_qr_code))),
+              left: 0,
+              right: 0,
+              top: 100,
+              bottom: 0,
+              child: InkWell(
+                onTap: () {
+                  navigationVM.changeScreen(ProductVerifiedScreen());
+                },
+                child: Image.asset(ImageAssets.product_with_qr_code),
+              ),
+            ),
           ],
         ),
       ),

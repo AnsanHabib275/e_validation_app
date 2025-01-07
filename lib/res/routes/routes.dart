@@ -1,20 +1,20 @@
 import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/view/account_created/account_created_screen.dart';
 import 'package:e_validation/view/forget_password/forget_password_screen.dart';
+import 'package:e_validation/view/navigation/home/product/QRScannnerScreen.dart';
 import 'package:e_validation/view/navigation/home/product/fake_product_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_detail_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_verified_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_verify_done_screen.dart';
 import 'package:e_validation/view/navigation/menu/faqs/faqs_screen.dart';
 import 'package:e_validation/view/navigation/menu/kyc/kyc_screen.dart';
-import 'package:e_validation/view/navigation/menu/not_eligible_screen/not_eligible_screen.dart';
 import 'package:e_validation/view/navigation/menu/points/points_screen.dart';
 import 'package:e_validation/view/navigation/menu/profile/profile_screen.dart';
 import 'package:e_validation/view/navigation/menu/redeem/redeem_reward_screen.dart';
 import 'package:e_validation/view/navigation/menu/settings/settings_screen.dart';
 import 'package:e_validation/view/navigation/menu/vouchers/vouchers_screen.dart';
 import 'package:e_validation/view/navigation/reward/reward_screen.dart';
-import 'package:e_validation/view_models/controller/verifyEmail/verify_email_view_model.dart';
+import 'package:e_validation/view/reset_password/reset_password_screen.dart';
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 
@@ -24,6 +24,7 @@ import '../../view/navigation/history/history_screen.dart';
 import '../../view/navigation/home/home_screen.dart';
 import '../../view/navigation/home/product/complain_screen.dart';
 import '../../view/navigation/home/product/scan_product_screen.dart';
+import '../../view/navigation/menu/not_eligible/not_eligible_screen.dart';
 import '../../view/navigation/navigation_screen.dart';
 import '../../view/navigation/notification/notification_screen.dart';
 import '../../view/signup/sign_up_screen.dart';
@@ -226,6 +227,20 @@ class AppRoutes {
         GetPage(
           name: RoutesName.forgetPasswordScreen,
           page: () => ForgetPasswordScreen(),
+          transitionDuration: Duration(milliseconds: 300),
+          transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
+        ),
+        GetPage(
+          name: RoutesName.resetPasswordScreen,
+          page: () => ResetPasswordScreen(),
+          transitionDuration: Duration(milliseconds: 300),
+          transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
+        ),
+        GetPage(
+          name: RoutesName.qrScannerScreen,
+          page: () => QRScannerScreen(),
           transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
           curve: Curves.easeInOut,

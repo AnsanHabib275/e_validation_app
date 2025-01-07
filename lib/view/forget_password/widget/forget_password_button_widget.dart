@@ -18,6 +18,8 @@ class ForgetPasswordButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButton(
+        width: 180,
+        height: 50,
         title: 'send_otp'.tr,
         loading: forgetPasswordVM.loading.value,
         onPress: () {

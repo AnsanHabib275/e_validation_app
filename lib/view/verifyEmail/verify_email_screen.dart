@@ -51,8 +51,8 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(bottom: Get.height * 0.05),
-                    child: Center(
-                        child: Image.asset(ImageAssets.dummy_profile)),
+                    child:
+                        Center(child: Image.asset(ImageAssets.dummy_profile)),
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: Get.width * 0.02),
@@ -90,7 +90,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                         // context.loaderOverlay.show(); // Show load
                         // await Api_Verifymail.verifymail(
                         //     code.toString(), context);
-                         verifyEmailVM.verifyEmailApi();
+                        verifyEmailVM.verifyEmailApi(code.toString());
                       }),
                 ],
               ),
@@ -110,8 +110,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                         onPressed: () async {},
                         child: const Text(
                           '/   Resend',
-                          style:
-                          TextStyle(color: AppColor.colorPrimary),
+                          style: TextStyle(color: AppColor.colorPrimary),
                         ))
                   ],
                 ),

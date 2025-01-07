@@ -28,4 +28,6 @@ class RoutesName {
   static const String vouchersScreen = '/vouchers_screen';
   static const String verifyEmailScreen = '/verify_email_screen';
   static const String forgetPasswordScreen = '/forget_password_screen';
+  static const String resetPasswordScreen = '/reset_password_screen';
+  static const String qrScannerScreen = '/qr_scanner_screen';
 }
