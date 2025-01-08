@@ -12,6 +12,8 @@ import 'package:e_validation/view/navigation/menu/points/points_screen.dart';
 import 'package:e_validation/view/navigation/menu/profile/profile_screen.dart';
 import 'package:e_validation/view/navigation/menu/redeem/redeem_reward_screen.dart';
 import 'package:e_validation/view/navigation/menu/settings/settings_screen.dart';
+import 'package:e_validation/view/navigation/menu/settings/update_profile_screen.dart';
+import 'package:e_validation/view/navigation/menu/voice_chat_gpt/voice_chat_gpt_screen.dart';
 import 'package:e_validation/view/navigation/menu/vouchers/vouchers_screen.dart';
 import 'package:e_validation/view/navigation/reward/reward_screen.dart';
 import 'package:e_validation/view/reset_password/reset_password_screen.dart';
@@ -241,6 +243,20 @@ class AppRoutes {
         GetPage(
           name: RoutesName.qrScannerScreen,
           page: () => QRScannerScreen(),
+          transitionDuration: Duration(milliseconds: 300),
+          transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
+        ),
+        GetPage(
+          name: RoutesName.voiceChatGptScreen,
+          page: () => VoiceChatGptScreen(),
+          transitionDuration: Duration(milliseconds: 300),
+          transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
+        ),
+        GetPage(
+          name: RoutesName.updateProfileScreen,
+          page: () => UpdateProfileScreen(),
           transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
           curve: Curves.easeInOut,

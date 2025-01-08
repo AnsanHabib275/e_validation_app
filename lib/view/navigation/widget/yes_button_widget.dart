@@ -8,12 +8,11 @@ import 'package:get/get.dart';
 
 import '../../../view_models/controller/user_preference/user_preference_view_model.dart';
 
-
 class YesButtonWidget extends StatelessWidget {
   YesButtonWidget({Key? key}) : super(key: key);
 
   final complaintVM = Get.put(ComplainViewModel());
-
+  UserPreference userpreference = UserPreference();
   @override
   Widget build(BuildContext context) {
     return Obx(() {
@@ -23,10 +22,8 @@ class YesButtonWidget extends StatelessWidget {
         title: 'yes'.tr,
         loading: complaintVM.loading.value,
         onPress: () {
-          UserPreference userpreference = UserPreference();
           userpreference.removeUser();
-          Get.offAllNamed(RoutesName
-              .loginScreen);
+          Get.offAllNamed(RoutesName.loginScreen);
         },
       );
     });

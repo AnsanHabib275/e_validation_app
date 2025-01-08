@@ -8,12 +8,12 @@ import 'package:http/http.dart' as http;
 
 class NetworkApiServices extends BaseApiServices {
   @override
-  Future<dynamic> getApi(String url, {String? apiKey}) async {
+  Future<dynamic> getApi(String url, {String? eid}) async {
     Map<String, String> headers = {
       'Content-Type': 'application/json',
     };
-    if (apiKey != null) {
-      headers['api-key'] = '$apiKey'; // Adjust as needed
+    if (eid != null) {
+      headers['E_ID'] = eid;
     }
     dynamic responseJson;
     try {
@@ -36,12 +36,13 @@ class NetworkApiServices extends BaseApiServices {
   }
 
   @override
-  Future<dynamic> postApi(var data, String url, {String? apiKey}) async {
+  Future<dynamic> postApi(var data, String url,
+      {String? eid}) async {
     Map<String, String> headers = {
       'Content-Type': 'application/json',
     };
-    if (apiKey != null) {
-      headers['api-key'] = apiKey; // Adjust as needed
+    if (eid != null) {
+      headers['E_ID'] = eid;
     }
     dynamic responseJson;
     try {
@@ -62,17 +63,12 @@ class NetworkApiServices extends BaseApiServices {
 
   @override
   Future<dynamic> postFormDataApi(Map<String, String> data, String url,
-      {List<http.MultipartFile>? files, String? apiKey}) async {
+      {List<http.MultipartFile>? files, String? eid}) async {
     Map<String, String> headers = {
       'Content-Type': 'multipart/form-data',
     };
-    if (apiKey != null) {
-      headers['api-key'] = apiKey; // Adjust as needed
-    }
-    if (kDebugMode) {
-      print(data);
-      print(headers);
-      print(url);
+    if (eid != null) {
+      headers['E_ID'] = eid;
     }
     dynamic responseJson;
     try {

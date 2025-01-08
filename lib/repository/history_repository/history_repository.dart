@@ -7,10 +7,9 @@ import '../../res/urls/app_url.dart';
 class HistoryRepository {
   final _apiServices = NetworkApiServices();
 
-  Future<List<ComplaintsListModel>> historyListApi(
-      String uid, String apiKey) async {
-    dynamic response = await _apiServices
-        .getApi(AppUrl.scanHistoryUrl + '?uid=' + uid, apiKey: apiKey);
+  Future<List<ComplaintsListModel>> historyListApi(String eid) async {
+    dynamic response =
+        await _apiServices.getApi(AppUrl.scanHistoryUrl, eid: eid);
     // return response;
     if (response is List) {
       return response.map((e) => ComplaintsListModel.fromJson(e)).toList();

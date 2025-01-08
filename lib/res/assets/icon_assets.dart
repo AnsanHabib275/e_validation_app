@@ -35,4 +35,5 @@ class IconAssets {
   static const String ic_question_with_bg =
       'assets/icons/ic_question_with_bg.png';
   static const String ic_edit_image = 'assets/icons/ic_edit_image.png';
+  static const String ic_miq = 'assets/icons/ic_miq.png';
 }

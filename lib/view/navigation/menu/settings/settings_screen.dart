@@ -1,5 +1,7 @@
 import 'package:e_validation/res/assets/icon_assets.dart';
+import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/view/navigation/home/product/widget/done_button_widget.dart';
+import 'package:e_validation/view_models/controller/changePassword/change_password_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -17,6 +19,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  final changePasswordVM = Get.put(ChangePasswordViewModel());
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -58,33 +61,77 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Padding(
               padding:
                   const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16),
-              child: Card(
-                elevation: 0,
-                child: Padding(
-                  padding: const EdgeInsets.all(14.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(IconAssets.ic_change_password),
-                      SizedBox(
-                        width: Get.width * Utils.getResponsiveWidth(16),
-                      ),
-                      Expanded(
-                        child: Text(
-                          'change_password'.tr,
-                          style: TextStyle(
-                              color: AppColor.textBlack80Per,
-                              fontSize: 13,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w400),
+              child: InkWell(
+                onTap: () {
+                  showChangePasswordDialog();
+                },
+                child: Card(
+                  elevation: 0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(IconAssets.ic_change_password),
+                        SizedBox(
+                          width: Get.width * Utils.getResponsiveWidth(16),
                         ),
-                      ),
-                      Image.asset(
-                        IconAssets.ic_submitted_complaint,
-                        height: 15,
-                        width: 15,
-                      ),
-                    ],
+                        Expanded(
+                          child: Text(
+                            'change_password'.tr,
+                            style: TextStyle(
+                                color: AppColor.textBlack80Per,
+                                fontSize: 13,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                        Image.asset(
+                          IconAssets.ic_submitted_complaint,
+                          height: 15,
+                          width: 15,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16),
+              child: InkWell(
+                onTap: () {
+                  // Get.toNamed(RoutesName.updateProfileScreen);
+                },
+                child: Card(
+                  elevation: 0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(IconAssets.ic_change_password),
+                        SizedBox(
+                          width: Get.width * Utils.getResponsiveWidth(16),
+                        ),
+                        Expanded(
+                          child: Text(
+                            'update_profile'.tr,
+                            style: TextStyle(
+                                color: AppColor.textBlack80Per,
+                                fontSize: 13,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                        Image.asset(
+                          IconAssets.ic_submitted_complaint,
+                          height: 15,
+                          width: 15,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -94,4 +141,94 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
     );
   }
+
+  void showChangePasswordDialog() {
+    Get.dialog(
+      Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.0), // Rounded corners
+        ),
+        backgroundColor: Colors.white, // White background
+        child: SizedBox(
+          height: Get.height * Utils.getResponsiveHeight(301),
+          width: Get.width * Utils.getResponsiveWidth(368),
+          child: Stack(children: [
+            Positioned(
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment:
+                    CrossAxisAlignment.center, // Center alignment
+                children: <Widget>[
+                  Text('update_password'.tr),
+                  TextField(
+                    obscureText: true,
+                    controller: changePasswordVM.oldPasswordController.value,
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.lock_open_sharp),
+                      labelText: 'Existing Password',
+                    ),
+                  ),
+                  TextField(
+                    controller: changePasswordVM.newPasswordController.value,
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.lock),
+                      labelText: 'New Password',
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+                top: 0, right: 0, child: Image.asset(IconAssets.ic_close))
+          ]),
+        ),
+      ),
+    );
+  }
+
+  // _onAlertWithCustomContentPressed(context) {
+  //   Get.dialog(Alert(
+  //       context: context,
+  //       title: "Update Password",
+  //       content: Column(
+  //         children: <Widget>[
+  //           TextField(
+  //             obscureText: true,
+  //             controller: old_pass,
+  //             decoration: const InputDecoration(
+  //               icon: Icon(Icons.lock_open_sharp),
+  //               labelText: 'Existing Password',
+  //             ),
+  //           ),
+  //           TextField(
+  //             controller: new_pass,
+  //             obscureText: true,
+  //             decoration: const InputDecoration(
+  //               icon: Icon(Icons.lock),
+  //               labelText: 'New Password',
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //       buttons: [
+  //         DialogButton(
+  //           color: appcolor.copybuttonColor,
+  //           onPressed: () {
+  //             showAlertDialog(context, "Updating");
+  //             Pass_update.pass_update(old_pass.text, new_pass.text);
+  //             old_pass.clear();
+  //             new_pass.clear();
+  //           },
+  //           child: const Text(
+  //             "Done",
+  //             style: TextStyle(color: Colors.white, fontSize: 20),
+  //           ),
+  //         )
+  //       ]).show());
+  // }
 }

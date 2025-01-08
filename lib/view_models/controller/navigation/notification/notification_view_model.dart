@@ -27,9 +27,7 @@ class NotificationViewModel extends GetxController {
   Future<List<NotificationListModel>> notificationListApi() {
     UserPreference userPreference = UserPreference();
     return userPreference.getUser().then((user) {
-      return _api
-          .notificationListApi(user.uid!, user.apiKey!)
-          .then((notificationList) {
+      return _api.notificationListApi(user.user!.eID!).then((notificationList) {
         setRxRequestStatus(Status.COMPLETED);
         return notificationList;
       }).onError((error, stackTrace) {

@@ -1,3 +1,4 @@
+import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/view/navigation/home/product/widget/done_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -50,7 +51,7 @@ class _FAQSScreenState extends State<FAQSScreen> {
                         color: AppColor.textColorPrimary,
                         fontSize: 26,
                         fontFamily: 'Poppins',
-fontWeight: FontWeight.w600),
+                        fontWeight: FontWeight.w600),
                   )
                 ],
               ),
@@ -76,7 +77,7 @@ fontWeight: FontWeight.w600),
                                     color: AppColor.textBlack80Per,
                                     fontSize: 13,
                                     fontFamily: 'Poppins',
-fontWeight: FontWeight.w400),
+                                    fontWeight: FontWeight.w400),
                               ),
                             ),
                             Image.asset(
@@ -105,7 +106,7 @@ fontWeight: FontWeight.w400),
                                     color: AppColor.textBlack80Per,
                                     fontSize: 13,
                                     fontFamily: 'Poppins',
-fontWeight: FontWeight.w400),
+                                    fontWeight: FontWeight.w400),
                               ),
                             ),
                             Image.asset(
@@ -134,7 +135,7 @@ fontWeight: FontWeight.w400),
                                     color: AppColor.textBlack80Per,
                                     fontSize: 13,
                                     fontFamily: 'Poppins',
-fontWeight: FontWeight.w400),
+                                    fontWeight: FontWeight.w400),
                               ),
                             ),
                             Image.asset(
@@ -164,7 +165,7 @@ fontWeight: FontWeight.w400),
                                     color: AppColor.textBlack80Per,
                                     fontSize: 13,
                                     fontFamily: 'Poppins',
-fontWeight: FontWeight.w400),
+                                    fontWeight: FontWeight.w400),
                               ),
                             ),
                             Image.asset(
@@ -186,7 +187,11 @@ fontWeight: FontWeight.w400),
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Spacer(),
-                  Image.asset(IconAssets.ic_question_with_bg)
+                  InkWell(
+                      onTap: () {
+                        Get.toNamed(RoutesName.voiceChatGptScreen);
+                      },
+                      child: Image.asset(IconAssets.ic_question_with_bg))
                 ],
               ),
             )

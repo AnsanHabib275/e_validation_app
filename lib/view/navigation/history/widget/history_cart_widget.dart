@@ -21,19 +21,6 @@ class HistoryCartWidget extends StatefulWidget {
 class _HistoryCartWidgetState extends State<HistoryCartWidget> {
   final historyVM = Get.put(HistoryViewModel());
 
-  late String userId;
-  late String apiKey;
-
-  @override
-  void initState() {
-    super.initState();
-    UserPreference userPreference = UserPreference();
-    userPreference.getUser().then((user) {
-      userId = user.uid!;
-      apiKey = user.apiKey!;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -54,7 +41,7 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
                   style: TextStyle(
                       fontSize: 16,
                       fontFamily: 'Poppins',
-fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w500,
                       color: AppColor.textBlack80Per),
                 ),
                 Text(
@@ -63,7 +50,7 @@ fontWeight: FontWeight.w500,
                   style: TextStyle(
                     fontSize: 12,
                     fontFamily: 'Poppins',
-fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w400,
                     color: AppColor.textBlack80Per, // Strikethrough effect
                   ),
                 ),

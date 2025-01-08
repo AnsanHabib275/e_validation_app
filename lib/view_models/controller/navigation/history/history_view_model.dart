@@ -27,7 +27,7 @@ class HistoryViewModel extends GetxController {
   Future<List<ComplaintsListModel>> historyListApi() {
     UserPreference userPreference = UserPreference();
     return userPreference.getUser().then((user) {
-      return _api.historyListApi(user.uid!, user.apiKey!).then((historyList) {
+      return _api.historyListApi(user.user!.eID!).then((historyList) {
         setRxRequestStatus(Status.COMPLETED);
         return historyList;
       }).onError((error, stackTrace) {

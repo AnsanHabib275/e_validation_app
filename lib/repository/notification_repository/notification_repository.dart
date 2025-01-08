@@ -8,10 +8,9 @@ import '../../res/urls/app_url.dart';
 class NotificationRepository {
   final _apiServices = NetworkApiServices();
 
-  Future<List<NotificationListModel>> notificationListApi(
-      String uid, String apiKey) async {
-    dynamic response = await _apiServices
-        .getApi(AppUrl.loginUrl + '?uid=' + uid, apiKey: apiKey);
+  Future<List<NotificationListModel>> notificationListApi(String eid) async {
+    dynamic response =
+        await _apiServices.getApi(AppUrl.loginUrl + '?uid=', eid: eid);
     // return response;
     if (response is List) {
       return response.map((e) => NotificationListModel.fromJson(e)).toList();

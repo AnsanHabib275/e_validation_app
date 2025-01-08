@@ -1,40 +1,75 @@
 class LoginModel {
-  String? response;
-  String? token;
-  String? company;
-  String? email;
-  String? fullName;
-  String? apiKey;
-  String? uid;
+  bool? isSuccessfull;
+  String? message;
+  User? user;
+  int? errorcode;
 
-  LoginModel(
-      {this.response,
-      this.token,
-      this.company,
-      this.email,
-      this.fullName,
-      this.apiKey,
-      this.uid});
+  LoginModel({this.isSuccessfull, this.message, this.user, this.errorcode});
 
   LoginModel.fromJson(Map<String, dynamic> json) {
-    response = json['Response'];
-    token = json['Token'];
-    company = json['company'];
-    email = json['email'];
-    fullName = json['full_name'];
-    apiKey = json['Api_key'];
-    uid = json['uid'];
+    isSuccessfull = json['isSuccessfull'];
+    message = json['message'];
+    user = json['user'] != null ? new User.fromJson(json['user']) : null;
+    errorcode = json['errorcode'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['Response'] = this.response;
-    data['Token'] = this.token;
-    data['company'] = this.company;
-    data['email'] = this.email;
-    data['full_name'] = this.fullName;
-    data['Api_key'] = this.apiKey;
-    data['uid'] = this.uid;
+    data['isSuccessfull'] = this.isSuccessfull;
+    data['message'] = this.message;
+    if (this.user != null) {
+      data['user'] = this.user!.toJson();
+    }
+    data['errorcode'] = this.errorcode;
+    return data;
+  }
+}
+
+class User {
+  String? fullName;
+  String? email;
+  String? creationDate;
+  String? eID;
+  String? firstName;
+  String? lastName;
+  String? mobileNumbre;
+  String? dOB;
+  String? gender;
+
+  User(
+      {this.fullName,
+      this.email,
+      this.creationDate,
+      this.eID,
+      this.firstName,
+      this.lastName,
+      this.mobileNumbre,
+      this.dOB,
+      this.gender});
+
+  User.fromJson(Map<String, dynamic> json) {
+    fullName = json['FullName'];
+    email = json['Email'];
+    creationDate = json['CreationDate'];
+    eID = json['E_ID'];
+    firstName = json['FirstName'];
+    lastName = json['LastName'];
+    mobileNumbre = json['MobileNumbre'];
+    dOB = json['DOB'];
+    gender = json['Gender'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['FullName'] = this.fullName;
+    data['Email'] = this.email;
+    data['CreationDate'] = this.creationDate;
+    data['E_ID'] = this.eID;
+    data['FirstName'] = this.firstName;
+    data['LastName'] = this.lastName;
+    data['MobileNumbre'] = this.mobileNumbre;
+    data['DOB'] = this.dOB;
+    data['Gender'] = this.gender;
     return data;
   }
 }

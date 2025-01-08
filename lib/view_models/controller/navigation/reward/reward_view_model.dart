@@ -27,7 +27,7 @@ class RewardViewModel extends GetxController {
   Future<List<RewardListModel>> rewardListApi() {
     UserPreference userPreference = UserPreference();
     return userPreference.getUser().then((user) {
-      return _api.rewardListApi(user.uid!, user.apiKey!).then((rewardList) {
+      return _api.rewardListApi(user.user!.eID!).then((rewardList) {
         setRxRequestStatus(Status.COMPLETED);
         return rewardList;
       }).onError((error, stackTrace) {

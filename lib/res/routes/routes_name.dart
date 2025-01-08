@@ -30,4 +30,6 @@ class RoutesName {
   static const String forgetPasswordScreen = '/forget_password_screen';
   static const String resetPasswordScreen = '/reset_password_screen';
   static const String qrScannerScreen = '/qr_scanner_screen';
+  static const String voiceChatGptScreen = '/voice_chat_gpt_screen';
+  static const String updateProfileScreen = '/update_profile_screen';
 }

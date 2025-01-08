@@ -24,19 +24,6 @@ class ComplaintsCartWidget extends StatefulWidget {
 class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
   final notificationVM = Get.put(NotificationViewModel());
 
-  late String userId;
-  late String apiKey;
-
-  @override
-  void initState() {
-    super.initState();
-    UserPreference userPreference = UserPreference();
-    userPreference.getUser().then((user) {
-      userId = user.uid!;
-      apiKey = user.apiKey!;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -69,8 +56,7 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
                         fontSize: 12,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400,
-                        color:
-                            AppColor.textBlack80Per, // Strikethrough effect
+                        color: AppColor.textBlack80Per, // Strikethrough effect
                       ),
                     ),
                   ],

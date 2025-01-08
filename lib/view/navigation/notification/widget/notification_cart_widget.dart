@@ -24,19 +24,6 @@ class NotificationCartWidget extends StatefulWidget {
 class _NotificationCartWidgetState extends State<NotificationCartWidget> {
   final notificationVM = Get.put(NotificationViewModel());
 
-  late String userId;
-  late String apiKey;
-
-  @override
-  void initState() {
-    super.initState();
-    UserPreference userPreference = UserPreference();
-    userPreference.getUser().then((user) {
-      userId = user.uid!;
-      apiKey = user.apiKey!;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(

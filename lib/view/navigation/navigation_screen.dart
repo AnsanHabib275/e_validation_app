@@ -26,6 +26,7 @@ import '../../res/assets/font_assets.dart';
 import '../../res/assets/icon_assets.dart';
 import '../../res/colors/app_color.dart';
 import '../../res/componants/MenuIcon.dart';
+import '../../view_models/controller/user_preference/user_preference_view_model.dart';
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen({super.key});
@@ -36,6 +37,7 @@ class NavigationScreen extends StatefulWidget {
 
 class _NavigationScreenState extends State<NavigationScreen> {
   final navigationVM = Get.put(NavigationViewModel());
+  final _formkey = GlobalKey<FormState>();
 
   final List<MenuItemsModel> items = [
     MenuItemsModel(IconAssets.ic_menu_profile, 'Profile'),
@@ -49,6 +51,17 @@ class _NavigationScreenState extends State<NavigationScreen> {
     MenuItemsModel(IconAssets.ic_menu_logout, 'Logout'),
   ];
   Widget? _child;
+
+  String? eid = '';
+
+  Future<void> getUserDetail() async {
+    UserPreference userPreference = UserPreference();
+    userPreference.getUser().then((user) {
+      setState(() {
+        eid = user.user?.eID;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -260,7 +273,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: InputEmailWidget(),
+                  child: Form(key: _formkey, child: InputEmailWidget()),
                 ),
                 SizedBox(
                   height: Get.height * Utils.getResponsiveHeight(22),
@@ -282,7 +295,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    DeleteButtonWidget(),
+                    DeleteButtonWidget(
+                      formkey: _formkey,
+                      eid: eid,
+                    ),
                     SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
                     CancelButtonWidget(),
                   ],

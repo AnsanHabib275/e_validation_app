@@ -28,9 +28,7 @@ class ComplaintsViewModel extends GetxController {
   Future<List<ComplaintsListModel>> complaintsListApi() {
     UserPreference userPreference = UserPreference();
     return userPreference.getUser().then((user) {
-      return _api
-          .complaintsListApi(user.uid!, user.apiKey!)
-          .then((historyList) {
+      return _api.complaintsListApi(user.user!.eID!).then((historyList) {
         setRxRequestStatus(Status.COMPLETED);
         return historyList;
       }).onError((error, stackTrace) {

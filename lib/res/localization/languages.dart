@@ -111,6 +111,12 @@ class Languages extends Translations {
           'voucher_#': 'Voucher #',
           'valid_unit': 'Valid Unit',
           'send_otp': 'Send OTP',
+          'voice_chat_gpt': 'Voice chat GPT',
+          'update_profile': 'Update Profile',
+          'update_password': 'Update Password',
+          'existing_password': 'Existing Password',
+          'new_password': 'New Password',
+          'update': 'Update',
         },
         'ur_PK': {
           'splash_screen': 'سپلیش اسکرین',

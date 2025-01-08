@@ -6,33 +6,47 @@ import '../../../models/login/login_model.dart';
 class UserPreference extends GetxController {
   Future<bool> saveUser(LoginModel responseModel) async {
     SharedPreferences sp = await SharedPreferences.getInstance();
-    sp.setString('response', responseModel.response.toString());
-    sp.setString('token', responseModel.token.toString());
-    sp.setString('company', responseModel.company.toString());
-    sp.setString('email', responseModel.email.toString());
-    sp.setString('full_name', responseModel.fullName.toString());
-    sp.setString('api_key', responseModel.apiKey.toString());
-    sp.setString('uid', responseModel.uid.toString());
+    sp.setBool('isSuccessfull', responseModel.isSuccessfull ?? false);
+    sp.setString('message', responseModel.message ?? '');
+    if (responseModel.user != null) {
+      sp.setString('user_fullName', responseModel.user!.fullName ?? '');
+      sp.setString('user_email', responseModel.user!.email ?? '');
+      sp.setString('user_firstName', responseModel.user!.firstName ?? '');
+      sp.setString('user_lastName', responseModel.user!.lastName ?? '');
+      sp.setString('user_mobileNumber', responseModel.user!.mobileNumbre ?? '');
+      sp.setString('user_creationDate', responseModel.user!.creationDate ?? '');
+      sp.setString('user_eID', responseModel.user!.eID ?? '');
+      sp.setString('user_dob', responseModel.user!.dOB ?? '');
+      sp.setString('user_gender', responseModel.user!.gender ?? '');
+    }
+    sp.setInt('errorcode', responseModel.errorcode ?? 0);
     return true;
   }
 
   Future<LoginModel> getUser() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
-    String? response = sp.getString('response');
-    String? token = sp.getString('token');
-    String? company = sp.getString('company');
-    String? email = sp.getString('email');
-    String? fullName = sp.getString('full_name');
-    String? apiKey = sp.getString('api_key');
-    String? uid = sp.getString('uid');
+    bool? isSuccessfull = sp.getBool('isSuccessfull');
+    String? message = sp.getString('message');
+    int? errorcode = sp.getInt('errorcode');
+
+    User? user = User(
+      fullName: sp.getString('user_fullName'),
+      email: sp.getString('user_email'),
+      firstName: sp.getString('user_firstName'),
+      lastName: sp.getString('user_lastName'),
+      mobileNumbre: sp.getString('user_mobileNumber'),
+      creationDate: sp.getString('user_creationDate'),
+      eID: sp.getString('user_eID'),
+      dOB: sp.getString('user_dob'),
+      gender: sp.getString('user_gender'),
+    );
+
     return LoginModel(
-        response: response,
-        token: token,
-        company: company,
-        email: email,
-        fullName: fullName,
-        apiKey: apiKey,
-        uid: uid);
+      isSuccessfull: isSuccessfull,
+      message: message,
+      user: user,
+      errorcode: errorcode,
+    );
   }
 
   Future<bool> removeUser() async {
