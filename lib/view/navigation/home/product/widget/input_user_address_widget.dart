@@ -3,19 +3,19 @@ import 'package:get/get.dart';
 
 import '../../../../../res/colors/app_color.dart';
 import '../../../../../utils/utils.dart';
-import '../../../../../view_models/controller/navigation/complain/complain_view_model.dart';
+import '../../../../../view_models/controller/navigation/submitComplain/submit_complain_view_model.dart';
 
 class InputUserAddressWidget extends StatelessWidget {
   InputUserAddressWidget({super.key});
 
-  final complainVM = Get.put(ComplainViewModel());
+  final submitComplainVM = Get.put(SubmitComplainViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: complainVM.userAddressController.value,
-        focusNode: complainVM.userAddressFocusNode.value,
+        controller: submitComplainVM.userAddressController.value,
+        focusNode: submitComplainVM.userAddressFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
@@ -25,12 +25,13 @@ class InputUserAddressWidget extends StatelessWidget {
           return null;
         },
         onFieldSubmitted: (value) {
-          Utils.fieldFocusChange(context, complainVM.userAddressFocusNode.value,
-              complainVM.productIdFocusNode.value);
+          Utils.fieldFocusChange(
+              context,
+              submitComplainVM.userAddressFocusNode.value,
+              submitComplainVM.productIdFocusNode.value);
         },
         decoration: InputDecoration(
           hintText: 'user_address'.tr,
-
           hintStyle: TextStyle(
             color: AppColor.textBlack80Per,
             fontSize: 16,

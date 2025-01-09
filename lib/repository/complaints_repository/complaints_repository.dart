@@ -7,9 +7,9 @@ import '../../res/urls/app_url.dart';
 class ComplaintsRepository {
   final _apiServices = NetworkApiServices();
 
-  Future<List<ComplaintsListModel>> complaintsListApi(String uid) async {
+  Future<List<ComplaintsListModel>> complaintsListApi(String eid) async {
     dynamic response =
-        await _apiServices.getApi(AppUrl.complaintStatusUrl + '?uid=' + uid);
+        await _apiServices.getApi(AppUrl.complaintStatusUrl, eid: eid);
     // return response;
     if (response is List) {
       return response.map((e) => ComplaintsListModel.fromJson(e)).toList();

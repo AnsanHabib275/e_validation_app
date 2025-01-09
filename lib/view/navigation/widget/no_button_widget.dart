@@ -1,5 +1,4 @@
 import 'package:e_validation/res/routes/routes_name.dart';
-import 'package:e_validation/view_models/controller/navigation/complain/complain_view_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +11,6 @@ import '../../../utils/utils.dart';
 class NoButtonWidget extends StatelessWidget {
   NoButtonWidget({Key? key}) : super(key: key);
 
-  final complaintVM = Get.put(ComplainViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,6 @@ class NoButtonWidget extends StatelessWidget {
         width: Get.width * Utils.getResponsiveWidth(119),
         height: Get.height * Utils.getResponsiveHeight(42),
         title: 'no'.tr,
-        loading: complaintVM.loading.value,
         onPress: () {
           Get.back();
         },

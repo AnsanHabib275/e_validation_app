@@ -1,21 +1,21 @@
-import 'package:e_validation/view_models/controller/navigation/complain/complain_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../res/colors/app_color.dart';
 import '../../../../../utils/utils.dart';
+import '../../../../../view_models/controller/navigation/submitComplain/submit_complain_view_model.dart';
 
 class InputTitleWidget extends StatelessWidget {
   InputTitleWidget({super.key});
 
-  final complainVM = Get.put(ComplainViewModel());
+  final submitComplainVM = Get.put(SubmitComplainViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: complainVM.titleController.value,
-        focusNode: complainVM.titleFocusNode.value,
+        controller: submitComplainVM.titleController.value,
+        focusNode: submitComplainVM.titleFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
@@ -25,8 +25,8 @@ class InputTitleWidget extends StatelessWidget {
           return null;
         },
         onFieldSubmitted: (value) {
-          Utils.fieldFocusChange(context, complainVM.titleFocusNode.value,
-              complainVM.userAddressFocusNode.value);
+          Utils.fieldFocusChange(context, submitComplainVM.titleFocusNode.value,
+              submitComplainVM.userAddressFocusNode.value);
         },
         decoration: InputDecoration(
           hintText: 'title'.tr,

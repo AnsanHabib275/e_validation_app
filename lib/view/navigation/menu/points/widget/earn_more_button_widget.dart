@@ -1,7 +1,6 @@
 import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/view/navigation/home/product/product_verify_done_screen.dart';
 import 'package:e_validation/view/navigation/menu/vouchers/vouchers_screen.dart';
-import 'package:e_validation/view_models/controller/navigation/complain/complain_view_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +11,6 @@ import '../../../../../view_models/controller/navigation/navigation_view_model.d
 class EarnMoreButtonWidget extends StatelessWidget {
   EarnMoreButtonWidget({Key? key}) : super(key: key);
 
-  final complaintVM = Get.put(ComplainViewModel());
   final navigationVM = Get.put(NavigationViewModel());
 
   @override
@@ -25,7 +23,6 @@ class EarnMoreButtonWidget extends StatelessWidget {
         width: 40,
         fontWeight: FontWeight.w400,
         fontSize: 6,
-        loading: complaintVM.loading.value,
         onPress: () {
           navigationVM.changeScreen(VouchersScreen());
           // Get.to(() => const ProductVerifyDoneScreen());

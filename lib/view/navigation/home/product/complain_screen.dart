@@ -15,7 +15,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../utils/utils.dart';
-import '../../../../view_models/controller/navigation/complain/complain_view_model.dart';
 
 class ComplainScreen extends StatefulWidget {
   const ComplainScreen({super.key});
@@ -25,7 +24,6 @@ class ComplainScreen extends StatefulWidget {
 }
 
 class _ComplainScreenState extends State<ComplainScreen> {
-  final complaintVM = Get.put(ComplainViewModel());
   final _formkey = GlobalKey<FormState>();
 
   @override
@@ -63,7 +61,7 @@ class _ComplainScreenState extends State<ComplainScreen> {
                           color: AppColor.textColorPrimary,
                           fontSize: 26,
                           fontFamily: 'Poppins',
-fontWeight: FontWeight.w600),
+                          fontWeight: FontWeight.w600),
                     )
                   ],
                 ),

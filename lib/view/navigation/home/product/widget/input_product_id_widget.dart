@@ -1,22 +1,22 @@
-import 'package:e_validation/view_models/controller/navigation/complain/complain_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../res/colors/app_color.dart';
 import '../../../../../utils/utils.dart';
+import '../../../../../view_models/controller/navigation/submitComplain/submit_complain_view_model.dart';
 
 class InputProductIdWidget extends StatelessWidget {
   InputProductIdWidget({super.key});
 
-  final complaintVM = Get.put(ComplainViewModel());
+  final submitComplaintVM = Get.put(SubmitComplainViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Obx(
       () {
         return TextFormField(
-          controller: complaintVM.productIdController.value,
-          focusNode: complaintVM.productIdFocusNode.value,
+          controller: submitComplaintVM.productIdController.value,
+          focusNode: submitComplaintVM.productIdFocusNode.value,
           enableSuggestions: true,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: (value) {
@@ -28,12 +28,11 @@ class InputProductIdWidget extends StatelessWidget {
           onFieldSubmitted: (value) {
             Utils.fieldFocusChange(
                 context,
-                complaintVM.productIdFocusNode.value,
-                complaintVM.attachFileFocusNode.value);
+                submitComplaintVM.productIdFocusNode.value,
+                submitComplaintVM.attachFileFocusNode.value);
           },
           decoration: InputDecoration(
-              hintText: 'product_id'.tr,
-
+            hintText: 'product_id'.tr,
             hintStyle: TextStyle(
               color: AppColor.textBlack80Per,
               fontSize: 16,
@@ -47,9 +46,9 @@ class InputProductIdWidget extends StatelessWidget {
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w400,
             ),
-              errorText: complaintVM.errorMessage.value.isEmpty
-                  ? null
-                  : complaintVM.errorMessage.value,
+            errorText: submitComplaintVM.errorMessage.value.isEmpty
+                ? null
+                : submitComplaintVM.errorMessage.value,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(8)),
               borderSide: BorderSide(
@@ -70,7 +69,8 @@ class InputProductIdWidget extends StatelessWidget {
                 color: AppColor.textColorPrimary, // Default border color
                 width: 1.0, // Default border width
               ),
-            ),),
+            ),
+          ),
           keyboardType: TextInputType.text,
         );
       },

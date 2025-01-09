@@ -1,8 +1,13 @@
+import 'package:e_validation/utils/utils.dart';
+import 'package:e_validation/view_models/controller/scanProduct/scan_product_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:qr_code_scanner_plus/qr_code_scanner_plus.dart';
+
+import '../../../../view_models/controller/user_preference/user_preference_view_model.dart';
 // import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
 
 class QRScannerScreen extends StatefulWidget {
   @override
@@ -10,15 +15,28 @@ class QRScannerScreen extends StatefulWidget {
 }
 
 class _QRScannerScreenState extends State<QRScannerScreen> {
+  final scanProductVM = Get.put(ScanProductViewModel());
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   QRViewController? controller;
   bool isCameraEnabled = false;
+  String? eid = '';
+  String scannedData = '';
+
+  Future<void> getUserDetail() async {
+    UserPreference userPreference = UserPreference();
+    userPreference.getUser().then((user) {
+      setState(() {
+        eid = user.user?.eID;
+      });
+    });
+  }
 
   @override
   void initState() {
     super.initState();
     // _checkCameraPermission();
-    _handleCameraPermission();
+    // _handleCameraPermission();
+    requestCameraPermission();
   }
 
   Future<void> _checkCameraPermission() async {
@@ -72,6 +90,32 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
     }
   }
 
+  Future<void> requestCameraPermission() async {
+    var status = await Permission.camera.status;
+
+    if (status.isDenied || status.isRestricted) {
+      // Request the permission again
+      status = await Permission.camera.request();
+    }
+
+    if (status.isPermanentlyDenied) {
+      // Permission is permanently denied, show dialog to guide the user
+      openAppSettingsDialog();
+    } else if (status.isGranted) {
+      print("Camera permission granted!");
+      // Proceed with using the camera
+    } else {
+      print("Camera permission denied!");
+    }
+  }
+
+  void openAppSettingsDialog() {
+    print("Opening settings");
+    Permission.camera.isPermanentlyDenied.then((result) {
+      // Permission.camera.openSettingIf();
+    });
+  }
+
   @override
   void reassemble() {
     super.reassemble();
@@ -88,16 +132,51 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
             ? Stack(
                 children: [
                   // QR Scanner
-                  QRView(
-                    key: qrKey,
-                    onQRViewCreated: _onQRViewCreated,
-                    overlay: QrScannerOverlayShape(
-                      borderColor: Colors.black,
-                      borderRadius: 10,
-                      borderLength: 30,
-                      borderWidth: 5,
-                      cutOutSize: 300, // Adjust size as needed
-                    ),
+                  // QRView(
+                  //   key: qrKey,
+                  //   onQRViewCreated: _onQRViewCreated,
+                  //   overlay: QrScannerOverlayShape(
+                  //     borderColor: Colors.black,
+                  //     borderRadius: 10,
+                  //     borderLength: 30,
+                  //     borderWidth: 5,
+                  //     cutOutSize: 300, // Adjust size as needed
+                  //   ),
+                  // ),
+                  Column(
+                    children: [
+                      Expanded(
+                        child: MobileScanner(
+                          onDetect: (barcode) {
+                            final String? code =
+                                barcode.raw.toString(); // Extract scanned data
+                            // final String? code = barcode.raw.toString(); // Extract scanned data
+                            // barcode.rawValue; // Extract scanned data
+                            // handleQrScan(
+                            //     barcode.raw.toString() as Map<String, dynamic>);
+                            // String rawValue = code['data'][0]['rawValue'] ?? '';
+                            if (code != null) {
+                              setState(() {
+                                scannedData = code;
+                              });
+                              // Optionally navigate or display product info
+                              print("Scanned QR Code: $code");
+                            }
+                          },
+                        ),
+                      ),
+                      if (scannedData.isNotEmpty)
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: SingleChildScrollView(
+                            child: Text(
+                              'Scanned Data: $scannedData',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                    ],
                   ),
 
                   // Close Button
@@ -111,27 +190,6 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
                       },
                     ),
                   ),
-
-                  // Bottom Navigation Bar-like Section
-                  // Positioned(
-                  //   bottom: 0,
-                  //   left: 0,
-                  //   right: 0,
-                  //   child: Container(
-                  //     color: Colors.white,
-                  //     padding: EdgeInsets.symmetric(vertical: 10),
-                  //     child: Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //       children: [
-                  //         Icon(Icons.card_giftcard, color: Colors.black),
-                  //         Icon(Icons.history, color: Colors.black),
-                  //         Icon(Icons.home, color: Colors.black),
-                  //         Icon(Icons.notifications, color: Colors.black),
-                  //         Icon(Icons.info, color: Colors.black),
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               )
             : _buildPermissionRequiredUI());
@@ -163,11 +221,17 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
     setState(() {
       this.controller = controller;
     });
-
     controller.scannedDataStream.listen((scanData) {
       // Handle the scanned QR code data
       print(scanData.code);
-      Navigator.pop(context, scanData.code);
+      Utils.toastMessageCenter(controller.hashCode.toString());
+      // Navigator.pop(context, scanData.code);
+      if (scanData.code != null) {
+        scanProductVM.scanProductApi(scanData.code, eid!);
+      } else {
+        scanProductVM.scanProductApi(
+            scanData.code != null ? scanData.code : "", eid!);
+      }
     });
   }
 
@@ -199,5 +263,51 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
         ],
       ),
     );
+  }
+
+  Future<void> handleQrScan(Map<String, dynamic> qrData) async {
+    try {
+      // Extract rawValue from the scanned QR code data
+      String rawValue = qrData['data'][0]['rawValue'] ?? '';
+      if (rawValue.isEmpty) {
+        throw Exception("No data found in QR code.");
+      }
+
+      // Parse the rawValue
+      List<String> lines = rawValue.split('\n');
+      Map<String, String> productInfo = {};
+      for (var line in lines) {
+        List<String> keyValue = line.split(': ');
+        if (keyValue.length == 2) {
+          productInfo[keyValue[0].trim()] = keyValue[1].trim();
+        }
+      }
+
+      // Prepare payload for the API call
+      Map<String, dynamic> payload = {
+        "name": productInfo["Product Name"],
+        "id": productInfo["Product ID"],
+        "description": productInfo["Description"],
+      };
+
+      print(payload);
+
+      // // Send payload to API
+      // String apiUrl = "https://example.com/api/product";
+      // var response = await http.post(
+      //   Uri.parse(apiUrl),
+      //   headers: {"Content-Type": "application/json"},
+      //   body: jsonEncode(payload),
+      // );
+      //
+      // // Handle the API response
+      // if (response.statusCode == 200) {
+      //   print("API Call Success: ${response.body}");
+      // } else {
+      //   print("API Call Failed: ${response.statusCode}");
+      // }
+    } catch (e) {
+      print("Error handling QR data: $e");
+    }
   }
 }

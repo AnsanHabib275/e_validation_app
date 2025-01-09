@@ -1,20 +1,20 @@
-import 'package:e_validation/view_models/controller/navigation/complain/complain_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../res/colors/app_color.dart';
+import '../../../../../view_models/controller/navigation/submitComplain/submit_complain_view_model.dart';
 
 class InputDetailWidget extends StatelessWidget {
   InputDetailWidget({super.key});
 
-  final complaintVM = Get.put(ComplainViewModel());
+  final submitComplaintVM = Get.put(SubmitComplainViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: complaintVM.detailController.value,
-        focusNode: complaintVM.detailFocusNode.value,
+        controller: submitComplaintVM.detailController.value,
+        focusNode: submitComplaintVM.detailFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {

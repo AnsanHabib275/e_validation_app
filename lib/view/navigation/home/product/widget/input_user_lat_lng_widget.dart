@@ -3,19 +3,19 @@ import 'package:get/get.dart';
 
 import '../../../../../res/colors/app_color.dart';
 import '../../../../../utils/utils.dart';
-import '../../../../../view_models/controller/navigation/complain/complain_view_model.dart';
+import '../../../../../view_models/controller/navigation/submitComplain/submit_complain_view_model.dart';
 
 class InputUserLatLngWidget extends StatelessWidget {
   InputUserLatLngWidget({super.key});
 
-  final complainVM = Get.put(ComplainViewModel());
+  final submitComplainVM = Get.put(SubmitComplainViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: complainVM.userLatLngController.value,
-        focusNode: complainVM.userLatLngFocusNode.value,
+        controller: submitComplainVM.userLatLngController.value,
+        focusNode: submitComplainVM.userLatLngFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
@@ -25,8 +25,10 @@ class InputUserLatLngWidget extends StatelessWidget {
           return null;
         },
         onFieldSubmitted: (value) {
-          Utils.fieldFocusChange(context, complainVM.userLatLngFocusNode.value,
-              complainVM.titleFocusNode.value);
+          Utils.fieldFocusChange(
+              context,
+              submitComplainVM.userLatLngFocusNode.value,
+              submitComplainVM.titleFocusNode.value);
         },
         decoration: InputDecoration(
           hintText: 'user_lat_lng'.tr,

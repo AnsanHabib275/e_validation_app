@@ -1,21 +1,21 @@
-import 'package:e_validation/view_models/controller/navigation/complain/complain_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../res/colors/app_color.dart';
 import '../../../../../utils/utils.dart';
+import '../../../../../view_models/controller/navigation/submitComplain/submit_complain_view_model.dart';
 
 class InputUserNameWidget extends StatelessWidget {
   InputUserNameWidget({super.key});
 
-  final complainVM = Get.put(ComplainViewModel());
+  final submitComplainVM = Get.put(SubmitComplainViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: complainVM.userNameController.value,
-        focusNode: complainVM.userNameFocusNode.value,
+        controller: submitComplainVM.userNameController.value,
+        focusNode: submitComplainVM.userNameFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
@@ -25,8 +25,10 @@ class InputUserNameWidget extends StatelessWidget {
           return null;
         },
         onFieldSubmitted: (value) {
-          Utils.fieldFocusChange(context, complainVM.userNameFocusNode.value,
-              complainVM.userLatLngFocusNode.value);
+          Utils.fieldFocusChange(
+              context,
+              submitComplainVM.userNameFocusNode.value,
+              submitComplainVM.userLatLngFocusNode.value);
         },
         decoration: InputDecoration(
           hintText: 'user_name'.tr,

@@ -1,17 +1,17 @@
 import 'package:e_validation/res/componants/RoundButtonBorder.dart';
 import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/utils/utils.dart';
-import 'package:e_validation/view_models/controller/navigation/complain/complain_view_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../view_models/controller/navigation/submitComplain/submit_complain_view_model.dart';
 import '../../../view_models/controller/user_preference/user_preference_view_model.dart';
 
 class YesButtonWidget extends StatelessWidget {
   YesButtonWidget({Key? key}) : super(key: key);
 
-  final complaintVM = Get.put(ComplainViewModel());
+  final submitComplaintVM = Get.put(SubmitComplainViewModel());
   UserPreference userpreference = UserPreference();
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class YesButtonWidget extends StatelessWidget {
         width: Get.width * Utils.getResponsiveWidth(119),
         height: Get.height * Utils.getResponsiveHeight(42),
         title: 'yes'.tr,
-        loading: complaintVM.loading.value,
+        loading: submitComplaintVM.loading.value,
         onPress: () {
           userpreference.removeUser();
           Get.offAllNamed(RoutesName.loginScreen);
