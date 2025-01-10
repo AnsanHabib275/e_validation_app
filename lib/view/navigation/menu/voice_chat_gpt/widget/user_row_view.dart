@@ -16,8 +16,16 @@ class UserRowView extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CircleAvatar(
-          backgroundImage: AssetImage(ImageAssets.img_chat_user),
+        // CircleAvatar(
+        //   backgroundImage: AssetImage(ImageAssets.img_chat_user),
+        // ),
+        Container(
+          height: 36,
+          width: 36,
+          decoration: BoxDecoration(
+              color: AppColor.lightGreyButtonColor,
+              borderRadius: BorderRadius.circular(200)),
+          child: Image.asset(ImageAssets.img_chat_user),
         ),
         SizedBox(
           width: Get.width * Utils.getResponsiveWidth(9),

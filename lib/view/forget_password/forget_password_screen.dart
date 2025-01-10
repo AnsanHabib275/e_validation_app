@@ -32,6 +32,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
           },
           child: Icon(Icons.arrow_back_ios_new_sharp),
         ),
+        centerTitle: true,
         title: Text(
           'forget_password'.tr,
           style: TextStyle(

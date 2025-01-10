@@ -31,6 +31,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
             ), // Change the color here
             onPressed: () => Navigator.of(context).pop(),
           ),
+          centerTitle: true,
           title: const Text(
             'Verification',
             style: TextStyle(

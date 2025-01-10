@@ -56,133 +56,136 @@ class _FAQSScreenState extends State<FAQSScreen> {
                 ],
               ),
             ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(
-                  children: [
-                    Card(
-                      elevation: 0,
-                      child: Padding(
-                        padding: const EdgeInsets.all(14.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                'what_are_the_benefits_of_points'.tr,
-                                style: TextStyle(
-                                    color: AppColor.textBlack80Per,
-                                    fontSize: 13,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400),
+            Expanded(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 0,
+                        child: Padding(
+                          padding: const EdgeInsets.all(14.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  'what_are_the_benefits_of_points'.tr,
+                                  style: TextStyle(
+                                      color: AppColor.textBlack80Per,
+                                      fontSize: 13,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
+                                ),
                               ),
-                            ),
-                            Image.asset(
-                              IconAssets.ic_submitted_complaint,
-                              height: 15,
-                              width: 15,
-                            ),
-                          ],
+                              Image.asset(
+                                IconAssets.ic_submitted_complaint,
+                                height: 15,
+                                width: 15,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 2,
-                    ),
-                    Card(
-                      elevation: 0,
-                      child: Padding(
-                        padding: const EdgeInsets.all(14.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                'what_is_kyc'.tr,
-                                style: TextStyle(
-                                    color: AppColor.textBlack80Per,
-                                    fontSize: 13,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400),
+                      SizedBox(
+                        height: 2,
+                      ),
+                      Card(
+                        elevation: 0,
+                        child: Padding(
+                          padding: const EdgeInsets.all(14.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  'what_is_kyc'.tr,
+                                  style: TextStyle(
+                                      color: AppColor.textBlack80Per,
+                                      fontSize: 13,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
+                                ),
                               ),
-                            ),
-                            Image.asset(
-                              IconAssets.ic_submitted_complaint,
-                              height: 15,
-                              width: 15,
-                            ),
-                          ],
+                              Image.asset(
+                                IconAssets.ic_submitted_complaint,
+                                height: 15,
+                                width: 15,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 2,
-                    ),
-                    Card(
-                      elevation: 0,
-                      child: Padding(
-                        padding: const EdgeInsets.all(14.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                'lorem_ipsum_is_simply_dummy_text'.tr,
-                                style: TextStyle(
-                                    color: AppColor.textBlack80Per,
-                                    fontSize: 13,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400),
+                      SizedBox(
+                        height: 2,
+                      ),
+                      Card(
+                        elevation: 0,
+                        child: Padding(
+                          padding: const EdgeInsets.all(14.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  'lorem_ipsum_is_simply_dummy_text'.tr,
+                                  style: TextStyle(
+                                      color: AppColor.textBlack80Per,
+                                      fontSize: 13,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
+                                ),
                               ),
-                            ),
-                            Image.asset(
-                              IconAssets.ic_submitted_complaint,
-                              height: 15,
-                              width: 15,
-                            ),
-                          ],
+                              Image.asset(
+                                IconAssets.ic_submitted_complaint,
+                                height: 15,
+                                width: 15,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 2,
-                    ),
-                    Card(
-                      elevation: 0,
-                      child: Padding(
-                        padding: const EdgeInsets.all(14.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                'generate_lorem_ipsum_which_looks_reasonable'
-                                    .tr,
-                                style: TextStyle(
-                                    color: AppColor.textBlack80Per,
-                                    fontSize: 13,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400),
+                      SizedBox(
+                        height: 2,
+                      ),
+                      Card(
+                        elevation: 0,
+                        child: Padding(
+                          padding: const EdgeInsets.all(14.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  'generate_lorem_ipsum_which_looks_reasonable'
+                                      .tr,
+                                  style: TextStyle(
+                                      color: AppColor.textBlack80Per,
+                                      fontSize: 13,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
+                                ),
                               ),
-                            ),
-                            Image.asset(
-                              IconAssets.ic_submitted_complaint,
-                              height: 15,
-                              width: 15,
-                            ),
-                          ],
+                              Image.asset(
+                                IconAssets.ic_submitted_complaint,
+                                height: 15,
+                                width: 15,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 20.0),
+              padding:
+                  const EdgeInsets.only(right: 16.0, top: 20.0, bottom: 80),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

@@ -31,6 +31,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           },
           child: Icon(Icons.arrow_back_ios_new_sharp),
         ),
+        centerTitle: true,
         title: Text(
           'reset_password'.tr,
           style: TextStyle(

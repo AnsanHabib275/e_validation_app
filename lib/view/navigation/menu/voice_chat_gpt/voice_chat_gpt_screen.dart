@@ -1,9 +1,11 @@
 import 'package:e_validation/models/navigation/menu/voice_chat_gpt/voice_chat_gpt_model.dart';
 import 'package:e_validation/res/assets/icon_assets.dart';
+import 'package:e_validation/res/componants/MenuIcon.dart';
 import 'package:e_validation/view/navigation/menu/voice_chat_gpt/widget/admin_row_view.dart';
 import 'package:e_validation/view/navigation/menu/voice_chat_gpt/widget/user_row_view.dart';
 import 'package:e_validation/view_models/controller/voice_chat_gpt/voice_chat_gpt_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
@@ -42,8 +44,29 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
     super.initState();
     loadChatMessages();
     chatVM.chatListApi();
-
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor:
+            Colors.white, // Set the status bar background color to white
+        statusBarIconBrightness:
+            Brightness.dark, // Set the icons to dark for contrast
+        statusBarBrightness: Brightness.light, // Adjust brightness for iOS
+      ),
+    );
     WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
+  }
+
+  @override
+  void dispose() {
+    // Reset to default when leaving the screen
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // Reset status bar background color
+        statusBarIconBrightness: Brightness.light, // Default icon brightness
+        statusBarBrightness: Brightness.dark, // Default for iOS
+      ),
+    );
+    super.dispose();
   }
 
   void _scrollToBottom() {
@@ -72,78 +95,79 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-            backgroundColor: AppColor.underlineTextColor,
-            // leading: InkWell(
-            //   onTap: () {
-            //     Get.back();
-            //   },
-            //   child: Icon(
-            //     Icons.arrow_back_ios_new_sharp,
-            //     color: AppColor.whiteColor,
-            //   ),
-            // ),
-            title: Text(
-              'voice_chat_gpt'.tr,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: AppColor.whiteColor,
-                  fontSize: 16,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w500),
-            )),
-        body: Container(
-          child: Column(
-            children: [
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 12,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+          backgroundColor: AppColor.underlineTextColor,
+          leading: InkWell(
+            onTap: () {
+              Scaffold.of(context).openDrawer();
+            },
+            child: Image.asset(
+              IconAssets.ic_menu,
+              color: AppColor.whiteColor,
+            ),
+          ),
+          centerTitle: true,
+          title: Text(
+            'voice_chat_gpt'.tr,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: AppColor.whiteColor,
+                fontSize: 16,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w500),
+          )),
+      body: Container(
+        child: Column(
+          children: [
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
+                ),
+                decoration: BoxDecoration(
+                  image: const DecorationImage(
+                    image: AssetImage(ImageAssets.splash_bg),
+                    fit: BoxFit.cover,
                   ),
-                  decoration: BoxDecoration(
-                    image: const DecorationImage(
-                      image: AssetImage(ImageAssets.splash_bg),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height / 24),
-                    child: Column(
-                      children: [
-                        // Existing chat messages here
+                ),
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height / 24),
+                  child: Column(
+                    children: [
+                      // Existing chat messages here
 
-                        // var chat = messages[index];
-                        UserRowView(),
+                      // var chat = messages[index];
+                      UserRowView(),
 
-                        ListView.builder(
-                          physics: const BouncingScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: 1,
-                          itemBuilder: (BuildContext context, int index) {
-                            // var chat = messages[index];
-                            return AdminRowView();
-                          },
-                        ),
-                      ],
-                    ),
+                      ListView.builder(
+                        physics: const BouncingScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: 1,
+                        itemBuilder: (BuildContext context, int index) {
+                          // var chat = messages[index];
+                          return AdminRowView();
+                        },
+                      ),
+                    ],
                   ),
                 ),
               ),
+            ),
 
-              // Input field and send button here
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 30,
-                  vertical: 10,
-                ),
-                color: AppColor.whiteColor,
-                child: Row(
-                  children: [
-                    Expanded(
+            // Input field and send button here
+            Container(
+              color: AppColor.whiteColor,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 30,
+                      ),
                       child: TextField(
                         controller: chatVM.messageController.value,
                         decoration: InputDecoration(
@@ -161,38 +185,38 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 8),
-                    IconButton(
-                      icon: Icon(Icons.send),
-                      onPressed: () {
-                        String message =
-                            chatVM.messageController.value.text.trim();
-                        if (message.isNotEmpty) {
-                          // send message logic here
-                          chatVM.messageController.value.clear();
-                        }
-                      },
-                    ),
-                    Container(
-                      height: 50,
-                      width: 50,
-                      color: AppColor.underlineTextColor,
-                      child: InkWell(
-                          onTap: () {
-                            String message =
-                                chatVM.messageController.value.text.trim();
-                            if (message.isNotEmpty) {
-                              // send message logic here
-                              chatVM.messageController.value.clear();
-                            }
-                          },
-                          child: Image.asset(IconAssets.ic_miq)),
-                    ),
-                  ],
-                ),
+                  ),
+                  SizedBox(width: 8),
+                  IconButton(
+                    icon: Icon(Icons.send),
+                    onPressed: () {
+                      String message =
+                          chatVM.messageController.value.text.trim();
+                      if (message.isNotEmpty) {
+                        // send message logic here
+                        chatVM.messageController.value.clear();
+                      }
+                    },
+                  ),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    color: AppColor.underlineTextColor,
+                    child: InkWell(
+                        onTap: () {
+                          String message =
+                              chatVM.messageController.value.text.trim();
+                          if (message.isNotEmpty) {
+                            // send message logic here
+                            chatVM.messageController.value.clear();
+                          }
+                        },
+                        child: Image.asset(IconAssets.ic_miq)),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

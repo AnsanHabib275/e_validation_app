@@ -36,7 +36,7 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
     super.initState();
     // _checkCameraPermission();
     // _handleCameraPermission();
-    requestCameraPermission();
+    // requestCameraPermission();
   }
 
   Future<void> _checkCameraPermission() async {
@@ -56,7 +56,7 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
 
   Future<void> _handleCameraPermission() async {
     PermissionStatus status = await Permission.camera.status;
-    print(status);
+    print("status : $status");
     if (status.isGranted) {
       // Camera permission is already granted
       print("Camera permission granted");
@@ -67,19 +67,24 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
     } else if (status.isDenied) {
       // Request camera permission
       PermissionStatus requestStatus = await Permission.camera.request();
-      print(requestStatus);
+      print("requestStatus : $requestStatus");
       if (requestStatus.isGranted) {
         print("Camera permission granted");
         setState(() {
           isCameraEnabled = true;
         });
         // Open camera or scanner here
-      } else {
-        print("Camera permission denied");
+      } else if (requestStatus.isPermanentlyDenied) {
+        print("Camera permission permanently denied");
         setState(() {
           isCameraEnabled = false;
         });
         _showSettingsDialog();
+      } else {
+        print("Camera permission denied and not proceed");
+        setState(() {
+          isCameraEnabled = false;
+        });
       }
     } else if (status.isPermanentlyDenied) {
       // Redirect user to app settings to enable the camera
