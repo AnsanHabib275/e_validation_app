@@ -18,6 +18,7 @@ class AppColor {
   static const textBlack = Color(0xFF000000);
   static const underlineTextColor = Color(0xFF00005A);
   static const textBlack80Per = Color(0xFF100E0E);
+  static const textLightGrey80Per = Color(0xFF3D3B3E);
   static const textOrangePrimary = Color(0xFFFFAB48);
   static const textRedPrimary = Color(0xFFE52D2D);
   static const textGreyPrimary = Color(0xFF797979);

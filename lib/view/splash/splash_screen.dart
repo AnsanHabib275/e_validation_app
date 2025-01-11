@@ -65,7 +65,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   'where_fraud_fails'.tr,
                   style: TextStyle(
                       fontFamily: 'Poppins',
-fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w400,
                       fontSize: 20,
                       color: AppColor.textBlack80Per),
                 ),
@@ -95,8 +95,9 @@ fontWeight: FontWeight.w400,
                   Text(
                     'powered_by_blockchain'.tr,
                     style: TextStyle(
+                        fontSize: 20,
                         fontFamily: 'Poppins',
-fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w500,
                         color: AppColor.textWhite),
                   ),
                 ],

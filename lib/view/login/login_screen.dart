@@ -46,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: Get.height * Utils.getResponsiveHeight(160),
+                    height: Get.height * Utils.getResponsiveHeight(100),
                   ),
                   SvgPicture.asset(
                     ImageAssets.splash_screen_logo,

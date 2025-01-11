@@ -77,7 +77,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                           fontSize: 20,
-                          color: AppColor.textBlack80Per),
+                          color: AppColor.textLightGrey80Per),
                     ),
                   ],
                 ),
@@ -86,7 +86,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
                       child: LoginButtonWidget(),
                     ),
                     SizedBox(
