@@ -12,15 +12,15 @@ class CancelButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      return RoundButton(
-        width: Get.width * Utils.getResponsiveWidth(119),
-        height: Get.height * Utils.getResponsiveHeight(42),
-        title: 'cancel'.tr,
-        onPress: () {
-          Get.back();
-        },
-      );
-    });
+    // return Obx(() {
+    return RoundButton(
+      // width: Get.width * Utils.getResponsiveWidth(119),
+      height: 42,
+      title: 'cancel'.tr,
+      onPress: () {
+        Get.back();
+      },
+    );
+    // });
   }
 }

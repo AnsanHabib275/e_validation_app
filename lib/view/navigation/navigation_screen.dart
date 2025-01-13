@@ -291,17 +291,25 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   height: Get.height * Utils.getResponsiveHeight(32),
                 ),
                 // Quantity Row
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    DeleteButtonWidget(
-                      formkey: _formkey,
-                      eid: eid,
-                    ),
-                    SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
-                    CancelButtonWidget(),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 60.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 80,
+                        height: 42,
+                        child: DeleteButtonWidget(
+                          formkey: _formkey,
+                          eid: eid,
+                        ),
+                      ),
+                      SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
+                      SizedBox(
+                          height: 42, width: 80, child: CancelButtonWidget()),
+                    ],
+                  ),
                 ),
               ],
             ),

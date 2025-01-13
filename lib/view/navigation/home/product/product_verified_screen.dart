@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:e_validation/res/assets/icon_assets.dart';
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/res/routes/routes_name.dart';
@@ -20,6 +22,13 @@ class ProductVerifiedScreen extends StatefulWidget {
 
 class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
   final navigationVM = Get.put(NavigationViewModel());
+
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(milliseconds: 900),
+        () => navigationVM.changeScreen(ProductDetailScreen()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +68,7 @@ class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
                             color: AppColor.textColorPrimary,
                             fontSize: 30,
                             fontFamily: 'Poppins',
-fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       )

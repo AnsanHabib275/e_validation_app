@@ -117,6 +117,9 @@ class Languages extends Translations {
           'existing_password': 'Existing Password',
           'new_password': 'New Password',
           'update': 'Update',
+          'profile_setup': 'Profile Setup',
+          'please_enter_your_credentials_with_the_following_criteria_below':
+              'Please enter your credentials with the following criteria below',
         },
         'ur_PK': {
           'splash_screen': 'سپلیش اسکرین',

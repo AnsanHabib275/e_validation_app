@@ -47,17 +47,17 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(36),
+                  height: Get.height * Utils.getResponsiveHeight(120),
                 ),
                 Text(
-                  'signup'.tr,
+                  'profile_setup'.tr,
                   textAlign: TextAlign.left,
                   style: const TextStyle(
                     color: AppColor.textColorPrimary,
-                    fontSize: 51,
+                    fontSize: 36,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w600,
                   ),
@@ -66,13 +66,14 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   height: Get.height * Utils.getResponsiveHeight(40),
                 ),
                 Text(
-                  'signup'.tr,
+                  'please_enter_your_credentials_with_the_following_criteria_below'
+                      .tr,
                   textAlign: TextAlign.left,
                   style: const TextStyle(
                     color: AppColor.textColorPrimary,
-                    fontSize: 51,
+                    fontSize: 12,
                     fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
                 SizedBox(

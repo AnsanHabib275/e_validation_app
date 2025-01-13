@@ -32,4 +32,5 @@ class RoutesName {
   static const String qrScannerScreen = '/qr_scanner_screen';
   static const String voiceChatGptScreen = '/voice_chat_gpt_screen';
   static const String updateProfileScreen = '/update_profile_screen';
+  static const String imagePickerScreen = '/image_picker_screen';
 }

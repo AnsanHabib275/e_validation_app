@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
       ),
       // initialRoute: RoutesName.splashScreen,
       initialRoute: RoutesName.navigationScreen,
+      // initialRoute: RoutesName.imagePickerScreen,
       getPages: AppRoutes.appRoutes(),
     );
   }

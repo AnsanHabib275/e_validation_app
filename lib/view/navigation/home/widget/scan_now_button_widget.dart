@@ -16,7 +16,7 @@ class ScanNowButtonWidget extends StatelessWidget {
     return RoundButton(
       title: 'scan_now'.tr,
       onPress: () {
-        navigationVM.changeScreen(QRScannerScreen());
+        navigationVM.changeScreen(ScanProductScreen());
       },
     );
   }

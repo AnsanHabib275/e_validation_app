@@ -3,6 +3,7 @@ import 'package:e_validation/view/account_created/account_created_screen.dart';
 import 'package:e_validation/view/forget_password/forget_password_screen.dart';
 import 'package:e_validation/view/navigation/home/product/QRScannnerScreen.dart';
 import 'package:e_validation/view/navigation/home/product/fake_product_screen.dart';
+import 'package:e_validation/view/navigation/home/product/image_picker_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_detail_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_verified_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_verify_done_screen.dart';
@@ -257,6 +258,13 @@ class AppRoutes {
         GetPage(
           name: RoutesName.updateProfileScreen,
           page: () => UpdateProfileScreen(),
+          transitionDuration: Duration(milliseconds: 300),
+          transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
+        ),
+        GetPage(
+          name: RoutesName.imagePickerScreen,
+          page: () => appscan(),
           transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
           curve: Curves.easeInOut,
