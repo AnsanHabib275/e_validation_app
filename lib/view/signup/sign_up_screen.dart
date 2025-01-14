@@ -1,4 +1,7 @@
+import 'package:e_validation/view/navigation/menu/settings/widget/input_phone_number_widget.dart';
 import 'package:e_validation/view/signup/widget/create_account_button_widget.dart';
+import 'package:e_validation/view/signup/widget/input_date_of_birth_widget.dart';
+import 'package:e_validation/view/signup/widget/input_gender_widget.dart';
 import 'package:e_validation/view/signup/widget/input_last_name_widget.dart';
 import 'package:e_validation/view/signup/widget/input_first_name_widget.dart';
 import 'package:flutter/material.dart';
@@ -81,6 +84,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(22)),
                         InputEmailWidget(),
+                        SizedBox(
+                            height: Get.height * Utils.getResponsiveHeight(22)),
+                        InputPhoneNumberWidget(),
+                        SizedBox(
+                            height: Get.height * Utils.getResponsiveHeight(22)),
+                        InputDateOfBirthWidget(),
+                        SizedBox(
+                            height: Get.height * Utils.getResponsiveHeight(22)),
+                        InputGenderWidget(),
                         SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(22)),
                         InputPasswordWidget(),

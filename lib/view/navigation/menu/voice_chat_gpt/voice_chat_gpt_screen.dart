@@ -44,15 +44,20 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
     super.initState();
     loadChatMessages();
     chatVM.chatListApi();
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor:
-            Colors.white, // Set the status bar background color to white
-        statusBarIconBrightness:
-            Brightness.dark, // Set the icons to dark for contrast
-        statusBarBrightness: Brightness.light, // Adjust brightness for iOS
-      ),
-    );
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.blue, // Set the desired status bar color here
+      statusBarIconBrightness:
+          Brightness.light, // Adjust for light or dark icons
+    ));
+    // SystemChrome.setSystemUIOverlayStyle(
+    //   SystemUiOverlayStyle(
+    //     statusBarColor:
+    //         Colors.white, // Set the status bar background color to white
+    //     statusBarIconBrightness:
+    //         Brightness.dark, // Set the icons to dark for contrast
+    //     statusBarBrightness: Brightness.light, // Adjust brightness for iOS
+    //   ),
+    // );
     WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
   }
 

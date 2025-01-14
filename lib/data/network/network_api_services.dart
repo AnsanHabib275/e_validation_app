@@ -36,8 +36,7 @@ class NetworkApiServices extends BaseApiServices {
   }
 
   @override
-  Future<dynamic> postApi(var data, String url,
-      {String? eid}) async {
+  Future<dynamic> postApi(var data, String url, {String? eid}) async {
     Map<String, String> headers = {
       'Content-Type': 'application/json',
     };
@@ -72,10 +71,6 @@ class NetworkApiServices extends BaseApiServices {
     }
     dynamic responseJson;
     try {
-      // final response = await http
-      //     .post(Uri.parse(url), headers: headers, body: jsonEncode(data))
-      //     .timeout(const Duration(seconds: 10));
-      // responseJson = returnResponse(response);
       var uri = Uri.parse(url);
       var request = http.MultipartRequest('POST', uri);
       request.headers.addAll(headers);
@@ -87,20 +82,6 @@ class NetworkApiServices extends BaseApiServices {
         request.files.addAll(files);
       }
 
-      // // Optional: Add a file to the form data
-      // // Add multiple files (if any)
-      // if (files != null && files.isNotEmpty) {
-      //   for (var file in files) {
-      //     String fieldName = file.path
-      //         .split('/')
-      //         .last; // Use filename as field name (adjust as needed)
-      //     var multipartFile =
-      //         await http.MultipartFile.fromPath(fieldName, file.path);
-      //     request.files.add(multipartFile);
-      //   }
-      // }
-
-      // Send the request
       var response = await request.send().timeout(const Duration(seconds: 12));
       var responseString = await http.Response.fromStream(response);
       responseJson = returnResponse(responseString);

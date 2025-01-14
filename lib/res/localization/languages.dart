@@ -118,6 +118,10 @@ class Languages extends Translations {
           'new_password': 'New Password',
           'update': 'Update',
           'profile_setup': 'Profile Setup',
+          'phone_number_cannot_be_blank': 'Phone number cannot be blank',
+          'date_of_birth_cannot_be_blank': 'Date of birth cannot be blank',
+          'gender_cannot_be_blank': 'Gender cannot be blank',
+          'date_of_birth': 'Date of Birth',
           'please_enter_your_credentials_with_the_following_criteria_below':
               'Please enter your credentials with the following criteria below',
         },

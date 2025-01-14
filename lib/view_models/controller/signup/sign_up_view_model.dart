@@ -14,15 +14,22 @@ class SignUpViewModel extends GetxController {
   final passwordController = TextEditingController().obs;
   final firstNameController = TextEditingController().obs;
   final lastNameController = TextEditingController().obs;
+  final dateOfBirthController = TextEditingController().obs;
+  final phoneNumberController = TextEditingController().obs;
+  final genderController = TextEditingController().obs;
 
   final emailFocusNode = FocusNode().obs;
   final passwordFocusNode = FocusNode().obs;
   final firstNameFocusNode = FocusNode().obs;
   final lastNameFocusNode = FocusNode().obs;
+  final dateOfBirthFocusNode = FocusNode().obs;
+  final phoneNumberFocusNode = FocusNode().obs;
+  final genderFocusNode = FocusNode().obs;
 
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;
   RxString errorMessage = ''.obs;
+  RxString gender = ''.obs;
 
   void signUpApi() {
     loading.value = true;
@@ -31,7 +38,9 @@ class SignUpViewModel extends GetxController {
       'password': passwordController.value.text,
       'FirstName': firstNameController.value.text,
       'LastName': lastNameController.value.text,
-      'PhoneNumber': '0000',
+      'PhoneNumber': phoneNumberController.value.text,
+      'DateOfBirth': dateOfBirthController.value.text,
+      'gender': genderController.value.text,
     };
     _api.signUpApi(data).then((value) {
       loading.value = false;
