@@ -87,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Get.toNamed(RoutesName.forgetPasswordScreen);
                         },
                         child: Text(
-                          'forgot_your_password'.tr,
+                          'forgot_password_with_question'.tr,
                           style: const TextStyle(
                             color: AppColor.textColorPrimary,
                             fontSize: 16,

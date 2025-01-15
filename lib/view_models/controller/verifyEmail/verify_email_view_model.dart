@@ -11,18 +11,47 @@ import '../../../res/routes/routes_name.dart';
 class VerifyEmailViewModel extends GetxController {
   final _api = VerifyEmailRepository();
 
-  final codeController = TextEditingController().obs;
+  final otpOneController = TextEditingController().obs;
+  final otpTwoController = TextEditingController().obs;
+  final otpThreeController = TextEditingController().obs;
+  final otpFourController = TextEditingController().obs;
+  final otpFiveController = TextEditingController().obs;
+  final otpSixController = TextEditingController().obs;
 
-  final codeFocusNode = FocusNode().obs;
+  final otpOneFocusNode = FocusNode().obs;
+  final otpTwoFocusNode = FocusNode().obs;
+  final otpThreeFocusNode = FocusNode().obs;
+  final otpFourFocusNode = FocusNode().obs;
+  final otpFiveFocusNode = FocusNode().obs;
+  final otpSixFocusNode = FocusNode().obs;
 
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;
   RxString errorMessage = ''.obs;
+  RxString from = ''.obs;
 
-  void verifyEmailApi(String code) {
+  void checkOtpFilled(String email) {
+    if (otpOneController.value.text.isNotEmpty &&
+        otpTwoController.value.text.isNotEmpty &&
+        otpThreeController.value.text.isNotEmpty &&
+        otpFourController.value.text.isNotEmpty &&
+        otpFiveController.value.text.isNotEmpty &&
+        otpSixController.value.text.isNotEmpty) {
+      verifyEmailApi(email);
+    }
+  }
+
+  void verifyEmailApi(String email) {
     loading.value = true;
+    final verificationCode = otpOneController.value.text +
+        otpTwoController.value.text +
+        otpThreeController.value.text +
+        otpFourController.value.text +
+        otpFiveController.value.text +
+        otpSixController.value.text;
     Map data = {
-      'code': code,
+      'verification_code': verificationCode,
+      'email': email,
     };
     _api.verifyEmailApi(data).then((value) {
       loading.value = false;
@@ -33,8 +62,13 @@ class VerifyEmailViewModel extends GetxController {
       } else if (value['errorcode'] == 3064) {
         errorMessage.value = 'invalid_email'.tr;
       } else {
-        Utils.toastMessage("Success");
-        Get.toNamed(RoutesName.accountCreatedScreen);
+        if(from == 'signup'){
+          Utils.toastMessage("Success");
+          Get.toNamed(RoutesName.accountCreatedScreen);
+        }else{
+          Utils.toastMessage("Success");
+          Get.toNamed(RoutesName.resetPasswordScreen);
+        }
       }
     }).onError((error, stackTrace) {
       loading.value = false;

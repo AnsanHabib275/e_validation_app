@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../../res/assets/image_assets.dart';
 import '../../res/colors/app_color.dart';
 import '../../res/routes/routes_name.dart';
+import '../../utils/utils.dart';
 import '../../view_models/controller/forgetPassword/forget_password_view_model.dart';
 import '../forget_password/widget/input_email_widget.dart';
 
@@ -22,41 +23,57 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+      child: Scaffold(
         backgroundColor: Colors.white,
-        leading: InkWell(
-          onTap: () {
-            Get.back();
-          },
-          child: Icon(Icons.arrow_back_ios_new_sharp),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios_new_outlined,
+              size: 24,
+              color: AppColor.textGreyPrimary,
+            ), // Change the color here
+            onPressed: () => Get.back(),
+          ),
+          centerTitle: true,
+          title: Text(
+            'forgot_password'.tr,
+            style: TextStyle(
+                color: AppColor.textColorPrimary,
+                fontSize: 26,
+                fontWeight: FontWeight.w600,
+                fontFamily: 'Poppins'),
+          ),
         ),
-        centerTitle: true,
-        title: Text(
-          'forget_password'.tr,
-          style: TextStyle(
-              fontSize: 25, fontWeight: FontWeight.w400, fontFamily: 'Poppins'),
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            children: [
-              SizedBox(
-                height: Get.height * 0.07,
-              ),
-              SvgPicture.asset(ImageAssets.forgetpass),
-              SizedBox(
-                height: Get.height * 0.07,
-              ),
-              Form(key: _formkey, child: InputEmailWidget()),
-              SizedBox(
-                height: Get.height * 0.05,
-              ),
-              ForgetPasswordButtonWidget(formkey: _formkey)
-            ],
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: Get.height * Utils.getResponsiveHeight(36),
+                ),
+                Text(
+                  'no_worries_enter_your_email_for_reset_password'.tr,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: AppColor.textBlack80Per.withOpacity(0.8),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Poppins'),
+                ),
+                SizedBox(
+                  height: Get.height * Utils.getResponsiveHeight(51),
+                ),
+                Form(key: _formkey, child: InputEmailWidget()),
+                SizedBox(
+                  height: Get.height * Utils.getResponsiveHeight(50),
+                ),
+                ForgetPasswordButtonWidget(formkey: _formkey)
+              ],
+            ),
           ),
         ),
       ),

@@ -1,5 +1,5 @@
+import 'package:e_validation/view/reset_password/widget/input_confirm_password_widget.dart';
 import 'package:e_validation/view/reset_password/widget/input_password_widget.dart';
-import 'package:e_validation/view/reset_password/widget/input_reset_code_widget.dart';
 import 'package:e_validation/view/reset_password/widget/reset_password_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 
 import '../../res/assets/font_assets.dart';
 import '../../res/assets/image_assets.dart';
+import '../../res/colors/app_color.dart';
+import '../../utils/utils.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({super.key});
@@ -21,79 +23,59 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+      child: Scaffold(
         backgroundColor: Colors.white,
-        leading: InkWell(
-          onTap: () {
-            Get.back();
-          },
-          child: Icon(Icons.arrow_back_ios_new_sharp),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios_new_outlined,
+              size: 24,
+              color: AppColor.textGreyPrimary,
+            ), // Change the color here
+            onPressed: () => Get.back(),
+          ),
+          centerTitle: true,
+          title: Text(
+            'reset_password'.tr,
+            style: TextStyle(
+                color: AppColor.textColorPrimary,
+                fontSize: 26,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w600),
+          ),
         ),
-        centerTitle: true,
-        title: Text(
-          'reset_password'.tr,
-          style: TextStyle(
-              fontSize: 25, fontWeight: FontWeight.w400, fontFamily: 'Poppins'),
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            children: [
-              SizedBox(
-                height: Get.height * 0.07,
-              ),
-              SvgPicture.asset(ImageAssets.forgetpass),
-              // Image(image: AssetImage(ImageAssets.forgetpass)),
-              SizedBox(
-                height: Get.height * 0.07,
-              ),
-
-              Form(
-                  key: _formkey,
-                  child: Column(
-                    children: [
-                      const InputResetCodeWidget(),
-                      SizedBox(
-                        height: Get.height * 0.02,
-                      ),
-                      InputPasswordWidget(),
-                    ],
-                  )),
-              SizedBox(
-                height: Get.height * 0.05,
-              ),
-              ResetPasswordButtonWidget(formkey: _formkey, e_id: e_id)
-              // RoundButton(
-              //     title: 'reset_password'.tr,
-              //     width: double.infinity,
-              //     onPress: () {}),
-              // InkWell(
-              //   onTap: () {
-              //     // Get.toNamed(RoutesName.signUpScreen);
-              //   },
-              //   child: Container(
-              //     height: 50,
-              //     width: 180,
-              //     decoration: BoxDecoration(
-              //         color: AppColor.colorPrimaryLightBlue,
-              //         borderRadius: BorderRadius.circular(8)),
-              //     child: Center(
-              //       child: Text(
-              //         'reset_password'.tr,
-              //         textAlign: TextAlign.center,
-              //         style: TextStyle(
-              //             color: AppColor.whiteColor,
-              //             fontWeight: FontWeight.bold,
-              //             fontSize: 15),
-              //       ),
-              //     ),
-              //   ),
-              // ),
-            ],
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: Get.height * Utils.getResponsiveHeight(36),
+                ),
+                Image.asset(ImageAssets.img_verify),
+                SizedBox(
+                  height: Get.height * Utils.getResponsiveHeight(58),
+                ),
+                Form(
+                    key: _formkey,
+                    child: Column(
+                      children: [
+                        InputPasswordWidget(),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(22),
+                        ),
+                        InputConfirmPasswordWidget(),
+                      ],
+                    )),
+                SizedBox(
+                  height: Get.height * Utils.getResponsiveHeight(50),
+                ),
+                ResetPasswordButtonWidget(formkey: _formkey, e_id: e_id)
+              ],
+            ),
           ),
         ),
       ),

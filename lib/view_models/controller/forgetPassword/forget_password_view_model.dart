@@ -35,8 +35,11 @@ class ForgetPasswordViewModel extends GetxController {
         errorMessage.value = 'invalid_email'.tr;
       } else {
         Utils.toastMessage("Success");
-        Get.toNamed(RoutesName.resetPasswordScreen,
-                arguments: {'e_id': value['E_Id']})!
+        Get.toNamed(RoutesName.verifyEmailScreen, arguments: {
+          'e_id': value['E_Id'],
+          'email': emailController.value.text,
+          'from': 'forgot_password'
+        })!
             .then((value) {});
       }
     }).onError((error, stackTrace) {

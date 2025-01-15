@@ -1,5 +1,6 @@
 import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/view/navigation/home/product/widget/done_button_widget.dart';
+import 'package:e_validation/view/navigation/menu/faqs/widget/faqs_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -64,32 +65,33 @@ class _FAQSScreenState extends State<FAQSScreen> {
                   scrollDirection: Axis.vertical,
                   child: Column(
                     children: [
-                      Card(
-                        elevation: 0,
-                        child: Padding(
-                          padding: const EdgeInsets.all(14.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  'what_are_the_benefits_of_points'.tr,
-                                  style: TextStyle(
-                                      color: AppColor.textBlack80Per,
-                                      fontSize: 13,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400),
-                                ),
-                              ),
-                              Image.asset(
-                                IconAssets.ic_submitted_complaint,
-                                height: 15,
-                                width: 15,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      FaqsCardWidget(),
+                      // Card(
+                      //   elevation: 0,
+                      //   child: Padding(
+                      //     padding: const EdgeInsets.all(14.0),
+                      //     child: Row(
+                      //       mainAxisAlignment: MainAxisAlignment.center,
+                      //       children: [
+                      //         Expanded(
+                      //           child: Text(
+                      //             'what_are_the_benefits_of_points'.tr,
+                      //             style: TextStyle(
+                      //                 color: AppColor.textBlack80Per,
+                      //                 fontSize: 13,
+                      //                 fontFamily: 'Poppins',
+                      //                 fontWeight: FontWeight.w400),
+                      //           ),
+                      //         ),
+                      //         Image.asset(
+                      //           IconAssets.ic_arrow_down,
+                      //           height: 24,
+                      //           width: 24,
+                      //         ),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
                       SizedBox(
                         height: 2,
                       ),
@@ -111,9 +113,9 @@ class _FAQSScreenState extends State<FAQSScreen> {
                                 ),
                               ),
                               Image.asset(
-                                IconAssets.ic_submitted_complaint,
-                                height: 15,
-                                width: 15,
+                                IconAssets.ic_arrow_down,
+                                height: 24,
+                                width: 24,
                               ),
                             ],
                           ),
@@ -140,9 +142,9 @@ class _FAQSScreenState extends State<FAQSScreen> {
                                 ),
                               ),
                               Image.asset(
-                                IconAssets.ic_submitted_complaint,
-                                height: 15,
-                                width: 15,
+                                IconAssets.ic_arrow_down,
+                                height: 24,
+                                width: 24,
                               ),
                             ],
                           ),
@@ -170,9 +172,9 @@ class _FAQSScreenState extends State<FAQSScreen> {
                                 ),
                               ),
                               Image.asset(
-                                IconAssets.ic_submitted_complaint,
-                                height: 15,
-                                width: 15,
+                                IconAssets.ic_arrow_down,
+                                height: 24,
+                                width: 24,
                               ),
                             ],
                           ),

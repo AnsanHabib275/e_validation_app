@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../res/componants/RoundButton.dart';
+import '../../../res/routes/routes_name.dart';
 import '../../../view_models/controller/resetPassword/reset_password_view_model.dart';
 
 class ResetPasswordButtonWidget extends StatelessWidget {
@@ -17,14 +18,13 @@ class ResetPasswordButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButton(
-        width: double.infinity,
-        height: 55,
-        title: 'reset_password'.tr,
+        title: 'update_password'.tr,
         loading: resetPasswordVM.loading.value,
         onPress: () {
-          if (formkey.currentState!.validate()) {
-            resetPasswordVM.resetPasswordApi(e_id);
-          }
+          Get.toNamed(RoutesName.loginScreen);
+          // if (formkey.currentState!.validate()) {
+          //   resetPasswordVM.resetPasswordApi(e_id);
+          // }
         },
       );
     });

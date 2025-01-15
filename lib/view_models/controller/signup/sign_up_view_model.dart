@@ -52,7 +52,11 @@ class SignUpViewModel extends GetxController {
         errorMessage.value = 'invalid_email'.tr;
       } else {
         Utils.toastMessage("Success");
-        Get.toNamed(RoutesName.verifyEmailScreen);
+        Get.toNamed(RoutesName.verifyEmailScreen, arguments: {
+          'e_id': value['E_Id'],
+          'email': emailController.value.text,
+          'from': 'signup'
+        });
       }
     }).onError((error, stackTrace) {
       loading.value = false;

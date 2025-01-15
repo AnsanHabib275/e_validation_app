@@ -18,6 +18,7 @@ import 'package:e_validation/view/navigation/menu/voice_chat_gpt/voice_chat_gpt_
 import 'package:e_validation/view/navigation/menu/vouchers/vouchers_screen.dart';
 import 'package:e_validation/view/navigation/reward/reward_screen.dart';
 import 'package:e_validation/view/reset_password/reset_password_screen.dart';
+import 'package:e_validation/view/signup/widget/country_code_picker.dart';
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 
@@ -265,6 +266,13 @@ class AppRoutes {
         GetPage(
           name: RoutesName.imagePickerScreen,
           page: () => appscan(),
+          transitionDuration: Duration(milliseconds: 300),
+          transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
+        ),
+        GetPage(
+          name: RoutesName.countryCodePickerScreen,
+          page: () => CountryCodePickerScreen(),
           transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
           curve: Curves.easeInOut,

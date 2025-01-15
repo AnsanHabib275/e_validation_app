@@ -18,15 +18,13 @@ class ForgetPasswordButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButton(
-        width: 180,
-        height: 50,
-        title: 'send_otp'.tr,
+        title: 'send_code'.tr,
         loading: forgetPasswordVM.loading.value,
         onPress: () {
-          // Get.toNamed(RoutesName.navigationScreen);
-          if (formkey.currentState!.validate()) {
-            forgetPasswordVM.forgetPasswordApi();
-          }
+          Get.toNamed(RoutesName.navigationScreen);
+          // if (formkey.currentState!.validate()) {
+          //   forgetPasswordVM.forgetPasswordApi();
+          // }
         },
       );
     });

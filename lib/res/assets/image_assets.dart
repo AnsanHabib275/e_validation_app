@@ -39,5 +39,5 @@ class ImageAssets {
   static const String img_points = 'assets/images/img_points.png';
   static const String voucher_1 = 'assets/images/voucher_1.png';
   static const String voucher_2 = 'assets/images/voucher_2.png';
-  static const String forgetpass = 'assets/images/forgetpass.svg';
+  static const String img_verify = 'assets/images/img_verify.png';
 }
