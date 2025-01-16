@@ -106,8 +106,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         ),
                         InkWell(
                           onTap: () {
-                            Get.toNamed(RoutesName.countryCodePickerScreen);
-                            // Get.toNamed(RoutesName.signUpScreen);
+                            Get.toNamed(RoutesName.signUpScreen);
                           },
                           child: Text(
                             'signup'.tr,

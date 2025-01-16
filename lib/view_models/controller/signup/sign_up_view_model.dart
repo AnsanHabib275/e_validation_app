@@ -16,6 +16,7 @@ class SignUpViewModel extends GetxController {
   final lastNameController = TextEditingController().obs;
   final dateOfBirthController = TextEditingController().obs;
   final phoneNumberController = TextEditingController().obs;
+  final countryCodeController = TextEditingController().obs;
   final genderController = TextEditingController().obs;
 
   final emailFocusNode = FocusNode().obs;
@@ -24,6 +25,7 @@ class SignUpViewModel extends GetxController {
   final lastNameFocusNode = FocusNode().obs;
   final dateOfBirthFocusNode = FocusNode().obs;
   final phoneNumberFocusNode = FocusNode().obs;
+  final countryCodeFocusNode = FocusNode().obs;
   final genderFocusNode = FocusNode().obs;
 
   RxBool loading = false.obs;
@@ -38,7 +40,9 @@ class SignUpViewModel extends GetxController {
       'password': passwordController.value.text,
       'FirstName': firstNameController.value.text,
       'LastName': lastNameController.value.text,
-      'PhoneNumber': phoneNumberController.value.text,
+      'PhoneNumber': countryCodeController.value.text +
+          '' +
+          phoneNumberController.value.text,
       'DateOfBirth': dateOfBirthController.value.text,
       'gender': genderController.value.text,
     };

@@ -54,7 +54,13 @@ dependencies:
   crypto: ^3.0.6
   expandable: ^5.0.1
   intl_phone_field: ^3.2.0
-
+  country_picker: ^2.0.27
+#  libphonenumber: ^2.0.2
+#  phonenumbers: ^1.1.1
+#  phone_numbers_parser: ^8.0.0
+#  flutter_libphonenumber: ^2.5.0
+#  intl_phone_number_input: ^0.7.4
+  phone_number: ^2.1.0
 
 dev_dependencies:
   flutter_test:
