@@ -1,4 +1,5 @@
-import 'package:e_validation/view/navigation/menu/settings/widget/input_phone_number_widget.dart';
+import 'package:e_validation/view/signup/widget/input_gender_spinner_widget.dart';
+import 'package:e_validation/view/signup/widget/input_phone_number_widget.dart';
 import 'package:e_validation/view/signup/widget/create_account_button_widget.dart';
 import 'package:e_validation/view/signup/widget/input_date_of_birth_widget.dart';
 import 'package:e_validation/view/signup/widget/input_gender_widget.dart';
@@ -92,6 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         InputDateOfBirthWidget(),
                         SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(22)),
+                        // InputGenderWidget(),
                         InputGenderWidget(),
                         SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(22)),
@@ -103,6 +105,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: Get.height * Utils.getResponsiveHeight(50),
                   ),
                   CreateAccountButtonWidget(formkey: _formkey),
+                  SizedBox(
+                    height: Get.height * Utils.getResponsiveHeight(50),
+                  ),
                 ],
               ),
             ),

@@ -1,8 +1,11 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:e_validation/view_models/controller/updateProfile/update_profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../res/assets/icon_assets.dart';
 import '../../../../../res/colors/app_color.dart';
+import '../../../../../utils/utils.dart';
 
 class InputPhoneNumberWidget extends StatelessWidget {
   InputPhoneNumberWidget({super.key});
@@ -11,59 +14,87 @@ class InputPhoneNumberWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () {
-        return TextFormField(
-          controller: updateProfileVM.phoneNumberController.value,
-          focusNode: updateProfileVM.phoneNumberFocusNode.value,
-          enableSuggestions: true,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-          validator: (value) {
-            if (value == null || value.isEmpty || value.length < 11) {
-              return 'phone_number_not_valid'.tr;
-            }
-            return null;
-          },
-          decoration: InputDecoration(
-            hintText: 'phone_number'.tr,
-            hintStyle: TextStyle(
-              color: AppColor.textBlack80Per,
-              fontSize: 16,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w500,
-            ),
-            labelText: 'phone_number'.tr,
-            labelStyle: TextStyle(
-              color: AppColor.textColorPrimary,
-              fontSize: 14,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w400,
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              borderSide: BorderSide(
-                color: AppColor.textColorPrimary, // Default border color
-                width: 1.0, // Default border width
+    return Obx(() {
+      return Container(
+        height: Get.height * Utils.getResponsiveHeight(64),
+        width: Get.width * 1,
+        decoration: BoxDecoration(
+          border: Border.all(
+              color: updateProfileVM.isEnable.value
+                  ? AppColor.textBlack80Per.withOpacity(0.3)
+                  : AppColor.textColorPrimary),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          children: [
+            InkWell(
+              onTap: () {
+                showCountryPicker(
+                  context: context,
+                  showPhoneCode: true,
+                  onSelect: (Country country) async {
+                    updateProfileVM.isEnable.value = true;
+                    String countryCode = '+${country.phoneCode}';
+                    updateProfileVM.countryCodeController.value.text =
+                        countryCode;
+                    // setState(() {
+                    //   _selectedCountryCode = countryCode;
+                    // });
+                  },
+                );
+              },
+              child: Row(
+                children: [
+                  SizedBox(width: Get.width * Utils.getResponsiveWidth(8)),
+                  Text(
+                    updateProfileVM.countryCodeController.value.text.isEmpty
+                        ? '+92'
+                        : updateProfileVM.countryCodeController.value.text,
+                    style: TextStyle(
+                        color: AppColor.textBlack80Per.withOpacity(0.7),
+                        fontSize: 16,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w400),
+                  ),
+                  SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
+                  Image.asset(
+                    IconAssets.ic_arrow_down,
+                    height: 16,
+                    width: 16,
+                  ),
+                  SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
+                ],
               ),
             ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              borderSide: BorderSide(
-                color: AppColor.textColorPrimary, // Default border color
-                width: 1.0, // Default border width
+            Container(
+              height: Get.height * Utils.getResponsiveHeight(64),
+              width: 1,
+              color: AppColor.textBlack80Per
+                  .withOpacity(0.4), // Color of the divider
+            ),
+            Expanded(
+              child: TextField(
+                controller: updateProfileVM.phoneNumberController.value,
+                keyboardType: TextInputType.phone,
+                // maxLength: 10,
+                decoration: InputDecoration(
+                  hintText: 'phone_number'.tr,
+                  hintStyle: TextStyle(
+                    color: AppColor.textBlack80Per.withOpacity(0.4),
+                    fontSize: 16,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w400,
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
               ),
             ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              borderSide: BorderSide(
-                color: AppColor.textColorPrimary, // Default border color
-                width: 1.0, // Default border width
-              ),
-            ),
-          ),
-          keyboardType: TextInputType.phone,
-        );
-      },
-    );
+          ],
+        ),
+      );
+    });
   }
 }

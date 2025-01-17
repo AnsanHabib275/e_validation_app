@@ -2,9 +2,8 @@ import 'package:e_validation/view_models/controller/signup/sign_up_view_model.da
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../res/assets/icon_assets.dart';
 import '../../../../../res/colors/app_color.dart';
-import '../../../../../view_models/controller/navigation/submitComplain/submit_complain_view_model.dart';
-import '../../../res/assets/icon_assets.dart';
 
 class InputGenderWidget extends StatelessWidget {
   InputGenderWidget({super.key});

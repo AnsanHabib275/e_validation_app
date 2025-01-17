@@ -1,0 +1,85 @@
+import 'package:e_validation/view/change_password/widget/update_password_button_widget.dart';
+import 'package:e_validation/view/reset_password/widget/input_confirm_password_widget.dart';
+import 'package:e_validation/view/reset_password/widget/input_password_widget.dart';
+import 'package:e_validation/view/reset_password/widget/reset_password_button_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+
+import '../../res/assets/font_assets.dart';
+import '../../res/assets/image_assets.dart';
+import '../../res/colors/app_color.dart';
+import '../../utils/utils.dart';
+
+class ChangePasswordScreen extends StatefulWidget {
+  const ChangePasswordScreen({super.key});
+
+  @override
+  State<ChangePasswordScreen> createState() => _ChangePasswordScreenState();
+}
+
+class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
+  final _formkey = GlobalKey<FormState>();
+  final e_id = Get.arguments['e_id'];
+
+  @override
+  Widget build(BuildContext context) {
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios_new_outlined,
+              size: 24,
+              color: AppColor.textGreyPrimary,
+            ), // Change the color here
+            onPressed: () => Get.back(),
+          ),
+          centerTitle: true,
+          title: Text(
+            'update_password'.tr,
+            style: TextStyle(
+                color: AppColor.textColorPrimary,
+                fontSize: 26,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w600),
+          ),
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: Get.height * Utils.getResponsiveHeight(36),
+                ),
+                Image.asset(ImageAssets.img_verify),
+                SizedBox(
+                  height: Get.height * Utils.getResponsiveHeight(58),
+                ),
+                Form(
+                    key: _formkey,
+                    child: Column(
+                      children: [
+                        InputPasswordWidget(),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(22),
+                        ),
+                        InputConfirmPasswordWidget(),
+                      ],
+                    )),
+                SizedBox(
+                  height: Get.height * Utils.getResponsiveHeight(50),
+                ),
+                UpdatePasswordButtonWidget(formkey: _formkey, e_id: e_id)
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

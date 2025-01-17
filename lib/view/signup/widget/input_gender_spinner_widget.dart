@@ -1,17 +1,13 @@
-import 'package:e_validation/view_models/controller/signup/sign_up_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../../res/colors/app_color.dart';
-import '../../../../../view_models/controller/navigation/submitComplain/submit_complain_view_model.dart';
 import '../../../res/assets/icon_assets.dart';
+import '../../../res/colors/app_color.dart';
 
-class InputGenderWidget extends StatelessWidget {
-  InputGenderWidget({super.key});
-
-  final signUpVM = Get.put(SignUpViewModel());
+class InputGenderSpinnerWidget extends StatelessWidget {
+  InputGenderSpinnerWidget({super.key});
   final List<String> gender = ['Male', 'Female'];
-
+  String? selectedGender;
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
@@ -59,9 +55,7 @@ class InputGenderWidget extends StatelessWidget {
           child: Text(gender),
         );
       }).toList(),
-      onChanged: (value) {
-        if (value != null) signUpVM.genderController.value.text = value;
-      },
+      onChanged: (value) {},
       icon: Image.asset(
         IconAssets.ic_arrow_down,
         height: 16,

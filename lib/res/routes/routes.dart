@@ -1,5 +1,6 @@
 import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/view/account_created/account_created_screen.dart';
+import 'package:e_validation/view/change_password/change_password_screen.dart';
 import 'package:e_validation/view/forget_password/forget_password_screen.dart';
 import 'package:e_validation/view/navigation/home/product/QRScannnerScreen.dart';
 import 'package:e_validation/view/navigation/home/product/fake_product_screen.dart';
@@ -273,6 +274,13 @@ class AppRoutes {
         GetPage(
           name: RoutesName.countryCodePickerScreen,
           page: () => CountryCodePickerScreen(),
+          transitionDuration: Duration(milliseconds: 300),
+          transition: Transition.leftToRightWithFade,
+          curve: Curves.easeInOut,
+        ),
+        GetPage(
+          name: RoutesName.changePasswordScreen,
+          page: () => ChangePasswordScreen(),
           transitionDuration: Duration(milliseconds: 300),
           transition: Transition.leftToRightWithFade,
           curve: Curves.easeInOut,

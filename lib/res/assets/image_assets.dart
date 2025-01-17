@@ -40,4 +40,6 @@ class ImageAssets {
   static const String voucher_1 = 'assets/images/voucher_1.png';
   static const String voucher_2 = 'assets/images/voucher_2.png';
   static const String img_verify = 'assets/images/img_verify.png';
+  static const String img_profile = 'assets/images/img_profile.svg';
+  static const String img_add_photo = 'assets/images/img_add_photo.svg';
 }

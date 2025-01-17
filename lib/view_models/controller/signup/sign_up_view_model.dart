@@ -30,8 +30,8 @@ class SignUpViewModel extends GetxController {
 
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;
+  RxBool isEnable = false.obs;
   RxString errorMessage = ''.obs;
-  RxString gender = ''.obs;
 
   void signUpApi() {
     loading.value = true;

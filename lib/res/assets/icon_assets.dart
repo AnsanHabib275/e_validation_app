@@ -38,4 +38,9 @@ class IconAssets {
   static const String ic_miq = 'assets/icons/ic_miq.png';
   static const String ic_arrow_down = 'assets/icons/ic_arrow_down.png';
   static const String ic_country_picker = 'assets/icons/ic_country_picker.png';
+  static const String ic_date = 'assets/icons/ic_date.png';
+  static const String ic_visible_password =
+      'assets/icons/ic_visible_password.svg';
+  static const String ic_invisible_password =
+      'assets/icons/ic_invisible_password.svg';
 }

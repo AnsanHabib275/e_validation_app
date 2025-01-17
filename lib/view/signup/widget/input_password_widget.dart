@@ -1,4 +1,6 @@
+import 'package:e_validation/res/assets/icon_assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../res/colors/app_color.dart';
@@ -55,12 +57,10 @@ class InputPasswordWidget extends StatelessWidget {
             ),
           ),
           suffixIcon: IconButton(
-            icon: Icon(
-              signUpVM.isVisible.value
-                  ? Icons.visibility
-                  : Icons.visibility_off,
-              color: AppColor.colorPrimary,
-            ),
+            icon: signUpVM.isVisible.value
+                ? SvgPicture.asset(IconAssets.ic_visible_password)
+                : SvgPicture.asset(IconAssets.ic_invisible_password),
+            color: AppColor.colorPrimary,
             onPressed: () {
               signUpVM.isVisible.value = !signUpVM.isVisible.value;
             },
