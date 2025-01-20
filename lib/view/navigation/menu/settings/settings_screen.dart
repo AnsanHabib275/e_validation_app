@@ -51,7 +51,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     Text(
                       'settings'.tr,
                       style: TextStyle(
-                          color: AppColor.textColorPrimary,
+                          color: AppColor.textColorSecondary,
                           fontSize: 26,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600),
@@ -115,7 +115,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SvgPicture.asset(IconAssets.ic_change_password),
+                              SvgPicture.asset(IconAssets.ic_update_profile),
                               SizedBox(
                                 width: Get.width * Utils.getResponsiveWidth(16),
                               ),

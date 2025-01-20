@@ -42,7 +42,7 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
               Text(
                 'your_account_has_been_created'.tr,
                 textScaleFactor: 1,
-                style: const TextStyle(
+                style: TextStyle(
                   color: AppColor.textBlack80Per,
                   fontSize: 20,
                   fontFamily: 'Poppins',
@@ -59,7 +59,7 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
                   Text(
                     'you_can_now'.tr,
                     textScaleFactor: 1,
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: AppColor.textBlack80Per,
                       fontSize: 19,
                       fontFamily: 'Poppins',

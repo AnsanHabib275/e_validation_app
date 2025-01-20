@@ -41,15 +41,41 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'complain no 435654',
-                        // widget.history.qrCodeNo,
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            color: AppColor.textBlack80Per),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'complain_no'.tr,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
+                                color: AppColor
+                                    .textBlack80Per, // Make "Complain No" bold
+                              ),
+                            ),
+                            TextSpan(
+                              text: "435654", // The number
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: AppColor
+                                    .textBlack80Per, // Normal font weight for the number
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
+                      // Text(
+                      //   'complain no 435654',
+                      //   // widget.history.qrCodeNo,
+                      //   style: TextStyle(
+                      //       fontSize: 16,
+                      //       fontFamily: 'Poppins',
+                      //       fontWeight: FontWeight.w500,
+                      //       color: AppColor.textBlack80Per),
+                      // ),
                       Text(
                         'Solved',
                         // widget.history.scanedOn,

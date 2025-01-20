@@ -20,6 +20,8 @@ class DeleteButtonWidget extends StatelessWidget {
       return RoundButtonBorder(
         // width: Get.width * Utils.getResponsiveWidth(119),
         height: 42,
+        radius: 4,
+        fontSize: 16,
         title: 'delete'.tr,
         loading: deleteAccountVM.loading.value,
         onPress: () {

@@ -66,7 +66,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
             title: Text(
               'update_profile'.tr,
               style: TextStyle(
-                  color: AppColor.textColorPrimary,
+                  color: AppColor.textColorSecondary,
                   fontSize: 26,
                   fontWeight: FontWeight.w600,
                   fontFamily: 'Poppins'),

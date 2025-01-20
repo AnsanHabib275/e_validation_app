@@ -54,10 +54,10 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                   Text(
                     'complaints'.tr,
                     style: TextStyle(
-                        color: AppColor.textColorPrimary,
+                        color: AppColor.textColorSecondary,
                         fontSize: 26,
                         fontFamily: 'Poppins',
-fontWeight: FontWeight.w600),
+                        fontWeight: FontWeight.w600),
                   )
                 ],
               ),
@@ -83,14 +83,14 @@ fontWeight: FontWeight.w600),
                         style: TextStyle(
                             fontSize: 20,
                             fontFamily: 'Poppins',
-fontWeight: FontWeight.w600,
-                            color: Color(0xFF00005A)),
+                            fontWeight: FontWeight.w600,
+                            color: AppColor.underlineTextColor),
                       ),
                       Text('Georgeoliver@gmail.com',
                           style: TextStyle(
                               fontSize: 16,
                               fontFamily: 'Poppins',
-fontWeight: FontWeight.w400,
+                              fontWeight: FontWeight.w400,
                               color: AppColor.textBlack80Per)),
                     ],
                   )

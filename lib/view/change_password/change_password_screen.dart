@@ -42,7 +42,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           title: Text(
             'update_password'.tr,
             style: TextStyle(
-                color: AppColor.textColorPrimary,
+                color: AppColor.textColorSecondary,
                 fontSize: 26,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w600),

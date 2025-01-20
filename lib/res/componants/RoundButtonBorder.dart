@@ -8,10 +8,14 @@ class RoundButtonBorder extends StatelessWidget {
       this.buttonColor = AppColor.whiteColor,
       this.borderColor = AppColor.colorPrimary,
       this.textColor = AppColor.colorPrimary,
+      this.progressColor = AppColor.colorPrimary,
       required this.title,
       required this.onPress,
       this.width = double.infinity,
       this.height = 64,
+      this.fontSize = 20,
+      this.fontWeight = FontWeight.w400,
+      this.radius = 8,
       this.borderWidth = 1,
       this.loading = false})
       : super(key: key);
@@ -19,10 +23,11 @@ class RoundButtonBorder extends StatelessWidget {
   final bool loading;
   final String title;
   final double borderWidth;
-  final double height, width;
+  final double height, width, fontSize, radius;
+  final FontWeight fontWeight;
   final VoidCallback onPress;
 
-  final Color textColor, buttonColor, borderColor;
+  final Color textColor, buttonColor, borderColor, progressColor;
 
   @override
   Widget build(BuildContext context) {
@@ -37,20 +42,21 @@ class RoundButtonBorder extends StatelessWidget {
             color: borderColor, // Set your desired border color here
             width: borderWidth, // Adjust the width of the border as needed
           ),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(radius),
         ),
         child: loading
             ? Center(
                 child: CircularProgressIndicator(
-                color: AppColor.colorPrimary,
+                color: progressColor,
               ))
             : Center(
                 child: Text(
                   title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(color: textColor),
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontWeight: fontWeight,
+                      fontSize: fontSize,
+                      color: textColor),
                 ),
               ),
       ),

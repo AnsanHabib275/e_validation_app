@@ -21,7 +21,6 @@ class EarnMoreButtonWidget extends StatelessWidget {
         radius: 1.34,
         height: 14,
         width: 40,
-        fontWeight: FontWeight.w400,
         fontSize: 6,
         onPress: () {
           navigationVM.changeScreen(VouchersScreen());

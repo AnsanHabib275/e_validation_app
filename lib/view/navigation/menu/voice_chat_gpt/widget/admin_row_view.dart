@@ -44,7 +44,7 @@ class AdminRowView extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             margin: const EdgeInsets.only(bottom: 16),
             decoration: BoxDecoration(
-                color: AppColor.underlineTextColor.withOpacity(0.15),
+                color: AppColor.underlineTextColor15Per,
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(6),
                     bottomLeft: Radius.circular(6),

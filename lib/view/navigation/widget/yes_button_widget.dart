@@ -17,8 +17,10 @@ class YesButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButtonBorder(
-        width: Get.width * Utils.getResponsiveWidth(119),
-        height: Get.height * Utils.getResponsiveHeight(42),
+        // width: Get.width * Utils.getResponsiveWidth(119),
+        height: 42,
+        radius: 4,
+        fontSize: 16,
         title: 'yes'.tr,
         loading: submitComplaintVM.loading.value,
         onPress: () {

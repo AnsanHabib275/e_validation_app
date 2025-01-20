@@ -49,7 +49,7 @@ class _FAQSScreenState extends State<FAQSScreen> {
                   Text(
                     'frequently_asked_questions'.tr,
                     style: TextStyle(
-                        color: AppColor.textColorPrimary,
+                        color: AppColor.textColorSecondary,
                         fontSize: 26,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600),

@@ -40,7 +40,7 @@ class RoundButton extends StatelessWidget {
         child: loading
             ? Center(
                 child: CircularProgressIndicator(
-                color: AppColor.whiteColor,
+                color: progressColor,
               ))
             : Center(
                 child: Text(
@@ -50,10 +50,6 @@ class RoundButton extends StatelessWidget {
                       fontWeight: fontWeight,
                       fontSize: fontSize,
                       color: textColor),
-                  // style: Theme.of(context)
-                  //     .textTheme
-                  //     .titleMedium!
-                  //     .copyWith(color: AppColor.whiteColor),
                 ),
               ),
       ),

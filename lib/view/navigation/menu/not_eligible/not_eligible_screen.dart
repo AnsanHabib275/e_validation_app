@@ -59,7 +59,7 @@ class _NotEligibleScreenState extends State<NotEligibleScreen> {
                         'sorry_you_are_not_eligible_right_now'.tr,
                         textScaleFactor: 1,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: AppColor.textBlack80Per,
                           fontSize: 20,
                           fontFamily: 'Poppins',

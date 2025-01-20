@@ -17,12 +17,19 @@ class AppColor {
   static const textWhite = Colors.white;
   static const textBlack = Color(0xFF000000);
   static const underlineTextColor = Color(0xFF00005A);
-  static const textBlack80Per = Color(0xFF100E0E);
-  static const textLightGrey80Per = Color(0xFF3D3B3E);
+  static var underlineTextColor15Per = Color(0xFF00005A).withOpacity(0.15);
+  static var textBlackPrimary = Color(0xFF100E0E);
+  static var textBlack80Per = Color(0xFF100E0E).withOpacity(0.8);
+  static var textBlack70Per = Color(0xFF100E0E).withOpacity(0.7);
+  static var textBlack40Per = Color(0xFF100E0E).withOpacity(0.4);
+  static var textBlack30Per = Color(0xFF100E0E).withOpacity(0.3);
+  static var textBlack6Per = Color(0xFF100E0E).withOpacity(0.06);
+  static var textLightGrey80Per = Color(0xFF3D3B3E).withOpacity(0.8);
   static const textOrangePrimary = Color(0xFFFFAB48);
   static const textRedPrimary = Color(0xFFE52D2D);
   static const textGreyPrimary = Color(0xFF797979);
   static const textColorPrimary = Color(0xFF13267D);
+  static const textColorSecondary = Color(0xFF14207C);
   static const lightGreyColor = Color(0xffD9D9D9);
   static const lightGreyButtonColor = Color(0xFFD6D6D6);
 

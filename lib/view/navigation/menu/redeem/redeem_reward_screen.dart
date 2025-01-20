@@ -99,7 +99,7 @@ class _RedeemRewardScreenState extends State<RedeemRewardScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Divider(
                 height: 1,
-                color: AppColor.textBlack80Per.withOpacity(0.06),
+                color: AppColor.textBlack6Per,
               ),
             ),
             SizedBox(height: Get.height * Utils.getResponsiveHeight(11)),

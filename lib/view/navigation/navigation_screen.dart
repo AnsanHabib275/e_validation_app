@@ -264,8 +264,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
               crossAxisAlignment: CrossAxisAlignment.center, // Center alignment
               children: [
                 Image.asset(
-                  height: 52,
-                  width: 39,
+                  height: Get.height * Utils.getResponsiveHeight(52),
+                  width: Get.width * Utils.getResponsiveWidth(39),
                   ImageAssets.img_delete,
                 ),
                 SizedBox(
@@ -322,6 +322,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
   void showLogoutDialog() {
     Get.dialog(
       Dialog(
+        elevation: 4,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0), // Rounded corners
         ),

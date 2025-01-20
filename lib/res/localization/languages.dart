@@ -135,6 +135,11 @@ class Languages extends Translations {
           'existing_password_format_invalid':
               'Existing password format invalid',
           'new_password_format_invalid': 'New password format invalid',
+          'complain_no': 'Complain No',
+          'qr_code_no': 'QR code no.',
+          'products_with_qr_code_no': 'Products with QR code no.',
+          'scanned_on': 'Scanned on.',
+          'reset_password': 'Reset Password',
         },
         'ur_PK': {
           'splash_screen': 'سپلیش اسکرین',

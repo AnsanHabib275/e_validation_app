@@ -21,7 +21,7 @@ class InputPhoneNumberWidget extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border.all(
               color: updateProfileVM.isEnable.value
-                  ? AppColor.textBlack80Per.withOpacity(0.3)
+                  ? AppColor.textBlack30Per
                   : AppColor.textColorPrimary),
           borderRadius: BorderRadius.circular(8),
         ),
@@ -51,7 +51,7 @@ class InputPhoneNumberWidget extends StatelessWidget {
                         ? '+92'
                         : updateProfileVM.countryCodeController.value.text,
                     style: TextStyle(
-                        color: AppColor.textBlack80Per.withOpacity(0.7),
+                        color: AppColor.textBlack70Per,
                         fontSize: 16,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400),
@@ -69,8 +69,7 @@ class InputPhoneNumberWidget extends StatelessWidget {
             Container(
               height: Get.height * Utils.getResponsiveHeight(64),
               width: 1,
-              color: AppColor.textBlack80Per
-                  .withOpacity(0.4), // Color of the divider
+              color: AppColor.textBlack40Per, // Color of the divider
             ),
             Expanded(
               child: TextField(
@@ -80,7 +79,7 @@ class InputPhoneNumberWidget extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: 'phone_number'.tr,
                   hintStyle: TextStyle(
-                    color: AppColor.textBlack80Per.withOpacity(0.4),
+                    color: AppColor.textBlack40Per,
                     fontSize: 16,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,

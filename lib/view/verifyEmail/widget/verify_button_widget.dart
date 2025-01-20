@@ -18,7 +18,7 @@ class VerifyButtonWidget extends StatelessWidget {
         title: 'verify'.tr,
         loading: verifyEmailVM.loading.value,
         onPress: () {
-          Get.toNamed(RoutesName.loginScreen);
+          Get.toNamed(RoutesName.resetPasswordScreen);
           // if (formkey.currentState!.validate()) {
           //   signUpVM.signUpApi();
           // }

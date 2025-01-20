@@ -52,7 +52,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
           title: Text(
             'verification'.tr,
             style: TextStyle(
-                color: AppColor.textColorPrimary,
+                color: AppColor.textColorSecondary,
                 fontSize: 26,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w600),
@@ -151,10 +151,10 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
               //     fieldHeight: Get.height * Utils.getResponsiveHeight(62),
               //     // fieldWidth: Get.width * Utils.getResponsiveWidth(62),
               //     borderWidth: 1,
-              //     borderColor: AppColor.textBlack80Per.withOpacity(0.3),
+              //     borderColor: AppColor.textBlack30Per,
               //     enabledBorderColor: AppColor.colorPrimary,
               //     disabledBorderColor:
-              //         AppColor.textBlack80Per.withOpacity(0.3),
+              //         AppColor.textBlack30Per,
               //     borderRadius: BorderRadius.all(Radius.circular(8)),
               //     keyboardType: TextInputType.number,
               //     onSubmit: (code) async {

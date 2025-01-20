@@ -16,6 +16,11 @@ class RedeemButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButton(
+        height: 18,
+        width: 45,
+        radius: 2,
+        fontSize: 6,
+        fontWeight: FontWeight.w300,
         title: 'redeem'.tr,
         onPress: () {
           // navigationVM.changeScreen(ProductVerifyDoneScreen());

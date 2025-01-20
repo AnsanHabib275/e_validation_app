@@ -137,7 +137,7 @@ class _CountryCodePickerScreenState extends State<CountryCodePickerScreen> {
                     Text(
                       _selectedCountryCode,
                       style: TextStyle(
-                          color: AppColor.textBlack80Per.withOpacity(0.7),
+                          color: AppColor.textBlack70Per,
                           fontSize: 16,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400),
@@ -151,8 +151,7 @@ class _CountryCodePickerScreenState extends State<CountryCodePickerScreen> {
               Container(
                 height: 64, // Height of the divider
                 width: 1, // Thickness of the divider
-                color: AppColor.textBlack80Per
-                    .withOpacity(0.4), // Color of the divider
+                color: AppColor.textBlack40Per, // Color of the divider
               ),
               Expanded(
                 child: TextField(

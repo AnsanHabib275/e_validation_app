@@ -51,7 +51,7 @@ class _KYCScreenState extends State<KYCScreen> {
                     Text(
                       'know_your_customer'.tr,
                       style: TextStyle(
-                          color: AppColor.textColorPrimary,
+                          color: AppColor.textColorSecondary,
                           fontSize: 26,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600),
@@ -78,7 +78,7 @@ class _KYCScreenState extends State<KYCScreen> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: AppColor.textBlack80Per,
-                            fontSize: 13,
+                            fontSize: 16,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400),
                       ),

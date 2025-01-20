@@ -21,7 +21,7 @@ class ForgetPasswordButtonWidget extends StatelessWidget {
         title: 'send_code'.tr,
         loading: forgetPasswordVM.loading.value,
         onPress: () {
-          Get.toNamed(RoutesName.navigationScreen);
+          Get.toNamed(RoutesName.verifyEmailScreen);
           // if (formkey.currentState!.validate()) {
           //   forgetPasswordVM.forgetPasswordApi();
           // }

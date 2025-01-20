@@ -47,7 +47,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     'George Oliver',
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                        color: AppColor.textColorPrimary,
+                        color: AppColor.underlineTextColor,
                         fontSize: 20,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600),

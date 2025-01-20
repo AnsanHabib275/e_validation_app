@@ -19,7 +19,8 @@ class ResetPasswordScreen extends StatefulWidget {
 
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   final _formkey = GlobalKey<FormState>();
-  final e_id = Get.arguments['e_id'];
+  // final e_id = Get.arguments['e_id'];
+  final e_id = '';
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           title: Text(
             'reset_password'.tr,
             style: TextStyle(
-                color: AppColor.textColorPrimary,
+                color: AppColor.textColorSecondary,
                 fontSize: 26,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w600),

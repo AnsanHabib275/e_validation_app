@@ -35,23 +35,76 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Products with QR code no. 55676',
-                  // widget.history.qrCodeNo,
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      color: AppColor.textBlack80Per),
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'products_with_qr_code_no'.tr,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                          color: AppColor
+                              .textBlack80Per, // Make "Complain No" bold
+                        ),
+                      ),
+                      TextSpan(
+                        text: "55676", // The number
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                          color: AppColor
+                              .textBlack80Per, // Normal font weight for the number
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                Text(
-                  'scanned on 5 oct,2022',
-                  // widget.history.scanedOn,
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400,
-                    color: AppColor.textBlack80Per, // Strikethrough effect
+
+                // Text(
+                //   'Products with QR code no. 55676',
+                //   // widget.history.qrCodeNo,
+                //   style: TextStyle(
+                //       fontSize: 16,
+                //       fontFamily: 'Poppins',
+                //       fontWeight: FontWeight.w500,
+                //       color: AppColor.textBlack80Per),
+                // ),
+                // Text(
+                //   'scanned on 5 oct,2022',
+                //   // widget.history.scanedOn,
+                //   style: TextStyle(
+                //     fontSize: 12,
+                //     fontFamily: 'Poppins',
+                //     fontWeight: FontWeight.w400,
+                //     color: AppColor.textBlack80Per, // Strikethrough effect
+                //   ),
+                // ),
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'scanned_on '.tr,
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                          color: AppColor
+                              .textBlack80Per, // Make "Complain No" bold
+                        ),
+                      ),
+                      TextSpan(
+                        text: '5 oct,2022', // The number
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                          color: AppColor
+                              .textBlack80Per, // Normal font weight for the number
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

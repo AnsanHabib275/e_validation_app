@@ -16,8 +16,6 @@ class ProductVerifyDoneButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButton(
-        width: double.infinity,
-        height: 64,
         title: 'done'.tr,
         loading: submitComplaintVM.loading.value,
         onPress: () {

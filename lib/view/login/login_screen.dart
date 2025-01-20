@@ -111,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400,
                             fontSize: 19,
-                            color: AppColor.textBlack80Per),
+                            color: AppColor.textBlackPrimary),
                       ),
                       InkWell(
                         onTap: () {

@@ -40,15 +40,41 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'QR code no. 3342567',
-                      // widget.history.qrCodeNo,
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w500,
-                          color: AppColor.textBlack80Per),
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'qr_code_no '.tr,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              color: AppColor
+                                  .textBlack80Per, // Make "Complain No" bold
+                            ),
+                          ),
+                          TextSpan(
+                            text: "3342567", // The number
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              color: AppColor
+                                  .textBlack80Per, // Normal font weight for the number
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
+                    // Text(
+                    //   'QR code no. 3342567',
+                    //   // widget.history.qrCodeNo,
+                    //   style: TextStyle(
+                    //       fontSize: 16,
+                    //       fontFamily: 'Poppins',
+                    //       fontWeight: FontWeight.w500,
+                    //       color: AppColor.textBlack80Per),
+                    // ),
                     Text(
                       'Submitted',
                       // widget.history.scanedOn,
