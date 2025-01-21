@@ -17,6 +17,9 @@ class InputEmailWidget extends StatelessWidget {
         controller: loginVM.emailController.value,
         focusNode: loginVM.emailFocusNode.value,
         enableSuggestions: true,
+        autocorrect: false,
+        autofocus: false,
+        // canRequestFocus: false,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
           if (value == null ||
@@ -31,13 +34,19 @@ class InputEmailWidget extends StatelessWidget {
           Utils.fieldFocusChange(context, loginVM.emailFocusNode.value,
               loginVM.passwordFocusNode.value);
         },
+        style: TextStyle(
+          color: AppColor.textBlack80Per,
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+        ),
         decoration: InputDecoration(
           hintText: 'email'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack80Per,
+            color: AppColor.textBlack40Per,
             fontSize: 16,
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
           ),
           labelText: 'email'.tr,
           labelStyle: TextStyle(
@@ -52,7 +61,7 @@ class InputEmailWidget extends StatelessWidget {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
             borderSide: BorderSide(
-              color: AppColor.textColorPrimary, // Default border color
+              color: AppColor.textBlack30Per, // Default border color
               width: 1.0, // Default border width
             ),
           ),

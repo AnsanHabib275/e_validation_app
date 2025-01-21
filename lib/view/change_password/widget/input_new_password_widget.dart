@@ -1,11 +1,8 @@
-import 'package:e_validation/view_models/controller/resetPassword/reset_password_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../res/colors/app_color.dart';
 import '../../../view_models/controller/changePassword/change_password_view_model.dart';
-import '../../../view_models/controller/login/login_view_model.dart';
-import '../../../view_models/controller/signup/sign_up_view_model.dart';
 
 class InputNewPasswordWidget extends StatelessWidget {
   InputNewPasswordWidget({super.key});
@@ -20,13 +17,19 @@ class InputNewPasswordWidget extends StatelessWidget {
         focusNode: changePasswordVM.newPasswordFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
+        style: TextStyle(
+          color: AppColor.textBlack80Per,
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+        ),
         decoration: InputDecoration(
           hintText: 'new_password'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack80Per,
+            color: AppColor.textBlack40Per,
             fontSize: 16,
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
           ),
           labelText: 'new_password'.tr,
           labelStyle: TextStyle(

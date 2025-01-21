@@ -15,13 +15,19 @@ class InputGenderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
+      style: TextStyle(
+        color: AppColor.textBlack80Per,
+        fontSize: 16,
+        fontFamily: 'Poppins',
+        fontWeight: FontWeight.w500,
+      ),
       decoration: InputDecoration(
         hintText: 'gender'.tr,
         hintStyle: TextStyle(
-          color: AppColor.textBlack80Per,
-          fontSize: 14,
+          color: AppColor.textBlack40Per,
+          fontSize: 16,
           fontFamily: 'Poppins',
-          fontWeight: FontWeight.w300,
+          fontWeight: FontWeight.w400,
         ),
         labelText: 'gender'.tr,
         labelStyle: TextStyle(

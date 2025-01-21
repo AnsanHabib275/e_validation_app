@@ -167,7 +167,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: Get.height * Utils.getResponsiveHeight(12),
                           ),
                           Text(
-                            'birthday'.tr,
+                            'date_of_birth'.tr,
                             style: TextStyle(
                                 color: AppColor.textColorPrimary,
                                 fontSize: 20,

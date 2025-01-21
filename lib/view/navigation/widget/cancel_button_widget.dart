@@ -14,8 +14,8 @@ class CancelButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     // return Obx(() {
     return RoundButton(
-      // width: Get.width * Utils.getResponsiveWidth(119),
-      height: 42,
+      width: Get.width * Utils.getResponsiveWidth(119),
+      height: Get.height * Utils.getResponsiveHeight(42),
       radius: 4,
       fontSize: 16,
       title: 'cancel'.tr,

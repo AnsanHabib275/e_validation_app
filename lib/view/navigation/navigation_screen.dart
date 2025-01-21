@@ -75,98 +75,131 @@ class _NavigationScreenState extends State<NavigationScreen> {
             ),
           ),
         ),
-        Scaffold(
-          backgroundColor: Colors.white,
-          extendBody: true,
-          drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: [
-                DrawerHeader(
-                  decoration: BoxDecoration(),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      CircleAvatar(
-                        radius: 40,
-                        backgroundColor: AppColor.lightGreyColor,
-                        backgroundImage: AssetImage(ImageAssets.dummy_profile),
-                      ),
-                      Text(
-                        'George Oliver',
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                            color: AppColor.textBlack80Per,
-                            fontSize: 20,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600),
-                      ),
-                      Text(
-                        'Georgeoliver@gmail.com',
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                            color: AppColor.textBlack80Per,
-                            fontSize: 16,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ],
-                  ),
-                ),
-                ...items.asMap().entries.map((entry) {
-                  int index = entry.key;
-                  MenuItemsModel item = entry.value;
-                  return Column(
-                    children: [
-                      ListTile(
-                        leading:
-                            Image.asset(item.imagePath, width: 30, height: 30),
-                        title: Text(
-                          item.name,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              fontSize: 18,
-                              color: AppColor.textBlack80Per),
+        GestureDetector(
+          onTap: () {
+            FocusScope.of(context).unfocus();
+          },
+          child: Scaffold(
+            backgroundColor: Colors.white,
+            extendBody: true,
+            drawer: Drawer(
+              child: ListView(
+                children: [
+                  Container(
+                    height: 200,
+                    child: DrawerHeader(
+                      margin: EdgeInsets.zero,
+                      padding: EdgeInsets.zero,
+                      child: Stack(fit: StackFit.expand, children: [
+                        Positioned(
+                            top: 0,
+                            right: 10,
+                            child: InkWell(
+                                onTap: () {
+                                  Get.back();
+                                },
+                                child: Image.asset(
+                                    IconAssets.ic_close_with_white_bg))),
+                        Positioned(
+                          left: 20,
+                          bottom: 20,
+                          top: 26,
+                          right: 10,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CircleAvatar(
+                                radius: 40,
+                                backgroundColor: AppColor.lightGreyColor,
+                                backgroundImage:
+                                    AssetImage(ImageAssets.dummy_profile),
+                              ),
+                              FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  'George Oliver',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      color: AppColor.textBlack80Per,
+                                      fontSize: 20,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                              FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  'Georgeoliver@gmail.com',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      color: AppColor.textBlack80Per,
+                                      fontSize: 16,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        onTap: () {
-                          _handleDrawerNavigationChange(item.name);
-                        },
-                      )
-                    ],
-                  );
-                }).toList()
+                      ]),
+                    ),
+                  ),
+                  ...items.asMap().entries.map((entry) {
+                    int index = entry.key;
+                    MenuItemsModel item = entry.value;
+                    return Column(
+                      children: [
+                        ListTile(
+                          leading: Image.asset(item.imagePath,
+                              width: 30, height: 30),
+                          title: Text(
+                            item.name,
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18,
+                                color: AppColor.textBlack80Per),
+                          ),
+                          onTap: () {
+                            _handleDrawerNavigationChange(item.name);
+                          },
+                        )
+                      ],
+                    );
+                  }).toList()
+                ],
+              ),
+            ),
+            body: Stack(
+              children: [
+                Center(
+                  child:
+                      Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
+                ),
+                SafeArea(
+                  child: const MenuIcon(),
+                ),
               ],
             ),
-          ),
-          body: Stack(
-            children: [
-              Center(
-                child:
-                    Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
-              ),
-              SafeArea(
-                child: const MenuIcon(),
-              ),
-            ],
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            onTap: _handleNavigationChange,
-            backgroundColor: Colors.white,
-            elevation: 0,
-            items: [
-              BottomNavigationBarItem(
-                  icon: Image.asset(IconAssets.ic_bn_reward), label: ''),
-              BottomNavigationBarItem(
-                  icon: Image.asset(IconAssets.ic_bn_history), label: ''),
-              BottomNavigationBarItem(
-                  icon: Image.asset(IconAssets.ic_bn_home), label: ''),
-              BottomNavigationBarItem(
-                  icon: Image.asset(IconAssets.ic_bn_notification), label: ''),
-              BottomNavigationBarItem(
-                  icon: Image.asset(IconAssets.ic_bn_complaint), label: ''),
-            ],
+            bottomNavigationBar: BottomNavigationBar(
+              onTap: _handleNavigationChange,
+              backgroundColor: Colors.white,
+              elevation: 0,
+              items: [
+                BottomNavigationBarItem(
+                    icon: Image.asset(IconAssets.ic_bn_reward), label: ''),
+                BottomNavigationBarItem(
+                    icon: Image.asset(IconAssets.ic_bn_history), label: ''),
+                BottomNavigationBarItem(
+                    icon: Image.asset(IconAssets.ic_bn_home), label: ''),
+                BottomNavigationBarItem(
+                    icon: Image.asset(IconAssets.ic_bn_notification),
+                    label: ''),
+                BottomNavigationBarItem(
+                    icon: Image.asset(IconAssets.ic_bn_complaint), label: ''),
+              ],
+            ),
           ),
         ),
       ],
@@ -226,6 +259,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         case 'Complaints':
           break;
         case 'Points':
+          // navigationVM.changeScreen(RedeemRewardScreen());
           navigationVM.changeScreen(PointsScreen());
           break;
         case 'Delete Account':
@@ -253,7 +287,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0), // Rounded corners
         ),
-        backgroundColor: Colors.white, // White background
+        backgroundColor: Colors.white,
+        elevation: 4, // White background
         child: SizedBox(
           height: Get.height * Utils.getResponsiveHeight(364),
           width: Get.width * Utils.getResponsiveWidth(368),
@@ -278,38 +313,33 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 SizedBox(
                   height: Get.height * Utils.getResponsiveHeight(22),
                 ),
-                Text(
-                  'are_you_sure_you_want_to_delete'.tr,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w400,
-                      color: AppColor.textBlack80Per),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    'are_you_sure_you_want_to_delete'.tr,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.textBlack80Per),
+                  ),
                 ),
                 SizedBox(
                   height: Get.height * Utils.getResponsiveHeight(32),
                 ),
                 // Quantity Row
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 60.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 80,
-                        height: 42,
-                        child: DeleteButtonWidget(
-                          formkey: _formkey,
-                          eid: eid,
-                        ),
-                      ),
-                      SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
-                      SizedBox(
-                          height: 42, width: 80, child: CancelButtonWidget()),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    DeleteButtonWidget(
+                      formkey: _formkey,
+                      eid: eid,
+                    ),
+                    SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
+                    CancelButtonWidget(),
+                  ],
                 ),
               ],
             ),
@@ -330,41 +360,47 @@ class _NavigationScreenState extends State<NavigationScreen> {
         child: SizedBox(
           height: Get.height * Utils.getResponsiveHeight(301),
           width: Get.width * Utils.getResponsiveWidth(368),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center, // Center alignment
-            children: [
-              SvgPicture.asset(
-                height: 69,
-                width: 69,
-                ImageAssets.img_logout,
-              ),
-              SizedBox(
-                height: Get.height * Utils.getResponsiveHeight(40),
-              ),
-              Text(
-                'are_you_sure_you_want_to_logout'.tr,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400,
-                    color: AppColor.textBlack80Per),
-              ),
-              SizedBox(
-                height: Get.height * Utils.getResponsiveHeight(30),
-              ),
-              // Quantity Row
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  YesButtonWidget(),
-                  SizedBox(width: Get.width * Utils.getResponsiveWidth(6)),
-                  NoButtonWidget(),
-                ],
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center, // Center alignment
+              children: [
+                SvgPicture.asset(
+                  height: 69,
+                  width: 69,
+                  ImageAssets.img_logout,
+                ),
+                SizedBox(
+                  height: Get.height * Utils.getResponsiveHeight(40),
+                ),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    'are_you_sure_you_want_to_logout'.tr,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.textBlack80Per),
+                  ),
+                ),
+                SizedBox(
+                  height: Get.height * Utils.getResponsiveHeight(30),
+                ),
+                // Quantity Row
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    YesButtonWidget(),
+                    SizedBox(width: Get.width * Utils.getResponsiveWidth(6)),
+                    NoButtonWidget(),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

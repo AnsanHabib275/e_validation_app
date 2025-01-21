@@ -18,13 +18,19 @@ class InputOldPasswordWidget extends StatelessWidget {
         focusNode: changePasswordVM.oldPasswordFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
+        style: TextStyle(
+          color: AppColor.textBlack80Per,
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+        ),
         decoration: InputDecoration(
           hintText: 'existing_password'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack80Per,
+            color: AppColor.textBlack40Per,
             fontSize: 16,
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
           ),
           labelText: 'existing_password'.tr,
           labelStyle: TextStyle(

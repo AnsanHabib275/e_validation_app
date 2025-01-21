@@ -60,9 +60,9 @@ class _PointsScreenState extends State<PointsScreen> {
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(
         backgroundColor: AppColor.whiteColor,
-        body: ListView(
-          padding: EdgeInsets.zero,
-          scrollDirection: Axis.vertical,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               height: Get.height * Utils.getResponsiveHeight(270),
@@ -205,18 +205,27 @@ class _PointsScreenState extends State<PointsScreen> {
                 ],
               ),
             ),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(12)),
-            SectionHeader(title: 'entertainment'.tr),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
-            PointsCardWidget(items: entertainmentItems),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(5)),
-            SectionHeader(title: 'restaurants'.tr),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
-            PointsCardWidget(items: restaurantsItems),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(5)),
-            SectionHeader(title: 'vouchers'.tr),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
-            PointsCardWidget(items: vouchersItems),
+            SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(12)),
+                  SectionHeader(title: 'entertainment'.tr),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
+                  PointsCardWidget(items: entertainmentItems),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(5)),
+                  SectionHeader(title: 'restaurants'.tr),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
+                  PointsCardWidget(items: restaurantsItems),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(5)),
+                  SectionHeader(title: 'vouchers'.tr),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
+                  PointsCardWidget(items: vouchersItems),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(8))
+                ],
+              ),
+            ),
           ],
         ),
       ),

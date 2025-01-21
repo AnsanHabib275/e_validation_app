@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 
 import '../../../../../res/colors/app_color.dart';
 import '../../../../../view_models/controller/navigation/submitComplain/submit_complain_view_model.dart';
+import '../../../utils/utils.dart';
 
 class InputDateOfBirthWidget extends StatelessWidget {
   InputDateOfBirthWidget({super.key});
@@ -40,13 +41,19 @@ class InputDateOfBirthWidget extends StatelessWidget {
             // enableSuggestions: true,
             readOnly: true,
             autovalidateMode: AutovalidateMode.onUserInteraction,
+            style: TextStyle(
+              color: AppColor.textBlack80Per,
+              fontSize: 16,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w500,
+            ),
             decoration: InputDecoration(
                 hintText: 'date_of_birth'.tr,
                 hintStyle: TextStyle(
-                  color: AppColor.textBlack80Per,
-                  fontSize: 14,
+                  color: AppColor.textBlack40Per,
+                  fontSize: 16,
                   fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w300,
+                  fontWeight: FontWeight.w400,
                 ),
                 labelText: 'date_of_birth'.tr,
                 labelStyle: TextStyle(
@@ -87,6 +94,12 @@ class InputDateOfBirthWidget extends StatelessWidget {
                 return 'date_of_birth_cannot_be_blank'.tr;
               }
               return null; // Return null if there is no error
+            },
+            onFieldSubmitted: (value) {
+              Utils.fieldFocusChange(
+                  context,
+                  signUpVM.dateOfBirthFocusNode.value,
+                  signUpVM.passwordFocusNode.value);
             },
           ),
         ),

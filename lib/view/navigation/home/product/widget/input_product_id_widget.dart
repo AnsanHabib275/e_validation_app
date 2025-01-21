@@ -31,13 +31,19 @@ class InputProductIdWidget extends StatelessWidget {
                 submitComplaintVM.productIdFocusNode.value,
                 submitComplaintVM.attachFileFocusNode.value);
           },
+          style: TextStyle(
+            color: AppColor.textBlack80Per,
+            fontSize: 16,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+          ),
           decoration: InputDecoration(
             hintText: 'product_id'.tr,
             hintStyle: TextStyle(
-              color: AppColor.textBlack80Per,
+              color: AppColor.textBlack40Per,
               fontSize: 16,
               fontFamily: 'Poppins',
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w400,
             ),
             labelText: 'product_id'.tr,
             labelStyle: TextStyle(

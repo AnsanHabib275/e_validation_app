@@ -15,19 +15,25 @@ class InputConfirmPasswordWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: resetPasswordVM.passwordController.value,
-        focusNode: resetPasswordVM.passwordFocusNode.value,
+        controller: resetPasswordVM.confirmPasswordController.value,
+        focusNode: resetPasswordVM.confirmPasswordFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
+        style: TextStyle(
+          color: AppColor.textBlack80Per,
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+        ),
         decoration: InputDecoration(
-          hintText: 'password'.tr,
+          hintText: 'confirm_password'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack80Per,
+            color: AppColor.textBlack40Per,
             fontSize: 16,
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
           ),
-          labelText: 'password'.tr,
+          labelText: 'confirm_password'.tr,
           labelStyle: TextStyle(
             color: AppColor.textColorPrimary,
             fontSize: 14,
@@ -72,7 +78,7 @@ class InputConfirmPasswordWidget extends StatelessWidget {
         obscureText: resetPasswordVM.isVisible.value,
         validator: (value) {
           if (value == null || value.isEmpty || value.length < 7) {
-            return 'password_format_invalid'.tr;
+            return 'confirm_password_format_invalid'.tr;
           }
           return null; // Return null if there is no error
         },

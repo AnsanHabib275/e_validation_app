@@ -30,7 +30,7 @@ class ScanProductViewModel extends GetxController {
       if (check) {
         print('Status Code 200 and isSuccessfull is true');
 
-        // return scanmodelFromJson(value);
+        return scanmodelFromJson(value);
         navigationVM.changeScreen(ProductVerifiedScreen());
       } else {
         Utils.toastMessage('Fake Product');
@@ -42,6 +42,7 @@ class ScanProductViewModel extends GetxController {
           productid: productid,
           scanCount: scanCount,
         });
+        return null;
       }
       // if (value['errorcode'] == 1023) {
       //   errorMessage.value = value['message'];
@@ -57,6 +58,8 @@ class ScanProductViewModel extends GetxController {
       print(error.toString());
       loading.value = false;
       errorMessage.value = error.toString();
+      return null;
     });
+    return null;
   }
 }

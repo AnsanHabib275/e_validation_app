@@ -27,13 +27,19 @@ class InputEmailWidget extends StatelessWidget {
           }
           return null;
         },
+        style: TextStyle(
+          color: AppColor.textBlack80Per,
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+        ),
         decoration: InputDecoration(
           hintText: 'email_hint'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack80Per,
+            color: AppColor.textBlack40Per,
             fontSize: 16,
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
           ),
           labelText: 'email_star'.tr,
           labelStyle: TextStyle(

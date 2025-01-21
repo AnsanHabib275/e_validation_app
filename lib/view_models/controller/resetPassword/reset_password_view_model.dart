@@ -8,10 +8,10 @@ import '../../../res/routes/routes_name.dart';
 class ResetPasswordViewModel extends GetxController {
   final _api = ResetPasswordRepository();
 
-  final passwordController = TextEditingController().obs;
+  final newPasswordController = TextEditingController().obs;
   final confirmPasswordController = TextEditingController().obs;
 
-  final passwordFocusNode = FocusNode().obs;
+  final newPasswordFocusNode = FocusNode().obs;
   final confirmPasswordFocusNode = FocusNode().obs;
 
   RxBool loading = false.obs;
@@ -22,7 +22,7 @@ class ResetPasswordViewModel extends GetxController {
     loading.value = true;
     Map data = {
       'E_id': e_id,
-      'NewPassword': passwordController.value.text,
+      'NewPassword': newPasswordController.value.text,
       'ConfirmPassword': confirmPasswordController.value.text,
     };
     _api.resetPasswordApi(data).then((value) {

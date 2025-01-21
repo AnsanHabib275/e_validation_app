@@ -79,6 +79,12 @@ class InputPhoneNumberWidget extends StatelessWidget {
                 keyboardType: TextInputType.phone,
                 textInputAction: TextInputAction.done,
                 // maxLength: 10,
+                style: TextStyle(
+                  color: AppColor.textBlack70Per,
+                  fontSize: 16,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w400,
+                ),
                 decoration: InputDecoration(
                   hintText: 'phone_number'.tr,
                   hintStyle: TextStyle(
@@ -92,6 +98,12 @@ class InputPhoneNumberWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
+                onFieldSubmitted: (value) {
+                  Utils.fieldFocusChange(
+                      context,
+                      signUpVM.phoneNumberFocusNode.value,
+                      signUpVM.dateOfBirthFocusNode.value);
+                },
               ),
             ),
           ],

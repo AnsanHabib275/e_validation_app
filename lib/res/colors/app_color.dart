@@ -18,6 +18,7 @@ class AppColor {
   static const textBlack = Color(0xFF000000);
   static const underlineTextColor = Color(0xFF00005A);
   static var underlineTextColor15Per = Color(0xFF00005A).withOpacity(0.15);
+  static const otpTextColor = Color(0xFF1E232C);
   static var textBlackPrimary = Color(0xFF100E0E);
   static var textBlack80Per = Color(0xFF100E0E).withOpacity(0.8);
   static var textBlack70Per = Color(0xFF100E0E).withOpacity(0.7);

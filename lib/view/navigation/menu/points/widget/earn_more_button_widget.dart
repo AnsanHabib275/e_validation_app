@@ -1,4 +1,5 @@
 import 'package:e_validation/res/routes/routes_name.dart';
+import 'package:e_validation/utils/utils.dart';
 import 'package:e_validation/view/navigation/home/product/product_verify_done_screen.dart';
 import 'package:e_validation/view/navigation/menu/vouchers/vouchers_screen.dart';
 import 'package:flutter/foundation.dart';
@@ -15,21 +16,21 @@ class EarnMoreButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      return RoundButton(
-        title: 'earn_more'.tr,
-        radius: 1.34,
-        height: 14,
-        width: 40,
-        fontSize: 6,
-        onPress: () {
-          navigationVM.changeScreen(VouchersScreen());
-          // Get.to(() => const ProductVerifyDoneScreen());
-          // if (formkey.currentState!.validate()) {
-          //   signUpVM.signUpApi();
-          // }
-        },
-      );
-    });
+    // return Obx(() {
+    return RoundButton(
+      title: 'earn_more'.tr,
+      radius: 1.34,
+      height: Get.height * Utils.getResponsiveHeight(14),
+      width: Get.width * Utils.getResponsiveWidth(40),
+      fontSize: 6,
+      onPress: () {
+        navigationVM.changeScreen(VouchersScreen());
+        // Get.to(() => const ProductVerifyDoneScreen());
+        // if (formkey.currentState!.validate()) {
+        //   signUpVM.signUpApi();
+        // }
+      },
+    );
+    // });
   }
 }

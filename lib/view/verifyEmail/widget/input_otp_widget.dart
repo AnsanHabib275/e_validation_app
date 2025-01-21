@@ -38,6 +38,12 @@ class InputOTPWidget extends StatelessWidget {
           verifyEmailVM.checkOtpFilled(email);
         }
       },
+      style: TextStyle(
+        color: AppColor.otpTextColor,
+        fontSize: 20,
+        fontFamily: 'Poppins',
+        fontWeight: FontWeight.w600,
+      ),
       decoration: const InputDecoration(
         filled: false,
         counterText: "",

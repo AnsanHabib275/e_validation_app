@@ -25,54 +25,59 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   Widget build(BuildContext context) {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Scaffold(
           backgroundColor: Colors.white,
-          leading: IconButton(
-            icon: const Icon(
-              Icons.arrow_back_ios_new_outlined,
-              size: 24,
-              color: AppColor.textGreyPrimary,
-            ), // Change the color here
-            onPressed: () => Get.back(),
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            leading: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios_new_outlined,
+                size: 24,
+                color: AppColor.textGreyPrimary,
+              ), // Change the color here
+              onPressed: () => Get.back(),
+            ),
+            centerTitle: true,
+            title: Text(
+              'forgot_password'.tr,
+              style: TextStyle(
+                  color: AppColor.textColorSecondary,
+                  fontSize: 26,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Poppins'),
+            ),
           ),
-          centerTitle: true,
-          title: Text(
-            'forgot_password'.tr,
-            style: TextStyle(
-                color: AppColor.textColorSecondary,
-                fontSize: 26,
-                fontWeight: FontWeight.w600,
-                fontFamily: 'Poppins'),
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(36),
-                ),
-                Text(
-                  'no_worries_enter_your_email_for_reset_password'.tr,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: AppColor.textBlack80Per,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins'),
-                ),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(51),
-                ),
-                Form(key: _formkey, child: InputEmailWidget()),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(50),
-                ),
-                ForgetPasswordButtonWidget(formkey: _formkey)
-              ],
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: Get.height * Utils.getResponsiveHeight(36),
+                  ),
+                  Text(
+                    'no_worries_enter_your_email_for_reset_password'.tr,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: AppColor.textBlack80Per,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Poppins'),
+                  ),
+                  SizedBox(
+                    height: Get.height * Utils.getResponsiveHeight(51),
+                  ),
+                  Form(key: _formkey, child: InputEmailWidget()),
+                  SizedBox(
+                    height: Get.height * Utils.getResponsiveHeight(50),
+                  ),
+                  ForgetPasswordButtonWidget(formkey: _formkey)
+                ],
+              ),
             ),
           ),
         ),

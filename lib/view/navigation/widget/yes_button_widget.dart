@@ -18,6 +18,7 @@ class YesButtonWidget extends StatelessWidget {
     return Obx(() {
       return RoundButtonBorder(
         // width: Get.width * Utils.getResponsiveWidth(119),
+        width: 119,
         height: 42,
         radius: 4,
         fontSize: 16,

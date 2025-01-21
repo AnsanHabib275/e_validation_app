@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import '../../../../../res/colors/app_color.dart';
 import '../../../../../utils/utils.dart';
 
-
 class InputLastNameWidget extends StatelessWidget {
   InputLastNameWidget({super.key});
 
@@ -26,16 +25,24 @@ class InputLastNameWidget extends StatelessWidget {
           return null;
         },
         onFieldSubmitted: (value) {
-          Utils.fieldFocusChange(context, updateProfileVM.lastNameFocusNode.value,
+          Utils.fieldFocusChange(
+              context,
+              updateProfileVM.lastNameFocusNode.value,
               updateProfileVM.phoneNumberFocusNode.value);
         },
+        style: TextStyle(
+          color: AppColor.textBlack80Per,
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+        ),
         decoration: InputDecoration(
           hintText: 'last_name'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack80Per,
+            color: AppColor.textBlack40Per,
             fontSize: 16,
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
           ),
           labelText: 'last_name'.tr,
           labelStyle: TextStyle(

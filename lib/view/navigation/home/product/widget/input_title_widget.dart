@@ -28,13 +28,19 @@ class InputTitleWidget extends StatelessWidget {
           Utils.fieldFocusChange(context, submitComplainVM.titleFocusNode.value,
               submitComplainVM.userAddressFocusNode.value);
         },
+        style: TextStyle(
+          color: AppColor.textBlack80Per,
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+        ),
         decoration: InputDecoration(
           hintText: 'title'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack80Per,
+            color: AppColor.textBlack40Per,
             fontSize: 16,
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
           ),
           labelText: 'title'.tr,
           labelStyle: TextStyle(

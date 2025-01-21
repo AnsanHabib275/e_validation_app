@@ -10,6 +10,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../../models/navigation/menu/redeem/transportation_list_model.dart';
 
@@ -56,9 +57,7 @@ class _RedeemRewardScreenState extends State<RedeemRewardScreen> {
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(
         backgroundColor: AppColor.whiteColor,
-        body: ListView(
-          padding: EdgeInsets.zero,
-          scrollDirection: Axis.vertical,
+        body: Column(
           children: [
             Container(
               width: Get.width * Utils.getResponsiveWidth(428),
@@ -90,22 +89,47 @@ class _RedeemRewardScreenState extends State<RedeemRewardScreen> {
                 ],
               ),
             ),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(20)),
-            SectionHeader(title: 'transportation'.tr),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(10)),
-            TransportationCardWidget(items: transportationItems),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(10)),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Divider(
-                height: 1,
-                color: AppColor.textBlack6Per,
-              ),
-            ),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(11)),
-            SectionHeader(title: 'restaurants'.tr),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(10)),
-            RestaurantsCardWidget(items: restaurantsItems),
+            const Padding(padding: EdgeInsets.only(top: 150)),
+            Center(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: 100.0,
+                      child: Shimmer.fromColors(
+                        baseColor: const Color.fromARGB(255, 140, 136, 136),
+                        highlightColor: const Color.fromARGB(69, 59, 108, 255),
+                        child: const Text(
+                          'Coming Soon',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    )
+                  ]),
+            )
+            // SizedBox(height: Get.height * Utils.getResponsiveHeight(20)),
+            // SectionHeader(title: 'transportation'.tr),
+            // SizedBox(height: Get.height * Utils.getResponsiveHeight(10)),
+            // TransportationCardWidget(items: transportationItems),
+            // SizedBox(height: Get.height * Utils.getResponsiveHeight(10)),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            //   child: Divider(
+            //     height: 1,
+            //     color: AppColor.textBlack6Per,
+            //   ),
+            // ),
+            // SizedBox(height: Get.height * Utils.getResponsiveHeight(11)),
+            // SectionHeader(title: 'restaurants'.tr),
+            // SizedBox(height: Get.height * Utils.getResponsiveHeight(10)),
+            // RestaurantsCardWidget(items: restaurantsItems),
           ],
         ),
       ),

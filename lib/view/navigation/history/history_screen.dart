@@ -61,8 +61,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0, vertical: 56),
+                  padding:
+                      const EdgeInsets.only(left: 16, right: 16.0, bottom: 56),
                   child: FutureBuilder<List<ComplaintsListModel>>(
                     future: historyVM.historyListApi(), // Call your function
                     builder: (context, snapshot) {

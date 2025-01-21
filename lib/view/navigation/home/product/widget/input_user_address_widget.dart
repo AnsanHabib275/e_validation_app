@@ -30,13 +30,19 @@ class InputUserAddressWidget extends StatelessWidget {
               submitComplainVM.userAddressFocusNode.value,
               submitComplainVM.productIdFocusNode.value);
         },
+        style: TextStyle(
+          color: AppColor.textBlack80Per,
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+        ),
         decoration: InputDecoration(
           hintText: 'user_address'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack80Per,
+            color: AppColor.textBlack40Per,
             fontSize: 16,
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
           ),
           labelText: 'user_address'.tr,
           labelStyle: TextStyle(

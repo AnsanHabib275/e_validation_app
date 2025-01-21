@@ -28,13 +28,19 @@ class InputFirstNameWidget extends StatelessWidget {
           Utils.fieldFocusChange(context, signUpVM.firstNameFocusNode.value,
               signUpVM.lastNameFocusNode.value);
         },
+        style: TextStyle(
+          color: AppColor.textBlack80Per,
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+        ),
         decoration: InputDecoration(
           hintText: 'first_name'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack80Per,
+            color: AppColor.textBlack40Per,
             fontSize: 16,
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
           ),
           labelText: 'first_name'.tr,
           labelStyle: TextStyle(

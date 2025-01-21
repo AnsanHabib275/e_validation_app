@@ -24,7 +24,7 @@ class FaqsCardWidget extends StatelessWidget {
                       style: TextStyle(fontFamily: "Poppins")),
                 ),
                 collapsed: const Text(
-                  "Lorem ipsum dolor sit amet.",
+                  "",
                   softWrap: true,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,

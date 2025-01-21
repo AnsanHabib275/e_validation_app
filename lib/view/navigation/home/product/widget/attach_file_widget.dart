@@ -17,13 +17,19 @@ class AttachFileWidget extends StatelessWidget {
         focusNode: submitComplaintVM.attachFileFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
+        style: TextStyle(
+          color: AppColor.textBlack80Per,
+          fontSize: 14,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w300,
+        ),
         decoration: InputDecoration(
           hintText: 'attach_file'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack80Per,
-            fontSize: 14,
+            color: AppColor.textBlack40Per,
+            fontSize: 16,
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w300,
+            fontWeight: FontWeight.w400,
           ),
           labelText: 'attach_file'.tr,
           labelStyle: TextStyle(

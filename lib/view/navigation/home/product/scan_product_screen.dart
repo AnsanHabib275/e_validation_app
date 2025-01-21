@@ -59,11 +59,11 @@ class _ScanProductScreenState extends State<ScanProductScreen>
 
   void _handleScan(String? code) async {
     if (code == null || code.isEmpty) return;
-
+    print(code);
     // Remove specific substrings (if necessary).
     final processedCode =
         code.length > 4 ? code.substring(2, code.length - 2) : code;
-
+    print(processedCode);
     final scanModel = await scanProductVM.scanProductApi(processedCode, eid!);
 
     // Update UI based on scan result.

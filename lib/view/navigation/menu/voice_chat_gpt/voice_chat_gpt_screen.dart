@@ -100,115 +100,110 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-          backgroundColor: AppColor.underlineTextColor,
-          leading: InkWell(
-            onTap: () {
-              Scaffold.of(context).openDrawer();
-            },
-            child: Image.asset(
-              IconAssets.ic_menu,
-              color: AppColor.whiteColor,
-            ),
-          ),
-          centerTitle: true,
-          title: Text(
-            'voice_chat_gpt'.tr,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: AppColor.whiteColor,
-                fontSize: 16,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w500),
-          )),
-      body: Container(
-        child: Column(
-          children: [
-            Expanded(
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 12,
-                ),
-                decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage(ImageAssets.splash_bg),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height / 24),
-                  child: Column(
-                    children: [
-                      // Existing chat messages here
-
-                      // var chat = messages[index];
-                      UserRowView(),
-
-                      ListView.builder(
-                        physics: const BouncingScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: 1,
-                        itemBuilder: (BuildContext context, int index) {
-                          // var chat = messages[index];
-                          return AdminRowView();
-                        },
-                      ),
-                    ],
-                  ),
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+              backgroundColor: AppColor.underlineTextColor,
+              leading: InkWell(
+                onTap: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                child: Image.asset(
+                  IconAssets.ic_menu,
+                  color: AppColor.whiteColor,
                 ),
               ),
-            ),
-
-            // Input field and send button here
-            Container(
-              color: AppColor.whiteColor,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 30,
+              centerTitle: true,
+              title: Text(
+                'voice_chat_gpt'.tr,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: AppColor.whiteColor,
+                    fontSize: 16,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w500),
+              )),
+          body: Container(
+            child: Column(
+              children: [
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
+                    decoration: BoxDecoration(
+                      image: const DecorationImage(
+                        image: AssetImage(ImageAssets.splash_bg),
+                        fit: BoxFit.cover,
                       ),
-                      child: TextField(
-                        controller: chatVM.messageController.value,
-                        decoration: InputDecoration(
-                          hintText: "type here",
-                          hintStyle: TextStyle(
-                            color: AppColor.blackColor.withOpacity(0.6),
-                            fontSize: 14,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w400,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height / 24),
+                      child: Column(
+                        children: [
+                          // Existing chat messages here
+
+                          // var chat = messages[index];
+                          UserRowView(),
+
+                          ListView.builder(
+                            physics: const BouncingScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: 1,
+                            itemBuilder: (BuildContext context, int index) {
+                              // var chat = messages[index];
+                              return AdminRowView();
+                            },
                           ),
-                          border: InputBorder.none,
-                        ),
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
+                        ],
                       ),
                     ),
                   ),
-                  SizedBox(width: 8),
-                  IconButton(
-                    icon: Icon(Icons.send),
-                    onPressed: () {
-                      String message =
-                          chatVM.messageController.value.text.trim();
-                      if (message.isNotEmpty) {
-                        // send message logic here
-                        chatVM.messageController.value.clear();
-                      }
-                    },
-                  ),
-                  Container(
-                    height: 50,
-                    width: 50,
-                    color: AppColor.underlineTextColor,
-                    child: InkWell(
-                        onTap: () {
+                ),
+
+                // Input field and send button here
+                Container(
+                  color: AppColor.whiteColor,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 30,
+                          ),
+                          child: TextField(
+                            controller: chatVM.messageController.value,
+                            style: TextStyle(
+                              color: AppColor.textBlack80Per,
+                              fontSize: 16,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                            ),
+                            decoration: InputDecoration(
+                              hintText: "type here",
+                              hintStyle: TextStyle(
+                                color: AppColor.blackColor.withOpacity(0.6),
+                                fontSize: 14,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400,
+                              ),
+                              border: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      IconButton(
+                        icon: Icon(Icons.send),
+                        onPressed: () {
                           String message =
                               chatVM.messageController.value.text.trim();
                           if (message.isNotEmpty) {
@@ -216,12 +211,28 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
                             chatVM.messageController.value.clear();
                           }
                         },
-                        child: Image.asset(IconAssets.ic_miq)),
+                      ),
+                      Container(
+                        height: 50,
+                        width: 50,
+                        color: AppColor.underlineTextColor,
+                        child: InkWell(
+                            onTap: () {
+                              String message =
+                                  chatVM.messageController.value.text.trim();
+                              if (message.isNotEmpty) {
+                                // send message logic here
+                                chatVM.messageController.value.clear();
+                              }
+                            },
+                            child: Image.asset(IconAssets.ic_miq)),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

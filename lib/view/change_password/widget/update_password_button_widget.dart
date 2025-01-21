@@ -22,7 +22,7 @@ class UpdatePasswordButtonWidget extends StatelessWidget {
         title: 'update_password'.tr,
         loading: changePasswordVM.loading.value,
         onPress: () {
-          Get.toNamed(RoutesName.loginScreen);
+          Get.back();
           // if (formkey.currentState!.validate()) {
           //   resetPasswordVM.resetPasswordApi(e_id);
           // }

@@ -72,10 +72,20 @@ class InputPhoneNumberWidget extends StatelessWidget {
               color: AppColor.textBlack40Per, // Color of the divider
             ),
             Expanded(
-              child: TextField(
+              child: TextFormField(
                 controller: updateProfileVM.phoneNumberController.value,
+                focusNode: updateProfileVM.phoneNumberFocusNode.value,
+                enableSuggestions: true,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 keyboardType: TextInputType.phone,
+                textInputAction: TextInputAction.done,
                 // maxLength: 10,
+                style: TextStyle(
+                  color: AppColor.textBlack70Per,
+                  fontSize: 16,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w400,
+                ),
                 decoration: InputDecoration(
                   hintText: 'phone_number'.tr,
                   hintStyle: TextStyle(
@@ -89,6 +99,12 @@ class InputPhoneNumberWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
+                onFieldSubmitted: (value) {
+                  Utils.fieldFocusChange(
+                      context,
+                      updateProfileVM.phoneNumberFocusNode.value,
+                      updateProfileVM.dateOfBirthFocusNode.value);
+                },
               ),
             ),
           ],

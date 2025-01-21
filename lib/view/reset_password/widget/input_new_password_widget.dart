@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../res/colors/app_color.dart';
+import '../../../utils/utils.dart';
 import '../../../view_models/controller/login/login_view_model.dart';
 import '../../../view_models/controller/signup/sign_up_view_model.dart';
 
-class InputPasswordWidget extends StatelessWidget {
-  InputPasswordWidget({super.key});
+class InputNewPasswordWidget extends StatelessWidget {
+  InputNewPasswordWidget({super.key});
 
   final resetPasswordVM = Get.put(ResetPasswordViewModel());
 
@@ -15,19 +16,25 @@ class InputPasswordWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: resetPasswordVM.passwordController.value,
-        focusNode: resetPasswordVM.passwordFocusNode.value,
+        controller: resetPasswordVM.newPasswordController.value,
+        focusNode: resetPasswordVM.newPasswordFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
+        style: TextStyle(
+          color: AppColor.textBlack80Per,
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+        ),
         decoration: InputDecoration(
-          hintText: 'password'.tr,
+          hintText: 'new_password'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack80Per,
+            color: AppColor.textBlack40Per,
             fontSize: 16,
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
           ),
-          labelText: 'password'.tr,
+          labelText: 'new_password'.tr,
           labelStyle: TextStyle(
             color: AppColor.textColorPrimary,
             fontSize: 14,
@@ -72,9 +79,15 @@ class InputPasswordWidget extends StatelessWidget {
         obscureText: resetPasswordVM.isVisible.value,
         validator: (value) {
           if (value == null || value.isEmpty || value.length < 7) {
-            return 'password_format_invalid'.tr;
+            return 'new_password_format_invalid'.tr;
           }
           return null; // Return null if there is no error
+        },
+        onFieldSubmitted: (value) {
+          Utils.fieldFocusChange(
+              context,
+              resetPasswordVM.newPasswordFocusNode.value,
+              resetPasswordVM.confirmPasswordFocusNode.value);
         },
       );
     });

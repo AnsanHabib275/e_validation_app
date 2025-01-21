@@ -1,26 +1,32 @@
-import 'package:e_validation/view_models/controller/signup/sign_up_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../res/assets/icon_assets.dart';
 import '../../../../../res/colors/app_color.dart';
+import '../../../../../view_models/controller/updateProfile/update_profile_view_model.dart';
 
 class InputGenderWidget extends StatelessWidget {
   InputGenderWidget({super.key});
 
-  final signUpVM = Get.put(SignUpViewModel());
+  final updateProfileVM = Get.put(UpdateProfileViewModel());
   final List<String> gender = ['Male', 'Female'];
 
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
+      style: TextStyle(
+        color: AppColor.textBlack80Per,
+        fontSize: 16,
+        fontFamily: 'Poppins',
+        fontWeight: FontWeight.w500,
+      ),
       decoration: InputDecoration(
         hintText: 'gender'.tr,
         hintStyle: TextStyle(
-          color: AppColor.textBlack80Per,
-          fontSize: 14,
+          color: AppColor.textBlack40Per,
+          fontSize: 16,
           fontFamily: 'Poppins',
-          fontWeight: FontWeight.w300,
+          fontWeight: FontWeight.w400,
         ),
         labelText: 'gender'.tr,
         labelStyle: TextStyle(
@@ -59,7 +65,7 @@ class InputGenderWidget extends StatelessWidget {
         );
       }).toList(),
       onChanged: (value) {
-        if (value != null) signUpVM.genderController.value.text = value;
+        if (value != null) updateProfileVM.genderController.value.text = value;
       },
       icon: Image.asset(
         IconAssets.ic_arrow_down,

@@ -5,8 +5,6 @@ import '../../../../../res/colors/app_color.dart';
 import '../../../../../utils/utils.dart';
 import '../../../../../view_models/controller/updateProfile/update_profile_view_model.dart';
 
-
-
 class InputFirstNameWidget extends StatelessWidget {
   InputFirstNameWidget({super.key});
 
@@ -27,16 +25,24 @@ class InputFirstNameWidget extends StatelessWidget {
           return null;
         },
         onFieldSubmitted: (value) {
-          Utils.fieldFocusChange(context, updateProfileVM.firstNameFocusNode.value,
+          Utils.fieldFocusChange(
+              context,
+              updateProfileVM.firstNameFocusNode.value,
               updateProfileVM.lastNameFocusNode.value);
         },
+        style: TextStyle(
+          color: AppColor.textBlack80Per,
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+        ),
         decoration: InputDecoration(
           hintText: 'first_name'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack80Per,
+            color: AppColor.textBlack40Per,
             fontSize: 16,
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
           ),
           labelText: 'first_name'.tr,
           labelStyle: TextStyle(

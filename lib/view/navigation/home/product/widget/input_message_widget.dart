@@ -25,13 +25,19 @@ class InputMessageWidget extends StatelessWidget {
         },
         minLines: 1,
         maxLines: null,
+        style: TextStyle(
+          color: AppColor.textBlack80Per,
+          fontSize: 14,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w300,
+        ),
         decoration: InputDecoration(
           hintText: 'message'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack80Per,
-            fontSize: 14,
+            color: AppColor.textBlack40Per,
+            fontSize: 16,
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w300,
+            fontWeight: FontWeight.w400,
           ),
           labelText: 'message'.tr,
           labelStyle: TextStyle(
