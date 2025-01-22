@@ -70,12 +70,15 @@ class _RedeemRewardScreenState extends State<RedeemRewardScreen> {
                 ),
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(
-                    ImageAssets.img_redeem_reward,
-                    height: 193,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 87.0),
+                    child: SvgPicture.asset(
+                      ImageAssets.img_redeem_reward,
+                      height: Get.height * Utils.getResponsiveHeight(193),
+                      width: Get.width * Utils.getResponsiveWidth(235),
+                    ),
                   ),
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                   Text(

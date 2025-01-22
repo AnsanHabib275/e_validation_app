@@ -34,7 +34,7 @@ class _NotEligibleScreenState extends State<NotEligibleScreen> {
           children: [
             Positioned(
                 right: 20,
-                top: 60,
+                top: 70,
                 child: Image.asset(IconAssets.ic_close_with_white_bg)),
             Positioned(
                 left: 0,

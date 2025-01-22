@@ -24,6 +24,7 @@ class AppColor {
   static var textBlack70Per = Color(0xFF100E0E).withOpacity(0.7);
   static var textBlack40Per = Color(0xFF100E0E).withOpacity(0.4);
   static var textBlack30Per = Color(0xFF100E0E).withOpacity(0.3);
+  static var textBlack10Per = Color(0xFF100E0E).withOpacity(0.10);
   static var textBlack6Per = Color(0xFF100E0E).withOpacity(0.06);
   static var textLightGrey80Per = Color(0xFF3D3B3E).withOpacity(0.8);
   static const textOrangePrimary = Color(0xFFFFAB48);

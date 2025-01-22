@@ -36,9 +36,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(top: 36.0),
+                padding: const EdgeInsets.only(top: 136.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SvgPicture.asset(

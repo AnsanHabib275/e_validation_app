@@ -7,7 +7,7 @@ import 'package:e_validation/view/navigation/home/product/fake_product_screen.da
 import 'package:e_validation/view/navigation/home/product/product_verified_screen.dart';
 import 'package:e_validation/view_models/controller/scanProduct/scan_product_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_qr_bar_scanner/qr_bar_scanner_camera.dart';
+// import 'package:flutter_qr_bar_scanner/qr_bar_scanner_camera.dart';
 import 'package:get/get.dart';
 
 import '../../../../models/scan_data_model.dart';
@@ -100,7 +100,7 @@ class _ScanProductScreenState extends State<ScanProductScreen>
                 children: [
                   Positioned(
                       right: 20,
-                      top: 20,
+                      top: 70,
                       child: Image.asset(IconAssets.ic_close)),
                   Positioned(
                     left: 0,
@@ -114,48 +114,42 @@ class _ScanProductScreenState extends State<ScanProductScreen>
                       ),
                     ),
                   ),
-                  Positioned(
-                    left: 65,
-                    right: 65,
-                    top: 65,
-                    bottom: 65,
-                    child: QRBarScannerCamera(
-                      onError: (context, error) => Text(
-                        error.toString(),
-                        style: const TextStyle(color: Colors.red),
-                      ),
-                      qrCodeCallback: _handleScan,
-                      // qrCodeCallback: (code) async {
-                      //   _qrCallback(code);
-                      //
-                      //   originalString = code;
-                      //   // if (code!.length > 4) {
-                      //   modifiedString = originalString!
-                      //       .substring(2, originalString!.length - 2);
-                      //   //   // log(modifiedString!.toString());
-                      //   //   scanProductVM.scanProductApi(
-                      //   //       modifiedString.toString(), eid!);
-                      //   // } else {
-                      //   //   scanProductVM.scanProductApi(
-                      //   //       originalString.toString(), eid!);
-                      //   // }
-                      //   final Scanmodel? scanmodel = await scanProductVM
-                      //       .scanProductApi(modifiedString.toString(), eid!);
-                      //
-                      //   if (scanmodel != null) {
-                      //     setState(() {
-                      //       model = scanmodel;
-                      //     });
-                      //   }
-                      // }
-                    ),
-                    // InkWell(
-                    //   onTap: () {
-                    //     navigationVM.changeScreen(ProductVerifiedScreen());
-                    //   },
-                    //   child: Image.asset(ImageAssets.product_with_qr_code),
-                    // ),
-                  ),
+                  // Positioned(
+                  //   left: 65,
+                  //   right: 65,
+                  //   top: 65,
+                  //   bottom: 65,
+                  // child: QRBarScannerCamera(
+                  //   onError: (context, error) => Text(
+                  //     error.toString(),
+                  //     style: const TextStyle(color: Colors.red),
+                  //   ),
+                  //   qrCodeCallback: _handleScan,
+                  //   // qrCodeCallback: (code) async {
+                  //   //   _qrCallback(code);
+                  //   //
+                  //   //   originalString = code;
+                  //   //   // if (code!.length > 4) {
+                  //   //   modifiedString = originalString!
+                  //   //       .substring(2, originalString!.length - 2);
+                  //   //   //   // log(modifiedString!.toString());
+                  //   //   //   scanProductVM.scanProductApi(
+                  //   //   //       modifiedString.toString(), eid!);
+                  //   //   // } else {
+                  //   //   //   scanProductVM.scanProductApi(
+                  //   //   //       originalString.toString(), eid!);
+                  //   //   // }
+                  //   //   final Scanmodel? scanmodel = await scanProductVM
+                  //   //       .scanProductApi(modifiedString.toString(), eid!);
+                  //   //
+                  //   //   if (scanmodel != null) {
+                  //   //     setState(() {
+                  //   //       model = scanmodel;
+                  //   //     });
+                  //   //   }
+                  //   // }
+                  // ),
+                  // ),
                 ],
               ),
             )

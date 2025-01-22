@@ -98,11 +98,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
                                 onTap: () {
                                   Get.back();
                                 },
-                                child: Image.asset(
-                                    IconAssets.ic_close_with_white_bg))),
+                                child: SvgPicture.asset(
+                                    IconAssets.ic_close_circle))),
                         Positioned(
                           left: 20,
-                          bottom: 20,
                           top: 26,
                           right: 10,
                           child: Column(
@@ -132,6 +131,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
                                 child: Text(
                                   'Georgeoliver@gmail.com',
                                   textAlign: TextAlign.start,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                       color: AppColor.textBlack80Per,
                                       fontSize: 16,
@@ -178,7 +179,22 @@ class _NavigationScreenState extends State<NavigationScreen> {
                       Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
                 ),
                 SafeArea(
-                  child: const MenuIcon(),
+                  top: false,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                          top: 60,
+                          left: 0,
+                          right: 0,
+                          child: Divider(
+                            height: 1,
+                            thickness: 1,
+                            color: AppColor.textBlack10Per,
+                          )),
+                      Positioned(top: 61, left: 1, child: const MenuIcon()),
+                    ],
+                  ),
+                  // child: const MenuIcon(),
                 ),
               ],
             ),

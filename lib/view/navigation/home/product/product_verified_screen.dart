@@ -37,7 +37,7 @@ class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
         child: Stack(
           children: [
             Positioned(
-                right: 20, top: 20, child: Image.asset(IconAssets.ic_close)),
+                right: 20, top: 70, child: Image.asset(IconAssets.ic_close)),
             Positioned(
                 left: 0,
                 right: 0,

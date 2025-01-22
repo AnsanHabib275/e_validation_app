@@ -108,27 +108,94 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
         },
         child: Scaffold(
           backgroundColor: Colors.white,
-          appBar: AppBar(
-              backgroundColor: AppColor.underlineTextColor,
-              leading: InkWell(
-                onTap: () {
-                  Scaffold.of(context).openDrawer();
-                },
-                child: Image.asset(
-                  IconAssets.ic_menu,
-                  color: AppColor.whiteColor,
+          // appBar: AppBar(
+          //   backgroundColor: AppColor.underlineTextColor,
+          //   leading: InkWell(
+          //     onTap: () {
+          //       Scaffold.of(context).openDrawer();
+          //     },
+          //     child: Image.asset(
+          //       IconAssets.ic_menu,
+          //       color: AppColor.whiteColor,
+          //     ),
+          //   ),
+          //   centerTitle: true,
+          //   title: Text(
+          //     'voice_chat_gpt'.tr,
+          //     textAlign: TextAlign.center,
+          //     style: TextStyle(
+          //         color: AppColor.whiteColor,
+          //         fontSize: 16,
+          //         fontFamily: 'Poppins',
+          //         fontWeight: FontWeight.w500),
+          //   ),
+          // ),
+          appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(124),
+              child: Padding(
+                padding: const EdgeInsets.only(top: kToolbarHeight),
+                child: Container(
+                  height: 63,
+                  color: AppColor.underlineTextColor,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 0,
+                        left: 0,
+                        bottom: 0,
+                        child: IconButton(
+                          icon: Image.asset(
+                            IconAssets.ic_menu,
+                            width: 63,
+                            height: 63,
+                            color: AppColor.whiteColor,
+                          ),
+                          onPressed: () => Scaffold.of(context).openDrawer(),
+                        ),
+                      ),
+                      Positioned(
+                        top: 20,
+                        left: 0,
+                        right: 0,
+                        child: Text(
+                          'voice_chat_gpt'.tr,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: AppColor.whiteColor,
+                              fontSize: 16,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
+              )
+              // child: Stack(
+              //   children: [
+              //     Positioned(
+              //       height: kToolbarHeight + 3,
+              //       top: kToolbarHeight + 3,
+              //       left: 0,
+              //       right: 0,
+              //       child: AppBar(
+              //         backgroundColor: AppColor.underlineTextColor,
+              //         leading: const MenuIcon(),
+              //         centerTitle: true,
+              //         title: Text(
+              //           'voice_chat_gpt'.tr,
+              //           textAlign: TextAlign.center,
+              //           style: TextStyle(
+              //               color: AppColor.whiteColor,
+              //               fontSize: 16,
+              //               fontFamily: 'Poppins',
+              //               fontWeight: FontWeight.w500),
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
               ),
-              centerTitle: true,
-              title: Text(
-                'voice_chat_gpt'.tr,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: AppColor.whiteColor,
-                    fontSize: 16,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w500),
-              )),
           body: Container(
             child: Column(
               children: [

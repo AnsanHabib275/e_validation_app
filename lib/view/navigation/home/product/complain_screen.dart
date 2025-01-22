@@ -45,13 +45,15 @@ class _ComplainScreenState extends State<ComplainScreen> {
                   ),
                 ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      ImageAssets.img_complain,
-                      height: Get.height * Utils.getResponsiveHeight(193),
-                      width: Get.width * Utils.getResponsiveWidth(235),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 87.0),
+                      child: Image.asset(
+                        ImageAssets.img_complain,
+                        height: Get.height * Utils.getResponsiveHeight(193),
+                        width: Get.width * Utils.getResponsiveWidth(235),
+                      ),
                     ),
                     SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(16)),

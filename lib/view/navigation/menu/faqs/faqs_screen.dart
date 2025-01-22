@@ -37,22 +37,30 @@ class _FAQSScreenState extends State<FAQSScreen> {
                 ),
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(
-                    ImageAssets.img_faqs,
-                    height: Get.height * Utils.getResponsiveHeight(216),
-                    width: Get.width * Utils.getResponsiveWidth(262),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 136.0),
+                    child: SvgPicture.asset(
+                      ImageAssets.img_faqs,
+                      height: Get.height * Utils.getResponsiveHeight(216),
+                      width: Get.width * Utils.getResponsiveWidth(262),
+                    ),
                   ),
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
-                  Text(
-                    'frequently_asked_questions'.tr,
-                    style: TextStyle(
-                        color: AppColor.textColorSecondary,
-                        fontSize: 26,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        'frequently_asked_questions'.tr,
+                        style: TextStyle(
+                            color: AppColor.textColorSecondary,
+                            fontSize: 26,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
                   )
                 ],
               ),

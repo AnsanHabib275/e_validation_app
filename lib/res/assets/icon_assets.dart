@@ -44,4 +44,5 @@ class IconAssets {
   static const String ic_invisible_password =
       'assets/icons/ic_invisible_password.svg';
   static const String ic_update_profile = 'assets/icons/ic_update_profile.svg';
+  static const String ic_close_circle = 'assets/icons/ic_close_circle.svg';
 }

@@ -52,26 +52,67 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
         },
         child: Scaffold(
           backgroundColor: Colors.white,
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            leading: IconButton(
-              icon: const Icon(
-                Icons.arrow_back_ios_new_outlined,
-                size: 24,
-                color: AppColor.textGreyPrimary,
-              ), // Change the color here
-              onPressed: () => Get.back(),
-            ),
-            centerTitle: true,
-            title: Text(
-              'update_profile'.tr,
-              style: TextStyle(
-                  color: AppColor.textColorSecondary,
-                  fontSize: 26,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Poppins'),
-            ),
-          ),
+          // appBar: AppBar(
+          //   backgroundColor: Colors.white,
+          //   leading: IconButton(
+          //     icon: const Icon(
+          //       Icons.arrow_back_ios_new_outlined,
+          //       size: 24,
+          //       color: AppColor.textGreyPrimary,
+          //     ), // Change the color here
+          //     onPressed: () => Get.back(),
+          //   ),
+          //   centerTitle: true,
+          //   title: Text(
+          //     'update_profile'.tr,
+          //     style: TextStyle(
+          //         color: AppColor.textColorSecondary,
+          //         fontSize: 26,
+          //         fontWeight: FontWeight.w600,
+          //         fontFamily: 'Poppins'),
+          //   ),
+          // ),
+          appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(124),
+              child: Stack(
+                children: [
+                  Positioned(
+                    top: kToolbarHeight,
+                    left: 0,
+                    right: 0,
+                    child: Divider(
+                      height: 1,
+                      thickness: 1,
+                      color: AppColor.textBlack10Per, // Customize divider color
+                    ),
+                  ),
+                  Positioned(
+                    top: kToolbarHeight + 4,
+                    left: 0,
+                    right: 0,
+                    child: AppBar(
+                      backgroundColor: Colors.white,
+                      leading: IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new_outlined,
+                          size: 24,
+                          color: AppColor.textGreyPrimary,
+                        ), // Change the color here
+                        onPressed: () => Get.back(),
+                      ),
+                      centerTitle: true,
+                      title: Text(
+                        'update_profile'.tr,
+                        style: TextStyle(
+                            color: AppColor.textColorSecondary,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'Poppins'),
+                      ),
+                    ),
+                  ),
+                ],
+              )),
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),

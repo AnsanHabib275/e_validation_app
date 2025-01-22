@@ -38,13 +38,15 @@ class _RewardScreenState extends State<RewardScreen> {
               ),
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SvgPicture.asset(
-                  ImageAssets.img_reward,
-                  height: Get.height * Utils.getResponsiveHeight(193),
-                  width: Get.width * Utils.getResponsiveWidth(235),
+                Padding(
+                  padding: const EdgeInsets.only(top: 87.0),
+                  child: SvgPicture.asset(
+                    ImageAssets.img_reward,
+                    height: Get.height * Utils.getResponsiveHeight(193),
+                    width: Get.width * Utils.getResponsiveWidth(235),
+                  ),
                 ),
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                 Text(
@@ -53,7 +55,7 @@ class _RewardScreenState extends State<RewardScreen> {
                       color: AppColor.textColorPrimary,
                       fontSize: 26,
                       fontFamily: 'Poppins',
-fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w600),
                 )
               ],
             ),

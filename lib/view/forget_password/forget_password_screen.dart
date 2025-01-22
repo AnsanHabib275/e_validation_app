@@ -1,11 +1,8 @@
 import 'package:e_validation/view/forget_password/widget/forget_password_button_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../res/assets/image_assets.dart';
 import '../../res/colors/app_color.dart';
-import '../../res/routes/routes_name.dart';
 import '../../utils/utils.dart';
 import '../../view_models/controller/forgetPassword/forget_password_view_model.dart';
 import '../forget_password/widget/input_email_widget.dart';
@@ -31,29 +28,50 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
         },
         child: Scaffold(
           backgroundColor: Colors.white,
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            leading: IconButton(
-              icon: const Icon(
-                Icons.arrow_back_ios_new_outlined,
-                size: 24,
-                color: AppColor.textGreyPrimary,
-              ), // Change the color here
-              onPressed: () => Get.back(),
-            ),
-            centerTitle: true,
-            title: Text(
-              'forgot_password'.tr,
-              style: TextStyle(
-                  color: AppColor.textColorSecondary,
-                  fontSize: 26,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Poppins'),
-            ),
-          ),
+          appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(124),
+              child: Stack(
+                children: [
+                  Positioned(
+                    top: kToolbarHeight,
+                    left: 0,
+                    right: 0,
+                    child: Divider(
+                      height: 1,
+                      thickness: 1,
+                      color: AppColor.textBlack10Per, // Customize divider color
+                    ),
+                  ),
+                  Positioned(
+                    top: kToolbarHeight + 4,
+                    left: 0,
+                    right: 0,
+                    child: AppBar(
+                      backgroundColor: Colors.white,
+                      leading: IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new_outlined,
+                          size: 24,
+                          color: AppColor.textGreyPrimary,
+                        ), // Change the color here
+                        onPressed: () => Get.back(),
+                      ),
+                      centerTitle: true,
+                      title: Text(
+                        'forgot_password'.tr,
+                        style: TextStyle(
+                            color: AppColor.textColorSecondary,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'Poppins'),
+                      ),
+                    ),
+                  ),
+                ],
+              )),
           body: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 23),
               child: Column(
                 children: [
                   SizedBox(
@@ -65,6 +83,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     style: TextStyle(
                         color: AppColor.textBlack80Per,
                         fontSize: 18,
+                        height: Get.height * Utils.getResponsiveHeight(27) / 18,
                         fontWeight: FontWeight.w500,
                         fontFamily: 'Poppins'),
                   ),

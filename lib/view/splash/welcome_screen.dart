@@ -92,33 +92,36 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     SizedBox(
                       height: Get.height * Utils.getResponsiveHeight(20),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'don’t_have_an_account_yet'.tr,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w400,
-                              fontSize: 19,
-                              color: AppColor.textBlackPrimary),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Get.toNamed(RoutesName.signUpScreen);
-                          },
-                          child: Text(
-                            'signup'.tr,
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'don’t_have_an_account_yet'.tr,
                             style: TextStyle(
-                                decoration: TextDecoration.underline,
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w400,
                                 fontSize: 19,
-                                color: AppColor.underlineTextColor),
+                                color: AppColor.textBlackPrimary),
                           ),
-                        ),
-                      ],
+                          InkWell(
+                            onTap: () {
+                              Get.toNamed(RoutesName.signUpScreen);
+                            },
+                            child: Text(
+                              'signup'.tr,
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 19,
+                                  color: AppColor.underlineTextColor),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 )

@@ -27,7 +27,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           children: [
             Container(
               width: Get.width * Utils.getResponsiveWidth(428),
-              height: Get.height * Utils.getResponsiveHeight(348),
+              height: Get.height * Utils.getResponsiveHeight(408),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(ImageAssets
@@ -36,7 +36,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(top: 60.0),
+                padding: const EdgeInsets.only(top: 107.0),
                 child: Align(
                   alignment: Alignment.center,
                   child: Image.asset(
@@ -60,7 +60,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           color: AppColor.textColorPrimary,
                           fontSize: 22,
                           fontFamily: 'Poppins',
-fontWeight: FontWeight.w600),
+                          fontWeight: FontWeight.w600),
                     ),
                     SizedBox(
                       height: Get.height * Utils.getResponsiveHeight(8),

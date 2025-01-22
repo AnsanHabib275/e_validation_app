@@ -64,8 +64,148 @@ class _PointsScreenState extends State<PointsScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Stack(
+            //   children: [
+            //     Positioned(
+            //       width: Get.width * Utils.getResponsiveWidth(428),
+            //       height: Get.height * Utils.getResponsiveHeight(219),
+            //       top: 0,
+            //       left: 0,
+            //       right: 0,
+            //       child: Container(
+            //         // width: Get.width * Utils.getResponsiveWidth(428),
+            //         // height: Get.height * Utils.getResponsiveHeight(219),
+            //         decoration: BoxDecoration(
+            //           borderRadius: BorderRadius.only(
+            //               bottomLeft: Radius.circular(8),
+            //               bottomRight: Radius.circular(8)),
+            //           image: DecorationImage(
+            //             image: AssetImage(ImageAssets.product_detail_bg),
+            //             // Replace with your image path
+            //             fit:
+            //                 BoxFit.cover, // Adjust the image to fill the screen
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //     Positioned(
+            //         height: Get.height * Utils.getResponsiveHeight(155),
+            //         width: Get.width * Utils.getResponsiveWidth(396),
+            //         // bottom: 0,
+            //         // top: 124,
+            //         left: 16,
+            //         right: 16,
+            //         child: Card(
+            //           child: Container(
+            //             // height: Get.height * Utils.getResponsiveHeight(155),
+            //             // width: Get.width * Utils.getResponsiveWidth(396),
+            //             child: Padding(
+            //               padding: const EdgeInsets.all(16.0),
+            //               child: Column(
+            //                 children: [
+            //                   Row(
+            //                     crossAxisAlignment: CrossAxisAlignment.center,
+            //                     mainAxisAlignment: MainAxisAlignment.start,
+            //                     children: [
+            //                       Stack(
+            //                         children: [
+            //                           CircleAvatar(
+            //                             backgroundImage: AssetImage(
+            //                                 ImageAssets.img_profile_dummy),
+            //                             radius: 32,
+            //                           ),
+            //                           Positioned(
+            //                               bottom: 10,
+            //                               right: 0,
+            //                               child: Image.asset(
+            //                                 IconAssets.ic_edit_image,
+            //                                 width: 12,
+            //                                 height: 12,
+            //                               )),
+            //                         ],
+            //                       ),
+            //                       SizedBox(
+            //                         width: Get.width *
+            //                             Utils.getResponsiveWidth(10),
+            //                       ),
+            //                       Column(
+            //                         mainAxisAlignment: MainAxisAlignment.center,
+            //                         crossAxisAlignment:
+            //                             CrossAxisAlignment.start,
+            //                         children: [
+            //                           Text(
+            //                             'Name Here',
+            //                             style: TextStyle(
+            //                                 color: AppColor.colorPrimary,
+            //                                 fontSize: 12,
+            //                                 fontFamily: 'Poppins',
+            //                                 fontWeight: FontWeight.w600),
+            //                           ),
+            //                           Text(
+            //                             'Lorem Ipsum',
+            //                             style: TextStyle(
+            //                                 color: AppColor.textBlack80Per,
+            //                                 fontSize: 8,
+            //                                 fontFamily: 'Poppins',
+            //                                 fontWeight: FontWeight.w400),
+            //                           ),
+            //                         ],
+            //                       ),
+            //                       Spacer(),
+            //                       Image.asset(
+            //                         ImageAssets.img_points,
+            //                         width: 42,
+            //                         height: 40,
+            //                       ),
+            //                     ],
+            //                   ),
+            //                   SizedBox(
+            //                     height:
+            //                         Get.height * Utils.getResponsiveHeight(10),
+            //                   ),
+            //                   Row(
+            //                     mainAxisAlignment: MainAxisAlignment.center,
+            //                     children: [
+            //                       Expanded(
+            //                           child: CustomProgressBar(progress: 0.5)),
+            //                       SizedBox(
+            //                         width:
+            //                             Get.width * Utils.getResponsiveWidth(8),
+            //                       ),
+            //                       Text(earnPoints.toString() +
+            //                           '/' +
+            //                           totalPoints.toString()),
+            //                     ],
+            //                   ),
+            //                   SizedBox(
+            //                     height:
+            //                         Get.height * Utils.getResponsiveHeight(8),
+            //                   ),
+            //                   Row(
+            //                     mainAxisAlignment: MainAxisAlignment.center,
+            //                     children: [
+            //                       Text(
+            //                         'you need $earnPoints pts more to redeem'
+            //                             .toTitleCase(),
+            //                         style: TextStyle(
+            //                             color: AppColor.textBlack80Per,
+            //                             fontWeight: FontWeight.w400,
+            //                             fontFamily: 'Poppins',
+            //                             fontSize: 10),
+            //                       ),
+            //                       Spacer(),
+            //                       EarnMoreButtonWidget(),
+            //                     ],
+            //                   )
+            //                 ],
+            //               ),
+            //             ),
+            //           ),
+            //         ))
+            //   ],
+            // ),
             Container(
-              height: Get.height * Utils.getResponsiveHeight(270),
+              height: Get.height * Utils.getResponsiveHeight(289),
               width: Get.width * 1,
               child: Stack(
                 children: [
@@ -91,6 +231,7 @@ class _PointsScreenState extends State<PointsScreen> {
                   ),
                   Positioned(
                       bottom: 0,
+                      top: 124,
                       left: 16,
                       right: 16,
                       child: Card(

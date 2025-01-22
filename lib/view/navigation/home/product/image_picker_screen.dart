@@ -3,7 +3,7 @@ import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/res/colors/app_color.dart';
 import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_qr_bar_scanner/qr_bar_scanner_camera.dart';
+// import 'package:flutter_qr_bar_scanner/qr_bar_scanner_camera.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -110,29 +110,29 @@ class _qrScanState extends State<qrScan> with SingleTickerProviderStateMixin {
               child: SizedBox(
                 height: 1000,
                 width: 500,
-                child: QRBarScannerCamera(
-                    onError: (context, error) => Text(
-                          error.toString(),
-                          style: const TextStyle(color: Colors.red),
-                        ),
-                    qrCodeCallback: (code) async {
-                      _qrCallback(code);
-
-                      originalString = code;
-                      modifiedString = originalString!
-                          .substring(2, originalString!.length - 2);
-                      // log(modifiedString!.toString());
-
-                      final Scanmodel? scanmodel =
-                          await scandataapi(modifiedString.toString());
-
-                      if (scanmodel != null) {
-                        setState(() {
-                          model = scanmodel;
-                          controllers == 10;
-                        });
-                      } else {}
-                    }),
+                // child: QRBarScannerCamera(
+                //     onError: (context, error) => Text(
+                //           error.toString(),
+                //           style: const TextStyle(color: Colors.red),
+                //         ),
+                //     qrCodeCallback: (code) async {
+                //       _qrCallback(code);
+                //
+                //       originalString = code;
+                //       modifiedString = originalString!
+                //           .substring(2, originalString!.length - 2);
+                //       // log(modifiedString!.toString());
+                //
+                //       final Scanmodel? scanmodel =
+                //           await scandataapi(modifiedString.toString());
+                //
+                //       if (scanmodel != null) {
+                //         setState(() {
+                //           model = scanmodel;
+                //           controllers == 10;
+                //         });
+                //       } else {}
+                //     }),
               ),
             )
           : Center(

@@ -35,13 +35,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CircleAvatar(
-                    radius: 73,
-                    backgroundColor: AppColor.lightGreyColor,
-                    backgroundImage: AssetImage(ImageAssets.dummy_profile),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 98.0),
+                    child: CircleAvatar(
+                      radius: 73,
+                      backgroundColor: AppColor.lightGreyColor,
+                      backgroundImage: AssetImage(ImageAssets.dummy_profile),
+                    ),
                   ),
                   Text(
                     'George Oliver',

@@ -1,10 +1,6 @@
-import 'package:e_validation/view/navigation/home/product/widget/done_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-
-import '../../../../res/assets/font_assets.dart';
-import '../../../../res/assets/icon_assets.dart';
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
@@ -25,10 +21,8 @@ class _KYCScreenState extends State<KYCScreen> {
         body: Column(
           children: [
             Container(
-              // width: Get.width * Utils.getResponsiveWidth(428),
-              // height: Get.height * Utils.getResponsiveHeight(461),
-              height: 401,
-              width: Get.width * 1,
+              width: Get.width * Utils.getResponsiveWidth(428),
+              height: Get.height * Utils.getResponsiveHeight(461),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(ImageAssets
@@ -36,28 +30,27 @@ class _KYCScreenState extends State<KYCScreen> {
                   fit: BoxFit.cover, // Adjust the image to fill the screen
                 ),
               ),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 136.0),
+                    child: SvgPicture.asset(
                       ImageAssets.img_kyc,
                       height: Get.height * Utils.getResponsiveHeight(216),
                       width: Get.width * Utils.getResponsiveWidth(262),
                     ),
-                    SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(16)),
-                    Text(
-                      'know_your_customer'.tr,
-                      style: TextStyle(
-                          color: AppColor.textColorSecondary,
-                          fontSize: 26,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600),
-                    )
-                  ],
-                ),
+                  ),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                  Text(
+                    'know_your_customer'.tr,
+                    style: TextStyle(
+                        color: AppColor.textColorSecondary,
+                        fontSize: 26,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600),
+                  )
+                ],
               ),
             ),
             Padding(

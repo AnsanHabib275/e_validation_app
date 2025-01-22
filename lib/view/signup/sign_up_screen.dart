@@ -116,33 +116,36 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     CreateAccountButtonWidget(formkey: _formkey),
                     SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(20)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'already_have_an_account'.tr,
-                          textScaler: TextScaler.linear(1),
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w400,
-                              fontSize: 19,
-                              color: AppColor.textBlackPrimary),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Get.toNamed(RoutesName.loginScreen);
-                          },
-                          child: Text(
-                            'login'.tr,
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'already_have_an_account'.tr,
+                            textScaler: TextScaler.linear(1),
                             style: TextStyle(
-                                decoration: TextDecoration.underline,
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w400,
                                 fontSize: 19,
-                                color: AppColor.underlineTextColor),
+                                color: AppColor.textBlackPrimary),
                           ),
-                        ),
-                      ],
+                          InkWell(
+                            onTap: () {
+                              Get.toNamed(RoutesName.loginScreen);
+                            },
+                            child: Text(
+                              'login'.tr,
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 19,
+                                  color: AppColor.underlineTextColor),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(50)),

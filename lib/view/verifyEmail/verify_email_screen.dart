@@ -41,28 +41,69 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
         },
         child: Scaffold(
           backgroundColor: Colors.white,
-          appBar: AppBar(
-            backgroundColor: AppColor.whiteColor,
-            elevation: 0,
-            leading: IconButton(
-              icon: const Icon(
-                Icons.arrow_back_ios_new_outlined,
-                size: 24,
-                color: AppColor.textGreyPrimary,
-              ), // Change the color here
-              onPressed: () => Get.back(),
-            ),
-            centerTitle: true,
-            title: Text(
-              'verification'.tr,
-              style: TextStyle(
-                  color: AppColor.textColorSecondary,
-                  fontSize: 26,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w600),
-            ),
-            actions: const <Widget>[],
-          ),
+          // appBar: AppBar(
+          //   backgroundColor: AppColor.whiteColor,
+          //   elevation: 0,
+          //   leading: IconButton(
+          //     icon: const Icon(
+          //       Icons.arrow_back_ios_new_outlined,
+          //       size: 24,
+          //       color: AppColor.textGreyPrimary,
+          //     ), // Change the color here
+          //     onPressed: () => Get.back(),
+          //   ),
+          //   centerTitle: true,
+          //   title: Text(
+          //     'verification'.tr,
+          //     style: TextStyle(
+          //         color: AppColor.textColorSecondary,
+          //         fontSize: 26,
+          //         fontFamily: 'Poppins',
+          //         fontWeight: FontWeight.w600),
+          //   ),
+          //   actions: const <Widget>[],
+          // ),
+          appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(124),
+              child: Stack(
+                children: [
+                  Positioned(
+                    top: kToolbarHeight,
+                    left: 0,
+                    right: 0,
+                    child: Divider(
+                      height: 1,
+                      thickness: 1,
+                      color: AppColor.textBlack10Per, // Customize divider color
+                    ),
+                  ),
+                  Positioned(
+                    top: kToolbarHeight + 4,
+                    left: 0,
+                    right: 0,
+                    child: AppBar(
+                      backgroundColor: Colors.white,
+                      leading: IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new_outlined,
+                          size: 24,
+                          color: AppColor.textGreyPrimary,
+                        ), // Change the color here
+                        onPressed: () => Get.back(),
+                      ),
+                      centerTitle: true,
+                      title: Text(
+                        'verification'.tr,
+                        style: TextStyle(
+                            color: AppColor.textColorSecondary,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'Poppins'),
+                      ),
+                    ),
+                  ),
+                ],
+              )),
           resizeToAvoidBottomInset: false,
           body: SingleChildScrollView(
             child: Column(
