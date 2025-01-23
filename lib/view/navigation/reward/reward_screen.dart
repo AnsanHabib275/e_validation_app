@@ -2,6 +2,7 @@ import 'package:e_validation/view/navigation/reward/widget/get_reward_button_wid
 import 'package:e_validation/view/navigation/reward/widget/reward_cart_widget.dart';
 import 'package:e_validation/view_models/controller/navigation/reward/reward_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
@@ -22,10 +23,22 @@ class _RewardScreenState extends State<RewardScreen> {
   final rewardVM = Get.put(RewardViewModel());
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: Colors.white,
+        systemNavigationBarIconBrightness: Brightness.dark));
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(
+        backgroundColor: AppColor.whiteColor,
         body: Column(children: [
           Container(
             width: Get.width * Utils.getResponsiveWidth(428),
@@ -41,7 +54,8 @@ class _RewardScreenState extends State<RewardScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 87.0),
+                  padding: EdgeInsets.only(
+                      top: Get.height * Utils.getResponsiveHeight(87)),
                   child: SvgPicture.asset(
                     ImageAssets.img_reward,
                     height: Get.height * Utils.getResponsiveHeight(193),

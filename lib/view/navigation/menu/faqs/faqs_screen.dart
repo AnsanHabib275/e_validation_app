@@ -40,7 +40,8 @@ class _FAQSScreenState extends State<FAQSScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 136.0),
+                    padding: EdgeInsets.only(
+                        top: Get.height * Utils.getResponsiveHeight(136)),
                     child: SvgPicture.asset(
                       ImageAssets.img_faqs,
                       height: Get.height * Utils.getResponsiveHeight(216),
@@ -67,8 +68,8 @@ class _FAQSScreenState extends State<FAQSScreen> {
             ),
             Expanded(
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16),
+                padding: EdgeInsets.symmetric(
+                    horizontal: Get.width * Utils.getResponsiveWidth(16)),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Column(
@@ -194,8 +195,10 @@ class _FAQSScreenState extends State<FAQSScreen> {
               ),
             ),
             Padding(
-              padding:
-                  const EdgeInsets.only(right: 16.0, top: 20.0, bottom: 80),
+              padding: EdgeInsets.only(
+                  right: Get.width * Utils.getResponsiveWidth(16),
+                  top: Get.height * Utils.getResponsiveHeight(20),
+                  bottom: Get.height * Utils.getResponsiveHeight(80)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

@@ -34,7 +34,8 @@ class _KYCScreenState extends State<KYCScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 136.0),
+                    padding: EdgeInsets.only(
+                        top: Get.height * Utils.getResponsiveHeight(136)),
                     child: SvgPicture.asset(
                       ImageAssets.img_kyc,
                       height: Get.height * Utils.getResponsiveHeight(216),

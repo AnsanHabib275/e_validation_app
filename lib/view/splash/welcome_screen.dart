@@ -40,92 +40,95 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               fit: BoxFit.cover, // Adjust the image to fill the screen
             ),
           ),
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  'welcome'.tr,
-                  style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                      fontSize: 51,
-                      color: AppColor.textColorPrimary),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(ImageAssets.splash_screen_logo),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(23),
-                    ),
-                    Text(
-                      'app_title'.tr,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      'welcome'.tr,
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
-                          fontSize: 30,
-                          color: AppColor.textBlack80Per),
+                          fontSize: 51,
+                          color: AppColor.textColorPrimary),
                     ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(5),
-                    ),
-                    Text(
-                      'where_fraud_fails'.tr,
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 20,
-                          color: AppColor.textLightGrey80Per),
-                    ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                      child: LoginButtonWidget(),
-                    ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(20),
-                    ),
-                    FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'don’t_have_an_account_yet'.tr,
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w400,
-                                fontSize: 19,
-                                color: AppColor.textBlackPrimary),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Get.toNamed(RoutesName.signUpScreen);
-                            },
-                            child: Text(
-                              'signup'.tr,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(ImageAssets.splash_screen_logo),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(23),
+                      ),
+                      Text(
+                        'app_title'.tr,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600,
+                            fontSize: 30,
+                            color: AppColor.textBlack80Per),
+                      ),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(5),
+                      ),
+                      Text(
+                        'where_fraud_fails'.tr,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 20,
+                            color: AppColor.textLightGrey80Per),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      LoginButtonWidget(),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(20),
+                      ),
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'don’t_have_an_account_yet'.tr,
                               style: TextStyle(
-                                  decoration: TextDecoration.underline,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w400,
                                   fontSize: 19,
-                                  color: AppColor.underlineTextColor),
+                                  color: AppColor.textBlackPrimary),
                             ),
-                          ),
-                        ],
+                            InkWell(
+                              onTap: () {
+                                Get.toNamed(RoutesName.signUpScreen);
+                              },
+                              child: Text(
+                                'signup'.tr,
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 19,
+                                    color: AppColor.underlineTextColor),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                )
-              ]),
+                    ],
+                  )
+                ]),
+          ),
         ),
       ),
     );

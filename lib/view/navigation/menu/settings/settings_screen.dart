@@ -36,7 +36,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(top: 136.0),
+                padding: EdgeInsets.only(
+                    top: Get.height * Utils.getResponsiveHeight(136)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [

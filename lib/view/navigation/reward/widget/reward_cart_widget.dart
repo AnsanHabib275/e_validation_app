@@ -32,6 +32,9 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
       width: double.infinity,
       height: 88,
       child: Card(
+        elevation: 2,
+        shadowColor: AppColor.blackColor.withOpacity(0.03),
+        color: AppColor.textColorPrimary7Per,
         child: Padding(
           padding: const EdgeInsets.all(6.0),
           child: Row(

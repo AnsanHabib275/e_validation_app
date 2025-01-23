@@ -231,7 +231,7 @@ class _PointsScreenState extends State<PointsScreen> {
                   ),
                   Positioned(
                       bottom: 0,
-                      top: 124,
+                      top: Get.height * Utils.getResponsiveHeight(124),
                       left: 16,
                       right: 16,
                       child: Card(

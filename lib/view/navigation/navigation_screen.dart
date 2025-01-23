@@ -18,6 +18,7 @@ import 'package:e_validation/view/navigation/widget/no_button_widget.dart';
 import 'package:e_validation/view/navigation/widget/yes_button_widget.dart';
 import 'package:e_validation/view_models/controller/navigation/navigation_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -64,6 +65,17 @@ class _NavigationScreenState extends State<NavigationScreen> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: Colors.white,
+        systemNavigationBarIconBrightness: Brightness.dark));
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
@@ -86,7 +98,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
               child: ListView(
                 children: [
                   Container(
-                    height: 200,
+                    height: Get.height * Utils.getResponsiveHeight(200),
                     child: DrawerHeader(
                       margin: EdgeInsets.zero,
                       padding: EdgeInsets.zero,
@@ -102,7 +114,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                                     IconAssets.ic_close_circle))),
                         Positioned(
                           left: 20,
-                          top: 26,
+                          top: Get.height * Utils.getResponsiveHeight(26),
                           right: 10,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -183,7 +195,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   child: Stack(
                     children: [
                       Positioned(
-                          top: 60,
+                          top: Get.height * Utils.getResponsiveHeight(60),
                           left: 0,
                           right: 0,
                           child: Divider(
@@ -191,7 +203,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
                             thickness: 1,
                             color: AppColor.textBlack10Per,
                           )),
-                      Positioned(top: 61, left: 1, child: const MenuIcon()),
+                      Positioned(
+                          top: Get.height * Utils.getResponsiveHeight(61),
+                          left: 1,
+                          child: const MenuIcon()),
                     ],
                   ),
                   // child: const MenuIcon(),

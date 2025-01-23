@@ -43,9 +43,10 @@ class SignUpViewModel extends GetxController {
       'PhoneNumber': countryCodeController.value.text +
           '' +
           phoneNumberController.value.text,
-      'DateOfBirth': dateOfBirthController.value.text,
-      'gender': genderController.value.text,
+      'DOB': dateOfBirthController.value.text,
+      'Gender': genderController.value.text,
     };
+    print(data);
     _api.signUpApi(data).then((value) {
       loading.value = false;
       if (value['errorcode'] == 1002) {

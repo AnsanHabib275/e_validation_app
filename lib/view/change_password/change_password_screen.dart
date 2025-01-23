@@ -55,11 +55,12 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           //   ),
           // ),
           appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(124),
+              preferredSize:
+                  Size.fromHeight(Get.height * Utils.getResponsiveHeight(124)),
               child: Stack(
                 children: [
                   Positioned(
-                    top: kToolbarHeight,
+                    top: Get.height * Utils.getResponsiveHeight(60),
                     left: 0,
                     right: 0,
                     child: Divider(
@@ -69,7 +70,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     ),
                   ),
                   Positioned(
-                    top: kToolbarHeight + 4,
+                    top: Get.height * Utils.getResponsiveHeight(61),
                     left: 0,
                     right: 0,
                     child: AppBar(

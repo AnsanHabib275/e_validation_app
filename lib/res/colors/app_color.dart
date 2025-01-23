@@ -31,6 +31,7 @@ class AppColor {
   static const textRedPrimary = Color(0xFFE52D2D);
   static const textGreyPrimary = Color(0xFF797979);
   static const textColorPrimary = Color(0xFF13267D);
+  static var textColorPrimary7Per = Color(0xFF13267D).withOpacity(0.07);
   static const textColorSecondary = Color(0xFF14207C);
   static const lightGreyColor = Color(0xffD9D9D9);
   static const lightGreyButtonColor = Color(0xFFD6D6D6);

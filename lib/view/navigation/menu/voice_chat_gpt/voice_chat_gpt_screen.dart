@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
+import '../../../../utils/utils.dart';
 import '../../../../view_models/controller/user_preference/user_preference_view_model.dart';
 
 class VoiceChatGptScreen extends StatefulWidget {
@@ -42,37 +43,30 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
   @override
   void initState() {
     super.initState();
-    loadChatMessages();
-    chatVM.chatListApi();
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.blue, // Set the desired status bar color here
-      statusBarIconBrightness:
-          Brightness.light, // Adjust for light or dark icons
-    ));
     // SystemChrome.setSystemUIOverlayStyle(
     //   SystemUiOverlayStyle(
-    //     statusBarColor:
-    //         Colors.white, // Set the status bar background color to white
-    //     statusBarIconBrightness:
-    //         Brightness.dark, // Set the icons to dark for contrast
-    //     statusBarBrightness: Brightness.light, // Adjust brightness for iOS
+    //     statusBarColor: Colors.white, // Reset status bar background color
+    //     statusBarIconBrightness: Brightness.light, // Default icon brightness
+    //     statusBarBrightness: Brightness.dark, // Default for iOS
     //   ),
     // );
+    loadChatMessages();
+    chatVM.chatListApi();
     WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
   }
 
-  @override
-  void dispose() {
-    // Reset to default when leaving the screen
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // Reset status bar background color
-        statusBarIconBrightness: Brightness.light, // Default icon brightness
-        statusBarBrightness: Brightness.dark, // Default for iOS
-      ),
-    );
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   // Reset to default when leaving the screen
+  //   SystemChrome.setSystemUIOverlayStyle(
+  //     SystemUiOverlayStyle(
+  //       statusBarColor: Colors.transparent, // Reset status bar background color
+  //       statusBarIconBrightness: Brightness.light, // Default icon brightness
+  //       statusBarBrightness: Brightness.dark, // Default for iOS
+  //     ),
+  //   );
+  //   super.dispose();
+  // }
 
   void _scrollToBottom() {
     if (chatVM.scrollController.value.hasClients) {
@@ -131,11 +125,13 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
           //   ),
           // ),
           appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(124),
+              preferredSize:
+                  Size.fromHeight(Get.height * Utils.getResponsiveHeight(124)),
               child: Padding(
-                padding: const EdgeInsets.only(top: kToolbarHeight),
+                padding: EdgeInsets.only(
+                    top: Get.height * Utils.getResponsiveHeight(60)),
                 child: Container(
-                  height: 63,
+                  height: Get.height * Utils.getResponsiveHeight(63),
                   color: AppColor.underlineTextColor,
                   child: Stack(
                     children: [
@@ -146,15 +142,15 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
                         child: IconButton(
                           icon: Image.asset(
                             IconAssets.ic_menu,
-                            width: 63,
-                            height: 63,
+                            width: Get.width * Utils.getResponsiveWidth(63),
+                            height: Get.height * Utils.getResponsiveHeight(63),
                             color: AppColor.whiteColor,
                           ),
                           onPressed: () => Scaffold.of(context).openDrawer(),
                         ),
                       ),
                       Positioned(
-                        top: 20,
+                        top: Get.height * Utils.getResponsiveHeight(20),
                         left: 0,
                         right: 0,
                         child: Text(

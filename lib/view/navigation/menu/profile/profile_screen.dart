@@ -38,7 +38,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 98.0),
+                    padding: EdgeInsets.only(
+                        top: Get.height * Utils.getResponsiveHeight(98)),
                     child: CircleAvatar(
                       radius: 73,
                       backgroundColor: AppColor.lightGreyColor,

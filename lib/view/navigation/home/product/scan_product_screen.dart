@@ -2,11 +2,14 @@ import 'dart:developer';
 
 import 'package:e_validation/res/assets/icon_assets.dart';
 import 'package:e_validation/res/assets/image_assets.dart';
+import 'package:e_validation/res/colors/app_color.dart';
 import 'package:e_validation/res/routes/routes_name.dart';
+import 'package:e_validation/utils/utils.dart';
 import 'package:e_validation/view/navigation/home/product/fake_product_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_verified_screen.dart';
 import 'package:e_validation/view_models/controller/scanProduct/scan_product_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 // import 'package:flutter_qr_bar_scanner/qr_bar_scanner_camera.dart';
 import 'package:get/get.dart';
 
@@ -87,6 +90,11 @@ class _ScanProductScreenState extends State<ScanProductScreen>
   @override
   void initState() {
     super.initState();
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+        statusBarIconBrightness: Brightness.light,
+        systemNavigationBarColor: Colors.white,
+        systemNavigationBarIconBrightness: Brightness.light));
     getUserDetail();
     _scanCode();
   }
@@ -94,13 +102,14 @@ class _ScanProductScreenState extends State<ScanProductScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.whiteColor,
       body: _camState
           ? SafeArea(
               child: Stack(
                 children: [
                   Positioned(
-                      right: 20,
-                      top: 70,
+                      right: Get.width * Utils.getResponsiveWidth(20),
+                      top: Get.height * Utils.getResponsiveHeight(70),
                       child: Image.asset(IconAssets.ic_close)),
                   Positioned(
                     left: 0,
@@ -109,7 +118,12 @@ class _ScanProductScreenState extends State<ScanProductScreen>
                     bottom: 0,
                     child: Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.all(60.0),
+                        padding: EdgeInsets.only(
+                            top: Get.height * Utils.getResponsiveHeight(130),
+                            left: Get.width * Utils.getResponsiveWidth(60),
+                            right: Get.width * Utils.getResponsiveWidth(60),
+                            bottom:
+                                Get.height * Utils.getResponsiveHeight(120)),
                         child: Image.asset(ImageAssets.scan_bg),
                       ),
                     ),

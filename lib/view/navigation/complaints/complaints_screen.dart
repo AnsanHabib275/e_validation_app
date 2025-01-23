@@ -49,7 +49,8 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 87.0),
+                      padding: EdgeInsets.only(
+                          top: Get.height * Utils.getResponsiveHeight(87)),
                       child: SvgPicture.asset(
                         ImageAssets.img_complaints,
                         height: Get.height * Utils.getResponsiveHeight(193),

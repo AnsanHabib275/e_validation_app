@@ -41,7 +41,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 87.0),
+                      padding: EdgeInsets.only(
+                          top: Get.height * Utils.getResponsiveHeight(87)),
                       child: SvgPicture.asset(
                         ImageAssets.img_notifications,
                         height: Get.height * Utils.getResponsiveHeight(193),

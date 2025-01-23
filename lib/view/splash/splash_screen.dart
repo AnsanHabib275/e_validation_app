@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(milliseconds: 900),
+    Timer(const Duration(milliseconds: 9000),
         () => Get.toNamed(RoutesName.splashScreenTwo));
   }
 
@@ -84,23 +84,26 @@ class _SplashScreenState extends State<SplashScreen> {
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20),
                   )),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(ImageAssets.block_chain_logo),
-                  SizedBox(
-                    width: Get.width * Utils.getResponsiveWidth(14),
-                  ),
-                  Text(
-                    'powered_by_blockchain'.tr,
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        color: AppColor.textWhite),
-                  ),
-                ],
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(ImageAssets.block_chain_logo),
+                    SizedBox(
+                      width: Get.width * Utils.getResponsiveWidth(14),
+                    ),
+                    Text(
+                      'powered_by_blockchain'.tr,
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                          color: AppColor.textWhite),
+                    ),
+                  ],
+                ),
               ),
             ),
           )

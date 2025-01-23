@@ -48,7 +48,8 @@ class _ComplainScreenState extends State<ComplainScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 87.0),
+                      padding: EdgeInsets.only(
+                          top: Get.height * Utils.getResponsiveHeight(87)),
                       child: Image.asset(
                         ImageAssets.img_complain,
                         height: Get.height * Utils.getResponsiveHeight(193),
