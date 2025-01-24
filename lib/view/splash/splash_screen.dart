@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
-      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+      data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: Scaffold(
         body: Stack(children: [
           Image(
@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   style: TextStyle(
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
-                      fontSize: 30,
+                      fontSize: Get.height * Utils.getResponsiveSize(30),
                       color: AppColor.textBlack80Per),
                 ),
                 SizedBox(
@@ -66,8 +66,9 @@ class _SplashScreenState extends State<SplashScreen> {
                   style: TextStyle(
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w400,
-                      fontSize: 20,
-                      color: AppColor.textBlack80Per),
+                      fontSize: Get.height * Utils.getResponsiveSize(20),
+                      // fontSize: 20,
+                      color: AppColor.textLightGrey80Per),
                 ),
               ],
             ),
@@ -78,32 +79,31 @@ class _SplashScreenState extends State<SplashScreen> {
             bottom: 0,
             child: Container(
               height: Get.height * Utils.getResponsiveHeight(66),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   color: AppColor.colorPrimary,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
+                    topLeft: Radius.circular(
+                        Get.height * Utils.getResponsiveSize(20)),
+                    topRight: Radius.circular(
+                        Get.height * Utils.getResponsiveSize(20)),
                   )),
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(ImageAssets.block_chain_logo),
-                    SizedBox(
-                      width: Get.width * Utils.getResponsiveWidth(14),
-                    ),
-                    Text(
-                      'powered_by_blockchain'.tr,
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w500,
-                          color: AppColor.textWhite),
-                    ),
-                  ],
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(ImageAssets.block_chain_logo),
+                  SizedBox(
+                    width: Get.width * Utils.getResponsiveWidth(14),
+                  ),
+                  Text(
+                    'powered_by_blockchain'.tr,
+                    style: TextStyle(
+                        fontSize: Get.height * Utils.getResponsiveSize(20),
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w500,
+                        color: AppColor.textWhite),
+                  ),
+                ],
               ),
             ),
           )

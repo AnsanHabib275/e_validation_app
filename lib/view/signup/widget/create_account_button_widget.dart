@@ -20,7 +20,7 @@ class CreateAccountButtonWidget extends StatelessWidget {
         title: 'create_account'.tr,
         loading: signUpVM.loading.value,
         onPress: () {
-          Get.toNamed(RoutesName.verifyEmailScreen);
+          Get.toNamed(RoutesName.otpScreen);
           // if (formkey.currentState!.validate()) {
           //   signUpVM.signUpApi();
           // }

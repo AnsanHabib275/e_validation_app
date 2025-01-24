@@ -52,10 +52,6 @@ PODS:
     - GTMSessionFetcher/Core (< 4.0, >= 3.3.2)
     - MLImage (= 1.0.0-beta5)
     - MLKitCommon (~> 11.0)
-  - mobile_scanner (5.2.3):
-    - Flutter
-    - GoogleMLKit/BarcodeScanning (~> 6.0.0)
-  - MTBBarcodeScanner (5.0.11)
   - nanopb (2.30910.0):
     - nanopb/decode (= 2.30910.0)
     - nanopb/encode (= 2.30910.0)
@@ -66,16 +62,11 @@ PODS:
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
-  - permission_handler_apple (9.3.0):
-    - Flutter
   - phone_number (2.0.1):
     - Flutter
     - PhoneNumberKit/PhoneNumberKitCore (= 3.6.6)
   - PhoneNumberKit/PhoneNumberKitCore (3.6.6)
   - PromisesObjC (2.4.0)
-  - qr_code_scanner_plus (0.2.6):
-    - Flutter
-    - MTBBarcodeScanner
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -86,12 +77,9 @@ DEPENDENCIES:
   - flutter_qr_bar_scanner (from `.symlinks/plugins/flutter_qr_bar_scanner/ios`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
-  - mobile_scanner (from `.symlinks/plugins/mobile_scanner/ios`)
   - native_device_orientation (from `.symlinks/plugins/native_device_orientation/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
-  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
   - phone_number (from `.symlinks/plugins/phone_number/ios`)
-  - qr_code_scanner_plus (from `.symlinks/plugins/qr_code_scanner_plus/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
 
 SPEC REPOS:
@@ -106,7 +94,6 @@ SPEC REPOS:
     - MLKitBarcodeScanning
     - MLKitCommon
     - MLKitVision
-    - MTBBarcodeScanner
     - nanopb
     - PhoneNumberKit
     - PromisesObjC
@@ -121,18 +108,12 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/fluttertoast/ios"
   image_picker_ios:
     :path: ".symlinks/plugins/image_picker_ios/ios"
-  mobile_scanner:
-    :path: ".symlinks/plugins/mobile_scanner/ios"
   native_device_orientation:
     :path: ".symlinks/plugins/native_device_orientation/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
-  permission_handler_apple:
-    :path: ".symlinks/plugins/permission_handler_apple/ios"
   phone_number:
     :path: ".symlinks/plugins/phone_number/ios"
-  qr_code_scanner_plus:
-    :path: ".symlinks/plugins/qr_code_scanner_plus/ios"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
 
@@ -151,16 +132,12 @@ SPEC CHECKSUMS:
   MLKitBarcodeScanning: 10ca0845a6d15f2f6e911f682a1998b68b973e8b
   MLKitCommon: afec63980417d29ffbb4790529a1b0a2291699e1
   MLKitVision: e858c5f125ecc288e4a31127928301eaba9ae0c1
-  mobile_scanner: 96e91f2e1fb396bb7df8da40429ba8dfad664740
-  MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   native_device_orientation: 3b4cfc9565a7b879cc4fde282b3e27745e852d0d
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
-  permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
   phone_number: 567a167933138df1080eb0d8ecb0ea44f1dee1ed
   PhoneNumberKit: 5b1be7ee4955dfeeb855f51eecdd829ab24b3484
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
-  qr_code_scanner_plus: 3bfe4deb7f28996a63a2a580819d49dae80d5ed3
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   Toast: 1f5ea13423a1e6674c4abdac5be53587ae481c4e
 

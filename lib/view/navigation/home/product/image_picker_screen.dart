@@ -1,12 +1,8 @@
-// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, camel_case_types, unused_local_variable, avoid_print, prefer_typing_uninitialized_variables, unused_field, prefer_adjacent_string_concatenation, use_build_context_synchronously, unused_element, body_might_complete_normally_nullable, avoid_unnecessary_containers, unrelated_type_equality_checks, unnecessary_string_interpolations
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/res/colors/app_color.dart';
 import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_qr_bar_scanner/qr_bar_scanner_camera.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'dart:developer';
@@ -140,19 +136,19 @@ class _qrScanState extends State<qrScan> with SingleTickerProviderStateMixin {
                   ? Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          child: Lottie.asset('assets/lottie/loadertick.json',
-                              repeat: false,
-                              controller: controller,
-                              height: 300, onLoaded: (composition) {
-                            controller.forward();
-                            Future.delayed(const Duration(seconds: 3), () {
-                              setState(() {
-                                controllers = 11;
-                              });
-                            });
-                          }),
-                        ),
+                        // Container(
+                        //   child: Lottie.asset('assets/lottie/loadertick.json',
+                        //       repeat: false,
+                        //       controller: controller,
+                        //       height: 300, onLoaded: (composition) {
+                        //     controller.forward();
+                        //     Future.delayed(const Duration(seconds: 3), () {
+                        //       setState(() {
+                        //         controllers = 11;
+                        //       });
+                        //     });
+                        //   }),
+                        // ),
                       ],
                     )
                   : model == null
@@ -214,21 +210,21 @@ class _qrScanState extends State<qrScan> with SingleTickerProviderStateMixin {
                           ? Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
-                                  child: Lottie.asset(
-                                      'assets/lottie/loadertick.json',
-                                      repeat: false,
-                                      controller: controller,
-                                      height: 300, onLoaded: (composition) {
-                                    controller.forward();
-                                    Future.delayed(const Duration(seconds: 3),
-                                        () {
-                                      setState(() {
-                                        controllers = 101;
-                                      });
-                                    });
-                                  }),
-                                ),
+                                // Container(
+                                //   child: Lottie.asset(
+                                //       'assets/lottie/loadertick.json',
+                                //       repeat: false,
+                                //       controller: controller,
+                                //       height: 300, onLoaded: (composition) {
+                                //     controller.forward();
+                                //     Future.delayed(const Duration(seconds: 3),
+                                //         () {
+                                //       setState(() {
+                                //         controllers = 101;
+                                //       });
+                                //     });
+                                //   }),
+                                // ),
                               ],
                             )
                           : SingleChildScrollView(
@@ -681,7 +677,7 @@ class _qrScanState extends State<qrScan> with SingleTickerProviderStateMixin {
       // );
       return null;
     } else {
-      Fluttertoast.showToast(msg: 'This QR Doesnt Belong to E-Validation');
+      // Fluttertoast.showToast(msg: 'This QR Doesnt Belong to E-Validation');
       // AppNavigatorService.pushNamed(Route_paths.home);
       return null;
     }

@@ -2,22 +2,21 @@ import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/res/colors/app_color.dart';
 import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/utils/utils.dart';
-import 'package:e_validation/view/verifyEmail/widget/input_otp_widget.dart';
-import 'package:e_validation/view/verifyEmail/widget/verify_button_widget.dart';
-import 'package:e_validation/view_models/controller/verifyEmail/verify_email_view_model.dart';
+import 'package:e_validation/view/otp/widget/input_otp_widget.dart';
+import 'package:e_validation/view/otp/widget/verify_button_widget.dart';
+import 'package:e_validation/view_models/controller/otp/otp_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
-class VerifyEmailScreen extends StatefulWidget {
-  const VerifyEmailScreen({super.key});
+class OTPScreen extends StatefulWidget {
+  const OTPScreen({super.key});
 
   @override
-  State<VerifyEmailScreen> createState() => _VerifyEmailScreenState();
+  State<OTPScreen> createState() => _OTPScreenState();
 }
 
-class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
-  final verifyEmailVM = Get.put(VerifyEmailViewModel());
+class _OTPScreenState extends State<OTPScreen> {
+  final otpVM = Get.put(OTPViewModel());
   final _formKey = GlobalKey<FormState>();
   // final email = Get.arguments['email'];
   // final from = Get.arguments['from'];
@@ -28,7 +27,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    verifyEmailVM.from.value = from;
+    otpVM.from.value = from;
   }
 
   @override
@@ -107,9 +106,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           height: 50,
                           child: InputOTPWidget(
                             email: email,
-                            controller: verifyEmailVM.otpOneController.value,
-                            focusNode: verifyEmailVM.otpOneFocusNode.value,
-                            nextFocusNode: verifyEmailVM.otpTwoFocusNode.value,
+                            controller: otpVM.otpOneController.value,
+                            focusNode: otpVM.otpOneFocusNode.value,
+                            nextFocusNode: otpVM.otpTwoFocusNode.value,
                           ),
                         ),
                         SizedBox(
@@ -117,10 +116,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           height: 50,
                           child: InputOTPWidget(
                             email: email,
-                            controller: verifyEmailVM.otpTwoController.value,
-                            focusNode: verifyEmailVM.otpTwoFocusNode.value,
-                            nextFocusNode:
-                                verifyEmailVM.otpThreeFocusNode.value,
+                            controller: otpVM.otpTwoController.value,
+                            focusNode: otpVM.otpTwoFocusNode.value,
+                            nextFocusNode: otpVM.otpThreeFocusNode.value,
                           ),
                         ),
                         SizedBox(
@@ -128,9 +126,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           height: 50,
                           child: InputOTPWidget(
                             email: email,
-                            controller: verifyEmailVM.otpThreeController.value,
-                            focusNode: verifyEmailVM.otpThreeFocusNode.value,
-                            nextFocusNode: verifyEmailVM.otpFourFocusNode.value,
+                            controller: otpVM.otpThreeController.value,
+                            focusNode: otpVM.otpThreeFocusNode.value,
+                            nextFocusNode: otpVM.otpFourFocusNode.value,
                           ),
                         ),
                         SizedBox(
@@ -138,9 +136,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           height: 50,
                           child: InputOTPWidget(
                             email: email,
-                            controller: verifyEmailVM.otpFourController.value,
-                            focusNode: verifyEmailVM.otpFourFocusNode.value,
-                            nextFocusNode: verifyEmailVM.otpFiveFocusNode.value,
+                            controller: otpVM.otpFourController.value,
+                            focusNode: otpVM.otpFourFocusNode.value,
+                            nextFocusNode: otpVM.otpFiveFocusNode.value,
                           ),
                         ),
                         SizedBox(
@@ -148,9 +146,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           height: 50,
                           child: InputOTPWidget(
                             email: email,
-                            controller: verifyEmailVM.otpFiveController.value,
-                            focusNode: verifyEmailVM.otpFiveFocusNode.value,
-                            nextFocusNode: verifyEmailVM.otpSixFocusNode.value,
+                            controller: otpVM.otpFiveController.value,
+                            focusNode: otpVM.otpFiveFocusNode.value,
+                            nextFocusNode: otpVM.otpSixFocusNode.value,
                           ),
                         ),
                         SizedBox(
@@ -158,9 +156,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           height: 50,
                           child: InputOTPWidget(
                             email: email,
-                            controller: verifyEmailVM.otpSixController.value,
-                            focusNode: verifyEmailVM.otpSixFocusNode.value,
-                            // nextFocusNode: verifyEmailVM.otpFourFocusNode.value,
+                            controller: otpVM.otpSixController.value,
+                            focusNode: otpVM.otpSixFocusNode.value,
+                            // nextFocusNode: otpVM.otpFourFocusNode.value,
                           ),
                         ),
                       ],

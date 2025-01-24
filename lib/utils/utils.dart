@@ -41,6 +41,10 @@ class Utils {
   static double getResponsiveWidth(double figmaWidth) {
     return (figmaWidth / baseWidth);
   }
+
+  static double getResponsiveSize(double figmaSize) {
+    return (figmaSize / baseHeight);
+  }
 }
 
 extension StringExtensions on String {

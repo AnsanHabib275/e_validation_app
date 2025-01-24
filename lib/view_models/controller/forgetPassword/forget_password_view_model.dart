@@ -38,7 +38,6 @@ class ForgetPasswordViewModel extends GetxController {
         Get.toNamed(RoutesName.verifyEmailScreen, arguments: {
           'e_id': value['E_Id'],
           'email': emailController.value.text,
-          'from': 'forgot_password'
         })!
             .then((value) {});
       }

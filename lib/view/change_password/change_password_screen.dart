@@ -34,26 +34,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         },
         child: Scaffold(
           backgroundColor: Colors.white,
-          // appBar: AppBar(
-          //   backgroundColor: Colors.white,
-          //   leading: IconButton(
-          //     icon: const Icon(
-          //       Icons.arrow_back_ios_new_outlined,
-          //       size: 24,
-          //       color: AppColor.textGreyPrimary,
-          //     ), // Change the color here
-          //     onPressed: () => Get.back(),
-          //   ),
-          //   centerTitle: true,
-          //   title: Text(
-          //     'update_password'.tr,
-          //     style: TextStyle(
-          //         color: AppColor.textColorSecondary,
-          //         fontSize: 26,
-          //         fontFamily: 'Poppins',
-          //         fontWeight: FontWeight.w600),
-          //   ),
-          // ),
           appBar: PreferredSize(
               preferredSize:
                   Size.fromHeight(Get.height * Utils.getResponsiveHeight(124)),

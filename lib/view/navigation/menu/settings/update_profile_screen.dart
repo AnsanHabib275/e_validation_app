@@ -52,29 +52,9 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
         },
         child: Scaffold(
           backgroundColor: Colors.white,
-          // appBar: AppBar(
-          //   backgroundColor: Colors.white,
-          //   leading: IconButton(
-          //     icon: const Icon(
-          //       Icons.arrow_back_ios_new_outlined,
-          //       size: 24,
-          //       color: AppColor.textGreyPrimary,
-          //     ), // Change the color here
-          //     onPressed: () => Get.back(),
-          //   ),
-          //   centerTitle: true,
-          //   title: Text(
-          //     'update_profile'.tr,
-          //     style: TextStyle(
-          //         color: AppColor.textColorSecondary,
-          //         fontSize: 26,
-          //         fontWeight: FontWeight.w600,
-          //         fontFamily: 'Poppins'),
-          //   ),
-          // ),
           appBar: PreferredSize(
               preferredSize:
-              Size.fromHeight(Get.height * Utils.getResponsiveHeight(124)),
+                  Size.fromHeight(Get.height * Utils.getResponsiveHeight(124)),
               child: Stack(
                 children: [
                   Positioned(

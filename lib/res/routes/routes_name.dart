@@ -1,5 +1,4 @@
 class RoutesName {
-  // Auth Screens
   static const String splashScreen = '/splash_screen';
   static const String splashScreenTwo = '/splash_screen_two';
   static const String welcomeScreen = '/welcome_screen';
@@ -29,9 +28,8 @@ class RoutesName {
   static const String verifyEmailScreen = '/verify_email_screen';
   static const String forgetPasswordScreen = '/forget_password_screen';
   static const String resetPasswordScreen = '/reset_password_screen';
-  static const String qrScannerScreen = '/qr_scanner_screen';
   static const String voiceChatGptScreen = '/voice_chat_gpt_screen';
   static const String updateProfileScreen = '/update_profile_screen';
-  static const String imagePickerScreen = '/image_picker_screen';
   static const String changePasswordScreen = '/change_password_screen';
+  static const String otpScreen = '/otp_screen';
 }

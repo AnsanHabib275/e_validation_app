@@ -72,7 +72,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               )),
           body: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 23),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width * Utils.getResponsiveWidth(23)),
               child: Column(
                 children: [
                   SizedBox(
@@ -82,9 +83,10 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     'no_worries_enter_your_email_for_reset_password'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: AppColor.textBlack80Per,
-                        fontSize: 18,
-                        height: Get.height * Utils.getResponsiveHeight(27) / 18,
+                        color: AppColor.textLightBlackPrimary,
+                        fontSize: Get.height * Utils.getResponsiveSize(18),
+                        // fontSize: 18,
+                        // height: Get.height * Utils.getResponsiveHeight(27) / 18,
                         fontWeight: FontWeight.w500,
                         fontFamily: 'Poppins'),
                   ),

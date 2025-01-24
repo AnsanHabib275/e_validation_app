@@ -1,4 +1,3 @@
-import 'package:e_validation/view/navigation/home/product/QRScannnerScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
