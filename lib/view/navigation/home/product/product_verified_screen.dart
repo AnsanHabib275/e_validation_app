@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 
 import '../../../../res/assets/font_assets.dart';
 import '../../../../res/colors/app_color.dart';
+import '../../../../utils/utils.dart';
 import '../../../../view_models/controller/navigation/navigation_view_model.dart';
 
 class ProductVerifiedScreen extends StatefulWidget {
@@ -37,7 +38,9 @@ class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
         child: Stack(
           children: [
             Positioned(
-                right: 20, top: 70, child: Image.asset(IconAssets.ic_close)),
+                right: Get.width * Utils.getResponsiveWidth(10),
+                top: Get.height * Utils.getResponsiveHeight(70),
+                child: Image.asset(IconAssets.ic_close)),
             Positioned(
                 left: 0,
                 right: 0,
@@ -64,9 +67,9 @@ class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
                         },
                         child: Text(
                           'product_verified'.tr,
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: AppColor.textColorPrimary,
-                            fontSize: 30,
+                            fontSize: Get.height * Utils.getResponsiveSize(30),
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                           ),

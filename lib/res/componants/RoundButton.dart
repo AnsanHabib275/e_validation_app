@@ -1,9 +1,11 @@
+import 'package:e_validation/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../colors/app_color.dart';
 
 class RoundButton extends StatelessWidget {
-  const RoundButton(
+  RoundButton(
       {Key? key,
       this.buttonColor = AppColor.colorPrimary,
       this.textColor = AppColor.textWhite,
@@ -31,11 +33,12 @@ class RoundButton extends StatelessWidget {
     return InkWell(
       onTap: onPress,
       child: Container(
-        height: height,
+        height: Get.height * Utils.getResponsiveHeight(height),
         width: width,
         decoration: BoxDecoration(
           color: buttonColor,
-          borderRadius: BorderRadius.circular(radius),
+          borderRadius: BorderRadius.circular(
+              Get.height * Utils.getResponsiveSize(radius)),
         ),
         child: loading
             ? Center(
@@ -43,13 +46,16 @@ class RoundButton extends StatelessWidget {
                 color: progressColor,
               ))
             : Center(
-                child: Text(
-                  title,
-                  style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontWeight: fontWeight,
-                      fontSize: fontSize,
-                      color: textColor),
+                child: FittedBox(
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: fontWeight,
+                        fontSize:
+                            Get.height * Utils.getResponsiveSize(fontSize),
+                        color: textColor),
+                  ),
                 ),
               ),
       ),

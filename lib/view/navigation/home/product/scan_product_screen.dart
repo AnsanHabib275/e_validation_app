@@ -10,7 +10,7 @@ import 'package:e_validation/view/navigation/home/product/product_verified_scree
 import 'package:e_validation/view_models/controller/scanProduct/scan_product_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// import 'package:flutter_qr_bar_scanner/qr_bar_scanner_camera.dart';
+import 'package:flutter_qr_bar_scanner/qr_bar_scanner_camera.dart';
 import 'package:get/get.dart';
 
 import '../../../../models/scan_data_model.dart';
@@ -108,7 +108,7 @@ class _ScanProductScreenState extends State<ScanProductScreen>
               child: Stack(
                 children: [
                   Positioned(
-                      right: Get.width * Utils.getResponsiveWidth(20),
+                      right: Get.width * Utils.getResponsiveWidth(10),
                       top: Get.height * Utils.getResponsiveHeight(70),
                       child: Image.asset(IconAssets.ic_close)),
                   Positioned(
@@ -123,47 +123,47 @@ class _ScanProductScreenState extends State<ScanProductScreen>
                             left: Get.width * Utils.getResponsiveWidth(60),
                             right: Get.width * Utils.getResponsiveWidth(60),
                             bottom:
-                                Get.height * Utils.getResponsiveHeight(120)),
+                                Get.height * Utils.getResponsiveHeight(114)),
                         child: Image.asset(ImageAssets.scan_bg),
                       ),
                     ),
                   ),
-                  // Positioned(
-                  //   left: 65,
-                  //   right: 65,
-                  //   top: 65,
-                  //   bottom: 65,
-                  // child: QRBarScannerCamera(
-                  //   onError: (context, error) => Text(
-                  //     error.toString(),
-                  //     style: const TextStyle(color: Colors.red),
-                  //   ),
-                  //   qrCodeCallback: _handleScan,
-                  //   // qrCodeCallback: (code) async {
-                  //   //   _qrCallback(code);
-                  //   //
-                  //   //   originalString = code;
-                  //   //   // if (code!.length > 4) {
-                  //   //   modifiedString = originalString!
-                  //   //       .substring(2, originalString!.length - 2);
-                  //   //   //   // log(modifiedString!.toString());
-                  //   //   //   scanProductVM.scanProductApi(
-                  //   //   //       modifiedString.toString(), eid!);
-                  //   //   // } else {
-                  //   //   //   scanProductVM.scanProductApi(
-                  //   //   //       originalString.toString(), eid!);
-                  //   //   // }
-                  //   //   final Scanmodel? scanmodel = await scanProductVM
-                  //   //       .scanProductApi(modifiedString.toString(), eid!);
-                  //   //
-                  //   //   if (scanmodel != null) {
-                  //   //     setState(() {
-                  //   //       model = scanmodel;
-                  //   //     });
-                  //   //   }
-                  //   // }
-                  // ),
-                  // ),
+                  Positioned(
+                    left: Get.width * Utils.getResponsiveWidth(65),
+                    right: Get.width * Utils.getResponsiveWidth(65),
+                    top: Get.height * Utils.getResponsiveHeight(65),
+                    bottom: Get.height * Utils.getResponsiveHeight(65),
+                    child: QRBarScannerCamera(
+                      onError: (context, error) => Text(
+                        error.toString(),
+                        style: const TextStyle(color: Colors.red),
+                      ),
+                      qrCodeCallback: _handleScan,
+                      // qrCodeCallback: (code) async {
+                      //   _qrCallback(code);
+                      //
+                      //   originalString = code;
+                      //   // if (code!.length > 4) {
+                      //   modifiedString = originalString!
+                      //       .substring(2, originalString!.length - 2);
+                      //   //   // log(modifiedString!.toString());
+                      //   //   scanProductVM.scanProductApi(
+                      //   //       modifiedString.toString(), eid!);
+                      //   // } else {
+                      //   //   scanProductVM.scanProductApi(
+                      //   //       originalString.toString(), eid!);
+                      //   // }
+                      //   final Scanmodel? scanmodel = await scanProductVM
+                      //       .scanProductApi(modifiedString.toString(), eid!);
+                      //
+                      //   if (scanmodel != null) {
+                      //     setState(() {
+                      //       model = scanmodel;
+                      //     });
+                      //   }
+                      // }
+                    ),
+                  ),
                 ],
               ),
             )
@@ -171,7 +171,9 @@ class _ScanProductScreenState extends State<ScanProductScreen>
               ? Center(
                   child: Text(
                     'No valid product found',
-                    style: const TextStyle(fontSize: 18, color: Colors.red),
+                    style: TextStyle(
+                        fontSize: Get.height * Utils.getResponsiveSize(18),
+                        color: Colors.red),
                   ),
                 )
               : Container(),

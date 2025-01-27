@@ -30,7 +30,8 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: EdgeInsets.symmetric(
+              horizontal: Get.width * Utils.getResponsiveWidth(30)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,7 +45,7 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
                 textScaleFactor: 1,
                 style: TextStyle(
                   color: AppColor.textBlack80Per,
-                  fontSize: 20,
+                  fontSize: Get.height * Utils.getResponsiveSize(20),
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,
                 ),
@@ -61,10 +62,13 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
                     textScaleFactor: 1,
                     style: TextStyle(
                       color: AppColor.textBlack80Per,
-                      fontSize: 19,
+                      fontSize: Get.height * Utils.getResponsiveSize(19),
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w500,
                     ),
+                  ),
+                  SizedBox(
+                    width: Get.width * Utils.getResponsiveWidth(6),
                   ),
                   InkWell(
                     onTap: () {
@@ -73,9 +77,9 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
                     child: Text(
                       'login'.tr.toUpperCase(),
                       textScaleFactor: 1,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: AppColor.textColorPrimary,
-                        fontSize: 19,
+                        fontSize: Get.height * Utils.getResponsiveSize(19),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                       ),

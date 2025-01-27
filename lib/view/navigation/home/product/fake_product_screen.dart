@@ -4,9 +4,6 @@ import 'package:e_validation/view/navigation/home/product/widget/leave_button_wi
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-
-import '../../../../res/assets/font_assets.dart';
-import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
 
@@ -32,13 +29,16 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
       child: Scaffold(
         backgroundColor: AppColor.whiteColor,
         body: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: EdgeInsets.symmetric(
+              horizontal: Get.width * Utils.getResponsiveWidth(20)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 81.0),
+                padding: EdgeInsets.only(
+                  top: Get.height * Utils.getResponsiveHeight(81),
+                ),
                 child: Align(
                   alignment: Alignment.center,
                   child: Image.asset(
@@ -49,12 +49,14 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                   ),
                 ),
               ),
-
+              SizedBox(
+                height: Get.height * Utils.getResponsiveHeight(29),
+              ),
               Text(
                 'fake_product'.tr,
                 style: TextStyle(
                     color: AppColor.textColorPrimary,
-                    fontSize: 22,
+                    fontSize: Get.height * Utils.getResponsiveSize(22),
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w600),
               ),
@@ -65,14 +67,16 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                 elevation: 0.1,
                 color: AppColor.whiteColor,
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Get.width * Utils.getResponsiveWidth(10),
+                      vertical: Get.height * Utils.getResponsiveHeight(12)),
                   child: Row(
                     children: [
                       Text(
                         'product_scanned'.tr,
                         style: TextStyle(
                             color: AppColor.textBlack80Per,
-                            fontSize: 16,
+                            fontSize: Get.height * Utils.getResponsiveSize(16),
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400),
                       ),
@@ -81,7 +85,7 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                         '5',
                         style: TextStyle(
                             color: AppColor.textRedPrimary,
-                            fontSize: 16,
+                            fontSize: Get.height * Utils.getResponsiveSize(16),
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400),
                       ),
@@ -89,16 +93,21 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: Get.height * Utils.getResponsiveHeight(10),
+              ),
               Card(
                 elevation: 0.1,
                 color: AppColor.whiteColor,
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Get.width * Utils.getResponsiveWidth(10),
+                      vertical: Get.height * Utils.getResponsiveHeight(12)),
                   child: Text(
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                     style: TextStyle(
                         color: AppColor.textBlack80Per,
-                        fontSize: 16,
+                        fontSize: Get.height * Utils.getResponsiveSize(16),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400),
                   ),
@@ -112,11 +121,11 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Expanded(child: LeaveButtonWidget()),
+                  LeaveButtonWidget(),
                   SizedBox(
                     width: Get.width * Utils.getResponsiveWidth(12),
                   ),
-                  Expanded(child: ComplainButtonWidget()),
+                  ComplainButtonWidget(),
                 ],
               ),
               // LeaveButtonWidget(),

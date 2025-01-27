@@ -1,13 +1,9 @@
 import 'package:e_validation/view/change_password/widget/input_old_password_widget.dart';
 import 'package:e_validation/view/change_password/widget/update_password_button_widget.dart';
-import 'package:e_validation/view/reset_password/widget/input_confirm_password_widget.dart';
 import 'package:e_validation/view/reset_password/widget/input_new_password_widget.dart';
-import 'package:e_validation/view/reset_password/widget/reset_password_button_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-import '../../res/assets/font_assets.dart';
 import '../../res/assets/image_assets.dart';
 import '../../res/colors/app_color.dart';
 import '../../utils/utils.dart';
@@ -44,7 +40,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     left: 0,
                     right: 0,
                     child: Divider(
-                      height: 1,
+                      height: Get.height * Utils.getResponsiveHeight(1),
                       thickness: 1,
                       color: AppColor.textBlack10Per, // Customize divider color
                     ),
@@ -56,9 +52,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     child: AppBar(
                       backgroundColor: Colors.white,
                       leading: IconButton(
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.arrow_back_ios_new_outlined,
-                          size: 24,
+                          size: Get.height * Utils.getResponsiveSize(24),
                           color: AppColor.textGreyPrimary,
                         ), // Change the color here
                         onPressed: () => Get.back(),
@@ -68,7 +64,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         'update_password'.tr,
                         style: TextStyle(
                             color: AppColor.textColorSecondary,
-                            fontSize: 26,
+                            fontSize: Get.height * Utils.getResponsiveSize(26),
                             fontWeight: FontWeight.w600,
                             fontFamily: 'Poppins'),
                       ),
@@ -78,7 +74,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               )),
           body: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width * Utils.getResponsiveWidth(30)),
               child: Column(
                 children: [
                   SizedBox(
@@ -102,7 +99,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   SizedBox(
                     height: Get.height * Utils.getResponsiveHeight(50),
                   ),
-                  UpdatePasswordButtonWidget(formkey: _formkey, e_id: e_id)
+                  UpdatePasswordButtonWidget(formkey: _formkey, e_id: e_id),
+                  SizedBox(
+                    height: Get.height * Utils.getResponsiveHeight(50),
+                  ),
                 ],
               ),
             ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../utils/utils.dart';
 import '../colors/app_color.dart';
 
 class RoundButtonBorder extends StatelessWidget {
@@ -34,7 +36,7 @@ class RoundButtonBorder extends StatelessWidget {
     return InkWell(
       onTap: onPress,
       child: Container(
-        height: height,
+        height: Get.height * Utils.getResponsiveHeight(height),
         width: width,
         decoration: BoxDecoration(
           color: buttonColor,
@@ -42,7 +44,8 @@ class RoundButtonBorder extends StatelessWidget {
             color: borderColor, // Set your desired border color here
             width: borderWidth, // Adjust the width of the border as needed
           ),
-          borderRadius: BorderRadius.circular(radius),
+          borderRadius: BorderRadius.circular(
+              Get.height * Utils.getResponsiveSize(radius)),
         ),
         child: loading
             ? Center(
@@ -55,7 +58,7 @@ class RoundButtonBorder extends StatelessWidget {
                   style: TextStyle(
                       fontFamily: 'Poppins',
                       fontWeight: fontWeight,
-                      fontSize: fontSize,
+                      fontSize: Get.height * Utils.getResponsiveSize(fontSize),
                       color: textColor),
                 ),
               ),

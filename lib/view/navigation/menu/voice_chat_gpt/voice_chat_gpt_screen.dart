@@ -6,6 +6,7 @@ import 'package:e_validation/view/navigation/menu/voice_chat_gpt/widget/user_row
 import 'package:e_validation/view_models/controller/voice_chat_gpt/voice_chat_gpt_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
@@ -140,7 +141,7 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
                         left: 0,
                         bottom: 0,
                         child: IconButton(
-                          icon: Image.asset(
+                          icon: SvgPicture.asset(
                             IconAssets.ic_menu,
                             width: Get.width * Utils.getResponsiveWidth(63),
                             height: Get.height * Utils.getResponsiveHeight(63),
@@ -158,7 +159,8 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: AppColor.whiteColor,
-                              fontSize: 16,
+                              fontSize:
+                                  Get.height * Utils.getResponsiveSize(16),
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500),
                         ),
@@ -197,9 +199,9 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
               children: [
                 Expanded(
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 12,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: Get.width * Utils.getResponsiveWidth(16),
+                      vertical: Get.height * Utils.getResponsiveHeight(16),
                     ),
                     decoration: BoxDecoration(
                       image: const DecorationImage(
@@ -239,14 +241,16 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 30,
+                          padding: EdgeInsets.symmetric(
+                            horizontal:
+                                Get.width * Utils.getResponsiveWidth(30),
                           ),
                           child: TextField(
                             controller: chatVM.messageController.value,
                             style: TextStyle(
                               color: AppColor.textBlack80Per,
-                              fontSize: 16,
+                              fontSize:
+                                  Get.height * Utils.getResponsiveSize(16),
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500,
                             ),
@@ -254,7 +258,8 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
                               hintText: "type here",
                               hintStyle: TextStyle(
                                 color: AppColor.blackColor.withOpacity(0.6),
-                                fontSize: 14,
+                                fontSize:
+                                    Get.height * Utils.getResponsiveSize(14),
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w400,
                               ),
@@ -263,7 +268,7 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 8),
+                      SizedBox(width: Get.width * Utils.getResponsiveWidth(8)),
                       IconButton(
                         icon: Icon(Icons.send),
                         onPressed: () {
@@ -275,21 +280,21 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
                           }
                         },
                       ),
-                      Container(
-                        height: 50,
-                        width: 50,
-                        color: AppColor.underlineTextColor,
-                        child: InkWell(
-                            onTap: () {
-                              String message =
-                                  chatVM.messageController.value.text.trim();
-                              if (message.isNotEmpty) {
-                                // send message logic here
-                                chatVM.messageController.value.clear();
-                              }
-                            },
-                            child: Image.asset(IconAssets.ic_miq)),
-                      ),
+                      // Container(
+                      //   height: Get.height * Utils.getResponsiveHeight(50),
+                      //   width: Get.width * Utils.getResponsiveWidth(50),
+                      //   color: AppColor.underlineTextColor,
+                      //   child: InkWell(
+                      //       onTap: () {
+                      //         String message =
+                      //             chatVM.messageController.value.text.trim();
+                      //         if (message.isNotEmpty) {
+                      //           // send message logic here
+                      //           chatVM.messageController.value.clear();
+                      //         }
+                      //       },
+                      //       child: Image.asset(IconAssets.ic_miq)),
+                      // ),
                     ],
                   ),
                 ),

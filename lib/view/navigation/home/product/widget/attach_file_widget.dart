@@ -1,3 +1,4 @@
+import 'package:e_validation/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +20,7 @@ class AttachFileWidget extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         style: TextStyle(
           color: AppColor.textBlack80Per,
-          fontSize: 14,
+          fontSize: Get.height * Utils.getResponsiveSize(14),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w300,
         ),
@@ -27,33 +28,36 @@ class AttachFileWidget extends StatelessWidget {
           hintText: 'attach_file'.tr,
           hintStyle: TextStyle(
             color: AppColor.textBlack40Per,
-            fontSize: 16,
+            fontSize: Get.height * Utils.getResponsiveSize(16),
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
           ),
           labelText: 'attach_file'.tr,
           labelStyle: TextStyle(
             color: AppColor.textColorPrimary,
-            fontSize: 14,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
           ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
             ),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
@@ -63,6 +67,7 @@ class AttachFileWidget extends StatelessWidget {
             icon: Icon(
               Icons.attach_file,
               color: AppColor.colorPrimary,
+              size: Get.height * Utils.getResponsiveSize(27),
             ),
             onPressed: () {
               // submitComplaintVM.isVisible.value = !submitComplaintVM.isVisible.value;

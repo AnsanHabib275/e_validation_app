@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../res/colors/app_color.dart';
+import '../../../../utils/utils.dart';
 import '../../../../view_models/controller/navigation/history/history_view_model.dart';
 import '../../../../view_models/controller/navigation/notification/notification_view_model.dart';
 import '../../../../view_models/controller/user_preference/user_preference_view_model.dart';
@@ -28,11 +29,13 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 60,
+      height: Get.height * Utils.getResponsiveHeight(56),
       child: Card(
-        elevation: 0,
+        elevation: 2,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: EdgeInsets.symmetric(
+              vertical: Get.height * Utils.getResponsiveHeight(7),
+              horizontal: Get.width * Utils.getResponsiveWidth(19)),
           child: Row(
             children: [
               Expanded(
@@ -46,7 +49,8 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
                           TextSpan(
                             text: 'qr_code_no '.tr,
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize:
+                                  Get.height * Utils.getResponsiveSize(16),
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500,
                               color: AppColor
@@ -56,7 +60,8 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
                           TextSpan(
                             text: "3342567", // The number
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize:
+                                  Get.height * Utils.getResponsiveSize(16),
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500,
                               color: AppColor
@@ -66,23 +71,14 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
                         ],
                       ),
                     ),
-                    // Text(
-                    //   'QR code no. 3342567',
-                    //   // widget.history.qrCodeNo,
-                    //   style: TextStyle(
-                    //       fontSize: 16,
-                    //       fontFamily: 'Poppins',
-                    //       fontWeight: FontWeight.w500,
-                    //       color: AppColor.textBlack80Per),
-                    // ),
                     Text(
                       'Submitted',
                       // widget.history.scanedOn,
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: Get.height * Utils.getResponsiveSize(12),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400,
-                        color: AppColor.textBlack80Per, // Strikethrough effect
+                        color: AppColor.textBlack80Per,
                       ),
                     ),
                   ],
@@ -90,8 +86,8 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
               ),
               Image.asset(
                 IconAssets.ic_submitted_complaint,
-                height: 15,
-                width: 15,
+                height: Get.height * Utils.getResponsiveHeight(15),
+                width: Get.width * Utils.getResponsiveWidth(15),
               )
             ],
           ),

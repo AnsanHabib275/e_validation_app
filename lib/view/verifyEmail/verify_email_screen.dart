@@ -51,7 +51,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                     left: 0,
                     right: 0,
                     child: Divider(
-                      height: 1,
+                      height: Get.height * Utils.getResponsiveHeight(1),
                       thickness: 1,
                       color: AppColor.textBlack10Per, // Customize divider color
                     ),
@@ -63,9 +63,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                     child: AppBar(
                       backgroundColor: Colors.white,
                       leading: IconButton(
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.arrow_back_ios_new_outlined,
-                          size: 24,
+                          size: Get.height * Utils.getResponsiveSize(24),
                           color: AppColor.textGreyPrimary,
                         ), // Change the color here
                         onPressed: () => Get.back(),
@@ -75,7 +75,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                         'verification'.tr,
                         style: TextStyle(
                             color: AppColor.textColorSecondary,
-                            fontSize: 26,
+                            fontSize: Get.height * Utils.getResponsiveSize(26),
                             fontWeight: FontWeight.w600,
                             fontFamily: 'Poppins'),
                       ),
@@ -175,7 +175,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                   style: TextStyle(
                       color: AppColor.colorPrimary,
                       decoration: TextDecoration.underline,
-                      fontSize: 18,
+                      fontSize: Get.height * Utils.getResponsiveSize(18),
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w500),
                 ),
@@ -183,7 +183,8 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                   height: Get.height * Utils.getResponsiveHeight(70),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Get.width * Utils.getResponsiveWidth(30)),
                   child: VerifyButtonWidget(formKey: _formKey),
                 ),
                 SizedBox(

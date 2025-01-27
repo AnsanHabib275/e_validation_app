@@ -62,7 +62,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                     left: 0,
                     right: 0,
                     child: Divider(
-                      height: 1,
+                      height: Get.height * Utils.getResponsiveHeight(1),
                       thickness: 1,
                       color: AppColor.textBlack10Per, // Customize divider color
                     ),
@@ -74,9 +74,9 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                     child: AppBar(
                       backgroundColor: Colors.white,
                       leading: IconButton(
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.arrow_back_ios_new_outlined,
-                          size: 24,
+                          size: Get.height * Utils.getResponsiveSize(24),
                           color: AppColor.textGreyPrimary,
                         ), // Change the color here
                         onPressed: () => Get.back(),
@@ -86,7 +86,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                         'update_profile'.tr,
                         style: TextStyle(
                             color: AppColor.textColorSecondary,
-                            fontSize: 26,
+                            fontSize: Get.height * Utils.getResponsiveSize(26),
                             fontWeight: FontWeight.w600,
                             fontFamily: 'Poppins'),
                       ),
@@ -96,7 +96,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
               )),
           body: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width * Utils.getResponsiveWidth(30)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -118,11 +119,14 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                               _showImageSourceDialog(context);
                             },
                             child: SizedBox(
-                                height: 127,
-                                width: 127,
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(127),
+                                width:
+                                    Get.width * Utils.getResponsiveWidth(127),
                                 child: Obx(() {
                                   return CircleAvatar(
-                                    radius: 62,
+                                    radius: Get.height *
+                                        Utils.getResponsiveSize(62),
                                     child: updateProfileVM.imagePath.isEmpty
                                         ? SvgPicture.asset(
                                             ImageAssets
@@ -134,9 +138,11 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                                               updateProfileVM.imagePath
                                                   .value, // The selected or updated image path
                                               fit: BoxFit.cover,
-                                              width:
-                                                  127, // Should match twice the `radius` of CircleAvatar
-                                              height: 127,
+                                              height: Get.height *
+                                                  Utils.getResponsiveHeight(
+                                                      127),
+                                              width: Get.width *
+                                                  Utils.getResponsiveWidth(127),
                                             ),
                                           ),
                                   );
@@ -222,9 +228,9 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                         SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(22)),
                         InputDateOfBirthWidget(),
-                        SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(22)),
-                        InputGenderWidget(),
+                        // SizedBox(
+                        //     height: Get.height * Utils.getResponsiveHeight(22)),
+                        // InputGenderWidget(),
                       ],
                     ),
                   ),
@@ -252,7 +258,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text("Select Image Source"),
+          title: Text('select_image_source'.tr),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -260,7 +266,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
             children: [
               ListTile(
                 leading: const Icon(Icons.camera_alt),
-                title: const Text("Camera"),
+                title: Text('camera'.tr),
                 onTap: () {
                   Get.back();
                   updateProfileVM.takeImageFromCamera();
@@ -276,7 +282,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
               ),
               ListTile(
                 leading: const Icon(Icons.photo),
-                title: const Text("Gallery"),
+                title: Text('gallery'.tr),
                 onTap: () {
                   Get.back();
                   updateProfileVM.getImageFromGallery();

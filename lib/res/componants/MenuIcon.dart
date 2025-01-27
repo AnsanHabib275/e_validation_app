@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
+import '../../utils/utils.dart';
 import '../assets/icon_assets.dart';
 
 class MenuIcon extends StatelessWidget {
@@ -8,10 +11,10 @@ class MenuIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: Image.asset(
+      icon: SvgPicture.asset(
         IconAssets.ic_menu,
-        width: 63,
-        height: 63,
+        width: Get.width * Utils.getResponsiveWidth(63),
+        height: Get.height * Utils.getResponsiveHeight(63),
       ),
       onPressed: () => Scaffold.of(context).openDrawer(),
     );

@@ -86,31 +86,33 @@ class _RedeemRewardScreenState extends State<RedeemRewardScreen> {
                     "redeem_your_rewards".tr,
                     style: TextStyle(
                         color: AppColor.textColorPrimary,
-                        fontSize: 26,
+                        fontSize: Get.height * Utils.getResponsiveSize(26),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600),
                   ),
                 ],
               ),
             ),
-            const Padding(padding: EdgeInsets.only(top: 150)),
+            Padding(
+                padding: EdgeInsets.only(
+                    top: Get.height * Utils.getResponsiveHeight(150))),
             Center(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      height: 100.0,
+                      width: Get.width * 1,
+                      height: Get.height * Utils.getResponsiveHeight(100),
                       child: Shimmer.fromColors(
                         baseColor: const Color.fromARGB(255, 140, 136, 136),
                         highlightColor: const Color.fromARGB(69, 59, 108, 255),
-                        child: const Text(
+                        child: Text(
                           'Coming Soon',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontFamily: "Poppins",
-                            fontSize: 30.0,
+                            fontSize: Get.height * Utils.getResponsiveSize(30),
                             fontWeight: FontWeight.bold,
                           ),
                         ),

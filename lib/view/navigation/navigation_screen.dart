@@ -105,7 +105,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                       child: Stack(fit: StackFit.expand, children: [
                         Positioned(
                             top: 0,
-                            right: 10,
+                            right: Get.width * Utils.getResponsiveWidth(10),
                             child: InkWell(
                                 onTap: () {
                                   Get.back();
@@ -113,44 +113,41 @@ class _NavigationScreenState extends State<NavigationScreen> {
                                 child: SvgPicture.asset(
                                     IconAssets.ic_close_circle))),
                         Positioned(
-                          left: 20,
+                          left: Get.width * Utils.getResponsiveWidth(20),
                           top: Get.height * Utils.getResponsiveHeight(26),
-                          right: 10,
+                          right: Get.width * Utils.getResponsiveWidth(20),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               CircleAvatar(
-                                radius: 40,
+                                radius:
+                                    Get.height * Utils.getResponsiveSize(40),
                                 backgroundColor: AppColor.lightGreyColor,
                                 backgroundImage:
                                     AssetImage(ImageAssets.dummy_profile),
                               ),
-                              FittedBox(
-                                fit: BoxFit.scaleDown,
-                                child: Text(
-                                  'George Oliver',
-                                  textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                      color: AppColor.textBlack80Per,
-                                      fontSize: 20,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w600),
-                                ),
+                              Text(
+                                'George Oliver',
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                    color: AppColor.textBlack80Per,
+                                    fontSize: Get.height *
+                                        Utils.getResponsiveSize(20),
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600),
                               ),
-                              FittedBox(
-                                fit: BoxFit.scaleDown,
-                                child: Text(
-                                  'Georgeoliver@gmail.com',
-                                  textAlign: TextAlign.start,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                      color: AppColor.textBlack80Per,
-                                      fontSize: 16,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400),
-                                ),
+                              Text(
+                                'Georgeoliver@gmail.com',
+                                textAlign: TextAlign.start,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    color: AppColor.textBlack80Per,
+                                    fontSize: Get.height *
+                                        Utils.getResponsiveSize(16),
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w400),
                               ),
                             ],
                           ),
@@ -171,7 +168,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
-                                fontSize: 18,
+                                fontSize:
+                                    Get.height * Utils.getResponsiveSize(18),
                                 color: AppColor.textBlack80Per),
                           ),
                           onTap: () {
@@ -199,13 +197,13 @@ class _NavigationScreenState extends State<NavigationScreen> {
                           left: 0,
                           right: 0,
                           child: Divider(
-                            height: 1,
+                            height: Get.height * Utils.getResponsiveHeight(1),
                             thickness: 1,
                             color: AppColor.textBlack10Per,
                           )),
                       Positioned(
-                          top: Get.height * Utils.getResponsiveHeight(61),
-                          left: 1,
+                          top: Get.height * Utils.getResponsiveHeight(63),
+                          left: 0,
                           child: const MenuIcon()),
                     ],
                   ),
@@ -288,6 +286,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
           navigationVM.changeScreen(SettingsScreen());
           break;
         case 'Complaints':
+          navigationVM.changeScreen(ComplaintsScreen());
           break;
         case 'Points':
           // navigationVM.changeScreen(RedeemRewardScreen());
@@ -316,7 +315,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
     Get.dialog(
       Dialog(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0), // Rounded corners
+          borderRadius: BorderRadius.circular(
+              Get.height * Utils.getResponsiveSize(12)), // Rounded corners
         ),
         backgroundColor: Colors.white,
         elevation: 4, // White background
@@ -324,7 +324,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
           height: Get.height * Utils.getResponsiveHeight(364),
           width: Get.width * Utils.getResponsiveWidth(368),
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: EdgeInsets.symmetric(
+                horizontal: Get.width * Utils.getResponsiveWidth(20),
+                vertical: Get.height * Utils.getResponsiveHeight(20)),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center, // Center alignment
@@ -338,19 +340,20 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   height: Get.height * Utils.getResponsiveHeight(22),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Get.width * Utils.getResponsiveWidth(16)),
                   child: Form(key: _formkey, child: InputEmailWidget()),
                 ),
                 SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(22),
+                  height: Get.height * Utils.getResponsiveHeight(17),
                 ),
                 FittedBox(
-                  fit: BoxFit.scaleDown,
                   child: Text(
                     'are_you_sure_you_want_to_delete'.tr,
                     textAlign: TextAlign.center,
+                    textScaleFactor: 1,
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: Get.height * Utils.getResponsiveSize(16),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400,
                         color: AppColor.textBlack80Per),
@@ -385,33 +388,36 @@ class _NavigationScreenState extends State<NavigationScreen> {
       Dialog(
         elevation: 4,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0), // Rounded corners
+          borderRadius: BorderRadius.circular(
+              Get.height * Utils.getResponsiveSize(12)), // Rounded corners
         ),
         backgroundColor: Colors.white, // White background
         child: SizedBox(
           height: Get.height * Utils.getResponsiveHeight(301),
           width: Get.width * Utils.getResponsiveWidth(368),
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: EdgeInsets.symmetric(
+                horizontal: Get.width * Utils.getResponsiveWidth(20),
+                vertical: Get.height * Utils.getResponsiveHeight(20)),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center, // Center alignment
               children: [
                 SvgPicture.asset(
-                  height: 69,
-                  width: 69,
+                  height: Get.height * Utils.getResponsiveHeight(69),
+                  width: Get.width * Utils.getResponsiveWidth(69),
                   ImageAssets.img_logout,
                 ),
                 SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(40),
+                  height: Get.height * Utils.getResponsiveHeight(30),
                 ),
                 FittedBox(
-                  fit: BoxFit.scaleDown,
                   child: Text(
                     'are_you_sure_you_want_to_logout'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 16,
+                        // fontSize: Get.width * Utils.getResponsiveSize(16),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400,
                         color: AppColor.textBlack80Per),
@@ -426,7 +432,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     YesButtonWidget(),
-                    SizedBox(width: Get.width * Utils.getResponsiveWidth(6)),
+                    SizedBox(width: Get.width * Utils.getResponsiveWidth(5)),
                     NoButtonWidget(),
                   ],
                 ),

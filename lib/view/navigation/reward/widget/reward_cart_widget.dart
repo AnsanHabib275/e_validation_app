@@ -30,13 +30,13 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 88,
+      height: Get.height * Utils.getResponsiveHeight(80),
       child: Card(
         elevation: 2,
         shadowColor: AppColor.blackColor.withOpacity(0.03),
         color: AppColor.textColorPrimary7Per,
         child: Padding(
-          padding: const EdgeInsets.all(6.0),
+          padding: EdgeInsets.all(Get.height * Utils.getResponsiveHeight(6)),
           child: Row(
             children: [
               Container(
@@ -48,8 +48,9 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
                   ),
                 ),
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 11.0, vertical: 8),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Get.width * Utils.getResponsiveWidth(10),
+                      vertical: Get.height * Utils.getResponsiveHeight(8)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -61,7 +62,7 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
                             color: AppColor.textWhite,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
-                            fontSize: 22),
+                            fontSize: Get.height * Utils.getResponsiveSize(22)),
                       ),
                       Text(
                         'points'.tr,
@@ -70,7 +71,7 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
                             color: AppColor.textWhite,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400,
-                            fontSize: 12),
+                            fontSize: Get.height * Utils.getResponsiveSize(12)),
                       ),
                     ],
                   ),
@@ -80,22 +81,25 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
               Expanded(
                 child: Text(
                   'products_scanned'.tr,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: AppColor.textBlack80Per,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w500,
-                      fontSize: 18),
+                      fontSize: Get.height * Utils.getResponsiveSize(18)),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 20.0),
+                padding: EdgeInsets.symmetric(
+                    horizontal: Get.width * Utils.getResponsiveWidth(14)),
                 child: Text(
                   '56',
                   style: TextStyle(
                       color: AppColor.textBlack80Per,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w500,
-                      fontSize: 18),
+                      fontSize: Get.height * Utils.getResponsiveSize(18)),
                 ),
               ),
             ],

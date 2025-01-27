@@ -17,7 +17,7 @@ class ImageAssets {
   static const String product_detail_bg = 'assets/images/product_detail_bg.png';
   static const String img_complain = 'assets/images/img_complain.png';
   static const String img_reward = 'assets/images/img_reward.svg';
-  static const String reward_points_box = 'assets/images/reward_points_box.png';
+  static const String reward_points_box = 'assets/images/reward_points_box.svg';
   static const String img_complaints = 'assets/images/img_complaints.svg';
   static const String img_history = 'assets/images/img_history.svg';
   static const String img_redeem_reward = 'assets/images/img_redeem_reward.svg';

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../../../../res/colors/app_color.dart';
 import '../../../../../view_models/controller/navigation/submitComplain/submit_complain_view_model.dart';
 import '../../../res/assets/icon_assets.dart';
+import '../../../utils/utils.dart';
 
 class InputGenderWidget extends StatelessWidget {
   InputGenderWidget({super.key});
@@ -17,7 +18,7 @@ class InputGenderWidget extends StatelessWidget {
     return DropdownButtonFormField<String>(
       style: TextStyle(
         color: AppColor.textBlack80Per,
-        fontSize: 16,
+        fontSize: Get.height * Utils.getResponsiveSize(16),
         fontFamily: 'Poppins',
         fontWeight: FontWeight.w500,
       ),
@@ -25,33 +26,36 @@ class InputGenderWidget extends StatelessWidget {
         hintText: 'gender'.tr,
         hintStyle: TextStyle(
           color: AppColor.textBlack40Per,
-          fontSize: 16,
+          fontSize: Get.height * Utils.getResponsiveSize(16),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w400,
         ),
         labelText: 'gender'.tr,
         labelStyle: TextStyle(
           color: AppColor.textColorPrimary,
-          fontSize: 14,
+          fontSize: Get.height * Utils.getResponsiveSize(14),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w400,
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderRadius: BorderRadius.all(
+              Radius.circular(Get.height * Utils.getResponsiveSize(8))),
           borderSide: BorderSide(
             color: AppColor.textColorPrimary, // Default border color
             width: 1.0, // Default border width
           ),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderRadius: BorderRadius.all(
+              Radius.circular(Get.height * Utils.getResponsiveSize(8))),
           borderSide: BorderSide(
             color: AppColor.textColorPrimary, // Default border color
             width: 1.0, // Default border width
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderRadius: BorderRadius.all(
+              Radius.circular(Get.height * Utils.getResponsiveSize(8))),
           borderSide: BorderSide(
             color: AppColor.textColorPrimary, // Default border color
             width: 1.0, // Default border width
@@ -70,8 +74,8 @@ class InputGenderWidget extends StatelessWidget {
       },
       icon: Image.asset(
         IconAssets.ic_arrow_down,
-        height: 16,
-        width: 16,
+        height: Get.height * Utils.getResponsiveHeight(16),
+        width: Get.width * Utils.getResponsiveWidth(16),
       ),
       validator: (value) => value == null ? 'Please select gender' : null,
     );

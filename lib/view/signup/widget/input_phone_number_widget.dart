@@ -23,7 +23,8 @@ class InputPhoneNumberWidget extends StatelessWidget {
               color: signUpVM.isEnable.value
                   ? AppColor.textBlack30Per
                   : AppColor.textColorPrimary),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius:
+              BorderRadius.circular(Get.height * Utils.getResponsiveSize(8)),
         ),
         child: Row(
           children: [
@@ -51,15 +52,15 @@ class InputPhoneNumberWidget extends StatelessWidget {
                         : signUpVM.countryCodeController.value.text,
                     style: TextStyle(
                         color: AppColor.textBlack70Per,
-                        fontSize: 16,
+                        fontSize: Get.height * Utils.getResponsiveSize(16),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400),
                   ),
                   SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
                   Image.asset(
                     IconAssets.ic_arrow_down,
-                    height: 16,
-                    width: 16,
+                    height: Get.height * Utils.getResponsiveHeight(16),
+                    width: Get.width * Utils.getResponsiveWidth(16),
                   ),
                   SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
                 ],
@@ -67,7 +68,7 @@ class InputPhoneNumberWidget extends StatelessWidget {
             ),
             Container(
               height: Get.height * Utils.getResponsiveHeight(64),
-              width: 1,
+              width: Get.width * Utils.getResponsiveWidth(1),
               color: AppColor.textBlack40Per, // Color of the divider
             ),
             Expanded(
@@ -81,7 +82,7 @@ class InputPhoneNumberWidget extends StatelessWidget {
                 // maxLength: 10,
                 style: TextStyle(
                   color: AppColor.textBlack70Per,
-                  fontSize: 16,
+                  fontSize: Get.height * Utils.getResponsiveSize(16),
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w400,
                 ),
@@ -89,13 +90,14 @@ class InputPhoneNumberWidget extends StatelessWidget {
                   hintText: 'phone_number'.tr,
                   hintStyle: TextStyle(
                     color: AppColor.textBlack40Per,
-                    fontSize: 16,
+                    fontSize: Get.height * Utils.getResponsiveSize(16),
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                   ),
                   border: OutlineInputBorder(
                     borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(
+                        Get.height * Utils.getResponsiveSize(8)),
                   ),
                 ),
                 onFieldSubmitted: (value) {

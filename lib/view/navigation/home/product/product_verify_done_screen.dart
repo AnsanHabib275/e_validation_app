@@ -31,7 +31,8 @@ class _ProductVerifyDoneScreenState extends State<ProductVerifyDoneScreen> {
             height: Get.height * Utils.getResponsiveHeight(102),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            padding: EdgeInsets.symmetric(
+                horizontal: Get.width * Utils.getResponsiveWidth(30)),
             child: DoneButtonWidget(),
           ),
         ],

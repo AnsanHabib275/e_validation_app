@@ -26,34 +26,38 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SvgPicture.asset(ImageAssets.scan_me_logo),
-            SizedBox(
-              height: Get.height * Utils.getResponsiveHeight(30),
-            ),
-            Text(
-              'tap_the_bellow_button_to_scan_the_product'.tr,
-              style: TextStyle(
-                  color: AppColor.textBlack80Per,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 20),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(
-              height: Get.height * Utils.getResponsiveHeight(73),
-            ),
-            ScanNowButtonWidget(),
-          ],
-        ),
-      )),
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+      child: Scaffold(
+        body: Center(
+            child: Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: Get.width * Utils.getResponsiveWidth(30)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.asset(ImageAssets.scan_me_logo),
+              SizedBox(
+                height: Get.height * Utils.getResponsiveHeight(30),
+              ),
+              Text(
+                'tap_the_bellow_button_to_scan_the_product'.tr,
+                style: TextStyle(
+                    color: AppColor.textBlack80Per,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w500,
+                    fontSize: Get.height * Utils.getResponsiveSize(20)),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: Get.height * Utils.getResponsiveHeight(73),
+              ),
+              ScanNowButtonWidget(),
+            ],
+          ),
+        )),
+      ),
     );
   }
 }

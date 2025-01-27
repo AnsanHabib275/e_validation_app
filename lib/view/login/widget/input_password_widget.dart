@@ -1,4 +1,7 @@
+import 'package:e_validation/res/assets/icon_assets.dart';
+import 'package:e_validation/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../res/colors/app_color.dart';
@@ -19,7 +22,7 @@ class InputPasswordWidget extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         style: TextStyle(
           color: AppColor.textBlack80Per,
-          fontSize: 16,
+          fontSize: Get.height * Utils.getResponsiveSize(16),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w500,
         ),
@@ -27,14 +30,14 @@ class InputPasswordWidget extends StatelessWidget {
           hintText: 'password'.tr,
           hintStyle: TextStyle(
             color: AppColor.textBlack40Per,
-            fontSize: 16,
+            fontSize: Get.height * Utils.getResponsiveSize(16),
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
           ),
           labelText: 'password'.tr,
           labelStyle: TextStyle(
             color: AppColor.textColorPrimary,
-            fontSize: 14,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
           ),
@@ -42,37 +45,42 @@ class InputPasswordWidget extends StatelessWidget {
               ? null
               : loginVM.errorMessage.value,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
             ),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
             ),
           ),
           errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
             ),
           ),
           suffixIcon: IconButton(
-            icon: Icon(
-              loginVM.isVisible.value ? Icons.visibility : Icons.visibility_off,
-              color: AppColor.colorPrimary,
+            icon: SvgPicture.asset(
+              loginVM.isVisible.value
+                  ? IconAssets.ic_invisible_password
+                  : IconAssets.ic_visible_password,
             ),
             onPressed: () {
               loginVM.isVisible.value = !loginVM.isVisible.value;

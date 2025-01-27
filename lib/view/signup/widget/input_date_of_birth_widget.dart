@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../../res/colors/app_color.dart';
-import '../../../../../view_models/controller/navigation/submitComplain/submit_complain_view_model.dart';
 import '../../../utils/utils.dart';
 
 class InputDateOfBirthWidget extends StatelessWidget {
@@ -38,12 +37,11 @@ class InputDateOfBirthWidget extends StatelessWidget {
           child: TextFormField(
             controller: signUpVM.dateOfBirthController.value,
             focusNode: signUpVM.dateOfBirthFocusNode.value,
-            // enableSuggestions: true,
             readOnly: true,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             style: TextStyle(
               color: AppColor.textBlack80Per,
-              fontSize: 16,
+              fontSize: Get.height * Utils.getResponsiveSize(16),
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w500,
             ),
@@ -51,33 +49,36 @@ class InputDateOfBirthWidget extends StatelessWidget {
                 hintText: 'date_of_birth'.tr,
                 hintStyle: TextStyle(
                   color: AppColor.textBlack40Per,
-                  fontSize: 16,
+                  fontSize: Get.height * Utils.getResponsiveSize(16),
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w400,
                 ),
                 labelText: 'date_of_birth'.tr,
                 labelStyle: TextStyle(
                   color: AppColor.textColorPrimary,
-                  fontSize: 14,
+                  fontSize: Get.height * Utils.getResponsiveSize(14),
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w400,
                 ),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(Get.height * Utils.getResponsiveSize(8))),
                   borderSide: BorderSide(
                     color: AppColor.textColorPrimary, // Default border color
                     width: 1.0, // Default border width
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(Get.height * Utils.getResponsiveSize(8))),
                   borderSide: BorderSide(
                     color: AppColor.textColorPrimary, // Default border color
                     width: 1.0, // Default border width
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(Get.height * Utils.getResponsiveSize(8))),
                   borderSide: BorderSide(
                     color: AppColor.textColorPrimary, // Default border color
                     width: 1.0, // Default border width
@@ -93,7 +94,7 @@ class InputDateOfBirthWidget extends StatelessWidget {
               if (value == null || value.isEmpty) {
                 return 'date_of_birth_cannot_be_blank'.tr;
               }
-              return null; // Return null if there is no error
+              return null;
             },
             onFieldSubmitted: (value) {
               Utils.fieldFocusChange(

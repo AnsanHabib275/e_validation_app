@@ -41,21 +41,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
+            padding: EdgeInsets.symmetric(
+                horizontal: Get.width * Utils.getResponsiveWidth(30)),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Text(
-                      'welcome'.tr,
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                          fontSize: 51,
-                          color: AppColor.textColorPrimary),
-                    ),
+                  Text(
+                    'welcome'.tr,
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        fontSize: Get.height * Utils.getResponsiveSize(51),
+                        color: AppColor.textColorPrimary),
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -70,7 +68,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
-                            fontSize: 30,
+                            fontSize: Get.height * Utils.getResponsiveSize(30),
                             color: AppColor.textBlack80Per),
                       ),
                       SizedBox(
@@ -81,7 +79,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400,
-                            fontSize: 20,
+                            fontSize: Get.height * Utils.getResponsiveSize(20),
                             color: AppColor.textLightGrey80Per),
                       ),
                     ],
@@ -92,38 +90,40 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     children: [
                       LoginButtonWidget(),
                       SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(20),
+                        height: Get.height * Utils.getResponsiveHeight(30),
                       ),
-                      FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'don’t_have_an_account_yet'.tr,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'don’t_have_an_account_yet'.tr,
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400,
+                                fontSize:
+                                    Get.height * Utils.getResponsiveSize(19),
+                                color: AppColor.textBlackPrimary),
+                          ),
+                          SizedBox(
+                            width: Get.width * Utils.getResponsiveWidth(5),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Get.toNamed(RoutesName.signUpScreen);
+                            },
+                            child: Text(
+                              'signup'.tr,
                               style: TextStyle(
+                                  decoration: TextDecoration.underline,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 19,
-                                  color: AppColor.textBlackPrimary),
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(19),
+                                  color: AppColor.underlineTextColor),
                             ),
-                            InkWell(
-                              onTap: () {
-                                Get.toNamed(RoutesName.signUpScreen);
-                              },
-                              child: Text(
-                                'signup'.tr,
-                                style: TextStyle(
-                                    decoration: TextDecoration.underline,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 19,
-                                    color: AppColor.underlineTextColor),
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ],
                   )

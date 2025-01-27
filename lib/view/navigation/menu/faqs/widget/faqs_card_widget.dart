@@ -7,7 +7,7 @@ class FaqsCardWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
-        elevation: 2,
+        elevation: 4,
         child: ExpandableNotifier(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 18.0),

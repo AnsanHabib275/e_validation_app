@@ -14,21 +14,16 @@ class AdminRowView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color colorWithOpacity =
-        AppColor.underlineTextColor.withOpacity(0.15); // 15% opacity
-
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // const CircleAvatar(
-        //   backgroundImage: AssetImage(ImageAssets.img_chat_admin),
-        // ),
         Container(
-          height: 36,
-          width: 36,
+          height: Get.height * Utils.getResponsiveHeight(36),
+          width: Get.width * Utils.getResponsiveWidth(36),
           decoration: BoxDecoration(
               color: AppColor.underlineTextColor,
-              borderRadius: BorderRadius.circular(200)),
+              borderRadius: BorderRadius.circular(
+                  Get.height * Utils.getResponsiveSize(200))),
           child: Align(
             alignment: Alignment.center,
             child: Image.asset(
@@ -41,19 +36,23 @@ class AdminRowView extends StatelessWidget {
         ),
         Expanded(
           child: Container(
-            padding: const EdgeInsets.all(10),
-            margin: const EdgeInsets.only(bottom: 16),
+            padding: EdgeInsets.all(Get.height * Utils.getResponsiveHeight(10)),
+            margin: EdgeInsets.only(
+                bottom: Get.height * Utils.getResponsiveHeight(16)),
             decoration: BoxDecoration(
                 color: AppColor.underlineTextColor15Per,
                 borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(6),
-                    bottomLeft: Radius.circular(6),
-                    bottomRight: Radius.circular(6))),
-            child: const Text(
+                    topRight: Radius.circular(
+                        Get.height * Utils.getResponsiveSize(6)),
+                    bottomLeft: Radius.circular(
+                        Get.height * Utils.getResponsiveSize(6)),
+                    bottomRight: Radius.circular(
+                        Get.height * Utils.getResponsiveSize(6)))),
+            child: Text(
               "Its the place where fraud ends.",
               style: TextStyle(
                   color: AppColor.blackColor,
-                  fontSize: 12,
+                  fontSize: Get.height * Utils.getResponsiveSize(12),
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w400),
             ),

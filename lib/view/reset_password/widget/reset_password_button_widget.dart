@@ -18,7 +18,7 @@ class ResetPasswordButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButton(
-        title: 'update_password'.tr,
+        title: 'reset_password'.tr,
         loading: resetPasswordVM.loading.value,
         onPress: () {
           Get.toNamed(RoutesName.loginScreen);

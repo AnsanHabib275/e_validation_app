@@ -1,7 +1,9 @@
 import 'package:e_validation/view_models/controller/resetPassword/reset_password_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+import '../../../res/assets/icon_assets.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
 import '../../../view_models/controller/login/login_view_model.dart';
@@ -22,7 +24,7 @@ class InputNewPasswordWidget extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         style: TextStyle(
           color: AppColor.textBlack80Per,
-          fontSize: 16,
+          fontSize: Get.height * Utils.getResponsiveSize(16),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w500,
         ),
@@ -30,44 +32,46 @@ class InputNewPasswordWidget extends StatelessWidget {
           hintText: 'new_password'.tr,
           hintStyle: TextStyle(
             color: AppColor.textBlack40Per,
-            fontSize: 16,
+            fontSize: Get.height * Utils.getResponsiveSize(16),
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
           ),
           labelText: 'new_password'.tr,
           labelStyle: TextStyle(
             color: AppColor.textColorPrimary,
-            fontSize: 14,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
           ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
             ),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
             ),
           ),
           suffixIcon: IconButton(
-            icon: Icon(
+            icon: SvgPicture.asset(
               resetPasswordVM.isVisible.value
-                  ? Icons.visibility
-                  : Icons.visibility_off,
-              color: AppColor.colorPrimary,
+                  ? IconAssets.ic_invisible_password
+                  : IconAssets.ic_visible_password,
             ),
             onPressed: () {
               resetPasswordVM.isVisible.value =

@@ -40,38 +40,38 @@ class InputOTPWidget extends StatelessWidget {
       },
       style: TextStyle(
         color: AppColor.otpTextColor,
-        fontSize: 20,
+        fontSize: Get.height * Utils.getResponsiveSize(20),
         fontFamily: 'Poppins',
         fontWeight: FontWeight.w600,
       ),
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         filled: false,
         counterText: "",
         border: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: AppColor.colorPrimary, // Default border color
             width: 1.0,
           ),
           borderRadius: BorderRadius.all(
-            Radius.circular(8),
+            Radius.circular(Get.height * Utils.getResponsiveSize(8)),
           ),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: AppColor.colorPrimary, // Default border color
             width: 1.0,
           ),
           borderRadius: BorderRadius.all(
-            Radius.circular(8),
+            Radius.circular(Get.height * Utils.getResponsiveSize(8)),
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: AppColor.colorPrimary, // Default border color
             width: 1.0,
           ),
           borderRadius: BorderRadius.all(
-            Radius.circular(8),
+            Radius.circular(Get.height * Utils.getResponsiveSize(8)),
           ),
         ),
       ),

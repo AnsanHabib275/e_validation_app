@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../res/colors/app_color.dart';
+import '../../../../utils/utils.dart';
 import '../../../../view_models/controller/navigation/history/history_view_model.dart';
 import '../../../../view_models/controller/navigation/notification/notification_view_model.dart';
 import '../../../../view_models/controller/user_preference/user_preference_view_model.dart';
@@ -28,10 +29,13 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 60,
+      height: Get.height * Utils.getResponsiveHeight(56),
       child: Card(
+        elevation: 2,
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 16),
+          padding: EdgeInsets.symmetric(
+              vertical: Get.height * Utils.getResponsiveHeight(7),
+              horizontal: Get.width * Utils.getResponsiveWidth(19)),
           child: SizedBox(
             width: double.infinity,
             child: Row(
@@ -47,7 +51,8 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                             TextSpan(
                               text: 'complain_no'.tr,
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize:
+                                    Get.height * Utils.getResponsiveSize(16),
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
                                 color: AppColor
@@ -57,7 +62,8 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                             TextSpan(
                               text: "435654", // The number
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize:
+                                    Get.height * Utils.getResponsiveSize(16),
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w600,
                                 color: AppColor
@@ -67,20 +73,11 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                           ],
                         ),
                       ),
-                      // Text(
-                      //   'complain no 435654',
-                      //   // widget.history.qrCodeNo,
-                      //   style: TextStyle(
-                      //       fontSize: 16,
-                      //       fontFamily: 'Poppins',
-                      //       fontWeight: FontWeight.w500,
-                      //       color: AppColor.textBlack80Per),
-                      // ),
                       Text(
                         'Solved',
                         // widget.history.scanedOn,
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: Get.height * Utils.getResponsiveSize(12),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                           color:
@@ -92,8 +89,8 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                 ),
                 SvgPicture.asset(
                   IconAssets.ic_solved_complaint,
-                  height: 28,
-                  width: 28,
+                  height: Get.height * Utils.getResponsiveHeight(28),
+                  width: Get.width * Utils.getResponsiveWidth(28),
                 )
               ],
             ),

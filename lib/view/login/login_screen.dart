@@ -43,7 +43,9 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(
+                horizontal: Get.width * Utils.getResponsiveWidth(30),
+              ),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -61,9 +63,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Text(
                       'login'.tr,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: AppColor.textColorPrimary,
-                        fontSize: 51,
+                        fontSize: Get.height * Utils.getResponsiveSize(51),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                       ),
@@ -93,9 +95,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           child: Text(
                             'forgot_password_with_question'.tr,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: AppColor.textColorPrimary,
-                              fontSize: 16,
+                              fontSize:
+                                  Get.height * Utils.getResponsiveSize(16),
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500,
                             ),
@@ -107,37 +110,39 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: Get.height * Utils.getResponsiveHeight(50)),
                     LoginButtonWidget(formkey: _formkey),
                     SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(20)),
-                    FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'don’t_have_an_account_yet'.tr,
-                            textScaler: TextScaler.linear(1),
+                        height: Get.height * Utils.getResponsiveHeight(30)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'don’t_have_an_account_yet'.tr,
+                          textScaler: TextScaler.linear(1),
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w400,
+                              fontSize:
+                                  Get.height * Utils.getResponsiveSize(19),
+                              color: AppColor.textBlackPrimary),
+                        ),
+                        SizedBox(
+                          width: Get.width * Utils.getResponsiveWidth(5),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Get.toNamed(RoutesName.signUpScreen);
+                          },
+                          child: Text(
+                            'signup'.tr,
                             style: TextStyle(
+                                decoration: TextDecoration.underline,
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w400,
-                                fontSize: 19,
-                                color: AppColor.textBlackPrimary),
+                                fontSize:
+                                    Get.height * Utils.getResponsiveSize(19),
+                                color: AppColor.underlineTextColor),
                           ),
-                          InkWell(
-                            onTap: () {
-                              Get.toNamed(RoutesName.signUpScreen);
-                            },
-                            child: Text(
-                              'signup'.tr,
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 19,
-                                  color: AppColor.underlineTextColor),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                     SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(50)),

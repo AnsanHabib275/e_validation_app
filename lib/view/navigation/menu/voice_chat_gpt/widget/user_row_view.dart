@@ -16,15 +16,13 @@ class UserRowView extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // CircleAvatar(
-        //   backgroundImage: AssetImage(ImageAssets.img_chat_user),
-        // ),
         Container(
-          height: 36,
-          width: 36,
+          height: Get.height * Utils.getResponsiveHeight(36),
+          width: Get.width * Utils.getResponsiveWidth(36),
           decoration: BoxDecoration(
               color: AppColor.lightGreyButtonColor,
-              borderRadius: BorderRadius.circular(200)),
+              borderRadius: BorderRadius.circular(
+                  Get.height * Utils.getResponsiveSize(200))),
           child: Image.asset(ImageAssets.img_chat_user),
         ),
         SizedBox(
@@ -32,19 +30,23 @@ class UserRowView extends StatelessWidget {
         ),
         Expanded(
           child: Container(
-            padding: const EdgeInsets.all(10),
-            margin: const EdgeInsets.only(bottom: 16),
-            decoration: const BoxDecoration(
+            padding: EdgeInsets.all(Get.height * Utils.getResponsiveHeight(10)),
+            margin: EdgeInsets.only(
+                bottom: Get.height * Utils.getResponsiveHeight(16)),
+            decoration: BoxDecoration(
                 color: AppColor.whiteColor,
                 borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(6),
-                    bottomLeft: Radius.circular(6),
-                    bottomRight: Radius.circular(6))),
-            child: const Text(
+                    topRight: Radius.circular(
+                        Get.height * Utils.getResponsiveSize(6)),
+                    bottomLeft: Radius.circular(
+                        Get.height * Utils.getResponsiveSize(6)),
+                    bottomRight: Radius.circular(
+                        Get.height * Utils.getResponsiveSize(6)))),
+            child: Text(
               "What is E-Validation?",
               style: TextStyle(
                   color: AppColor.textBlack,
-                  fontSize: 12,
+                  fontSize: Get.height * Utils.getResponsiveSize(12),
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w400),
             ),

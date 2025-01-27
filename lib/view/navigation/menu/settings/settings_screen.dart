@@ -52,7 +52,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       'settings'.tr,
                       style: TextStyle(
                           color: AppColor.textColorSecondary,
-                          fontSize: 26,
+                          fontSize: Get.height * Utils.getResponsiveSize(26),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600),
                     )
@@ -61,8 +61,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16),
+              padding: EdgeInsets.symmetric(
+                horizontal: Get.width * Utils.getResponsiveWidth(16),
+              ),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -71,9 +72,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         Get.toNamed(RoutesName.changePasswordScreen);
                       },
                       child: Card(
-                        elevation: 0,
+                        elevation: 4,
                         child: Padding(
-                          padding: const EdgeInsets.all(14.0),
+                          padding: EdgeInsets.all(
+                              Get.height * Utils.getResponsiveHeight(14)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -86,15 +88,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   'change_password'.tr,
                                   style: TextStyle(
                                       color: AppColor.textBlack80Per,
-                                      fontSize: 13,
+                                      fontSize: Get.height *
+                                          Utils.getResponsiveSize(13),
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w400),
                                 ),
                               ),
                               Image.asset(
                                 IconAssets.ic_submitted_complaint,
-                                height: 15,
-                                width: 15,
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(15),
+                                width: Get.width * Utils.getResponsiveWidth(15),
                               ),
                             ],
                           ),
@@ -109,9 +113,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         Get.toNamed(RoutesName.updateProfileScreen);
                       },
                       child: Card(
-                        elevation: 0,
+                        elevation: 4,
                         child: Padding(
-                          padding: const EdgeInsets.all(14.0),
+                          padding: EdgeInsets.all(
+                            Get.height * Utils.getResponsiveHeight(14),
+                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -124,15 +130,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   'update_profile'.tr,
                                   style: TextStyle(
                                       color: AppColor.textBlack80Per,
-                                      fontSize: 13,
+                                      fontSize: Get.height *
+                                          Utils.getResponsiveHeight(13),
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w400),
                                 ),
                               ),
                               Image.asset(
                                 IconAssets.ic_submitted_complaint,
-                                height: 15,
-                                width: 15,
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(15),
+                                width: Get.width * Utils.getResponsiveWidth(15),
                               ),
                             ],
                           ),

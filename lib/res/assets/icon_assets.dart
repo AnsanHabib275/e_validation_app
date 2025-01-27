@@ -1,6 +1,6 @@
 class IconAssets {
   static const String splash_logo = 'assets/icons/splash_screen_logo.svg';
-  static const String ic_menu = 'assets/icons/ic_menu.png';
+  static const String ic_menu = 'assets/icons/ic_menu.svg';
   static const String ic_close = 'assets/icons/ic_close.png';
   static const String ic_bn_reward = 'assets/icons/ic_bn_reward.png';
   static const String ic_bn_history = 'assets/icons/ic_bn_history.png';
@@ -33,7 +33,7 @@ class IconAssets {
   static const String ic_change_password =
       'assets/icons/ic_change_password.svg';
   static const String ic_question_with_bg =
-      'assets/icons/ic_question_with_bg.png';
+      'assets/icons/ic_question_with_bg.svg';
   static const String ic_edit_image = 'assets/icons/ic_edit_image.png';
   static const String ic_miq = 'assets/icons/ic_miq.png';
   static const String ic_arrow_down = 'assets/icons/ic_arrow_down.png';

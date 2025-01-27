@@ -47,7 +47,7 @@ class _KYCScreenState extends State<KYCScreen> {
                     'know_your_customer'.tr,
                     style: TextStyle(
                         color: AppColor.textColorSecondary,
-                        fontSize: 26,
+                        fontSize: Get.height * Utils.getResponsiveSize(26),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600),
                   )
@@ -55,13 +55,15 @@ class _KYCScreenState extends State<KYCScreen> {
               ),
             ),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16),
+              padding: EdgeInsets.symmetric(
+                  vertical: Get.height * Utils.getResponsiveHeight(20),
+                  horizontal: Get.width * Utils.getResponsiveWidth(16)),
               child: Card(
-                elevation: 0,
+                elevation: 4,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 14.0, vertical: 50),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Get.width * Utils.getResponsiveWidth(14),
+                      vertical: Get.height * Utils.getResponsiveHeight(50)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -72,7 +74,7 @@ class _KYCScreenState extends State<KYCScreen> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: AppColor.textBlack80Per,
-                            fontSize: 16,
+                            fontSize: Get.height * Utils.getResponsiveSize(16),
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400),
                       ),

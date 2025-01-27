@@ -50,17 +50,15 @@ class _FAQSScreenState extends State<FAQSScreen> {
                   ),
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Text(
-                        'frequently_asked_questions'.tr,
-                        style: TextStyle(
-                            color: AppColor.textColorSecondary,
-                            fontSize: 26,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600),
-                      ),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: Get.width * Utils.getResponsiveWidth(10)),
+                    child: Text(
+                      'frequently_asked_questions'.tr,
+                      style: TextStyle(
+                          color: AppColor.textColorSecondary,
+                          fontSize: Get.height * Utils.getResponsiveSize(26),
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600),
                     ),
                   )
                 ],
@@ -182,8 +180,9 @@ class _FAQSScreenState extends State<FAQSScreen> {
                               ),
                               Image.asset(
                                 IconAssets.ic_arrow_down,
-                                height: 24,
-                                width: 24,
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(24),
+                                width: Get.width * Utils.getResponsiveWidth(24),
                               ),
                             ],
                           ),
@@ -198,7 +197,7 @@ class _FAQSScreenState extends State<FAQSScreen> {
               padding: EdgeInsets.only(
                   right: Get.width * Utils.getResponsiveWidth(16),
                   top: Get.height * Utils.getResponsiveHeight(20),
-                  bottom: Get.height * Utils.getResponsiveHeight(80)),
+                  bottom: Get.height * Utils.getResponsiveHeight(96)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -207,7 +206,11 @@ class _FAQSScreenState extends State<FAQSScreen> {
                       onTap: () {
                         Get.toNamed(RoutesName.voiceChatGptScreen);
                       },
-                      child: Image.asset(IconAssets.ic_question_with_bg))
+                      child: SvgPicture.asset(
+                        IconAssets.ic_question_with_bg,
+                        height: Get.height * Utils.getResponsiveHeight(38),
+                        width: Get.width * Utils.getResponsiveWidth(36),
+                      ))
                 ],
               ),
             )

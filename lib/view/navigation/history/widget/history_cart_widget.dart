@@ -1,4 +1,5 @@
 import 'package:e_validation/res/assets/font_assets.dart';
+import 'package:e_validation/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,10 +26,13 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 60,
+      height: Get.height * Utils.getResponsiveHeight(56),
       child: Card(
+        elevation: 2,
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 16),
+          padding: EdgeInsets.symmetric(
+              vertical: Get.height * Utils.getResponsiveHeight(7),
+              horizontal: Get.width * Utils.getResponsiveWidth(19)),
           child: SizedBox(
             width: double.infinity,
             child: Column(
@@ -41,7 +45,7 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
                       TextSpan(
                         text: 'products_with_qr_code_no'.tr,
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w500,
                           color: AppColor
@@ -51,7 +55,7 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
                       TextSpan(
                         text: "55676", // The number
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w500,
                           color: AppColor
@@ -61,33 +65,13 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
                     ],
                   ),
                 ),
-
-                // Text(
-                //   'Products with QR code no. 55676',
-                //   // widget.history.qrCodeNo,
-                //   style: TextStyle(
-                //       fontSize: 16,
-                //       fontFamily: 'Poppins',
-                //       fontWeight: FontWeight.w500,
-                //       color: AppColor.textBlack80Per),
-                // ),
-                // Text(
-                //   'scanned on 5 oct,2022',
-                //   // widget.history.scanedOn,
-                //   style: TextStyle(
-                //     fontSize: 12,
-                //     fontFamily: 'Poppins',
-                //     fontWeight: FontWeight.w400,
-                //     color: AppColor.textBlack80Per, // Strikethrough effect
-                //   ),
-                // ),
                 RichText(
                   text: TextSpan(
                     children: [
                       TextSpan(
                         text: 'scanned_on '.tr,
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: Get.height * Utils.getResponsiveSize(12),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                           color: AppColor
@@ -97,7 +81,7 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
                       TextSpan(
                         text: '5 oct,2022', // The number
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: Get.height * Utils.getResponsiveSize(12),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                           color: AppColor

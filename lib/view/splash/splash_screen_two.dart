@@ -42,9 +42,7 @@ class _SplashScreenTwoState extends State<SplashScreenTwo> {
                 'powered_by_blockchain'.tr,
                 textScaleFactor: 1,
                 style: TextStyle(
-                    // fontSize: 20 * MediaQuery.of(context).textScaleFactor,
                     fontSize: Get.height * Utils.getResponsiveSize(20),
-                    // fontSize: 20,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,
                     color: AppColor.textWhite),

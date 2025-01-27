@@ -67,7 +67,7 @@ class _RewardScreenState extends State<RewardScreen> {
                   'rewards'.tr,
                   style: TextStyle(
                       color: AppColor.textColorPrimary,
-                      fontSize: 26,
+                      fontSize: Get.height * Utils.getResponsiveSize(26),
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600),
                 )
@@ -76,8 +76,9 @@ class _RewardScreenState extends State<RewardScreen> {
           ),
           Expanded(
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width * Utils.getResponsiveWidth(16),
+                  vertical: Get.height * Utils.getResponsiveHeight(20)),
               child: FutureBuilder<List<RewardListModel>>(
                 future: rewardVM.rewardListApi(), // Call your function
                 builder: (context, snapshot) {
@@ -97,7 +98,7 @@ class _RewardScreenState extends State<RewardScreen> {
                   // final histories = snapshot.data!;
 
                   return SizedBox(
-                    height: 88,
+                    height: Get.height * Utils.getResponsiveHeight(80),
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,
                       itemCount: 3,

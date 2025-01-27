@@ -55,7 +55,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       'notifications'.tr,
                       style: TextStyle(
                           color: AppColor.textColorPrimary,
-                          fontSize: 26,
+                          fontSize: Get.height * Utils.getResponsiveSize(26),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600),
                     )
@@ -64,8 +64,10 @@ class _NotificationScreenState extends State<NotificationScreen> {
               ),
               Expanded(
                 child: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 16, right: 16.0, bottom: 56),
+                  padding: EdgeInsets.only(
+                      left: Get.width * Utils.getResponsiveWidth(16),
+                      right: Get.width * Utils.getResponsiveWidth(16),
+                      bottom: Get.height * Utils.getResponsiveHeight(70)),
                   child: FutureBuilder<List<NotificationListModel>>(
                     future: notificationVM
                         .notificationListApi(), // Call your function
@@ -86,7 +88,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       // final histories = snapshot.data!;
 
                       return SizedBox(
-                        height: 56,
+                        height: Get.height * Utils.getResponsiveHeight(56),
                         child: ListView.builder(
                           scrollDirection: Axis.vertical,
                           itemCount: 6,

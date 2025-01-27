@@ -62,7 +62,7 @@ class _ComplainScreenState extends State<ComplainScreen> {
                       'complain'.tr,
                       style: TextStyle(
                           color: AppColor.textColorPrimary,
-                          fontSize: 26,
+                          fontSize: Get.height * Utils.getResponsiveSize(26),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600),
                     )
@@ -70,11 +70,14 @@ class _ComplainScreenState extends State<ComplainScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(30.0),
+                padding: EdgeInsets.symmetric(
+                    horizontal: Get.width * Utils.getResponsiveWidth(30)),
                 child: SingleChildScrollView(
                   child: Form(
                     key: _formkey,
                     child: Column(children: [
+                      SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(36)),
                       InputUserNameWidget(),
                       SizedBox(
                           height: Get.height * Utils.getResponsiveHeight(22)),
@@ -101,8 +104,12 @@ class _ComplainScreenState extends State<ComplainScreen> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: Get.height * Utils.getResponsiveHeight(40),
+              ),
               Padding(
-                padding: const EdgeInsets.all(30.0),
+                padding: EdgeInsets.symmetric(
+                    horizontal: Get.width * Utils.getResponsiveWidth(30)),
                 child: SubmitButtonWidget(formkey: _formkey),
               ),
               SizedBox(

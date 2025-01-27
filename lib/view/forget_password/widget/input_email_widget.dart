@@ -30,7 +30,7 @@ class InputEmailWidget extends StatelessWidget {
         },
         style: TextStyle(
           color: AppColor.textBlack80Per,
-          fontSize: 16,
+          fontSize: Get.height * Utils.getResponsiveSize(16),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w500,
         ),
@@ -38,14 +38,14 @@ class InputEmailWidget extends StatelessWidget {
           hintText: 'email'.tr,
           hintStyle: TextStyle(
             color: AppColor.textBlack40Per,
-            fontSize: 16,
+            fontSize: Get.height * Utils.getResponsiveSize(16),
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
           ),
           labelText: 'email'.tr,
           labelStyle: TextStyle(
             color: AppColor.textColorPrimary,
-            fontSize: 14,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
           ),
@@ -53,21 +53,24 @@ class InputEmailWidget extends StatelessWidget {
               ? null
               : forgetPasswordVM.errorMessage.value,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
             ),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
