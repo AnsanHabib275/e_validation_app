@@ -1,12 +1,9 @@
-import 'package:e_validation/res/assets/font_assets.dart';
 import 'package:e_validation/res/assets/icon_assets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
-import '../../../../view_models/controller/navigation/history/history_view_model.dart';
 import '../../../../view_models/controller/navigation/notification/notification_view_model.dart';
 import '../../../../view_models/controller/user_preference/user_preference_view_model.dart';
 
@@ -29,7 +26,6 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: Get.height * Utils.getResponsiveHeight(56),
       child: Card(
         elevation: 2,
         child: Padding(

@@ -14,6 +14,7 @@ class AppColor {
   static const Color skyBlueColor = Color(0xff9999ec);
   static const Color lightPinkColor = Color(0xffff6565);
 
+  static const transparent = Colors.transparent;
   static const textWhite = Colors.white;
   static const textBlack = Color(0xFF000000);
   static const underlineTextColor = Color(0xFF00005A);

@@ -88,7 +88,6 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       // final histories = snapshot.data!;
 
                       return SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(56),
                         child: ListView.builder(
                           scrollDirection: Axis.vertical,
                           itemCount: 6,

@@ -63,6 +63,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: Get.width * Utils.getResponsiveWidth(16),
+                vertical: Get.height * Utils.getResponsiveHeight(20),
               ),
               child: SingleChildScrollView(
                 child: Column(

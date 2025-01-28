@@ -87,7 +87,6 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       // final histories = snapshot.data!;
 
                       return SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(56),
                         child: ListView.builder(
                           scrollDirection: Axis.vertical,
                           itemCount: 6,

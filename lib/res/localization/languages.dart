@@ -134,7 +134,7 @@ class Languages extends Translations {
           'resend_code': 'Resend code',
           'send_code': 'Send Code',
           'no_worries_enter_your_email_for_reset_password':
-              'No worries! Enter your email address, and we’ll send OTP to reset your password.',
+              'No worries! Enter your email address, and\nwe’ll send OTP to reset your password.',
           'password_format_invalid': 'Password format invalid',
           'existing_password_format_invalid':
               'Existing password format invalid',

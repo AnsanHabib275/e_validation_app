@@ -79,14 +79,16 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   SizedBox(
                     height: Get.height * Utils.getResponsiveHeight(36),
                   ),
-                  Text(
-                    'no_worries_enter_your_email_for_reset_password'.tr,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: AppColor.textLightBlackPrimary,
-                        fontSize: Get.height * Utils.getResponsiveSize(18),
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Poppins'),
+                  FittedBox(
+                    child: Text(
+                      'no_worries_enter_your_email_for_reset_password'.tr,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: AppColor.textLightBlackPrimary,
+                          fontSize: Get.height * Utils.getResponsiveSize(18),
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Poppins'),
+                    ),
                   ),
                   SizedBox(
                     height: Get.height * Utils.getResponsiveHeight(51),

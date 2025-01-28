@@ -9,6 +9,7 @@ import '../../res/assets/image_assets.dart';
 import '../../res/colors/app_color.dart';
 import '../../res/routes/routes_name.dart';
 import '../../utils/utils.dart';
+import '../../view_models/controller/statusBar/status_bar_view_model.dart';
 
 class SplashScreenTwo extends StatefulWidget {
   const SplashScreenTwo({super.key});
@@ -18,36 +19,43 @@ class SplashScreenTwo extends StatefulWidget {
 }
 
 class _SplashScreenTwoState extends State<SplashScreenTwo> {
+  final statusBarVM = Get.put(StatusBarViewModel());
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(milliseconds: 4000),
-        () => Get.toNamed(RoutesName.welcomeScreen));
+    Timer(const Duration(milliseconds: 4000), () {
+      Get.toNamed(RoutesName.welcomeScreen);
+      statusBarVM.setStatusBarColor(AppColor.transparent, AppColor.transparent);
+      Get.delete<StatusBarViewModel>();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    statusBarVM.setStatusBarColor(AppColor.colorPrimary, AppColor.colorPrimary);
     return Scaffold(
         backgroundColor: AppColor.colorPrimary,
-        body: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SvgPicture.asset(ImageAssets.block_chain_logo),
-              SizedBox(
-                width: Get.width * Utils.getResponsiveWidth(14),
-              ),
-              Text(
-                'powered_by_blockchain'.tr,
-                textScaleFactor: 1,
-                style: TextStyle(
-                    fontSize: Get.height * Utils.getResponsiveSize(20),
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w500,
-                    color: AppColor.textWhite),
-              ),
-            ],
+        body: SafeArea(
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SvgPicture.asset(ImageAssets.block_chain_logo),
+                SizedBox(
+                  width: Get.width * Utils.getResponsiveWidth(14),
+                ),
+                Text(
+                  'powered_by_blockchain'.tr,
+                  textScaleFactor: 1,
+                  style: TextStyle(
+                      fontSize: Get.height * Utils.getResponsiveSize(20),
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w500,
+                      color: AppColor.textWhite),
+                ),
+              ],
+            ),
           ),
         ));
   }

@@ -26,7 +26,6 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: Get.height * Utils.getResponsiveHeight(56),
       child: Card(
         elevation: 2,
         child: Padding(

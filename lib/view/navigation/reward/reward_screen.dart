@@ -1,6 +1,7 @@
 import 'package:e_validation/view/navigation/reward/widget/get_reward_button_widget.dart';
 import 'package:e_validation/view/navigation/reward/widget/reward_cart_widget.dart';
 import 'package:e_validation/view_models/controller/navigation/reward/reward_view_model.dart';
+import 'package:e_validation/view_models/controller/statusBar/status_bar_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,20 +22,12 @@ class RewardScreen extends StatefulWidget {
 
 class _RewardScreenState extends State<RewardScreen> {
   final rewardVM = Get.put(RewardViewModel());
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
-        statusBarIconBrightness: Brightness.dark,
-        systemNavigationBarColor: Colors.white,
-        systemNavigationBarIconBrightness: Brightness.dark));
-  }
+  final statusBarVM = Get.put(StatusBarViewModel());
 
   @override
   Widget build(BuildContext context) {
+    // statusBarVM.setStatusBarColor(Colors.transparent, Colors.white);
+    // SystemChrome.setEnabledSystemUIOverlays([]);
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(
@@ -98,7 +91,6 @@ class _RewardScreenState extends State<RewardScreen> {
                   // final histories = snapshot.data!;
 
                   return SizedBox(
-                    height: Get.height * Utils.getResponsiveHeight(80),
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,
                       itemCount: 3,

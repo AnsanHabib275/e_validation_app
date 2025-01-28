@@ -1,5 +1,3 @@
-import 'package:e_validation/data/exceptions/app_exceptions.dart';
-import 'package:e_validation/res/assets/font_assets.dart';
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/res/colors/app_color.dart';
 import 'package:e_validation/view/navigation/complaints/widget/complaints_cart_widget.dart';
@@ -20,7 +18,6 @@ class ComplaintsScreen extends StatefulWidget {
 
 class _ComplaintsScreenState extends State<ComplaintsScreen> {
   final complaintsVM = Get.put(ComplaintsViewModel());
-  final _formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +127,6 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                     // final histories = snapshot.data!;
 
                     return SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(56),
                       child: ListView.builder(
                         scrollDirection: Axis.vertical,
                         itemCount: 6,
