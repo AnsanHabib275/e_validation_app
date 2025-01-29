@@ -78,6 +78,7 @@ class InputEmailWidget extends StatelessWidget {
           ),
         ),
         keyboardType: TextInputType.emailAddress,
+        textInputAction: TextInputAction.done,
       );
     });
   }

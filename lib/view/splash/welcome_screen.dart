@@ -11,6 +11,7 @@ import '../../res/assets/image_assets.dart';
 import '../../res/colors/app_color.dart';
 import '../../res/routes/routes_name.dart';
 import '../../utils/utils.dart';
+import '../../view_models/controller/statusBar/status_bar_view_model.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -20,13 +21,11 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
+  final statusBarVM = Get.put(StatusBarViewModel());
 
   @override
   Widget build(BuildContext context) {
+    statusBarVM.setStatusBarColor(AppColor.transparent, AppColor.transparent);
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(

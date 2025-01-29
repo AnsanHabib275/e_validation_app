@@ -70,7 +70,7 @@ class InputGenderWidget extends StatelessWidget {
         );
       }).toList(),
       onChanged: (value) {
-        if (value != null) signUpVM.genderController.value.text = value;
+        // if (value != null) signUpVM.genderController.value.text = value;
       },
       icon: Image.asset(
         IconAssets.ic_arrow_down,

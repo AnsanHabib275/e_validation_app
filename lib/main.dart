@@ -2,18 +2,21 @@ import 'package:e_validation/res/colors/app_color.dart';
 import 'package:e_validation/res/localization/languages.dart';
 import 'package:e_validation/res/routes/routes.dart';
 import 'package:e_validation/res/routes/routes_name.dart';
-import 'package:e_validation/view/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+      overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.white,
-      statusBarIconBrightness: Brightness.dark,
-      systemNavigationBarColor: Colors.white,
-      systemNavigationBarIconBrightness: Brightness.dark));
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.dark,
+    systemNavigationBarColor: Colors.transparent,
+    systemNavigationBarIconBrightness: Brightness.dark,
+    systemNavigationBarDividerColor: Colors.transparent,
+  ));
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
@@ -31,14 +34,17 @@ class MyApp extends StatelessWidget {
       locale: const Locale('en', 'US'),
       fallbackLocale: const Locale('en', 'US'),
       theme: ThemeData(
-        colorScheme: ThemeData().colorScheme.copyWith(
-              primary: AppColor.colorPrimary,
-            ),
+        primaryColor: AppColor.colorPrimary,
+        scaffoldBackgroundColor: AppColor.whiteColor,
+        colorScheme: ColorScheme.light(
+          primary: AppColor.colorPrimary,
+          surface: Colors.white,
+          onSurface: Colors.black,
+        ),
         useMaterial3: true,
       ),
       initialRoute: RoutesName.splashScreen,
       // initialRoute: RoutesName.navigationScreen,
-      // initialRoute: RoutesName.imagePickerScreen,
       getPages: AppRoutes.appRoutes(),
     );
   }

@@ -75,6 +75,7 @@ class InputFirstNameWidget extends StatelessWidget {
           ),
         ),
         keyboardType: TextInputType.name,
+        textInputAction: TextInputAction.done,
       );
     });
   }

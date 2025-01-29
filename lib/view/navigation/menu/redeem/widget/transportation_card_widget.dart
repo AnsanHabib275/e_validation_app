@@ -87,7 +87,7 @@ class TransportationCardWidget extends StatelessWidget {
                                   items[index].buttonName,
                                   style: TextStyle(
                                       color: items[index] == 1
-                                          ? AppColor.whiteColor
+                                          ? AppColor.textWhite
                                           : AppColor.textGreyPrimary,
                                       fontWeight: FontWeight.w300,
                                       fontFamily: 'Poppins',

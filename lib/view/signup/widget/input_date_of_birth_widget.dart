@@ -90,6 +90,7 @@ class InputDateOfBirthWidget extends StatelessWidget {
                     },
                     child: Image.asset(IconAssets.ic_date))),
             keyboardType: TextInputType.none,
+            textInputAction: TextInputAction.done,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'date_of_birth_cannot_be_blank'.tr;

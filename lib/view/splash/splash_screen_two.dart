@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -23,16 +24,25 @@ class _SplashScreenTwoState extends State<SplashScreenTwo> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(milliseconds: 4000), () {
+    Timer(const Duration(milliseconds: 400), () {
       Get.toNamed(RoutesName.welcomeScreen);
-      statusBarVM.setStatusBarColor(AppColor.transparent, AppColor.transparent);
-      Get.delete<StatusBarViewModel>();
+      // statusBarVM.setStatusBarColor(AppColor.transparent, AppColor.transparent);
+      // Get.delete<StatusBarViewModel>();
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive,
+        overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     statusBarVM.setStatusBarColor(AppColor.colorPrimary, AppColor.colorPrimary);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: AppColor.colorPrimary,
+      statusBarIconBrightness: Brightness.light,
+      systemNavigationBarColor: AppColor.colorPrimary,
+      systemNavigationBarIconBrightness: Brightness.light,
+      systemNavigationBarDividerColor: Colors.transparent,
+    ));
     return Scaffold(
         backgroundColor: AppColor.colorPrimary,
         body: SafeArea(

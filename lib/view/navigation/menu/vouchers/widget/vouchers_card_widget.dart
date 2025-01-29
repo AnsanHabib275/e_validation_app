@@ -51,7 +51,7 @@ class VouchersCardWidget extends StatelessWidget {
                           style: GoogleFonts.alexBrush(
                             fontWeight: FontWeight.w400,
                             fontSize: 22,
-                            color: AppColor.whiteColor,
+                            color: AppColor.textWhite,
                           ),
                         ),
                       ),

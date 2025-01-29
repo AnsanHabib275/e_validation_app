@@ -58,7 +58,6 @@ class _VouchersScreenState extends State<VouchersScreen> {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(
-        backgroundColor: AppColor.whiteColor,
         body: Column(
           children: [
             Container(

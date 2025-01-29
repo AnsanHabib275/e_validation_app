@@ -102,7 +102,6 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
           FocusScope.of(context).unfocus();
         },
         child: Scaffold(
-          backgroundColor: Colors.white,
           // appBar: AppBar(
           //   backgroundColor: AppColor.underlineTextColor,
           //   leading: InkWell(
@@ -119,7 +118,7 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
           //     'voice_chat_gpt'.tr,
           //     textAlign: TextAlign.center,
           //     style: TextStyle(
-          //         color: AppColor.whiteColor,
+          //         color: AppColor.textWhite,
           //         fontSize: 16,
           //         fontFamily: 'Poppins',
           //         fontWeight: FontWeight.w500),
@@ -158,7 +157,7 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
                           'voice_chat_gpt'.tr,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              color: AppColor.whiteColor,
+                              color: AppColor.textWhite,
                               fontSize:
                                   Get.height * Utils.getResponsiveSize(16),
                               fontFamily: 'Poppins',
@@ -184,7 +183,7 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
               //           'voice_chat_gpt'.tr,
               //           textAlign: TextAlign.center,
               //           style: TextStyle(
-              //               color: AppColor.whiteColor,
+              //               color: AppColor.textWhite,
               //               fontSize: 16,
               //               fontFamily: 'Poppins',
               //               fontWeight: FontWeight.w500),
@@ -236,7 +235,6 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
 
                 // Input field and send button here
                 Container(
-                  color: AppColor.whiteColor,
                   child: Row(
                     children: [
                       Expanded(

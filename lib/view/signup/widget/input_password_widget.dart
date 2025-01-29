@@ -79,6 +79,7 @@ class InputPasswordWidget extends StatelessWidget {
         ),
         keyboardType: TextInputType.visiblePassword,
         obscureText: signUpVM.isVisible.value,
+        textInputAction: TextInputAction.done,
         validator: (value) {
           if (value == null || value.isEmpty || value.length < 7) {
             return 'password_format_invalid'.tr;

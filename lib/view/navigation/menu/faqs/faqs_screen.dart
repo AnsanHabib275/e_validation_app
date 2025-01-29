@@ -196,7 +196,7 @@ class _FAQSScreenState extends State<FAQSScreen> {
             Padding(
               padding: EdgeInsets.only(
                   right: Get.width * Utils.getResponsiveWidth(16),
-                  top: Get.height * Utils.getResponsiveHeight(20),
+                  // top: Get.height * Utils.getResponsiveHeight(20),
                   bottom: Get.height * Utils.getResponsiveHeight(96)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -81,6 +81,7 @@ class InputConfirmPasswordWidget extends StatelessWidget {
         ),
         keyboardType: TextInputType.visiblePassword,
         obscureText: resetPasswordVM.isVisible.value,
+        textInputAction: TextInputAction.done,
         validator: (value) {
           if (value == null || value.isEmpty || value.length < 7) {
             return 'confirm_password_format_invalid'.tr;

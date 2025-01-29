@@ -34,7 +34,6 @@ class UserRowView extends StatelessWidget {
             margin: EdgeInsets.only(
                 bottom: Get.height * Utils.getResponsiveHeight(16)),
             decoration: BoxDecoration(
-                color: AppColor.whiteColor,
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(
                         Get.height * Utils.getResponsiveSize(6)),

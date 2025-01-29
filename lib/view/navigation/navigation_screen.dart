@@ -64,19 +64,159 @@ class _NavigationScreenState extends State<NavigationScreen> {
     });
   }
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
-        statusBarIconBrightness: Brightness.dark,
-        systemNavigationBarColor: Colors.white,
-        systemNavigationBarIconBrightness: Brightness.dark));
-  }
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+  //       statusBarColor: Colors.white,
+  //       statusBarIconBrightness: Brightness.dark,
+  //       systemNavigationBarColor: Colors.white,
+  //       systemNavigationBarIconBrightness: Brightness.dark));
+  // }
 
   @override
   Widget build(BuildContext context) {
+    // return GestureDetector(
+    //   onTap: () {
+    //     FocusScope.of(context).unfocus();
+    //   },
+    //   child: Scaffold(
+    //     extendBody: true,
+    //     drawer: Drawer(
+    //       child: ListView(
+    //         children: [
+    //           Container(
+    //             height: Get.height * Utils.getResponsiveHeight(200),
+    //             child: DrawerHeader(
+    //               margin: EdgeInsets.zero,
+    //               padding: EdgeInsets.zero,
+    //               child: Stack(fit: StackFit.expand, children: [
+    //                 Positioned(
+    //                     top: 0,
+    //                     right: Get.width * Utils.getResponsiveWidth(10),
+    //                     child: InkWell(
+    //                         onTap: () {
+    //                           Get.back();
+    //                         },
+    //                         child:
+    //                             SvgPicture.asset(IconAssets.ic_close_circle))),
+    //                 Positioned(
+    //                   left: Get.width * Utils.getResponsiveWidth(20),
+    //                   top: Get.height * Utils.getResponsiveHeight(26),
+    //                   right: Get.width * Utils.getResponsiveWidth(20),
+    //                   child: Column(
+    //                     mainAxisAlignment: MainAxisAlignment.start,
+    //                     crossAxisAlignment: CrossAxisAlignment.start,
+    //                     children: [
+    //                       CircleAvatar(
+    //                         radius: Get.height * Utils.getResponsiveSize(40),
+    //                         backgroundColor: AppColor.lightGreyColor,
+    //                         backgroundImage:
+    //                             AssetImage(ImageAssets.dummy_profile),
+    //                       ),
+    //                       Text(
+    //                         'George Oliver',
+    //                         textAlign: TextAlign.start,
+    //                         style: TextStyle(
+    //                             color: AppColor.textBlack80Per,
+    //                             fontSize:
+    //                                 Get.height * Utils.getResponsiveSize(20),
+    //                             fontFamily: 'Poppins',
+    //                             fontWeight: FontWeight.w600),
+    //                       ),
+    //                       Text(
+    //                         'Georgeoliver@gmail.com',
+    //                         textAlign: TextAlign.start,
+    //                         maxLines: 1,
+    //                         overflow: TextOverflow.ellipsis,
+    //                         style: TextStyle(
+    //                             color: AppColor.textBlack80Per,
+    //                             fontSize:
+    //                                 Get.height * Utils.getResponsiveSize(16),
+    //                             fontFamily: 'Poppins',
+    //                             fontWeight: FontWeight.w400),
+    //                       ),
+    //                     ],
+    //                   ),
+    //                 ),
+    //               ]),
+    //             ),
+    //           ),
+    //           ...items.asMap().entries.map((entry) {
+    //             int index = entry.key;
+    //             MenuItemsModel item = entry.value;
+    //             return Column(
+    //               children: [
+    //                 ListTile(
+    //                   leading:
+    //                       Image.asset(item.imagePath, width: 30, height: 30),
+    //                   title: Text(
+    //                     item.name,
+    //                     style: TextStyle(
+    //                         fontFamily: 'Poppins',
+    //                         fontWeight: FontWeight.w500,
+    //                         fontSize: Get.height * Utils.getResponsiveSize(18),
+    //                         color: AppColor.textBlack80Per),
+    //                   ),
+    //                   onTap: () {
+    //                     _handleDrawerNavigationChange(item.name);
+    //                   },
+    //                 )
+    //               ],
+    //             );
+    //           }).toList()
+    //         ],
+    //       ),
+    //     ),
+    //     body: Stack(
+    //       children: [
+    //         Center(
+    //           child: Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
+    //         ),
+    //         SafeArea(
+    //           top: false,
+    //           child: Stack(
+    //             children: [
+    //               Positioned(
+    //                   top: Get.height * Utils.getResponsiveHeight(60),
+    //                   left: 0,
+    //                   right: 0,
+    //                   child: Divider(
+    //                     height: Get.height * Utils.getResponsiveHeight(1),
+    //                     thickness: 1,
+    //                     color: AppColor.textBlack10Per,
+    //                   )),
+    //               Positioned(
+    //                   top: Get.height * Utils.getResponsiveHeight(60),
+    //                   left: 0,
+    //                   child: const MenuIcon()),
+    //             ],
+    //           ),
+    //           // child: const MenuIcon(),
+    //         ),
+    //       ],
+    //     ),
+    //     bottomNavigationBar: BottomNavigationBar(
+    //       onTap: _handleNavigationChange,
+    //       elevation: 0,
+    //       items: [
+    //         BottomNavigationBarItem(
+    //             backgroundColor: Colors.transparent,
+    //             icon: Image.asset(IconAssets.ic_bn_reward),
+    //             label: ''),
+    //         BottomNavigationBarItem(
+    //             icon: Image.asset(IconAssets.ic_bn_history), label: ''),
+    //         BottomNavigationBarItem(
+    //             icon: Image.asset(IconAssets.ic_bn_home), label: ''),
+    //         BottomNavigationBarItem(
+    //             icon: Image.asset(IconAssets.ic_bn_notification), label: ''),
+    //         BottomNavigationBarItem(
+    //             icon: Image.asset(IconAssets.ic_bn_complaint), label: ''),
+    //       ],
+    //     ),
+    //   ),
+    // );
     return Stack(
       children: [
         Container(
@@ -92,7 +232,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
             FocusScope.of(context).unfocus();
           },
           child: Scaffold(
-            backgroundColor: Colors.white,
             extendBody: true,
             drawer: Drawer(
               child: ListView(
@@ -202,7 +341,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                             color: AppColor.textBlack10Per,
                           )),
                       Positioned(
-                          top: Get.height * Utils.getResponsiveHeight(63),
+                          top: Get.height * Utils.getResponsiveHeight(60),
                           left: 0,
                           child: const MenuIcon()),
                     ],
@@ -213,11 +352,12 @@ class _NavigationScreenState extends State<NavigationScreen> {
             ),
             bottomNavigationBar: BottomNavigationBar(
               onTap: _handleNavigationChange,
-              backgroundColor: Colors.white,
               elevation: 0,
               items: [
                 BottomNavigationBarItem(
-                    icon: Image.asset(IconAssets.ic_bn_reward), label: ''),
+                    backgroundColor: Colors.transparent,
+                    icon: Image.asset(IconAssets.ic_bn_reward),
+                    label: ''),
                 BottomNavigationBarItem(
                     icon: Image.asset(IconAssets.ic_bn_history), label: ''),
                 BottomNavigationBarItem(
@@ -318,7 +458,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
           borderRadius: BorderRadius.circular(
               Get.height * Utils.getResponsiveSize(12)), // Rounded corners
         ),
-        backgroundColor: Colors.white,
         elevation: 4, // White background
         child: SizedBox(
           height: Get.height * Utils.getResponsiveHeight(364),
@@ -391,7 +530,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
           borderRadius: BorderRadius.circular(
               Get.height * Utils.getResponsiveSize(12)), // Rounded corners
         ),
-        backgroundColor: Colors.white, // White background
         child: SizedBox(
           height: Get.height * Utils.getResponsiveHeight(301),
           width: Get.width * Utils.getResponsiveWidth(368),

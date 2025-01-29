@@ -31,7 +31,6 @@ class _RewardScreenState extends State<RewardScreen> {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(
-        backgroundColor: AppColor.whiteColor,
         body: Column(children: [
           Container(
             width: Get.width * Utils.getResponsiveWidth(428),

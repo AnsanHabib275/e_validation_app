@@ -16,18 +16,10 @@ class FakeProductScreen extends StatefulWidget {
 
 class _FakeProductScreenState extends State<FakeProductScreen> {
   @override
-  void initState() {
-    super.initState();
-    SystemChrome.setSystemUIOverlayStyle(
-        const SystemUiOverlayStyle(statusBarColor: Colors.white));
-  }
-
-  @override
   Widget build(BuildContext context) {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(
-        backgroundColor: AppColor.whiteColor,
         body: Padding(
           padding: EdgeInsets.symmetric(
               horizontal: Get.width * Utils.getResponsiveWidth(20)),
@@ -65,7 +57,6 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
               ),
               Card(
                 elevation: 0.1,
-                color: AppColor.whiteColor,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: Get.width * Utils.getResponsiveWidth(10),
@@ -98,7 +89,6 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
               ),
               Card(
                 elevation: 0.1,
-                color: AppColor.whiteColor,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: Get.width * Utils.getResponsiveWidth(10),

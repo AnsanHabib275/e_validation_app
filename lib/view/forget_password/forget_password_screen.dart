@@ -27,7 +27,6 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
           FocusScope.of(context).unfocus();
         },
         child: Scaffold(
-          backgroundColor: Colors.white,
           appBar: PreferredSize(
               preferredSize:
                   Size.fromHeight(Get.height * Utils.getResponsiveHeight(124)),
@@ -48,7 +47,6 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     left: 0,
                     right: 0,
                     child: AppBar(
-                      backgroundColor: Colors.white,
                       leading: IconButton(
                         icon: Icon(
                           Icons.arrow_back_ios_new_outlined,

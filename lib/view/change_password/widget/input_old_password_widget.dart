@@ -79,6 +79,7 @@ class InputOldPasswordWidget extends StatelessWidget {
         ),
         keyboardType: TextInputType.visiblePassword,
         obscureText: changePasswordVM.isVisible.value,
+        textInputAction: TextInputAction.done,
         validator: (value) {
           if (value == null || value.isEmpty || value.length < 7) {
             return 'existing_password_format_invalid'.tr;

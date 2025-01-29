@@ -10,23 +10,23 @@ import '../../../utils/utils.dart';
 class SignUpViewModel extends GetxController {
   final _api = SignUpRepository();
 
-  final emailController = TextEditingController().obs;
-  final passwordController = TextEditingController().obs;
   final firstNameController = TextEditingController().obs;
   final lastNameController = TextEditingController().obs;
-  final dateOfBirthController = TextEditingController().obs;
-  final phoneNumberController = TextEditingController().obs;
+  final emailController = TextEditingController().obs;
   final countryCodeController = TextEditingController().obs;
-  final genderController = TextEditingController().obs;
+  final phoneNumberController = TextEditingController().obs;
+  final dateOfBirthController = TextEditingController().obs;
+  // final genderController = TextEditingController().obs;
+  final passwordController = TextEditingController().obs;
 
-  final emailFocusNode = FocusNode().obs;
-  final passwordFocusNode = FocusNode().obs;
   final firstNameFocusNode = FocusNode().obs;
   final lastNameFocusNode = FocusNode().obs;
-  final dateOfBirthFocusNode = FocusNode().obs;
-  final phoneNumberFocusNode = FocusNode().obs;
+  final emailFocusNode = FocusNode().obs;
   final countryCodeFocusNode = FocusNode().obs;
-  final genderFocusNode = FocusNode().obs;
+  final phoneNumberFocusNode = FocusNode().obs;
+  final dateOfBirthFocusNode = FocusNode().obs;
+  // final genderFocusNode = FocusNode().obs;
+  final passwordFocusNode = FocusNode().obs;
 
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;
@@ -36,15 +36,15 @@ class SignUpViewModel extends GetxController {
   void signUpApi() {
     loading.value = true;
     Map data = {
-      'email': emailController.value.text,
-      'password': passwordController.value.text,
       'FirstName': firstNameController.value.text,
       'LastName': lastNameController.value.text,
+      'email': emailController.value.text,
       'PhoneNumber': countryCodeController.value.text +
           '' +
           phoneNumberController.value.text,
       'DOB': dateOfBirthController.value.text,
-      'Gender': genderController.value.text,
+      // 'Gender': genderController.value.text,
+      'password': passwordController.value.text,
     };
     print(data);
     _api.signUpApi(data).then((value) {
