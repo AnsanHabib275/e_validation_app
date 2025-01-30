@@ -11,10 +11,10 @@ class NoButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RoundButton(
-      width: Get.width * Utils.getResponsiveWidth(119),
-      height: Get.height * Utils.getResponsiveHeight(42),
-      radius: Get.height * Utils.getResponsiveSize(4),
-      fontSize: Get.height * Utils.getResponsiveSize(16),
+      width: 119,
+      height: 42,
+      radius: 4,
+      fontSize: 16,
       title: 'no'.tr,
       onPress: () {
         Get.back();

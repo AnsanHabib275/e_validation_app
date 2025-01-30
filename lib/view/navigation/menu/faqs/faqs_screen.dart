@@ -55,7 +55,7 @@ class _FAQSScreenState extends State<FAQSScreen> {
                     child: Text(
                       'frequently_asked_questions'.tr,
                       style: TextStyle(
-                          color: AppColor.textColorSecondary,
+                          color: AppColor.textColorPrimary,
                           fontSize: Get.height * Utils.getResponsiveSize(26),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600),
@@ -66,8 +66,11 @@ class _FAQSScreenState extends State<FAQSScreen> {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: Get.width * Utils.getResponsiveWidth(16)),
+                padding: EdgeInsets.only(
+                  left: Get.width * Utils.getResponsiveWidth(16),
+                  right: Get.width * Utils.getResponsiveWidth(16),
+                  top: Get.height * Utils.getResponsiveHeight(20),
+                ),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Column(
@@ -84,7 +87,7 @@ class _FAQSScreenState extends State<FAQSScreen> {
                       //           child: Text(
                       //             'what_are_the_benefits_of_points'.tr,
                       //             style: TextStyle(
-                      //                 color: AppColor.textBlack80Per,
+                      //                 color: AppColor.textBlackPrimary,
                       //                 fontSize: 13,
                       //                 fontFamily: 'Poppins',
                       //                 fontWeight: FontWeight.w400),
@@ -113,7 +116,7 @@ class _FAQSScreenState extends State<FAQSScreen> {
                                 child: Text(
                                   'what_is_kyc'.tr,
                                   style: TextStyle(
-                                      color: AppColor.textBlack80Per,
+                                      color: AppColor.textBlackPrimary,
                                       fontSize: 13,
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w400),
@@ -142,7 +145,7 @@ class _FAQSScreenState extends State<FAQSScreen> {
                                 child: Text(
                                   'lorem_ipsum_is_simply_dummy_text'.tr,
                                   style: TextStyle(
-                                      color: AppColor.textBlack80Per,
+                                      color: AppColor.textBlackPrimary,
                                       fontSize: 13,
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w400),
@@ -172,7 +175,7 @@ class _FAQSScreenState extends State<FAQSScreen> {
                                   'generate_lorem_ipsum_which_looks_reasonable'
                                       .tr,
                                   style: TextStyle(
-                                      color: AppColor.textBlack80Per,
+                                      color: AppColor.textBlackPrimary,
                                       fontSize: 13,
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w400),

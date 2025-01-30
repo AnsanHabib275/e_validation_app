@@ -17,7 +17,7 @@ class InputGenderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
       style: TextStyle(
-        color: AppColor.textBlack80Per,
+        color: AppColor.textGreyPrimary,
         fontSize: Get.height * Utils.getResponsiveSize(16),
         fontFamily: 'Poppins',
         fontWeight: FontWeight.w500,
@@ -25,7 +25,7 @@ class InputGenderWidget extends StatelessWidget {
       decoration: InputDecoration(
         hintText: 'gender'.tr,
         hintStyle: TextStyle(
-          color: AppColor.textBlack40Per,
+          color: AppColor.textLightGreyPrimary,
           fontSize: Get.height * Utils.getResponsiveSize(16),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w400,

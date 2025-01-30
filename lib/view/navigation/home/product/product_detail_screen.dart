@@ -86,7 +86,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   Text(
                                     'product_name'.tr,
                                     style: TextStyle(
-                                        color: AppColor.textBlack80Per,
+                                        color: AppColor.textLightGreyPrimary,
                                         fontSize: Get.height *
                                             Utils.getResponsiveSize(16),
                                         fontFamily: 'Poppins',
@@ -96,7 +96,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   Text(
                                     'lorem ipsum',
                                     style: TextStyle(
-                                        color: AppColor.textBlack80Per,
+                                        color: AppColor.textLightGreyPrimary,
                                         fontSize: Get.height *
                                             Utils.getResponsiveSize(16),
                                         fontFamily: 'Poppins',
@@ -113,7 +113,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   Text(
                                     'barcode'.tr,
                                     style: TextStyle(
-                                        color: AppColor.textBlack80Per,
+                                        color: AppColor.textLightGreyPrimary,
                                         fontSize: Get.height *
                                             Utils.getResponsiveSize(16),
                                         fontFamily: 'Poppins',
@@ -123,7 +123,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   Text(
                                     '3425168789',
                                     style: TextStyle(
-                                        color: AppColor.textBlack80Per,
+                                        color: AppColor.textLightGreyPrimary,
                                         fontSize: Get.height *
                                             Utils.getResponsiveSize(16),
                                         fontFamily: 'Poppins',
@@ -140,7 +140,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   Text(
                                     'product_sku'.tr,
                                     style: TextStyle(
-                                        color: AppColor.textBlack80Per,
+                                        color: AppColor.textLightGreyPrimary,
                                         fontSize: Get.height *
                                             Utils.getResponsiveSize(16),
                                         fontFamily: 'Poppins',
@@ -150,7 +150,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   Text(
                                     '24-mb04',
                                     style: TextStyle(
-                                        color: AppColor.textBlack80Per,
+                                        color: AppColor.textLightGreyPrimary,
                                         fontSize: Get.height *
                                             Utils.getResponsiveSize(16),
                                         fontFamily: 'Poppins',
@@ -167,7 +167,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   Text(
                                     'supplier'.tr,
                                     style: TextStyle(
-                                        color: AppColor.textBlack80Per,
+                                        color: AppColor.textLightGreyPrimary,
                                         fontSize: Get.height *
                                             Utils.getResponsiveSize(16),
                                         fontFamily: 'Poppins',
@@ -177,7 +177,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   Text(
                                     'lorem ipsum',
                                     style: TextStyle(
-                                        color: AppColor.textBlack80Per,
+                                        color: AppColor.textLightGreyPrimary,
                                         fontSize: Get.height *
                                             Utils.getResponsiveSize(16),
                                         fontFamily: 'Poppins',
@@ -194,7 +194,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   Text(
                                     'created_at'.tr,
                                     style: TextStyle(
-                                        color: AppColor.textBlack80Per,
+                                        color: AppColor.textLightGreyPrimary,
                                         fontSize: Get.height *
                                             Utils.getResponsiveSize(16),
                                         fontFamily: 'Poppins',
@@ -204,7 +204,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   Text(
                                     '10-24-2022',
                                     style: TextStyle(
-                                        color: AppColor.textBlack80Per,
+                                        color: AppColor.textLightGreyPrimary,
                                         fontSize: Get.height *
                                             Utils.getResponsiveSize(16),
                                         fontFamily: 'Poppins',
@@ -221,7 +221,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   Text(
                                     'expiry_date'.tr,
                                     style: TextStyle(
-                                        color: AppColor.textBlack80Per,
+                                        color: AppColor.textLightGreyPrimary,
                                         fontSize: Get.height *
                                             Utils.getResponsiveSize(16),
                                         fontFamily: 'Poppins',
@@ -231,7 +231,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   Text(
                                     '10-24-2022',
                                     style: TextStyle(
-                                        color: AppColor.textBlack80Per,
+                                        color: AppColor.textLightGreyPrimary,
                                         fontSize: Get.height *
                                             Utils.getResponsiveSize(16),
                                         fontFamily: 'Poppins',

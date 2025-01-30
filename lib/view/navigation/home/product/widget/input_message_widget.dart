@@ -27,7 +27,7 @@ class InputMessageWidget extends StatelessWidget {
         minLines: 1,
         maxLines: null,
         style: TextStyle(
-          color: AppColor.textBlack80Per,
+          color: AppColor.textGreyPrimary,
           fontSize: Get.height * Utils.getResponsiveSize(14),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w300,
@@ -35,7 +35,7 @@ class InputMessageWidget extends StatelessWidget {
         decoration: InputDecoration(
           hintText: 'message'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack40Per,
+            color: AppColor.textLightGreyPrimary,
             fontSize: Get.height * Utils.getResponsiveSize(16),
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,

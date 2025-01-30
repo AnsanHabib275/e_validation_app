@@ -29,7 +29,7 @@ class InputEmailWidget extends StatelessWidget {
           return null;
         },
         style: TextStyle(
-          color: AppColor.textBlack80Per,
+          color: AppColor.textGreyPrimary,
           fontSize: Get.height * Utils.getResponsiveSize(16),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w500,
@@ -37,7 +37,7 @@ class InputEmailWidget extends StatelessWidget {
         decoration: InputDecoration(
           hintText: 'email'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack40Per,
+            color: AppColor.textLightGreyPrimary,
             fontSize: Get.height * Utils.getResponsiveSize(16),
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,

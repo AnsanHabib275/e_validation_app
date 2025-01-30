@@ -3,7 +3,6 @@ import 'package:e_validation/view/navigation/reward/widget/reward_cart_widget.da
 import 'package:e_validation/view_models/controller/navigation/reward/reward_view_model.dart';
 import 'package:e_validation/view_models/controller/statusBar/status_bar_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
@@ -26,8 +25,6 @@ class _RewardScreenState extends State<RewardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // statusBarVM.setStatusBarColor(Colors.transparent, Colors.white);
-    // SystemChrome.setEnabledSystemUIOverlays([]);
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(

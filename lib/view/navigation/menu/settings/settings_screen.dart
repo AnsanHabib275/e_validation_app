@@ -51,7 +51,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     Text(
                       'settings'.tr,
                       style: TextStyle(
-                          color: AppColor.textColorSecondary,
+                          color: AppColor.textColorPrimary,
                           fontSize: Get.height * Utils.getResponsiveSize(26),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600),
@@ -88,7 +88,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 child: Text(
                                   'change_password'.tr,
                                   style: TextStyle(
-                                      color: AppColor.textBlack80Per,
+                                      color: AppColor.textGreyPrimary,
                                       fontSize: Get.height *
                                           Utils.getResponsiveSize(13),
                                       fontFamily: 'Poppins',
@@ -130,7 +130,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 child: Text(
                                   'update_profile'.tr,
                                   style: TextStyle(
-                                      color: AppColor.textBlack80Per,
+                                      color: AppColor.textGreyPrimary,
                                       fontSize: Get.height *
                                           Utils.getResponsiveHeight(13),
                                       fontFamily: 'Poppins',

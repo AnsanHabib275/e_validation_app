@@ -35,7 +35,7 @@ class InputEmailWidget extends StatelessWidget {
               loginVM.passwordFocusNode.value);
         },
         style: TextStyle(
-          color: AppColor.textBlack80Per,
+          color: AppColor.textGreyPrimary,
           fontSize: Get.height * Utils.getResponsiveSize(16),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w500,
@@ -43,7 +43,7 @@ class InputEmailWidget extends StatelessWidget {
         decoration: InputDecoration(
           hintText: 'email'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack40Per,
+            color: AppColor.textLightGreyPrimary,
             fontSize: Get.height * Utils.getResponsiveSize(16),
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
@@ -62,7 +62,7 @@ class InputEmailWidget extends StatelessWidget {
             borderRadius: BorderRadius.all(
                 Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
-              color: AppColor.textBlack30Per, // Default border color
+              color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
             ),
           ),

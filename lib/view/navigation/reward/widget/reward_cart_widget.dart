@@ -79,7 +79,7 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                      color: AppColor.textBlack80Per,
+                      color: AppColor.textGreyPrimary,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w500,
                       fontSize: Get.height * Utils.getResponsiveSize(18)),
@@ -91,7 +91,7 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
                 child: Text(
                   '56',
                   style: TextStyle(
-                      color: AppColor.textBlack80Per,
+                      color: AppColor.textGreyPrimary,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w500,
                       fontSize: Get.height * Utils.getResponsiveSize(18)),

@@ -71,7 +71,7 @@ class _OTPScreenState extends State<OTPScreen> {
                       title: Text(
                         'verification'.tr,
                         style: TextStyle(
-                            color: AppColor.textColorSecondary,
+                            color: AppColor.textColorPrimary,
                             fontSize: Get.height * Utils.getResponsiveSize(26),
                             fontWeight: FontWeight.w600,
                             fontFamily: 'Poppins'),

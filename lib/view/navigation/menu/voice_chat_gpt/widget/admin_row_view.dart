@@ -26,7 +26,7 @@ class AdminRowView extends StatelessWidget {
                   Get.height * Utils.getResponsiveSize(200))),
           child: Align(
             alignment: Alignment.center,
-            child: Image.asset(
+            child: SvgPicture.asset(
               ImageAssets.img_chat_admin,
             ),
           ),
@@ -51,7 +51,7 @@ class AdminRowView extends StatelessWidget {
             child: Text(
               "Its the place where fraud ends.",
               style: TextStyle(
-                  color: AppColor.blackColor,
+                  color: AppColor.textBlackPrimary,
                   fontSize: Get.height * Utils.getResponsiveSize(12),
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w400),

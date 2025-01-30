@@ -25,7 +25,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    statusBarVM.setStatusBarColor(AppColor.transparent, AppColor.transparent);
+    statusBarVM.setStatusBarColor(AppColor.transparent, AppColor.whiteColor);
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(
@@ -68,7 +68,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                             fontSize: Get.height * Utils.getResponsiveSize(30),
-                            color: AppColor.textBlack80Per),
+                            color: AppColor.textBlackPrimary),
                       ),
                       SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(5),
@@ -79,7 +79,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400,
                             fontSize: Get.height * Utils.getResponsiveSize(20),
-                            color: AppColor.textLightGrey80Per),
+                            color: AppColor.textLightGreyPrimary),
                       ),
                     ],
                   ),

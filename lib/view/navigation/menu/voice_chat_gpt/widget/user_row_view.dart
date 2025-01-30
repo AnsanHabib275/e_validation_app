@@ -44,7 +44,7 @@ class UserRowView extends StatelessWidget {
             child: Text(
               "What is E-Validation?",
               style: TextStyle(
-                  color: AppColor.textBlack,
+                  color: AppColor.textBlackPrimary,
                   fontSize: Get.height * Utils.getResponsiveSize(12),
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w400),

@@ -44,7 +44,7 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
                 'your_account_has_been_created'.tr,
                 textScaleFactor: 1,
                 style: TextStyle(
-                  color: AppColor.textBlack80Per,
+                  color: AppColor.textGreyPrimary,
                   fontSize: Get.height * Utils.getResponsiveSize(20),
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,
@@ -61,7 +61,7 @@ class _AccountCreatedScreenState extends State<AccountCreatedScreen> {
                     'you_can_now'.tr,
                     textScaleFactor: 1,
                     style: TextStyle(
-                      color: AppColor.textBlack80Per,
+                      color: AppColor.textGreyPrimary,
                       fontSize: Get.height * Utils.getResponsiveSize(19),
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w500,

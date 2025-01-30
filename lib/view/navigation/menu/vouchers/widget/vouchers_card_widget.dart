@@ -74,7 +74,7 @@ class VouchersCardWidget extends StatelessWidget {
                                 style: GoogleFonts.playfairDisplay(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w600,
-                                    color: AppColor.textBlack80Per),
+                                    color: AppColor.textBlackPrimary),
                               ),
                               Text(
                                 items.specialty,
@@ -103,7 +103,7 @@ class VouchersCardWidget extends StatelessWidget {
                       Text(
                         items.detail,
                         style: GoogleFonts.poppins(
-                          color: AppColor.textBlack80Per,
+                          color: AppColor.textBlackPrimary,
                           fontWeight: FontWeight.w400,
                           fontSize: 12,
                         ),
@@ -118,7 +118,7 @@ class VouchersCardWidget extends StatelessWidget {
                           Text(
                             'voucher_#',
                             style: GoogleFonts.poppins(
-                              color: AppColor.textBlack80Per,
+                              color: AppColor.textBlackPrimary,
                               fontWeight: FontWeight.w400,
                               fontSize: 10,
                             ),
@@ -127,7 +127,7 @@ class VouchersCardWidget extends StatelessWidget {
                           Text(
                             items.voucherNumber,
                             style: GoogleFonts.poppins(
-                              color: AppColor.textBlack80Per,
+                              color: AppColor.textBlackPrimary,
                               fontWeight: FontWeight.w600,
                               fontSize: 10,
                             ),
@@ -144,7 +144,7 @@ class VouchersCardWidget extends StatelessWidget {
                           Text(
                             'valid_unit',
                             style: GoogleFonts.poppins(
-                              color: AppColor.textBlack80Per,
+                              color: AppColor.textBlackPrimary,
                               fontWeight: FontWeight.w400,
                               fontSize: 10,
                             ),
@@ -153,7 +153,7 @@ class VouchersCardWidget extends StatelessWidget {
                           Text(
                             items.validFor,
                             style: GoogleFonts.poppins(
-                              color: AppColor.textBlack80Per,
+                              color: AppColor.textBlackPrimary,
                               fontWeight: FontWeight.w600,
                               fontSize: 10,
                             ),

@@ -66,7 +66,7 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                       Text(
                         'product_scanned'.tr,
                         style: TextStyle(
-                            color: AppColor.textBlack80Per,
+                            color: AppColor.textLightGreyPrimary,
                             fontSize: Get.height * Utils.getResponsiveSize(16),
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400),
@@ -96,7 +96,7 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                   child: Text(
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                     style: TextStyle(
-                        color: AppColor.textBlack80Per,
+                        color: AppColor.textLightGreyPrimary,
                         fontSize: Get.height * Utils.getResponsiveSize(16),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400),

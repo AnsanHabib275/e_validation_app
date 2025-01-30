@@ -5,6 +5,7 @@ import 'package:e_validation/view/navigation/history/history_screen.dart';
 import 'package:e_validation/view/navigation/home/home_screen.dart';
 import 'package:e_validation/view/navigation/menu/faqs/faqs_screen.dart';
 import 'package:e_validation/view/navigation/menu/kyc/kyc_screen.dart';
+import 'package:e_validation/view/navigation/menu/not_eligible/not_eligible_screen.dart';
 import 'package:e_validation/view/navigation/menu/points/points_screen.dart';
 import 'package:e_validation/view/navigation/menu/profile/profile_screen.dart';
 import 'package:e_validation/view/navigation/menu/redeem/redeem_reward_screen.dart';
@@ -18,12 +19,10 @@ import 'package:e_validation/view/navigation/widget/no_button_widget.dart';
 import 'package:e_validation/view/navigation/widget/yes_button_widget.dart';
 import 'package:e_validation/view_models/controller/navigation/navigation_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../models/navigation/menu_items_model.dart';
-import '../../res/assets/font_assets.dart';
 import '../../res/assets/icon_assets.dart';
 import '../../res/colors/app_color.dart';
 import '../../res/componants/MenuIcon.dart';
@@ -64,314 +63,147 @@ class _NavigationScreenState extends State<NavigationScreen> {
     });
   }
 
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-  //       statusBarColor: Colors.white,
-  //       statusBarIconBrightness: Brightness.dark,
-  //       systemNavigationBarColor: Colors.white,
-  //       systemNavigationBarIconBrightness: Brightness.dark));
-  // }
-
   @override
   Widget build(BuildContext context) {
-    // return GestureDetector(
-    //   onTap: () {
-    //     FocusScope.of(context).unfocus();
-    //   },
-    //   child: Scaffold(
-    //     extendBody: true,
-    //     drawer: Drawer(
-    //       child: ListView(
-    //         children: [
-    //           Container(
-    //             height: Get.height * Utils.getResponsiveHeight(200),
-    //             child: DrawerHeader(
-    //               margin: EdgeInsets.zero,
-    //               padding: EdgeInsets.zero,
-    //               child: Stack(fit: StackFit.expand, children: [
-    //                 Positioned(
-    //                     top: 0,
-    //                     right: Get.width * Utils.getResponsiveWidth(10),
-    //                     child: InkWell(
-    //                         onTap: () {
-    //                           Get.back();
-    //                         },
-    //                         child:
-    //                             SvgPicture.asset(IconAssets.ic_close_circle))),
-    //                 Positioned(
-    //                   left: Get.width * Utils.getResponsiveWidth(20),
-    //                   top: Get.height * Utils.getResponsiveHeight(26),
-    //                   right: Get.width * Utils.getResponsiveWidth(20),
-    //                   child: Column(
-    //                     mainAxisAlignment: MainAxisAlignment.start,
-    //                     crossAxisAlignment: CrossAxisAlignment.start,
-    //                     children: [
-    //                       CircleAvatar(
-    //                         radius: Get.height * Utils.getResponsiveSize(40),
-    //                         backgroundColor: AppColor.lightGreyColor,
-    //                         backgroundImage:
-    //                             AssetImage(ImageAssets.dummy_profile),
-    //                       ),
-    //                       Text(
-    //                         'George Oliver',
-    //                         textAlign: TextAlign.start,
-    //                         style: TextStyle(
-    //                             color: AppColor.textBlack80Per,
-    //                             fontSize:
-    //                                 Get.height * Utils.getResponsiveSize(20),
-    //                             fontFamily: 'Poppins',
-    //                             fontWeight: FontWeight.w600),
-    //                       ),
-    //                       Text(
-    //                         'Georgeoliver@gmail.com',
-    //                         textAlign: TextAlign.start,
-    //                         maxLines: 1,
-    //                         overflow: TextOverflow.ellipsis,
-    //                         style: TextStyle(
-    //                             color: AppColor.textBlack80Per,
-    //                             fontSize:
-    //                                 Get.height * Utils.getResponsiveSize(16),
-    //                             fontFamily: 'Poppins',
-    //                             fontWeight: FontWeight.w400),
-    //                       ),
-    //                     ],
-    //                   ),
-    //                 ),
-    //               ]),
-    //             ),
-    //           ),
-    //           ...items.asMap().entries.map((entry) {
-    //             int index = entry.key;
-    //             MenuItemsModel item = entry.value;
-    //             return Column(
-    //               children: [
-    //                 ListTile(
-    //                   leading:
-    //                       Image.asset(item.imagePath, width: 30, height: 30),
-    //                   title: Text(
-    //                     item.name,
-    //                     style: TextStyle(
-    //                         fontFamily: 'Poppins',
-    //                         fontWeight: FontWeight.w500,
-    //                         fontSize: Get.height * Utils.getResponsiveSize(18),
-    //                         color: AppColor.textBlack80Per),
-    //                   ),
-    //                   onTap: () {
-    //                     _handleDrawerNavigationChange(item.name);
-    //                   },
-    //                 )
-    //               ],
-    //             );
-    //           }).toList()
-    //         ],
-    //       ),
-    //     ),
-    //     body: Stack(
-    //       children: [
-    //         Center(
-    //           child: Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
-    //         ),
-    //         SafeArea(
-    //           top: false,
-    //           child: Stack(
-    //             children: [
-    //               Positioned(
-    //                   top: Get.height * Utils.getResponsiveHeight(60),
-    //                   left: 0,
-    //                   right: 0,
-    //                   child: Divider(
-    //                     height: Get.height * Utils.getResponsiveHeight(1),
-    //                     thickness: 1,
-    //                     color: AppColor.textBlack10Per,
-    //                   )),
-    //               Positioned(
-    //                   top: Get.height * Utils.getResponsiveHeight(60),
-    //                   left: 0,
-    //                   child: const MenuIcon()),
-    //             ],
-    //           ),
-    //           // child: const MenuIcon(),
-    //         ),
-    //       ],
-    //     ),
-    //     bottomNavigationBar: BottomNavigationBar(
-    //       onTap: _handleNavigationChange,
-    //       elevation: 0,
-    //       items: [
-    //         BottomNavigationBarItem(
-    //             backgroundColor: Colors.transparent,
-    //             icon: Image.asset(IconAssets.ic_bn_reward),
-    //             label: ''),
-    //         BottomNavigationBarItem(
-    //             icon: Image.asset(IconAssets.ic_bn_history), label: ''),
-    //         BottomNavigationBarItem(
-    //             icon: Image.asset(IconAssets.ic_bn_home), label: ''),
-    //         BottomNavigationBarItem(
-    //             icon: Image.asset(IconAssets.ic_bn_notification), label: ''),
-    //         BottomNavigationBarItem(
-    //             icon: Image.asset(IconAssets.ic_bn_complaint), label: ''),
-    //       ],
-    //     ),
-    //   ),
-    // );
-    return Stack(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(ImageAssets.splash_bg), // Your background image
-              fit: BoxFit.cover, // Adjust to cover the entire screen
-            ),
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        extendBody: true,
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              Container(
+                height: Get.height * Utils.getResponsiveHeight(200),
+                child: DrawerHeader(
+                  margin: EdgeInsets.zero,
+                  padding: EdgeInsets.zero,
+                  child: Stack(fit: StackFit.expand, children: [
+                    Positioned(
+                        top: 0,
+                        right: Get.width * Utils.getResponsiveWidth(10),
+                        child: InkWell(
+                            onTap: () {
+                              Get.back();
+                            },
+                            child:
+                                SvgPicture.asset(IconAssets.ic_close_circle))),
+                    Positioned(
+                      left: Get.width * Utils.getResponsiveWidth(20),
+                      top: Get.height * Utils.getResponsiveHeight(26),
+                      right: Get.width * Utils.getResponsiveWidth(20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CircleAvatar(
+                            radius: Get.height * Utils.getResponsiveSize(40),
+                            backgroundColor: AppColor.lightGreyColor,
+                            backgroundImage:
+                                AssetImage(ImageAssets.dummy_profile),
+                          ),
+                          Text(
+                            'George Oliver',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                color: AppColor.textBlackPrimary,
+                                fontSize:
+                                    Get.height * Utils.getResponsiveSize(20),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600),
+                          ),
+                          Text(
+                            'Georgeoliver@gmail.com',
+                            textAlign: TextAlign.start,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                color: AppColor.textBlackPrimary,
+                                fontSize:
+                                    Get.height * Utils.getResponsiveSize(16),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]),
+                ),
+              ),
+              ...items.asMap().entries.map((entry) {
+                int index = entry.key;
+                MenuItemsModel item = entry.value;
+                return Column(
+                  children: [
+                    ListTile(
+                      leading:
+                          Image.asset(item.imagePath, width: 30, height: 30),
+                      title: Text(
+                        item.name,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            fontSize: Get.height * Utils.getResponsiveSize(18),
+                            color: AppColor.textBlackPrimary),
+                      ),
+                      onTap: () {
+                        _handleDrawerNavigationChange(item.name);
+                      },
+                    )
+                  ],
+                );
+              }).toList()
+            ],
           ),
         ),
-        GestureDetector(
-          onTap: () {
-            FocusScope.of(context).unfocus();
-          },
-          child: Scaffold(
-            extendBody: true,
-            drawer: Drawer(
-              child: ListView(
+        body: Stack(
+          children: [
+            Center(
+              child: Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
+            ),
+            SafeArea(
+              top: false,
+              child: Stack(
                 children: [
-                  Container(
-                    height: Get.height * Utils.getResponsiveHeight(200),
-                    child: DrawerHeader(
-                      margin: EdgeInsets.zero,
-                      padding: EdgeInsets.zero,
-                      child: Stack(fit: StackFit.expand, children: [
-                        Positioned(
-                            top: 0,
-                            right: Get.width * Utils.getResponsiveWidth(10),
-                            child: InkWell(
-                                onTap: () {
-                                  Get.back();
-                                },
-                                child: SvgPicture.asset(
-                                    IconAssets.ic_close_circle))),
-                        Positioned(
-                          left: Get.width * Utils.getResponsiveWidth(20),
-                          top: Get.height * Utils.getResponsiveHeight(26),
-                          right: Get.width * Utils.getResponsiveWidth(20),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              CircleAvatar(
-                                radius:
-                                    Get.height * Utils.getResponsiveSize(40),
-                                backgroundColor: AppColor.lightGreyColor,
-                                backgroundImage:
-                                    AssetImage(ImageAssets.dummy_profile),
-                              ),
-                              Text(
-                                'George Oliver',
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                    color: AppColor.textBlack80Per,
-                                    fontSize: Get.height *
-                                        Utils.getResponsiveSize(20),
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              Text(
-                                'Georgeoliver@gmail.com',
-                                textAlign: TextAlign.start,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    color: AppColor.textBlack80Per,
-                                    fontSize: Get.height *
-                                        Utils.getResponsiveSize(16),
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ]),
-                    ),
-                  ),
-                  ...items.asMap().entries.map((entry) {
-                    int index = entry.key;
-                    MenuItemsModel item = entry.value;
-                    return Column(
-                      children: [
-                        ListTile(
-                          leading: Image.asset(item.imagePath,
-                              width: 30, height: 30),
-                          title: Text(
-                            item.name,
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w500,
-                                fontSize:
-                                    Get.height * Utils.getResponsiveSize(18),
-                                color: AppColor.textBlack80Per),
-                          ),
-                          onTap: () {
-                            _handleDrawerNavigationChange(item.name);
-                          },
-                        )
-                      ],
-                    );
-                  }).toList()
+                  Positioned(
+                      top: Get.height * Utils.getResponsiveHeight(60),
+                      left: 0,
+                      right: 0,
+                      child: Divider(
+                        height: Get.height * Utils.getResponsiveHeight(1),
+                        thickness: 1,
+                        color: AppColor.textBlack10Per,
+                      )),
+                  Positioned(
+                      top: Get.height * Utils.getResponsiveHeight(60),
+                      left: 0,
+                      child: const MenuIcon()),
                 ],
               ),
+              // child: const MenuIcon(),
             ),
-            body: Stack(
-              children: [
-                Center(
-                  child:
-                      Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
-                ),
-                SafeArea(
-                  top: false,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                          top: Get.height * Utils.getResponsiveHeight(60),
-                          left: 0,
-                          right: 0,
-                          child: Divider(
-                            height: Get.height * Utils.getResponsiveHeight(1),
-                            thickness: 1,
-                            color: AppColor.textBlack10Per,
-                          )),
-                      Positioned(
-                          top: Get.height * Utils.getResponsiveHeight(60),
-                          left: 0,
-                          child: const MenuIcon()),
-                    ],
-                  ),
-                  // child: const MenuIcon(),
-                ),
-              ],
-            ),
-            bottomNavigationBar: BottomNavigationBar(
-              onTap: _handleNavigationChange,
-              elevation: 0,
-              items: [
-                BottomNavigationBarItem(
-                    backgroundColor: Colors.transparent,
-                    icon: Image.asset(IconAssets.ic_bn_reward),
-                    label: ''),
-                BottomNavigationBarItem(
-                    icon: Image.asset(IconAssets.ic_bn_history), label: ''),
-                BottomNavigationBarItem(
-                    icon: Image.asset(IconAssets.ic_bn_home), label: ''),
-                BottomNavigationBarItem(
-                    icon: Image.asset(IconAssets.ic_bn_notification),
-                    label: ''),
-                BottomNavigationBarItem(
-                    icon: Image.asset(IconAssets.ic_bn_complaint), label: ''),
-              ],
-            ),
-          ),
+          ],
         ),
-      ],
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: _handleNavigationChange,
+          elevation: 0,
+          items: [
+            BottomNavigationBarItem(
+                backgroundColor: Colors.transparent,
+                icon: Image.asset(IconAssets.ic_bn_reward),
+                label: ''),
+            BottomNavigationBarItem(
+                icon: Image.asset(IconAssets.ic_bn_history), label: ''),
+            BottomNavigationBarItem(
+                icon: Image.asset(IconAssets.ic_bn_home), label: ''),
+            BottomNavigationBarItem(
+                icon: Image.asset(IconAssets.ic_bn_notification), label: ''),
+            BottomNavigationBarItem(
+                icon: Image.asset(IconAssets.ic_bn_complaint), label: ''),
+          ],
+        ),
+      ),
     );
   }
 
@@ -429,8 +261,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
           navigationVM.changeScreen(ComplaintsScreen());
           break;
         case 'Points':
-          // navigationVM.changeScreen(RedeemRewardScreen());
-          navigationVM.changeScreen(PointsScreen());
+          navigationVM.changeScreen(NotEligibleScreen());
+          // navigationVM.changeScreen(PointsScreen());
           break;
         case 'Delete Account':
           showDeleteAccountDialog();
@@ -495,7 +327,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                         fontSize: Get.height * Utils.getResponsiveSize(16),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400,
-                        color: AppColor.textBlack80Per),
+                        color: AppColor.textLightGreyPrimary),
                   ),
                 ),
                 SizedBox(
@@ -558,7 +390,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                         // fontSize: Get.width * Utils.getResponsiveSize(16),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400,
-                        color: AppColor.textBlack80Per),
+                        color: AppColor.textLightGreyPrimary),
                   ),
                 ),
                 SizedBox(

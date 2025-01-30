@@ -59,7 +59,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       title: Text(
                         'forgot_password'.tr,
                         style: TextStyle(
-                            color: AppColor.textColorSecondary,
+                            color: AppColor.textColorPrimary,
                             fontSize: Get.height * Utils.getResponsiveSize(26),
                             fontWeight: FontWeight.w600,
                             fontFamily: 'Poppins'),
@@ -82,7 +82,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       'no_worries_enter_your_email_for_reset_password'.tr,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: AppColor.textLightBlackPrimary,
+                          color: AppColor.textLightGreyPrimary,
                           fontSize: Get.height * Utils.getResponsiveSize(18),
                           fontWeight: FontWeight.w500,
                           fontFamily: 'Poppins'),

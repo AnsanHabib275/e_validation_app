@@ -90,11 +90,6 @@ class _ScanProductScreenState extends State<ScanProductScreen>
   @override
   void initState() {
     super.initState();
-    // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    //     statusBarColor: Colors.white,
-    //     statusBarIconBrightness: Brightness.light,
-    //     systemNavigationBarColor: Colors.white,
-    //     systemNavigationBarIconBrightness: Brightness.light));
     getUserDetail();
     _scanCode();
   }
@@ -109,7 +104,30 @@ class _ScanProductScreenState extends State<ScanProductScreen>
                   Positioned(
                       right: Get.width * Utils.getResponsiveWidth(10),
                       top: Get.height * Utils.getResponsiveHeight(70),
-                      child: Image.asset(IconAssets.ic_close)),
+                      child: InkWell(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors
+                                    .white, // Add a background color for visibility
+                                shape: BoxShape
+                                    .circle, // Makes it rounded (optional)
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(
+                                        0.3), // Shadow color with opacity
+                                    blurRadius: 8, // Soften the shadow
+                                    spreadRadius: 2, // Extend the shadow
+                                    offset: Offset(
+                                        2, 4), // Moves shadow to bottom-right
+                                  ),
+                                ],
+                              ),
+                              padding: EdgeInsets.all(
+                                  Get.height * Utils.getResponsiveHeight(10)),
+                              child: Image.asset(IconAssets.ic_close)))),
                   Positioned(
                     left: 0,
                     right: 0,
@@ -123,7 +141,12 @@ class _ScanProductScreenState extends State<ScanProductScreen>
                             right: Get.width * Utils.getResponsiveWidth(60),
                             bottom:
                                 Get.height * Utils.getResponsiveHeight(114)),
-                        child: Image.asset(ImageAssets.scan_bg),
+                        child: InkWell(
+                            onTap: () {
+                              navigationVM
+                                  .changeScreen(ProductVerifiedScreen());
+                            },
+                            child: Image.asset(ImageAssets.scan_bg)),
                       ),
                     ),
                   ),

@@ -50,7 +50,7 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500,
                               color: AppColor
-                                  .textBlack80Per, // Make "Complain No" bold
+                                  .textGreyPrimary, // Make "Complain No" bold
                             ),
                           ),
                           TextSpan(
@@ -61,7 +61,7 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500,
                               color: AppColor
-                                  .textBlack80Per, // Normal font weight for the number
+                                  .textGreyPrimary, // Normal font weight for the number
                             ),
                           ),
                         ],
@@ -74,7 +74,7 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
                         fontSize: Get.height * Utils.getResponsiveSize(12),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400,
-                        color: AppColor.textBlack80Per,
+                        color: AppColor.textGreyPrimary,
                       ),
                     ),
                   ],

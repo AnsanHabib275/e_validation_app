@@ -53,7 +53,7 @@ class RestaurantsCardWidget extends StatelessWidget {
                             fontSize: 12,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w300,
-                            color: AppColor.textBlack80Per),
+                            color: AppColor.textBlackPrimary),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),

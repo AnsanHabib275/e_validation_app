@@ -39,7 +39,7 @@ class InputOTPWidget extends StatelessWidget {
         }
       },
       style: TextStyle(
-        color: AppColor.otpTextColor,
+        color: AppColor.textGreyPrimary,
         fontSize: Get.height * Utils.getResponsiveSize(20),
         fontFamily: 'Poppins',
         fontWeight: FontWeight.w600,

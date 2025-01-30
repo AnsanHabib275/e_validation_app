@@ -41,7 +41,7 @@ class Languages extends Translations {
           'delete_account': 'Delete Account',
           'logout': 'Logout',
           'tap_the_bellow_button_to_scan_the_product':
-              'Tap the bellow button to scan the product',
+              'Tap the bellow button to scan\nthe product',
           'scan_now': 'Scan now',
           'product_verified': 'Product Verified!',
           'submit': 'Submit',
@@ -74,7 +74,7 @@ class Languages extends Translations {
           'email_hint': 'Enter Your Email Here',
           'email_star': 'Email*',
           'sorry_you_are_not_eligible_right_now':
-              'Sorry! You are not eligible right now.',
+              'Sorry! You are not eligible\nright now.',
           'forgot_password': 'Forgot Password',
           'forgot_password_with_question': 'Forgot Password?',
           'create_account': 'Create Account',

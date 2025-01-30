@@ -19,10 +19,7 @@ class InputPhoneNumberWidget extends StatelessWidget {
         height: Get.height * Utils.getResponsiveHeight(64),
         width: Get.width * 1,
         decoration: BoxDecoration(
-          border: Border.all(
-              color: updateProfileVM.isEnable.value
-                  ? AppColor.textBlack30Per
-                  : AppColor.textColorPrimary),
+          border: Border.all(color: AppColor.textColorPrimary),
           borderRadius:
               BorderRadius.circular(Get.height * Utils.getResponsiveSize(8)),
         ),
@@ -52,7 +49,7 @@ class InputPhoneNumberWidget extends StatelessWidget {
                         ? '+92'
                         : updateProfileVM.countryCodeController.value.text,
                     style: TextStyle(
-                        color: AppColor.textBlack70Per,
+                        color: AppColor.textGreyPrimary,
                         fontSize: 16,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400),
@@ -70,7 +67,7 @@ class InputPhoneNumberWidget extends StatelessWidget {
             Container(
               height: Get.height * Utils.getResponsiveHeight(64),
               width: Get.width * Utils.getResponsiveWidth(1),
-              color: AppColor.textBlack40Per, // Color of the divider
+              color: AppColor.textLightGreyPrimary, // Color of the divider
             ),
             Expanded(
               child: TextFormField(
@@ -82,7 +79,7 @@ class InputPhoneNumberWidget extends StatelessWidget {
                 textInputAction: TextInputAction.done,
                 // maxLength: 10,
                 style: TextStyle(
-                  color: AppColor.textBlack70Per,
+                  color: AppColor.textGreyPrimary,
                   fontSize: Get.height * Utils.getResponsiveSize(16),
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w400,
@@ -90,7 +87,7 @@ class InputPhoneNumberWidget extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: 'phone_number'.tr,
                   hintStyle: TextStyle(
-                    color: AppColor.textBlack40Per,
+                    color: AppColor.textLightGreyPrimary,
                     fontSize: Get.height * Utils.getResponsiveSize(16),
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,

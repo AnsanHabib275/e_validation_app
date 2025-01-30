@@ -63,7 +63,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       title: Text(
                         'reset_password'.tr,
                         style: TextStyle(
-                            color: AppColor.textColorSecondary,
+                            color: AppColor.textColorPrimary,
                             fontSize: Get.height * Utils.getResponsiveSize(26),
                             fontWeight: FontWeight.w600,
                             fontFamily: 'Poppins'),

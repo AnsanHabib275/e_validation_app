@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 
 import '../../../../res/colors/app_color.dart';
 import '../../../../view_models/controller/navigation/history/history_view_model.dart';
-import '../../../../view_models/controller/user_preference/user_preference_view_model.dart';
 
 class HistoryCartWidget extends StatefulWidget {
   // final HistoryListModel history;
@@ -48,7 +47,7 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w500,
                           color: AppColor
-                              .textBlack80Per, // Make "Complain No" bold
+                              .textGreyPrimary, // Make "Complain No" bold
                         ),
                       ),
                       TextSpan(
@@ -58,7 +57,7 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w500,
                           color: AppColor
-                              .textBlack80Per, // Normal font weight for the number
+                              .textGreyPrimary, // Normal font weight for the number
                         ),
                       ),
                     ],
@@ -74,7 +73,7 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                           color: AppColor
-                              .textBlack80Per, // Make "Complain No" bold
+                              .textGreyPrimary, // Make "Complain No" bold
                         ),
                       ),
                       TextSpan(
@@ -84,7 +83,7 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                           color: AppColor
-                              .textBlack80Per, // Normal font weight for the number
+                              .textGreyPrimary, // Normal font weight for the number
                         ),
                       ),
                     ],

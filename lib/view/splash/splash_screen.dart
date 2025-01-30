@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
                       fontSize: Get.height * Utils.getResponsiveSize(30),
-                      color: AppColor.textBlack80Per),
+                      color: AppColor.textBlackPrimary),
                 ),
                 SizedBox(
                   height: Get.height * Utils.getResponsiveHeight(5),
@@ -68,7 +68,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       fontWeight: FontWeight.w400,
                       fontSize: Get.height * Utils.getResponsiveSize(20),
                       // fontSize: 20,
-                      color: AppColor.textLightGrey80Per),
+                      color: AppColor.textLightGreyPrimary),
                 ),
               ],
             ),

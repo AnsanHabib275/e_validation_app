@@ -44,30 +44,10 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
   @override
   void initState() {
     super.initState();
-    // SystemChrome.setSystemUIOverlayStyle(
-    //   SystemUiOverlayStyle(
-    //     statusBarColor: Colors.white, // Reset status bar background color
-    //     statusBarIconBrightness: Brightness.light, // Default icon brightness
-    //     statusBarBrightness: Brightness.dark, // Default for iOS
-    //   ),
-    // );
     loadChatMessages();
     chatVM.chatListApi();
     WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
   }
-
-  // @override
-  // void dispose() {
-  //   // Reset to default when leaving the screen
-  //   SystemChrome.setSystemUIOverlayStyle(
-  //     SystemUiOverlayStyle(
-  //       statusBarColor: Colors.transparent, // Reset status bar background color
-  //       statusBarIconBrightness: Brightness.light, // Default icon brightness
-  //       statusBarBrightness: Brightness.dark, // Default for iOS
-  //     ),
-  //   );
-  //   super.dispose();
-  // }
 
   void _scrollToBottom() {
     if (chatVM.scrollController.value.hasClients) {
@@ -246,7 +226,7 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
                           child: TextField(
                             controller: chatVM.messageController.value,
                             style: TextStyle(
-                              color: AppColor.textBlack80Per,
+                              color: AppColor.textGreyPrimary,
                               fontSize:
                                   Get.height * Utils.getResponsiveSize(16),
                               fontFamily: 'Poppins',
@@ -255,7 +235,7 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
                             decoration: InputDecoration(
                               hintText: "type here",
                               hintStyle: TextStyle(
-                                color: AppColor.blackColor.withOpacity(0.6),
+                                color: AppColor.textLightGreyPrimary,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(14),
                                 fontFamily: 'Poppins',

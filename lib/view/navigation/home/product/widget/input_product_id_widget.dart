@@ -32,7 +32,7 @@ class InputProductIdWidget extends StatelessWidget {
                 submitComplaintVM.attachFileFocusNode.value);
           },
           style: TextStyle(
-            color: AppColor.textBlack80Per,
+            color: AppColor.textGreyPrimary,
             fontSize: Get.height * Utils.getResponsiveSize(16),
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w500,
@@ -40,7 +40,7 @@ class InputProductIdWidget extends StatelessWidget {
           decoration: InputDecoration(
             hintText: 'product_id'.tr,
             hintStyle: TextStyle(
-              color: AppColor.textBlack40Per,
+              color: AppColor.textLightGreyPrimary,
               fontSize: Get.height * Utils.getResponsiveSize(16),
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w400,

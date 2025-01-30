@@ -53,7 +53,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     'George Oliver',
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                        color: AppColor.underlineTextColor,
+                        color: AppColor.textColorPrimary,
                         fontSize: Get.height * Utils.getResponsiveSize(20),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600),
@@ -62,7 +62,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     'Georgeoliver@gmail.com',
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                        color: AppColor.textBlack80Per,
+                        color: AppColor.textGreyPrimary,
                         fontSize: Get.height * Utils.getResponsiveSize(16),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400),
@@ -102,7 +102,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Text(
                             'george oliver',
                             style: TextStyle(
-                                color: AppColor.textBlack80Per,
+                                color: AppColor.textGreyPrimary,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(16),
                                 fontFamily: 'Poppins',
@@ -126,7 +126,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Text(
                             '+92345789902',
                             style: TextStyle(
-                                color: AppColor.textBlack80Per,
+                                color: AppColor.textGreyPrimary,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(16),
                                 fontFamily: 'Poppins',
@@ -150,7 +150,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Text(
                             'georgeoliver@gmail.com',
                             style: TextStyle(
-                                color: AppColor.textBlack80Per,
+                                color: AppColor.textGreyPrimary,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(16),
                                 fontFamily: 'Poppins',
@@ -173,7 +173,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           // Text(
                           //   'Male',
                           //   style: TextStyle(
-                          //       color: AppColor.textBlack80Per,
+                          //       color: AppColor.textBlackPrimary,
                           //       fontSize: 16,
                           //       fontFamily: 'Poppins',
                           //       fontWeight: FontWeight.w400),
@@ -196,7 +196,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Text(
                             '10-26-2001',
                             style: TextStyle(
-                                color: AppColor.textBlack80Per,
+                                color: AppColor.textGreyPrimary,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(16),
                                 fontFamily: 'Poppins',

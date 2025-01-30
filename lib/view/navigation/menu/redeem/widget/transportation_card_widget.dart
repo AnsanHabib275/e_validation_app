@@ -48,7 +48,7 @@ class TransportationCardWidget extends StatelessWidget {
                             fontSize: 12,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w300,
-                            color: AppColor.textBlack80Per),
+                            color: AppColor.textColorPrimary),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),

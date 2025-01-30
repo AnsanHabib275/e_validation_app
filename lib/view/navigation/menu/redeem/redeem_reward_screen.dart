@@ -118,7 +118,7 @@ class _RedeemRewardScreenState extends State<RedeemRewardScreen> {
                       ),
                     )
                   ]),
-            )
+            ),
             // SizedBox(height: Get.height * Utils.getResponsiveHeight(20)),
             // SectionHeader(title: 'transportation'.tr),
             // SizedBox(height: Get.height * Utils.getResponsiveHeight(10)),
@@ -128,7 +128,7 @@ class _RedeemRewardScreenState extends State<RedeemRewardScreen> {
             //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
             //   child: Divider(
             //     height: 1,
-            //     color: AppColor.textBlack6Per,
+            //     color: AppColor.textBlack10Per,
             //   ),
             // ),
             // SizedBox(height: Get.height * Utils.getResponsiveHeight(11)),

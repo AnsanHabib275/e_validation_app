@@ -54,7 +54,7 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                   Text(
                     'complaints'.tr,
                     style: TextStyle(
-                        color: AppColor.textColorSecondary,
+                        color: AppColor.textColorPrimary,
                         fontSize: Get.height * Utils.getResponsiveSize(26),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600),
@@ -87,7 +87,7 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                             fontSize: Get.height * Utils.getResponsiveSize(20),
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
-                            color: AppColor.underlineTextColor),
+                            color: AppColor.textColorPrimary),
                       ),
                       Text('Georgeoliver@gmail.com',
                           style: TextStyle(
@@ -95,7 +95,7 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                                   Get.height * Utils.getResponsiveSize(16),
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
-                              color: AppColor.textBlack80Per)),
+                              color: AppColor.textGreyPrimary)),
                     ],
                   )
                 ],

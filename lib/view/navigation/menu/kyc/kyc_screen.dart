@@ -46,7 +46,7 @@ class _KYCScreenState extends State<KYCScreen> {
                   Text(
                     'know_your_customer'.tr,
                     style: TextStyle(
-                        color: AppColor.textColorSecondary,
+                        color: AppColor.textColorPrimary,
                         fontSize: Get.height * Utils.getResponsiveSize(26),
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600),
@@ -73,7 +73,7 @@ class _KYCScreenState extends State<KYCScreen> {
                         'upload_your_identity_card_front_and_back'.tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: AppColor.textBlack80Per,
+                            color: AppColor.textGreyPrimary,
                             fontSize: Get.height * Utils.getResponsiveSize(16),
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400),

@@ -35,7 +35,7 @@ class _NotEligibleScreenState extends State<NotEligibleScreen> {
                 top: Get.height * Utils.getResponsiveHeight(70),
                 child: InkWell(
                     onTap: () {
-                      Get.back();
+                      // Get.back();
                     },
                     child: Image.asset(IconAssets.ic_close_with_white_bg))),
             Positioned(
@@ -44,26 +44,30 @@ class _NotEligibleScreenState extends State<NotEligibleScreen> {
                 top: 0,
                 bottom: 0,
                 child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(ImageAssets.img_not_eligible),
-                      SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(30),
-                      ),
-                      Text(
-                        'sorry_you_are_not_eligible_right_now'.tr,
-                        textScaleFactor: 1,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: AppColor.textBlack80Per,
-                          fontSize: Get.height * Utils.getResponsiveSize(20),
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w500,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: Get.width * Utils.getResponsiveWidth(60)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(ImageAssets.img_not_eligible),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(30),
                         ),
-                      )
-                    ],
+                        Text(
+                          'sorry_you_are_not_eligible_right_now'.tr,
+                          textScaleFactor: 1,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: AppColor.textLightGreyPrimary,
+                            fontSize: Get.height * Utils.getResponsiveSize(20),
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 )),
           ],

@@ -1,5 +1,3 @@
-import 'package:e_validation/data/exceptions/app_exceptions.dart';
-import 'package:e_validation/res/assets/font_assets.dart';
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/res/colors/app_color.dart';
 import 'package:e_validation/view/navigation/home/product/widget/attach_file_widget.dart';

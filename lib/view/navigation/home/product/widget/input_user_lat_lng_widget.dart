@@ -31,7 +31,7 @@ class InputUserLatLngWidget extends StatelessWidget {
               submitComplainVM.titleFocusNode.value);
         },
         style: TextStyle(
-          color: AppColor.textBlack80Per,
+          color: AppColor.textGreyPrimary,
           fontSize: Get.height * Utils.getResponsiveSize(16),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w500,
@@ -39,7 +39,7 @@ class InputUserLatLngWidget extends StatelessWidget {
         decoration: InputDecoration(
           hintText: 'user_lat_lng'.tr,
           hintStyle: TextStyle(
-            color: AppColor.textBlack40Per,
+            color: AppColor.textLightGreyPrimary,
             fontSize: Get.height * Utils.getResponsiveSize(16),
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
