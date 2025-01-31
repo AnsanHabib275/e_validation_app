@@ -66,8 +66,8 @@ class _RewardScreenState extends State<RewardScreen> {
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: Get.width * Utils.getResponsiveWidth(16),
-                  vertical: Get.height * Utils.getResponsiveHeight(20)),
+                horizontal: Get.width * Utils.getResponsiveWidth(16),
+              ),
               child: FutureBuilder<List<RewardListModel>>(
                 future: rewardVM.rewardListApi(), // Call your function
                 builder: (context, snapshot) {

@@ -71,6 +71,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
       },
       child: Scaffold(
         extendBody: true,
+        extendBodyBehindAppBar: true,
+        backgroundColor: AppColor.transparent,
         drawer: Drawer(
           child: ListView(
             children: [
@@ -159,8 +161,11 @@ class _NavigationScreenState extends State<NavigationScreen> {
         ),
         body: Stack(
           children: [
-            Center(
-              child: Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
+            Expanded(
+              child: Center(
+                child:
+                    Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
+              ),
             ),
             SafeArea(
               top: false,

@@ -23,7 +23,6 @@ class ResetPasswordViewModel extends GetxController {
     Map data = {
       'E_id': e_id,
       'NewPassword': newPasswordController.value.text,
-      'ConfirmPassword': confirmPasswordController.value.text,
     };
     _api.resetPasswordApi(data).then((value) {
       loading.value = false;

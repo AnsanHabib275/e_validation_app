@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(
                       height: Get.height * Utils.getResponsiveHeight(100),
                     ),
-                    SvgPicture.asset(
+                    Image.asset(
                       ImageAssets.splash_screen_logo,
                       height: Get.height * Utils.getResponsiveHeight(106),
                     ),

@@ -52,22 +52,32 @@ dependencies:
   phone_number: ^2.1.0
   intl: ^0.20.1
   shimmer: ^3.0.0
+  flutter_native_splash: ^2.4.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.14.2
+  flutter_lints: ^5.0.0
 flutter_icons:
-  image_path: "assets/icons/splash_screen_logo.svg"
+  image_path: assets/images/app_logo.png
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: assets/images/app_logo.png
   android: true
   ios: true
+flutter_native_splash:
+  image: assets/images/splash_screen_logo.png
+  imageLogo: assets/images/block_chain_logo.png
+  android: true
+  ios: true
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

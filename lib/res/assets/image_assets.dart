@@ -1,8 +1,8 @@
 class ImageAssets {
   static const String splash_screen_logo =
-      'assets/images/splash_screen_logo.svg';
+      'assets/images/splash_screen_logo.png';
   static const String splash_bg = 'assets/images/splash_bg.png';
-  static const String block_chain_logo = 'assets/images/block_chain_logo.svg';
+  static const String block_chain_logo = 'assets/images/block_chain_logo.png';
   static const String account_created_logo =
       'assets/images/account_created_logo.svg';
   static const String done_logo = 'assets/images/done_logo.png';

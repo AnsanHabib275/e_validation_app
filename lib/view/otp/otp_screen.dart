@@ -18,16 +18,13 @@ class OTPScreen extends StatefulWidget {
 class _OTPScreenState extends State<OTPScreen> {
   final otpVM = Get.put(OTPViewModel());
   final _formKey = GlobalKey<FormState>();
-  // final email = Get.arguments['email'];
-  // final from = Get.arguments['from'];
-  final email = '';
-  final from = '';
+  // final e_id = Get.arguments['e_id'];
+  final e_id = '';
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    otpVM.from.value = from;
   }
 
   @override
@@ -103,7 +100,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           width: 40,
                           height: 50,
                           child: InputOTPWidget(
-                            email: email,
+                            e_id: e_id,
                             controller: otpVM.otpOneController.value,
                             focusNode: otpVM.otpOneFocusNode.value,
                             nextFocusNode: otpVM.otpTwoFocusNode.value,
@@ -113,7 +110,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           width: 40,
                           height: 50,
                           child: InputOTPWidget(
-                            email: email,
+                            e_id: e_id,
                             controller: otpVM.otpTwoController.value,
                             focusNode: otpVM.otpTwoFocusNode.value,
                             nextFocusNode: otpVM.otpThreeFocusNode.value,
@@ -123,7 +120,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           width: 40,
                           height: 50,
                           child: InputOTPWidget(
-                            email: email,
+                            e_id: e_id,
                             controller: otpVM.otpThreeController.value,
                             focusNode: otpVM.otpThreeFocusNode.value,
                             nextFocusNode: otpVM.otpFourFocusNode.value,
@@ -133,7 +130,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           width: 40,
                           height: 50,
                           child: InputOTPWidget(
-                            email: email,
+                            e_id: e_id,
                             controller: otpVM.otpFourController.value,
                             focusNode: otpVM.otpFourFocusNode.value,
                             nextFocusNode: otpVM.otpFiveFocusNode.value,
@@ -143,7 +140,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           width: 40,
                           height: 50,
                           child: InputOTPWidget(
-                            email: email,
+                            e_id: e_id,
                             controller: otpVM.otpFiveController.value,
                             focusNode: otpVM.otpFiveFocusNode.value,
                             nextFocusNode: otpVM.otpSixFocusNode.value,
@@ -153,7 +150,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           width: 40,
                           height: 50,
                           child: InputOTPWidget(
-                            email: email,
+                            e_id: e_id,
                             controller: otpVM.otpSixController.value,
                             focusNode: otpVM.otpSixFocusNode.value,
                             // nextFocusNode: otpVM.otpFourFocusNode.value,

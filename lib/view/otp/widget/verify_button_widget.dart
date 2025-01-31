@@ -18,7 +18,7 @@ class VerifyButtonWidget extends StatelessWidget {
         title: 'verify'.tr,
         loading: otpVM.loading.value,
         onPress: () {
-          Get.toNamed(RoutesName.accountCreatedScreen);
+          Get.toNamed(RoutesName.resetPasswordScreen);
           // if (formkey.currentState!.validate()) {
           //   signUpVM.signUpApi();
           // }

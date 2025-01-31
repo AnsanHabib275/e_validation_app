@@ -30,18 +30,18 @@ class OTPViewModel extends GetxController {
   RxString errorMessage = ''.obs;
   RxString from = ''.obs;
 
-  void checkOtpFilled(String email) {
+  void checkOtpFilled(String e_id) {
     if (otpOneController.value.text.isNotEmpty &&
         otpTwoController.value.text.isNotEmpty &&
         otpThreeController.value.text.isNotEmpty &&
         otpFourController.value.text.isNotEmpty &&
         otpFiveController.value.text.isNotEmpty &&
         otpSixController.value.text.isNotEmpty) {
-      otpApi(email);
+      otpApi(e_id);
     }
   }
 
-  void otpApi(String email) {
+  void otpApi(String e_id) {
     loading.value = true;
     final verificationCode = otpOneController.value.text +
         otpTwoController.value.text +
@@ -50,8 +50,8 @@ class OTPViewModel extends GetxController {
         otpFiveController.value.text +
         otpSixController.value.text;
     Map data = {
-      'verification_code': verificationCode,
-      'email': email,
+      'Otp': verificationCode,
+      'E_id': e_id,
     };
     _api.otpApi(data).then((value) {
       loading.value = false;

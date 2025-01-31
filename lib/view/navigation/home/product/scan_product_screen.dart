@@ -103,7 +103,7 @@ class _ScanProductScreenState extends State<ScanProductScreen>
                 children: [
                   Positioned(
                       right: Get.width * Utils.getResponsiveWidth(10),
-                      top: Get.height * Utils.getResponsiveHeight(70),
+                      top: Get.height * Utils.getResponsiveHeight(30),
                       child: InkWell(
                           onTap: () {
                             Get.back();

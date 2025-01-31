@@ -57,7 +57,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     SizedBox(
                       height: Get.height * Utils.getResponsiveHeight(91),
                     ),
-                    SvgPicture.asset(
+                    Image.asset(
                       ImageAssets.splash_screen_logo,
                       height: Get.height * Utils.getResponsiveHeight(106),
                     ),

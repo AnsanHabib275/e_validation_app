@@ -20,15 +20,12 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   final verifyEmailVM = Get.put(VerifyEmailViewModel());
   final _formKey = GlobalKey<FormState>();
   // final email = Get.arguments['email'];
-  // final from = Get.arguments['from'];
   final email = '';
-  final from = '';
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    verifyEmailVM.from.value = from;
   }
 
   @override

@@ -6,7 +6,7 @@
         </intent>
     </queries>
     <application
-        android:label="e_validation"
+        android:label="E-Validation"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

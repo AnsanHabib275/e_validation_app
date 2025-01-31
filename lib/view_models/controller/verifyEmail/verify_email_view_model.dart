@@ -50,8 +50,7 @@ class VerifyEmailViewModel extends GetxController {
         otpFiveController.value.text +
         otpSixController.value.text;
     Map data = {
-      'verification_code': verificationCode,
-      'email': email,
+      'code': verificationCode,
     };
     _api.verifyEmailApi(data).then((value) {
       loading.value = false;
@@ -62,13 +61,8 @@ class VerifyEmailViewModel extends GetxController {
       } else if (value['errorcode'] == 3064) {
         errorMessage.value = 'invalid_email'.tr;
       } else {
-        if(from == 'signup'){
-          Utils.toastMessage("Success");
-          Get.toNamed(RoutesName.accountCreatedScreen);
-        }else{
-          Utils.toastMessage("Success");
-          Get.toNamed(RoutesName.resetPasswordScreen);
-        }
+        Utils.toastMessage("Success");
+        Get.toNamed(RoutesName.accountCreatedScreen);
       }
     }).onError((error, stackTrace) {
       loading.value = false;

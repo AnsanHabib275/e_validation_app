@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SvgPicture.asset(ImageAssets.splash_screen_logo),
+                Image.asset(ImageAssets.splash_screen_logo),
                 SizedBox(
                   height: Get.height * Utils.getResponsiveHeight(23),
                 ),
@@ -91,7 +91,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(ImageAssets.block_chain_logo),
+                  Image.asset(ImageAssets.block_chain_logo),
                   SizedBox(
                     width: Get.width * Utils.getResponsiveWidth(14),
                   ),

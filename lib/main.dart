@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'app_title'.tr,
+      title: 'E-VALIDATION',
       debugShowCheckedModeBanner: false,
       translations: Languages(),
       locale: const Locale('en', 'US'),

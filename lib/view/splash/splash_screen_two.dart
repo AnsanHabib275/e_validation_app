@@ -51,7 +51,7 @@ class _SplashScreenTwoState extends State<SplashScreenTwo> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SvgPicture.asset(ImageAssets.block_chain_logo),
+                Image.asset(ImageAssets.block_chain_logo),
                 SizedBox(
                   width: Get.width * Utils.getResponsiveWidth(14),
                 ),

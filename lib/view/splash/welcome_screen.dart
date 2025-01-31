@@ -58,7 +58,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SvgPicture.asset(ImageAssets.splash_screen_logo),
+                      Image.asset(ImageAssets.splash_screen_logo),
                       SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(23),
                       ),

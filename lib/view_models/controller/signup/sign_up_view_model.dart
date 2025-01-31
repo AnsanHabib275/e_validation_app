@@ -39,9 +39,8 @@ class SignUpViewModel extends GetxController {
       'FirstName': firstNameController.value.text,
       'LastName': lastNameController.value.text,
       'email': emailController.value.text,
-      'PhoneNumber': countryCodeController.value.text +
-          '' +
-          phoneNumberController.value.text,
+      'CountryCode': countryCodeController.value.text,
+      'PhoneNumber': phoneNumberController.value.text,
       'DOB': dateOfBirthController.value.text,
       // 'Gender': genderController.value.text,
       'password': passwordController.value.text,
@@ -57,7 +56,7 @@ class SignUpViewModel extends GetxController {
         errorMessage.value = 'invalid_email'.tr;
       } else {
         Utils.toastMessage("Success");
-        Get.toNamed(RoutesName.otpScreen);
+        Get.toNamed(RoutesName.verifyEmailScreen);
       }
     }).onError((error, stackTrace) {
       loading.value = false;
