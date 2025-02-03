@@ -90,11 +90,22 @@ class Languages extends Translations {
           'know_your_customer': 'Know Your Customer',
           'change_password': 'Change Password',
           'what_are_the_benefits_of_points': 'What are the benefits of points?',
+          'redeem_points': 'Redeem Points',
+          'redeem_points_description':
+              'Know Your Customer guidelines in financial service require that professionals make an effort to verify the identity, suitability, and risks involved with maintaining a business relationship.',
           'what_is_kyc': 'What is KYC?',
+          'kyc_description':
+              'The primary motive behind a loyalty program is to retain customers by rewarding them for their repeat purchase behavior',
           'lorem_ipsum_is_simply_dummy_text':
               'Lorem Ipsum is simply dummy text?',
+          'simply_dummy_text': 'Simply Dummy Text',
+          'lorem_ipsum_description':
+              'Lorem Ipsum is simply dummy text used as a placeholder in the printing and typesetting industry to demonstrate the visual form of a document or typeface without relying on meaningful content.',
           'generate_lorem_ipsum_which_looks_reasonable':
               'Generate Lorem Ipsum Which Looks Reasonable?',
+          'generate_lorem_ipsum': 'Generate Lorem Ipsum',
+          'generate_lorem_ipsum_description':
+              'Generating Lorem Ipsum that looks reasonable involves creating placeholder text that mimics the structure and flow of natural language, making it suitable for design mockups, layouts, and testing without distracting from the visual presentation.',
           'upload_your_identity_card_front_and_back':
               'Upload Your Identity Card Front And Back!',
           'user_name': 'User Name',
@@ -151,6 +162,9 @@ class Languages extends Translations {
           'select_image_source': 'Select Image Source',
           'camera': 'Camera',
           'gallery': 'Gallery',
+          'ok': 'OK',
+          'done': 'Done',
+          'leave': 'Leave',
         },
         'ur_PK': {
           'splash_screen': 'سپلیش اسکرین',

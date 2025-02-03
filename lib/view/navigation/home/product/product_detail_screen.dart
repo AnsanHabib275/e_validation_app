@@ -1,3 +1,4 @@
+import 'package:e_validation/view/navigation/home/product/fake_product_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_verify_done_screen.dart';
 import 'package:e_validation/view/navigation/home/product/widget/done_button_widget.dart';
 import 'package:e_validation/view/navigation/home/product/widget/product_verify_done_button_widget.dart';
@@ -18,6 +19,8 @@ class ProductDetailScreen extends StatefulWidget {
 }
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
+  final navigationVM = Get.put(NavigationViewModel());
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -40,222 +43,233 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     top: Get.height * Utils.getResponsiveHeight(107)),
                 child: Align(
                   alignment: Alignment.center,
-                  child: Image.asset(
-                    ImageAssets.product_with_qr_code,
-                    fit: BoxFit.contain,
-                    height: Get.height * Utils.getResponsiveHeight(254),
-                    width: Get.width * Utils.getResponsiveWidth(93),
+                  child: InkWell(
+                    onTap: () {
+                      navigationVM.changeScreen(FakeProductScreen());
+                    },
+                    child: Image.asset(
+                      ImageAssets.product_with_qr_code,
+                      fit: BoxFit.contain,
+                      height: Get.height * Utils.getResponsiveHeight(254),
+                      width: Get.width * Utils.getResponsiveWidth(93),
+                    ),
                   ),
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: Get.width * Utils.getResponsiveWidth(20)),
-              child: SingleChildScrollView(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(22),
-                      ),
-                      Text(
-                        'product_details'.tr,
-                        style: TextStyle(
-                            color: AppColor.textColorPrimary,
-                            fontSize: Get.height * Utils.getResponsiveSize(22),
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600),
-                      ),
-                      SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(8),
-                      ),
-                      Card(
-                        elevation: 1,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal:
-                                  Get.width * Utils.getResponsiveWidth(10),
-                              vertical:
-                                  Get.height * Utils.getResponsiveHeight(12)),
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    'product_name'.tr,
-                                    style: TextStyle(
-                                        color: AppColor.textLightGreyPrimary,
-                                        fontSize: Get.height *
-                                            Utils.getResponsiveSize(16),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Spacer(),
-                                  Text(
-                                    'lorem ipsum',
-                                    style: TextStyle(
-                                        color: AppColor.textLightGreyPrimary,
-                                        fontSize: Get.height *
-                                            Utils.getResponsiveSize(16),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(10),
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    'barcode'.tr,
-                                    style: TextStyle(
-                                        color: AppColor.textLightGreyPrimary,
-                                        fontSize: Get.height *
-                                            Utils.getResponsiveSize(16),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Spacer(),
-                                  Text(
-                                    '3425168789',
-                                    style: TextStyle(
-                                        color: AppColor.textLightGreyPrimary,
-                                        fontSize: Get.height *
-                                            Utils.getResponsiveSize(16),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(10),
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    'product_sku'.tr,
-                                    style: TextStyle(
-                                        color: AppColor.textLightGreyPrimary,
-                                        fontSize: Get.height *
-                                            Utils.getResponsiveSize(16),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Spacer(),
-                                  Text(
-                                    '24-mb04',
-                                    style: TextStyle(
-                                        color: AppColor.textLightGreyPrimary,
-                                        fontSize: Get.height *
-                                            Utils.getResponsiveSize(16),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(10),
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    'supplier'.tr,
-                                    style: TextStyle(
-                                        color: AppColor.textLightGreyPrimary,
-                                        fontSize: Get.height *
-                                            Utils.getResponsiveSize(16),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Spacer(),
-                                  Text(
-                                    'lorem ipsum',
-                                    style: TextStyle(
-                                        color: AppColor.textLightGreyPrimary,
-                                        fontSize: Get.height *
-                                            Utils.getResponsiveSize(16),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(10),
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    'created_at'.tr,
-                                    style: TextStyle(
-                                        color: AppColor.textLightGreyPrimary,
-                                        fontSize: Get.height *
-                                            Utils.getResponsiveSize(16),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Spacer(),
-                                  Text(
-                                    '10-24-2022',
-                                    style: TextStyle(
-                                        color: AppColor.textLightGreyPrimary,
-                                        fontSize: Get.height *
-                                            Utils.getResponsiveSize(16),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(10),
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    'expiry_date'.tr,
-                                    style: TextStyle(
-                                        color: AppColor.textLightGreyPrimary,
-                                        fontSize: Get.height *
-                                            Utils.getResponsiveSize(16),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Spacer(),
-                                  Text(
-                                    '10-24-2022',
-                                    style: TextStyle(
-                                        color: AppColor.textLightGreyPrimary,
-                                        fontSize: Get.height *
-                                            Utils.getResponsiveSize(16),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                ],
-                              ),
-                            ],
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left: Get.width * Utils.getResponsiveWidth(20),
+                  right: Get.width * Utils.getResponsiveWidth(20),
+                  bottom: kBottomNavigationBarHeight,
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(22),
+                        ),
+                        Text(
+                          'product_details'.tr,
+                          style: TextStyle(
+                              color: AppColor.textColorPrimary,
+                              fontSize:
+                                  Get.height * Utils.getResponsiveSize(22),
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(8),
+                        ),
+                        Card(
+                          elevation: 1,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal:
+                                    Get.width * Utils.getResponsiveWidth(10),
+                                vertical:
+                                    Get.height * Utils.getResponsiveHeight(12)),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      'product_name'.tr,
+                                      style: TextStyle(
+                                          color: AppColor.textLightGreyPrimary,
+                                          fontSize: Get.height *
+                                              Utils.getResponsiveSize(16),
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    Spacer(),
+                                    Text(
+                                      'lorem ipsum',
+                                      style: TextStyle(
+                                          color: AppColor.textLightGreyPrimary,
+                                          fontSize: Get.height *
+                                              Utils.getResponsiveSize(16),
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: Get.height *
+                                      Utils.getResponsiveHeight(10),
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'barcode'.tr,
+                                      style: TextStyle(
+                                          color: AppColor.textLightGreyPrimary,
+                                          fontSize: Get.height *
+                                              Utils.getResponsiveSize(16),
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    Spacer(),
+                                    Text(
+                                      '3425168789',
+                                      style: TextStyle(
+                                          color: AppColor.textLightGreyPrimary,
+                                          fontSize: Get.height *
+                                              Utils.getResponsiveSize(16),
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: Get.height *
+                                      Utils.getResponsiveHeight(10),
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'product_sku'.tr,
+                                      style: TextStyle(
+                                          color: AppColor.textLightGreyPrimary,
+                                          fontSize: Get.height *
+                                              Utils.getResponsiveSize(16),
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    Spacer(),
+                                    Text(
+                                      '24-mb04',
+                                      style: TextStyle(
+                                          color: AppColor.textLightGreyPrimary,
+                                          fontSize: Get.height *
+                                              Utils.getResponsiveSize(16),
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: Get.height *
+                                      Utils.getResponsiveHeight(10),
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'supplier'.tr,
+                                      style: TextStyle(
+                                          color: AppColor.textLightGreyPrimary,
+                                          fontSize: Get.height *
+                                              Utils.getResponsiveSize(16),
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    Spacer(),
+                                    Text(
+                                      'lorem ipsum',
+                                      style: TextStyle(
+                                          color: AppColor.textLightGreyPrimary,
+                                          fontSize: Get.height *
+                                              Utils.getResponsiveSize(16),
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: Get.height *
+                                      Utils.getResponsiveHeight(10),
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'created_at'.tr,
+                                      style: TextStyle(
+                                          color: AppColor.textLightGreyPrimary,
+                                          fontSize: Get.height *
+                                              Utils.getResponsiveSize(16),
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    Spacer(),
+                                    Text(
+                                      '10-24-2022',
+                                      style: TextStyle(
+                                          color: AppColor.textLightGreyPrimary,
+                                          fontSize: Get.height *
+                                              Utils.getResponsiveSize(16),
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: Get.height *
+                                      Utils.getResponsiveHeight(10),
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'expiry_date'.tr,
+                                      style: TextStyle(
+                                          color: AppColor.textLightGreyPrimary,
+                                          fontSize: Get.height *
+                                              Utils.getResponsiveSize(16),
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    Spacer(),
+                                    Text(
+                                      '10-24-2022',
+                                      style: TextStyle(
+                                          color: AppColor.textLightGreyPrimary,
+                                          fontSize: Get.height *
+                                              Utils.getResponsiveSize(16),
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(63),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal:
-                                Get.width * Utils.getResponsiveWidth(10)),
-                        child: ProductVerifyDoneButtonWidget(),
-                      ),
-                      SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(107),
-                      ),
-                    ]),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(63),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  Get.width * Utils.getResponsiveWidth(10)),
+                          child: ProductVerifyDoneButtonWidget(),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(150),
+                        ),
+                      ]),
+                ),
               ),
             ),
           ],

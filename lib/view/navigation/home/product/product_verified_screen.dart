@@ -33,52 +33,59 @@ class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Positioned(
-                right: Get.width * Utils.getResponsiveWidth(10),
-                top: Get.height * Utils.getResponsiveHeight(70),
-                child: Image.asset(IconAssets.ic_close)),
-            Positioned(
-                left: 0,
-                right: 0,
-                top: 0,
-                bottom: 0,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      InkWell(
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+      child: Scaffold(
+        body: SafeArea(
+          child: Stack(
+            children: [
+              Positioned(
+                  right: Get.width * Utils.getResponsiveWidth(10),
+                  top: Get.height * Utils.getResponsiveHeight(30),
+                  child: Image.asset(IconAssets.ic_close)),
+              Positioned(
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  bottom: 0,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        InkWell(
+                            onTap: () {
+                              navigationVM.changeScreen(ProductDetailScreen());
+                              // Get.to(() => const ProductDetailScreen());
+                              // Get.toNamed(RoutesName.productDetailScreen);
+                            },
+                            child: SvgPicture.asset(
+                                ImageAssets.account_created_logo)),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(36),
+                        ),
+                        InkWell(
                           onTap: () {
-                            navigationVM.changeScreen(ProductDetailScreen());
-                            // Get.to(() => const ProductDetailScreen());
+                            navigationVM.changeScreen(FakeProductScreen());
+                            // Get.to(() => const FakeProductScreen());
                             // Get.toNamed(RoutesName.productDetailScreen);
                           },
-                          child: SvgPicture.asset(
-                              ImageAssets.account_created_logo)),
-                      InkWell(
-                        onTap: () {
-                          navigationVM.changeScreen(FakeProductScreen());
-                          // Get.to(() => const FakeProductScreen());
-                          // Get.toNamed(RoutesName.productDetailScreen);
-                        },
-                        child: Text(
-                          'product_verified'.tr,
-                          style: TextStyle(
-                            color: AppColor.textColorPrimary,
-                            fontSize: Get.height * Utils.getResponsiveSize(30),
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600,
+                          child: Text(
+                            'product_verified'.tr,
+                            style: TextStyle(
+                              color: AppColor.textColorPrimary,
+                              fontSize:
+                                  Get.height * Utils.getResponsiveSize(30),
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
-                        ),
-                      )
-                    ],
-                  ),
-                )),
-          ],
+                        )
+                      ],
+                    ),
+                  )),
+            ],
+          ),
         ),
       ),
     );

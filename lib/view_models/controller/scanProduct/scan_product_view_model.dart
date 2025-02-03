@@ -1,7 +1,7 @@
-import 'package:e_validation/models/scan_data_model.dart';
 import 'package:e_validation/repository/scan_product_repository/scan_product_repository.dart';
 import 'package:e_validation/view/navigation/home/product/product_verified_screen.dart';
 import 'package:e_validation/view_models/controller/navigation/navigation_view_model.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 import '../../../res/routes/routes_name.dart';
@@ -15,22 +15,28 @@ class ScanProductViewModel extends GetxController {
   RxBool isVisible = true.obs;
   RxString errorMessage = ''.obs;
 
-  Future<Scanmodel?> scanProductApi(String productHash, String eid) async {
+  void scanProductApi(String productHash, String eid) {
     loading.value = true;
     Map data = {
       'productHash': productHash,
       'deviceIp': "",
       'deviceIdentity': "",
     };
-    print(data);
+    if (kDebugMode) {
+      print(data);
+    }
     _api.scanProductApi(data, eid).then((value) {
       loading.value = false;
-      print(value);
+      if (kDebugMode) {
+        print(value);
+      }
       bool check = value["IsSuccessfull"];
       if (check) {
-        print('Status Code 200 and isSuccessfull is true');
+        if (kDebugMode) {
+          print('Status Code 200 and isSuccessfull is true');
+        }
 
-        return scanmodelFromJson(value);
+        // return scanmodelFromJson(value);
         navigationVM.changeScreen(ProductVerifiedScreen());
       } else {
         Utils.toastMessage('Fake Product');
@@ -42,7 +48,7 @@ class ScanProductViewModel extends GetxController {
           productid: productid,
           scanCount: scanCount,
         });
-        return null;
+        // return null;
       }
       // if (value['errorcode'] == 1023) {
       //   errorMessage.value = value['message'];
@@ -55,11 +61,13 @@ class ScanProductViewModel extends GetxController {
       //   Get.toNamed(RoutesName.productDetailScreen);
       // }
     }).onError((error, stackTrace) {
-      print(error.toString());
+      if (kDebugMode) {
+        print(error.toString());
+      }
       loading.value = false;
       errorMessage.value = error.toString();
-      return null;
+      // return null;
     });
-    return null;
+    // return null;
   }
 }

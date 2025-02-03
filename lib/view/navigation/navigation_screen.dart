@@ -6,7 +6,6 @@ import 'package:e_validation/view/navigation/home/home_screen.dart';
 import 'package:e_validation/view/navigation/menu/faqs/faqs_screen.dart';
 import 'package:e_validation/view/navigation/menu/kyc/kyc_screen.dart';
 import 'package:e_validation/view/navigation/menu/not_eligible/not_eligible_screen.dart';
-import 'package:e_validation/view/navigation/menu/points/points_screen.dart';
 import 'package:e_validation/view/navigation/menu/profile/profile_screen.dart';
 import 'package:e_validation/view/navigation/menu/redeem/redeem_reward_screen.dart';
 import 'package:e_validation/view/navigation/menu/settings/settings_screen.dart';
@@ -51,6 +50,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
     MenuItemsModel(IconAssets.ic_menu_logout, 'Logout'),
   ];
   Widget? _child;
+  int _currentIndex = 2;
 
   String? eid = '';
 
@@ -161,11 +161,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
         ),
         body: Stack(
           children: [
-            Expanded(
-              child: Center(
-                child:
-                    Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
-              ),
+            Center(
+              child: Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
             ),
             SafeArea(
               top: false,
@@ -192,20 +189,91 @@ class _NavigationScreenState extends State<NavigationScreen> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           onTap: _handleNavigationChange,
+          currentIndex: _currentIndex,
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: AppColor.transparent,
           elevation: 0,
           items: [
             BottomNavigationBarItem(
-                backgroundColor: Colors.transparent,
                 icon: Image.asset(IconAssets.ic_bn_reward),
+                activeIcon: Container(
+                  padding: EdgeInsets.all(
+                      Get.height * Utils.getResponsiveHeight(10)),
+                  decoration: BoxDecoration(
+                    color: AppColor.colorPrimary,
+                    borderRadius: BorderRadius.circular(
+                        Get.height * Utils.getResponsiveSize(6)),
+                  ),
+                  child: Image.asset(
+                    IconAssets.ic_bn_reward,
+                    color: AppColor.whiteColor,
+                  ),
+                ),
                 label: ''),
             BottomNavigationBarItem(
-                icon: Image.asset(IconAssets.ic_bn_history), label: ''),
+                icon: Image.asset(IconAssets.ic_bn_history),
+                activeIcon: Container(
+                  padding: EdgeInsets.all(
+                      Get.height * Utils.getResponsiveHeight(10)),
+                  decoration: BoxDecoration(
+                    color: AppColor.colorPrimary,
+                    borderRadius: BorderRadius.circular(
+                        Get.height * Utils.getResponsiveSize(6)),
+                  ),
+                  child: Image.asset(
+                    IconAssets.ic_bn_history,
+                    color: AppColor.whiteColor,
+                  ),
+                ),
+                label: ''),
             BottomNavigationBarItem(
-                icon: Image.asset(IconAssets.ic_bn_home), label: ''),
+                icon: Image.asset(IconAssets.ic_bn_home),
+                activeIcon: Container(
+                  padding: EdgeInsets.all(
+                      Get.height * Utils.getResponsiveHeight(10)),
+                  decoration: BoxDecoration(
+                    color: AppColor.colorPrimary,
+                    borderRadius: BorderRadius.circular(
+                        Get.height * Utils.getResponsiveSize(6)),
+                  ),
+                  child: Image.asset(
+                    IconAssets.ic_bn_home,
+                    color: AppColor.whiteColor,
+                  ),
+                ),
+                label: ''),
             BottomNavigationBarItem(
-                icon: Image.asset(IconAssets.ic_bn_notification), label: ''),
+                icon: Image.asset(IconAssets.ic_bn_notification),
+                activeIcon: Container(
+                  padding: EdgeInsets.all(
+                      Get.height * Utils.getResponsiveHeight(10)),
+                  decoration: BoxDecoration(
+                    color: AppColor.colorPrimary,
+                    borderRadius: BorderRadius.circular(
+                        Get.height * Utils.getResponsiveSize(6)),
+                  ),
+                  child: Image.asset(
+                    IconAssets.ic_bn_notification,
+                    color: AppColor.whiteColor,
+                  ),
+                ),
+                label: ''),
             BottomNavigationBarItem(
-                icon: Image.asset(IconAssets.ic_bn_complaint), label: ''),
+                icon: Image.asset(IconAssets.ic_bn_complaint),
+                activeIcon: Container(
+                  padding: EdgeInsets.all(
+                      Get.height * Utils.getResponsiveHeight(10)),
+                  decoration: BoxDecoration(
+                    color: AppColor.colorPrimary,
+                    borderRadius: BorderRadius.circular(
+                        Get.height * Utils.getResponsiveSize(6)),
+                  ),
+                  child: Image.asset(
+                    IconAssets.ic_bn_complaint,
+                    color: AppColor.whiteColor,
+                  ),
+                ),
+                label: ''),
           ],
         ),
       ),
@@ -214,6 +282,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   void _handleNavigationChange(int index) {
     setState(() {
+      _currentIndex = index;
       switch (index) {
         case 0:
           navigationVM.changeScreen(RewardScreen());
@@ -235,9 +304,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
           break;
       }
       _child = AnimatedSwitcher(
-        switchInCurve: Curves.bounceIn,
-        switchOutCurve: Curves.bounceOut,
-        duration: Duration(milliseconds: 100),
+        switchInCurve: Curves.easeIn,
+        switchOutCurve: Curves.easeOut,
+        duration: Duration(milliseconds: 300),
         child: _child,
       );
     });
@@ -280,9 +349,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
           break;
       }
       _child = AnimatedSwitcher(
-        switchInCurve: Curves.bounceIn,
-        switchOutCurve: Curves.bounceOut,
-        duration: Duration(milliseconds: 100),
+        switchInCurve: Curves.easeIn,
+        switchOutCurve: Curves.easeOut,
+        duration: Duration(milliseconds: 300),
         child: _child,
       );
     });
@@ -343,12 +412,14 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    DeleteButtonWidget(
-                      formkey: _formkey,
-                      eid: eid,
+                    Expanded(
+                      child: DeleteButtonWidget(
+                        formkey: _formkey,
+                        eid: eid,
+                      ),
                     ),
                     SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
-                    CancelButtonWidget(),
+                    Expanded(child: CancelButtonWidget()),
                   ],
                 ),
               ],
@@ -406,9 +477,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    YesButtonWidget(),
+                    Expanded(child: YesButtonWidget()),
                     SizedBox(width: Get.width * Utils.getResponsiveWidth(5)),
-                    NoButtonWidget(),
+                    Expanded(child: NoButtonWidget()),
                   ],
                 ),
               ],

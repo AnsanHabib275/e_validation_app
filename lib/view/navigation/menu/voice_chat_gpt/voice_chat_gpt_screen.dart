@@ -120,13 +120,12 @@ class _VoiceChatGptScreenState extends State<VoiceChatGptScreen> {
                         left: 0,
                         bottom: 0,
                         child: IconButton(
-                          icon: SvgPicture.asset(
-                            IconAssets.ic_menu,
-                            width: Get.width * Utils.getResponsiveWidth(63),
-                            height: Get.height * Utils.getResponsiveHeight(63),
-                            color: AppColor.whiteColor,
-                          ),
-                          onPressed: () => Scaffold.of(context).openDrawer(),
+                          icon: Icon(
+                            Icons.arrow_back_ios_new_outlined,
+                            size: Get.height * Utils.getResponsiveSize(24),
+                            color: AppColor.textWhite,
+                          ), // Change the color here
+                          onPressed: () => Get.back(),
                         ),
                       ),
                       Positioned(

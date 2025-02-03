@@ -41,83 +41,103 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: Get.height * Utils.getResponsiveHeight(29),
-              ),
-              Text(
-                'fake_product'.tr,
-                style: TextStyle(
-                    color: AppColor.textColorPrimary,
-                    fontSize: Get.height * Utils.getResponsiveSize(22),
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600),
-              ),
-              SizedBox(
-                height: Get.height * Utils.getResponsiveHeight(8),
-              ),
-              Card(
-                elevation: 0.1,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: Get.width * Utils.getResponsiveWidth(10),
-                      vertical: Get.height * Utils.getResponsiveHeight(12)),
-                  child: Row(
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'product_scanned'.tr,
-                        style: TextStyle(
-                            color: AppColor.textLightGreyPrimary,
-                            fontSize: Get.height * Utils.getResponsiveSize(16),
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w400),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(29),
                       ),
-                      Spacer(),
                       Text(
-                        '5',
+                        'fake_product'.tr,
                         style: TextStyle(
-                            color: AppColor.textRedPrimary,
-                            fontSize: Get.height * Utils.getResponsiveSize(16),
+                            color: AppColor.textColorPrimary,
+                            fontSize: Get.height * Utils.getResponsiveSize(22),
                             fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w400),
+                            fontWeight: FontWeight.w600),
+                      ),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(8),
+                      ),
+                      Card(
+                        elevation: 1,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  Get.width * Utils.getResponsiveWidth(10),
+                              vertical:
+                                  Get.height * Utils.getResponsiveHeight(12)),
+                          child: Row(
+                            children: [
+                              Text(
+                                'product_scanned'.tr,
+                                style: TextStyle(
+                                    color: AppColor.textLightGreyPrimary,
+                                    fontSize: Get.height *
+                                        Utils.getResponsiveSize(16),
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w400),
+                              ),
+                              Spacer(),
+                              Text(
+                                '5',
+                                style: TextStyle(
+                                    color: AppColor.textRedPrimary,
+                                    fontSize: Get.height *
+                                        Utils.getResponsiveSize(16),
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(10),
+                      ),
+                      Card(
+                        elevation: 1,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  Get.width * Utils.getResponsiveWidth(10),
+                              vertical:
+                                  Get.height * Utils.getResponsiveHeight(12)),
+                          child: Text(
+                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                            style: TextStyle(
+                                color: AppColor.textLightGreyPrimary,
+                                fontSize:
+                                    Get.height * Utils.getResponsiveSize(16),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(106),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(child: LeaveButtonWidget()),
+                          SizedBox(
+                            width: Get.width * Utils.getResponsiveWidth(12),
+                          ),
+                          Expanded(child: ComplainButtonWidget()),
+                        ],
+                      ),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(150),
                       ),
                     ],
                   ),
                 ),
-              ),
-              SizedBox(
-                height: Get.height * Utils.getResponsiveHeight(10),
-              ),
-              Card(
-                elevation: 0.1,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: Get.width * Utils.getResponsiveWidth(10),
-                      vertical: Get.height * Utils.getResponsiveHeight(12)),
-                  child: Text(
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-                    style: TextStyle(
-                        color: AppColor.textLightGreyPrimary,
-                        fontSize: Get.height * Utils.getResponsiveSize(16),
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w400),
-                  ),
-                ),
-              ),
-              // Spacer(),
-              SizedBox(
-                height: Get.height * Utils.getResponsiveHeight(106),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  LeaveButtonWidget(),
-                  SizedBox(
-                    width: Get.width * Utils.getResponsiveWidth(12),
-                  ),
-                  ComplainButtonWidget(),
-                ],
-              ),
+              )
+
               // LeaveButtonWidget(),
               // ComplainButtonWidget(),
             ],

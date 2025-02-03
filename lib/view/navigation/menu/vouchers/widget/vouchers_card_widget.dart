@@ -20,7 +20,6 @@ class VouchersCardWidget extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: 203,
           width: double.infinity,
           child: InkWell(
             onTap: () {

@@ -14,13 +14,12 @@ class LeaveButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      return RoundButton(
-        title: 'leave'.tr,
-        onPress: () {
-          navigationVM.changeScreen(HomeScreen());
-        },
-      );
-    });
+    return RoundButton(
+      width: 188,
+      title: 'leave'.tr,
+      onPress: () {
+        navigationVM.changeScreen(HomeScreen());
+      },
+    );
   }
 }

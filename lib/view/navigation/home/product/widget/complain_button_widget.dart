@@ -12,13 +12,12 @@ class ComplainButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      return RoundButtonBorder(
-        title: 'complain'.tr,
-        onPress: () {
-          navigationVM.changeScreen(ComplainScreen());
-        },
-      );
-    });
+    return RoundButtonBorder(
+      width: 188,
+      title: 'complain'.tr,
+      onPress: () {
+        navigationVM.changeScreen(ComplainScreen());
+      },
+    );
   }
 }
