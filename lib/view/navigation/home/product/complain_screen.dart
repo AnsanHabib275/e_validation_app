@@ -104,7 +104,7 @@ class _ComplainScreenState extends State<ComplainScreen> {
                   ),
                   SubmitButtonWidget(formkey: _formkey),
                   SizedBox(
-                    height: Get.height * Utils.getResponsiveHeight(150),
+                    height: MediaQuery.of(context).padding.bottom + 30,
                   ),
                 ]),
               ),

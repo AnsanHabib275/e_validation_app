@@ -66,7 +66,7 @@ class _OTPScreenState extends State<OTPScreen> {
                       ),
                       centerTitle: true,
                       title: Text(
-                        'verification'.tr,
+                        'reset_password'.tr,
                         style: TextStyle(
                             color: AppColor.textColorPrimary,
                             fontSize: Get.height * Utils.getResponsiveSize(26),
@@ -77,7 +77,6 @@ class _OTPScreenState extends State<OTPScreen> {
                   ),
                 ],
               )),
-          resizeToAvoidBottomInset: false,
           body: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,

@@ -3,7 +3,7 @@ import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/view/navigation/home/product/widget/done_button_widget.dart';
 import 'package:e_validation/view/navigation/menu/faqs/widget/faqs_card_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../res/assets/font_assets.dart';
@@ -47,19 +47,21 @@ class _FAQSScreenState extends State<FAQSScreen> {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(
-        floatingActionButton: Padding(
-          padding: EdgeInsets.only(
-              bottom: Get.height * Utils.getResponsiveHeight(116)),
-          child: FloatingActionButton.small(
-            onPressed: () {
-              Get.toNamed(RoutesName.voiceChatGptScreen);
-            },
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                    Get.height * Utils.getResponsiveSize(4))),
-            backgroundColor: AppColor.underlineTextColor,
-            child: SvgPicture.asset(
-              IconAssets.ic_question,
+        floatingActionButton: SafeArea(
+          child: Padding(
+            padding:
+                EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
+            child: FloatingActionButton.small(
+              onPressed: () {
+                Get.toNamed(RoutesName.voiceChatGptScreen);
+              },
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                      Get.height * Utils.getResponsiveSize(4))),
+              backgroundColor: AppColor.underlineTextColor,
+              child: SvgPicture.asset(
+                IconAssets.ic_question,
+              ),
             ),
           ),
         ),

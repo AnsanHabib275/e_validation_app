@@ -34,6 +34,7 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                 child: Align(
                   alignment: Alignment.center,
                   child: Image.asset(
+                    color: AppColor.transparent,
                     GifAssets.gif_fake_product,
                     colorBlendMode: BlendMode.softLight,
                     height: Get.height * Utils.getResponsiveHeight(300),
@@ -131,7 +132,7 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                         ],
                       ),
                       SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(150),
+                        height: MediaQuery.of(context).padding.bottom,
                       ),
                     ],
                   ),

@@ -2,7 +2,7 @@ import 'package:e_validation/view/reset_password/widget/input_confirm_password_w
 import 'package:e_validation/view/reset_password/widget/input_new_password_widget.dart';
 import 'package:e_validation/view/reset_password/widget/reset_password_button_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../res/assets/font_assets.dart';

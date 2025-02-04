@@ -5,7 +5,7 @@ import 'package:e_validation/view/signup/widget/input_gender_widget.dart';
 import 'package:e_validation/view/signup/widget/input_last_name_widget.dart';
 import 'package:e_validation/view/signup/widget/input_first_name_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../res/assets/image_assets.dart';

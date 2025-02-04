@@ -18,7 +18,7 @@ import 'package:e_validation/view/navigation/widget/no_button_widget.dart';
 import 'package:e_validation/view/navigation/widget/yes_button_widget.dart';
 import 'package:e_validation/view_models/controller/navigation/navigation_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../models/navigation/menu_items_model.dart';
@@ -65,216 +65,221 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-      },
-      child: Scaffold(
-        extendBody: true,
-        extendBodyBehindAppBar: true,
-        backgroundColor: AppColor.transparent,
-        drawer: Drawer(
-          child: ListView(
-            children: [
-              Container(
-                height: Get.height * Utils.getResponsiveHeight(200),
-                child: DrawerHeader(
-                  margin: EdgeInsets.zero,
-                  padding: EdgeInsets.zero,
-                  child: Stack(fit: StackFit.expand, children: [
-                    Positioned(
-                        top: 0,
-                        right: Get.width * Utils.getResponsiveWidth(10),
-                        child: InkWell(
-                            onTap: () {
-                              Get.back();
-                            },
-                            child:
-                                SvgPicture.asset(IconAssets.ic_close_circle))),
-                    Positioned(
-                      left: Get.width * Utils.getResponsiveWidth(20),
-                      top: Get.height * Utils.getResponsiveHeight(26),
-                      right: Get.width * Utils.getResponsiveWidth(20),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CircleAvatar(
-                            radius: Get.height * Utils.getResponsiveSize(40),
-                            backgroundColor: AppColor.lightGreyColor,
-                            backgroundImage:
-                                AssetImage(ImageAssets.dummy_profile),
-                          ),
-                          Text(
-                            'George Oliver',
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                                color: AppColor.textBlackPrimary,
-                                fontSize:
-                                    Get.height * Utils.getResponsiveSize(20),
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            'Georgeoliver@gmail.com',
-                            textAlign: TextAlign.start,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                color: AppColor.textBlackPrimary,
-                                fontSize:
-                                    Get.height * Utils.getResponsiveSize(16),
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ],
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Scaffold(
+          extendBody: true,
+          extendBodyBehindAppBar: true,
+          drawer: Drawer(
+            width: Get.width * Utils.getResponsiveWidth(270),
+            child: ListView(
+              children: [
+                Container(
+                  height: Get.height * Utils.getResponsiveHeight(200),
+                  child: DrawerHeader(
+                    margin: EdgeInsets.zero,
+                    padding: EdgeInsets.zero,
+                    child: Stack(fit: StackFit.expand, children: [
+                      Positioned(
+                          top: 0,
+                          right: Get.width * Utils.getResponsiveWidth(10),
+                          child: InkWell(
+                              onTap: () {
+                                Get.back();
+                              },
+                              child: SvgPicture.asset(
+                                  IconAssets.ic_close_circle))),
+                      Positioned(
+                        left: Get.width * Utils.getResponsiveWidth(20),
+                        top: Get.height * Utils.getResponsiveHeight(26),
+                        right: Get.width * Utils.getResponsiveWidth(20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CircleAvatar(
+                              radius: Get.height * Utils.getResponsiveSize(40),
+                              backgroundColor: AppColor.lightGreyColor,
+                              backgroundImage:
+                                  AssetImage(ImageAssets.dummy_profile),
+                            ),
+                            Text(
+                              'George Oliver',
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                  color: AppColor.textBlackPrimary,
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(20),
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Text(
+                              'Georgeoliver@gmail.com',
+                              textAlign: TextAlign.start,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  color: AppColor.textBlackPrimary,
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(16),
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ]),
+                    ]),
+                  ),
                 ),
+                ...items.asMap().entries.map((entry) {
+                  int index = entry.key;
+                  MenuItemsModel item = entry.value;
+                  return Column(
+                    children: [
+                      ListTile(
+                        leading:
+                            Image.asset(item.imagePath, width: 30, height: 30),
+                        title: Text(
+                          item.name,
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              fontSize:
+                                  Get.height * Utils.getResponsiveSize(18),
+                              color: AppColor.textBlackPrimary),
+                        ),
+                        onTap: () {
+                          _handleDrawerNavigationChange(item.name);
+                        },
+                      )
+                    ],
+                  );
+                }).toList()
+              ],
+            ),
+          ),
+          body: Stack(
+            children: [
+              Center(
+                child:
+                    Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
               ),
-              ...items.asMap().entries.map((entry) {
-                int index = entry.key;
-                MenuItemsModel item = entry.value;
-                return Column(
+              SafeArea(
+                top: false,
+                child: Stack(
                   children: [
-                    ListTile(
-                      leading:
-                          Image.asset(item.imagePath, width: 30, height: 30),
-                      title: Text(
-                        item.name,
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            fontSize: Get.height * Utils.getResponsiveSize(18),
-                            color: AppColor.textBlackPrimary),
-                      ),
-                      onTap: () {
-                        _handleDrawerNavigationChange(item.name);
-                      },
-                    )
+                    Positioned(
+                        top: Get.height * Utils.getResponsiveHeight(60),
+                        left: 0,
+                        right: 0,
+                        child: Divider(
+                          height: Get.height * Utils.getResponsiveHeight(1),
+                          thickness: 1,
+                          color: AppColor.textBlack10Per,
+                        )),
+                    Positioned(
+                        top: Get.height * Utils.getResponsiveHeight(60),
+                        left: 0,
+                        child: const MenuIcon()),
                   ],
-                );
-              }).toList()
+                ),
+                // child: const MenuIcon(),
+              ),
             ],
           ),
-        ),
-        body: Stack(
-          children: [
-            Center(
-              child: Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
-            ),
-            SafeArea(
-              top: false,
-              child: Stack(
-                children: [
-                  Positioned(
-                      top: Get.height * Utils.getResponsiveHeight(60),
-                      left: 0,
-                      right: 0,
-                      child: Divider(
-                        height: Get.height * Utils.getResponsiveHeight(1),
-                        thickness: 1,
-                        color: AppColor.textBlack10Per,
-                      )),
-                  Positioned(
-                      top: Get.height * Utils.getResponsiveHeight(60),
-                      left: 0,
-                      child: const MenuIcon()),
-                ],
-              ),
-              // child: const MenuIcon(),
-            ),
-          ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: _handleNavigationChange,
-          currentIndex: _currentIndex,
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: AppColor.transparent,
-          elevation: 0,
-          items: [
-            BottomNavigationBarItem(
-                icon: Image.asset(IconAssets.ic_bn_reward),
-                activeIcon: Container(
-                  padding: EdgeInsets.all(
-                      Get.height * Utils.getResponsiveHeight(10)),
-                  decoration: BoxDecoration(
-                    color: AppColor.colorPrimary,
-                    borderRadius: BorderRadius.circular(
-                        Get.height * Utils.getResponsiveSize(6)),
+          bottomNavigationBar: BottomNavigationBar(
+            onTap: _handleNavigationChange,
+            currentIndex: _currentIndex,
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: AppColor.transparent,
+            elevation: 0,
+            items: [
+              BottomNavigationBarItem(
+                  icon: Image.asset(IconAssets.ic_bn_reward),
+                  activeIcon: Container(
+                    padding: EdgeInsets.all(
+                        Get.height * Utils.getResponsiveHeight(10)),
+                    decoration: BoxDecoration(
+                      color: AppColor.colorPrimary,
+                      borderRadius: BorderRadius.circular(
+                          Get.height * Utils.getResponsiveSize(6)),
+                    ),
+                    child: Image.asset(
+                      IconAssets.ic_bn_reward,
+                      color: AppColor.whiteColor,
+                    ),
                   ),
-                  child: Image.asset(
-                    IconAssets.ic_bn_reward,
-                    color: AppColor.whiteColor,
+                  label: ''),
+              BottomNavigationBarItem(
+                  icon: Image.asset(IconAssets.ic_bn_history),
+                  activeIcon: Container(
+                    padding: EdgeInsets.all(
+                        Get.height * Utils.getResponsiveHeight(10)),
+                    decoration: BoxDecoration(
+                      color: AppColor.colorPrimary,
+                      borderRadius: BorderRadius.circular(
+                          Get.height * Utils.getResponsiveSize(6)),
+                    ),
+                    child: Image.asset(
+                      IconAssets.ic_bn_history,
+                      color: AppColor.whiteColor,
+                    ),
                   ),
-                ),
-                label: ''),
-            BottomNavigationBarItem(
-                icon: Image.asset(IconAssets.ic_bn_history),
-                activeIcon: Container(
-                  padding: EdgeInsets.all(
-                      Get.height * Utils.getResponsiveHeight(10)),
-                  decoration: BoxDecoration(
-                    color: AppColor.colorPrimary,
-                    borderRadius: BorderRadius.circular(
-                        Get.height * Utils.getResponsiveSize(6)),
+                  label: ''),
+              BottomNavigationBarItem(
+                  icon: Image.asset(IconAssets.ic_bn_home),
+                  activeIcon: Container(
+                    padding: EdgeInsets.all(
+                        Get.height * Utils.getResponsiveHeight(10)),
+                    decoration: BoxDecoration(
+                      color: AppColor.colorPrimary,
+                      borderRadius: BorderRadius.circular(
+                          Get.height * Utils.getResponsiveSize(6)),
+                    ),
+                    child: Image.asset(
+                      IconAssets.ic_bn_home,
+                      color: AppColor.whiteColor,
+                    ),
                   ),
-                  child: Image.asset(
-                    IconAssets.ic_bn_history,
-                    color: AppColor.whiteColor,
+                  label: ''),
+              BottomNavigationBarItem(
+                  icon: Image.asset(IconAssets.ic_bn_notification),
+                  activeIcon: Container(
+                    padding: EdgeInsets.all(
+                        Get.height * Utils.getResponsiveHeight(10)),
+                    decoration: BoxDecoration(
+                      color: AppColor.colorPrimary,
+                      borderRadius: BorderRadius.circular(
+                          Get.height * Utils.getResponsiveSize(6)),
+                    ),
+                    child: Image.asset(
+                      IconAssets.ic_bn_notification,
+                      color: AppColor.whiteColor,
+                    ),
                   ),
-                ),
-                label: ''),
-            BottomNavigationBarItem(
-                icon: Image.asset(IconAssets.ic_bn_home),
-                activeIcon: Container(
-                  padding: EdgeInsets.all(
-                      Get.height * Utils.getResponsiveHeight(10)),
-                  decoration: BoxDecoration(
-                    color: AppColor.colorPrimary,
-                    borderRadius: BorderRadius.circular(
-                        Get.height * Utils.getResponsiveSize(6)),
+                  label: ''),
+              BottomNavigationBarItem(
+                  icon: Image.asset(IconAssets.ic_bn_complaint),
+                  activeIcon: Container(
+                    padding: EdgeInsets.all(
+                        Get.height * Utils.getResponsiveHeight(10)),
+                    decoration: BoxDecoration(
+                      color: AppColor.colorPrimary,
+                      borderRadius: BorderRadius.circular(
+                          Get.height * Utils.getResponsiveSize(6)),
+                    ),
+                    child: Image.asset(
+                      IconAssets.ic_bn_complaint,
+                      color: AppColor.whiteColor,
+                    ),
                   ),
-                  child: Image.asset(
-                    IconAssets.ic_bn_home,
-                    color: AppColor.whiteColor,
-                  ),
-                ),
-                label: ''),
-            BottomNavigationBarItem(
-                icon: Image.asset(IconAssets.ic_bn_notification),
-                activeIcon: Container(
-                  padding: EdgeInsets.all(
-                      Get.height * Utils.getResponsiveHeight(10)),
-                  decoration: BoxDecoration(
-                    color: AppColor.colorPrimary,
-                    borderRadius: BorderRadius.circular(
-                        Get.height * Utils.getResponsiveSize(6)),
-                  ),
-                  child: Image.asset(
-                    IconAssets.ic_bn_notification,
-                    color: AppColor.whiteColor,
-                  ),
-                ),
-                label: ''),
-            BottomNavigationBarItem(
-                icon: Image.asset(IconAssets.ic_bn_complaint),
-                activeIcon: Container(
-                  padding: EdgeInsets.all(
-                      Get.height * Utils.getResponsiveHeight(10)),
-                  decoration: BoxDecoration(
-                    color: AppColor.colorPrimary,
-                    borderRadius: BorderRadius.circular(
-                        Get.height * Utils.getResponsiveSize(6)),
-                  ),
-                  child: Image.asset(
-                    IconAssets.ic_bn_complaint,
-                    color: AppColor.whiteColor,
-                  ),
-                ),
-                label: ''),
-          ],
+                  label: ''),
+            ],
+          ),
         ),
       ),
     );
@@ -359,70 +364,74 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   void showDeleteAccountDialog() {
     Get.dialog(
-      Dialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(
-              Get.height * Utils.getResponsiveSize(12)), // Rounded corners
-        ),
-        elevation: 4, // White background
-        child: SizedBox(
-          height: Get.height * Utils.getResponsiveHeight(364),
-          width: Get.width * Utils.getResponsiveWidth(368),
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: Get.width * Utils.getResponsiveWidth(20),
-                vertical: Get.height * Utils.getResponsiveHeight(20)),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center, // Center alignment
-              children: [
-                Image.asset(
-                  height: Get.height * Utils.getResponsiveHeight(52),
-                  width: Get.width * Utils.getResponsiveWidth(39),
-                  ImageAssets.img_delete,
-                ),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(22),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: Get.width * Utils.getResponsiveWidth(16)),
-                  child: Form(key: _formkey, child: InputEmailWidget()),
-                ),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(17),
-                ),
-                FittedBox(
-                  child: Text(
-                    'are_you_sure_you_want_to_delete'.tr,
-                    textAlign: TextAlign.center,
-                    textScaleFactor: 1,
-                    style: TextStyle(
-                        fontSize: Get.height * Utils.getResponsiveSize(16),
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w400,
-                        color: AppColor.textLightGreyPrimary),
+      MediaQuery(
+        data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+        child: Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius:
+                BorderRadius.circular(Get.height * Utils.getResponsiveSize(12)),
+          ),
+          elevation: 4, // White background
+          child: SizedBox(
+            height: Get.height * Utils.getResponsiveHeight(364),
+            width: Get.width * Utils.getResponsiveWidth(368),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width * Utils.getResponsiveWidth(20),
+                  vertical: Get.height * Utils.getResponsiveHeight(20)),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment:
+                    CrossAxisAlignment.center, // Center alignment
+                children: [
+                  Image.asset(
+                    height: Get.height * Utils.getResponsiveHeight(52),
+                    width: Get.width * Utils.getResponsiveWidth(39),
+                    ImageAssets.img_delete,
                   ),
-                ),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(32),
-                ),
-                // Quantity Row
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: DeleteButtonWidget(
-                        formkey: _formkey,
-                        eid: eid,
-                      ),
+                  SizedBox(
+                    height: Get.height * Utils.getResponsiveHeight(22),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: Get.width * Utils.getResponsiveWidth(16)),
+                    child: Form(key: _formkey, child: InputEmailWidget()),
+                  ),
+                  SizedBox(
+                    height: Get.height * Utils.getResponsiveHeight(17),
+                  ),
+                  FittedBox(
+                    child: Text(
+                      'are_you_sure_you_want_to_delete'.tr,
+                      textAlign: TextAlign.center,
+                      textScaleFactor: 1,
+                      style: TextStyle(
+                          fontSize: Get.height * Utils.getResponsiveSize(16),
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                          color: AppColor.textLightGreyPrimary),
                     ),
-                    SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
-                    Expanded(child: CancelButtonWidget()),
-                  ],
-                ),
-              ],
+                  ),
+                  SizedBox(
+                    height: Get.height * Utils.getResponsiveHeight(32),
+                  ),
+                  // Quantity Row
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: DeleteButtonWidget(
+                          formkey: _formkey,
+                          eid: eid,
+                        ),
+                      ),
+                      SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
+                      Expanded(child: CancelButtonWidget()),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -432,57 +441,61 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   void showLogoutDialog() {
     Get.dialog(
-      Dialog(
-        elevation: 4,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(
-              Get.height * Utils.getResponsiveSize(12)), // Rounded corners
-        ),
-        child: SizedBox(
-          height: Get.height * Utils.getResponsiveHeight(301),
-          width: Get.width * Utils.getResponsiveWidth(368),
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: Get.width * Utils.getResponsiveWidth(20),
-                vertical: Get.height * Utils.getResponsiveHeight(20)),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center, // Center alignment
-              children: [
-                SvgPicture.asset(
-                  height: Get.height * Utils.getResponsiveHeight(69),
-                  width: Get.width * Utils.getResponsiveWidth(69),
-                  ImageAssets.img_logout,
-                ),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(30),
-                ),
-                FittedBox(
-                  child: Text(
-                    'are_you_sure_you_want_to_logout'.tr,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 16,
-                        // fontSize: Get.width * Utils.getResponsiveSize(16),
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w400,
-                        color: AppColor.textLightGreyPrimary),
+      MediaQuery(
+        data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+        child: Dialog(
+          elevation: 4,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+                Get.height * Utils.getResponsiveSize(12)), // Rounded corners
+          ),
+          child: SizedBox(
+            height: Get.height * Utils.getResponsiveHeight(301),
+            width: Get.width * Utils.getResponsiveWidth(368),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width * Utils.getResponsiveWidth(20),
+                  vertical: Get.height * Utils.getResponsiveHeight(20)),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment:
+                    CrossAxisAlignment.center, // Center alignment
+                children: [
+                  SvgPicture.asset(
+                    height: Get.height * Utils.getResponsiveHeight(69),
+                    width: Get.width * Utils.getResponsiveWidth(69),
+                    ImageAssets.img_logout,
                   ),
-                ),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(30),
-                ),
-                // Quantity Row
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(child: YesButtonWidget()),
-                    SizedBox(width: Get.width * Utils.getResponsiveWidth(5)),
-                    Expanded(child: NoButtonWidget()),
-                  ],
-                ),
-              ],
+                  SizedBox(
+                    height: Get.height * Utils.getResponsiveHeight(30),
+                  ),
+                  FittedBox(
+                    child: Text(
+                      'are_you_sure_you_want_to_logout'.tr,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 16,
+                          // fontSize: Get.width * Utils.getResponsiveSize(16),
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                          color: AppColor.textLightGreyPrimary),
+                    ),
+                  ),
+                  SizedBox(
+                    height: Get.height * Utils.getResponsiveHeight(30),
+                  ),
+                  // Quantity Row
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(child: YesButtonWidget()),
+                      SizedBox(width: Get.width * Utils.getResponsiveWidth(5)),
+                      Expanded(child: NoButtonWidget()),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

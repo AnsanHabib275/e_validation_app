@@ -3,7 +3,7 @@ import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/view_models/controller/changePassword/change_password_view_model.dart';
 import 'package:e_validation/view_models/controller/navigation/navigation_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';

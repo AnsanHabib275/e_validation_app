@@ -43,7 +43,7 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: 'qr_code_no '.tr,
+                            text: 'qr_code_no'.tr,
                             style: TextStyle(
                               fontSize:
                                   Get.height * Utils.getResponsiveSize(16),

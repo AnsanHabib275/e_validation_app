@@ -78,7 +78,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                   ),
                 ],
               )),
-          resizeToAvoidBottomInset: false,
           body: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,

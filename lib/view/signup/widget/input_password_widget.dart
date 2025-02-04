@@ -1,6 +1,6 @@
 import 'package:e_validation/res/assets/icon_assets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../res/colors/app_color.dart';

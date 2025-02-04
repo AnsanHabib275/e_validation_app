@@ -16,27 +16,30 @@ class ProductVerifyDoneScreen extends StatefulWidget {
 class _ProductVerifyDoneScreenState extends State<ProductVerifyDoneScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Image.asset(
-            GifAssets.gif_done,
-            height: Get.height * Utils.getResponsiveHeight(300),
-            width: Get.width * Utils.getResponsiveWidth(300),
-          ),
-          SizedBox(
-            height: Get.height * Utils.getResponsiveHeight(102),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: Get.width * Utils.getResponsiveWidth(30)),
-            child: DoneButtonWidget(),
-          ),
-        ],
-      )),
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+      child: Scaffold(
+        body: SafeArea(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset(
+              GifAssets.gif_done,
+              height: Get.height * Utils.getResponsiveHeight(300),
+              width: Get.width * Utils.getResponsiveWidth(300),
+            ),
+            SizedBox(
+              height: Get.height * Utils.getResponsiveHeight(102),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width * Utils.getResponsiveWidth(30)),
+              child: DoneButtonWidget(),
+            ),
+          ],
+        )),
+      ),
     );
   }
 }

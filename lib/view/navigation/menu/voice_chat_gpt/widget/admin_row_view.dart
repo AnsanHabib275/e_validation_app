@@ -2,7 +2,7 @@ import 'package:e_validation/models/navigation/menu/voice_chat_gpt/voice_chat_gp
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../../res/colors/app_color.dart';

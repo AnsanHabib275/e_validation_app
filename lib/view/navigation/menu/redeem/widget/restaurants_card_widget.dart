@@ -1,7 +1,7 @@
 import 'package:e_validation/models/navigation/menu/redeem/restaurants_list_model.dart';
 import 'package:e_validation/view/navigation/menu/redeem/widget/reward_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../../res/assets/font_assets.dart';

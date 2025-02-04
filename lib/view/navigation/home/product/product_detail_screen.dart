@@ -266,7 +266,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           child: ProductVerifyDoneButtonWidget(),
                         ),
                         SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(150),
+                          height: MediaQuery.of(context).padding.bottom,
                         ),
                       ]),
                 ),

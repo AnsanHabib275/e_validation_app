@@ -2,7 +2,7 @@ import 'package:e_validation/models/navigation/notification_list_model.dart';
 import 'package:e_validation/view/navigation/notification/widget/notification_cart_widget.dart';
 import 'package:e_validation/view_models/controller/navigation/notification/notification_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../res/assets/font_assets.dart';

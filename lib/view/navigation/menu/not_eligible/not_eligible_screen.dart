@@ -17,60 +17,64 @@ class NotEligibleScreen extends StatefulWidget {
 class _NotEligibleScreenState extends State<NotEligibleScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        height: Get.height * 1,
-        width: Get.width * 1,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-                ImageAssets.splash_bg), // Replace with your image path
-            fit: BoxFit.cover, // Adjust the image to fill the screen
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+      child: Scaffold(
+        body: Container(
+          height: Get.height * 1,
+          width: Get.width * 1,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                  ImageAssets.splash_bg), // Replace with your image path
+              fit: BoxFit.cover, // Adjust the image to fill the screen
+            ),
           ),
-        ),
-        child: Stack(
-          children: [
-            Positioned(
-                right: Get.width * Utils.getResponsiveWidth(10),
-                top: Get.height * Utils.getResponsiveHeight(70),
-                child: InkWell(
-                    onTap: () {
-                      // Get.back();
-                    },
-                    child: Image.asset(IconAssets.ic_close_with_white_bg))),
-            Positioned(
-                left: 0,
-                right: 0,
-                top: 0,
-                bottom: 0,
-                child: Center(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * Utils.getResponsiveWidth(60)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset(ImageAssets.img_not_eligible),
-                        SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(30),
-                        ),
-                        Text(
-                          'sorry_you_are_not_eligible_right_now'.tr,
-                          textScaleFactor: 1,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: AppColor.textLightGreyPrimary,
-                            fontSize: Get.height * Utils.getResponsiveSize(20),
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
+          child: Stack(
+            children: [
+              Positioned(
+                  right: Get.width * Utils.getResponsiveWidth(10),
+                  top: Get.height * Utils.getResponsiveHeight(70),
+                  child: InkWell(
+                      onTap: () {
+                        // Get.back();
+                      },
+                      child: Image.asset(IconAssets.ic_close_with_white_bg))),
+              Positioned(
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  bottom: 0,
+                  child: Center(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: Get.width * Utils.getResponsiveWidth(60)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(ImageAssets.img_not_eligible),
+                          SizedBox(
+                            height: Get.height * Utils.getResponsiveHeight(30),
                           ),
-                        )
-                      ],
+                          Text(
+                            'sorry_you_are_not_eligible_right_now'.tr,
+                            textScaleFactor: 1,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: AppColor.textLightGreyPrimary,
+                              fontSize:
+                                  Get.height * Utils.getResponsiveSize(20),
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                )),
-          ],
+                  )),
+            ],
+          ),
         ),
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:e_validation/view/navigation/history/widget/history_cart_widget.dart';
 import 'package:e_validation/view_models/controller/navigation/history/history_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../models/navigation/history_list_model.dart';

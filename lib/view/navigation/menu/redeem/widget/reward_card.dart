@@ -2,7 +2,7 @@ import 'package:e_validation/res/assets/font_assets.dart';
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/res/colors/app_color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -49,7 +49,7 @@ class RewardCard extends StatelessWidget {
               style: TextStyle(
                 color: AppColor.textColorPrimary,
                 fontFamily: 'Poppins',
-fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w500,
                 fontSize: 12,
               ),
             ),
