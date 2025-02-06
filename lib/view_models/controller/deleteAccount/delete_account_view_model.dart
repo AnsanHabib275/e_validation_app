@@ -25,14 +25,14 @@ class DeleteAccountViewModel extends GetxController {
     };
     _api.deleteAccountApi(data, e_id).then((value) {
       loading.value = false;
-      if (value['errorcode'] == 1023) {
+      if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
-      } else if (value['errorcode'] == 3084) {
-        errorMessage.value = 'email_verification_failed'.tr;
-      } else if (value['errorcode'] == 3064) {
-        errorMessage.value = 'invalid_email'.tr;
+        // } else if (value['errorcode'] == 3084) {
+        //   errorMessage.value = 'email_verification_failed'.tr;
+        // } else if (value['errorcode'] == 3064) {
+        //   errorMessage.value = 'invalid_email'.tr;
       } else {
-        Utils.toastMessage(value['message']);
+        Utils.toastMessage('Account Deleted');
         userPreference.removeUser();
         Get.offAllNamed(RoutesName.loginScreen);
       }

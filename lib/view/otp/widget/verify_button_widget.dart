@@ -6,9 +6,11 @@ import 'package:get/get.dart';
 import '../../../res/componants/RoundButton.dart';
 
 class VerifyButtonWidget extends StatelessWidget {
-  VerifyButtonWidget({Key? key, required this.formKey}) : super(key: key);
+  VerifyButtonWidget({Key? key, required this.formKey, required this.e_id})
+      : super(key: key);
 
   final formKey;
+  final e_id;
   final otpVM = Get.put(OTPViewModel());
 
   @override
@@ -18,10 +20,10 @@ class VerifyButtonWidget extends StatelessWidget {
         title: 'verify'.tr,
         loading: otpVM.loading.value,
         onPress: () {
-          Get.toNamed(RoutesName.resetPasswordScreen);
-          // if (formkey.currentState!.validate()) {
-          //   signUpVM.signUpApi();
-          // }
+          // Get.toNamed(RoutesName.resetPasswordScreen);
+          if (formKey.currentState!.validate()) {
+            otpVM.checkOtpFilled(e_id);
+          }
         },
       );
     });

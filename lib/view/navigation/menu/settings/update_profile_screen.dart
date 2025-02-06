@@ -157,58 +157,6 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                       ],
                     ),
                   ),
-                  // Obx(() {
-                  //   return Container(
-                  //     height: Get.height * Utils.getResponsiveHeight(145),
-                  //     width: Get.width * Utils.getResponsiveWidth(127),
-                  //     child: Stack(
-                  //       children: [
-                  //         Positioned(
-                  //           top: 0,
-                  //           left: 0,
-                  //           right: 0,
-                  //           child: InkWell(
-                  //             onTap: () {
-                  //               _showImageSourceDialog(context);
-                  //             },
-                  //             child: SizedBox(
-                  //                 height: 127,
-                  //                 width: 127,
-                  //                 child: Obx(() {
-                  //                   return CircleAvatar(
-                  //                     radius: 62,
-                  //                     child: updateProfileVM.imagePath.isEmpty
-                  //                         ? SvgPicture.asset(
-                  //                             ImageAssets
-                  //                                 .img_profile, // Your default SVG image path
-                  //                             fit: BoxFit.cover,
-                  //                           )
-                  //                         : ClipOval(
-                  //                             child: Image.asset(
-                  //                               updateProfileVM.imagePath
-                  //                                   .value, // The selected or updated image path
-                  //                               fit: BoxFit.cover,
-                  //                               width:
-                  //                                   127, // Should match twice the `radius` of CircleAvatar
-                  //                               height: 127,
-                  //                             ),
-                  //                           ),
-                  //                   );
-                  //                 })),
-                  //           ),
-                  //         ),
-                  //         // child: SvgPicture.asset(
-                  //         //     ImageAssets.img_profile)))),
-                  //         Positioned(
-                  //             bottom: 0,
-                  //             left: 0,
-                  //             right: 0,
-                  //             child:
-                  //                 SvgPicture.asset(ImageAssets.img_add_photo))
-                  //       ],
-                  //     ),
-                  //   );
-                  // }),
                   SizedBox(
                     height: Get.height * Utils.getResponsiveHeight(70),
                   ),
@@ -268,14 +216,6 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                 onTap: () {
                   Get.back();
                   updateProfileVM.takeImageFromCamera();
-                  // Navigator.of(context).pop(); // Close the dialog
-                  // final XFile? pickedFile = await _picker.pickImage(
-                  //   source: ImageSource.camera,
-                  // );
-                  // if (pickedFile != null) {
-                  //   print("Camera image selected: ${pickedFile.path}");
-                  //   // Add your logic to handle the selected image
-                  // }
                 },
               ),
               ListTile(
@@ -284,14 +224,6 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                 onTap: () {
                   Get.back();
                   updateProfileVM.getImageFromGallery();
-                  // Navigator.of(context).pop(); // Close the dialog
-                  // final XFile? pickedFile = await _picker.pickImage(
-                  //   source: ImageSource.gallery,
-                  // );
-                  // if (pickedFile != null) {
-                  //   print("Gallery image selected: ${pickedFile.path}");
-                  //   // Add your logic to handle the selected image
-                  // }
                 },
               ),
             ],

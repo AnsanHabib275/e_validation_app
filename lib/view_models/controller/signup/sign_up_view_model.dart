@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import '../../../models/signUp/sign_up_model.dart';
 import '../../../repository/signup_repository/sign_up_repository.dart';
@@ -35,27 +36,37 @@ class SignUpViewModel extends GetxController {
 
   void signUpApi() {
     loading.value = true;
+    String formattedDOB = "";
+    if (dateOfBirthController.value.text.isNotEmpty) {
+      try {
+        DateTime parsedDate = DateFormat("MM/dd/yyyy").parse(
+            dateOfBirthController.value.text); // Adjust format if necessary
+        formattedDOB = DateFormat("yyyy-MM-dd").format(parsedDate);
+      } catch (e) {
+        print("Invalid date format: ${dateOfBirthController.value.text}");
+      }
+    }
     Map data = {
       'FirstName': firstNameController.value.text,
       'LastName': lastNameController.value.text,
       'email': emailController.value.text,
       'CountryCode': countryCodeController.value.text,
       'PhoneNumber': phoneNumberController.value.text,
-      'DOB': dateOfBirthController.value.text,
+      'DOB': formattedDOB,
       // 'Gender': genderController.value.text,
       'password': passwordController.value.text,
     };
     print(data);
     _api.signUpApi(data).then((value) {
       loading.value = false;
-      if (value['errorcode'] == 1002) {
-        errorMessage.value = 'email_already_exists'.tr;
-      } else if (value['errorcode'] == 1003) {
-        errorMessage.value = 'email_verification_failed'.tr;
-      } else if (value['errorcode'] == 1004) {
-        errorMessage.value = 'invalid_email'.tr;
+      if (value['isSuccessfull'] == false) {
+        errorMessage.value = value['message'];
+        // } else if (value['errorcode'] == 1003) {
+        //   errorMessage.value = 'email_verification_failed'.tr;
+        // } else if (value['errorcode'] == 1004) {
+        //   errorMessage.value = 'invalid_email'.tr;
       } else {
-        Utils.toastMessage("Success");
+        Utils.toastMessage("OTP Sent To Your Email Account");
         Get.toNamed(RoutesName.verifyEmailScreen);
       }
     }).onError((error, stackTrace) {

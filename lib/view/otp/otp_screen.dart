@@ -18,8 +18,7 @@ class OTPScreen extends StatefulWidget {
 class _OTPScreenState extends State<OTPScreen> {
   final otpVM = Get.put(OTPViewModel());
   final _formKey = GlobalKey<FormState>();
-  // final e_id = Get.arguments['e_id'];
-  final e_id = '';
+  final e_id = Get.arguments['e_id'] ?? '';
 
   @override
   void initState() {
@@ -177,7 +176,10 @@ class _OTPScreenState extends State<OTPScreen> {
                 Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: Get.width * Utils.getResponsiveWidth(30)),
-                  child: VerifyButtonWidget(formKey: _formKey),
+                  child: VerifyButtonWidget(
+                    formKey: _formKey,
+                    e_id: e_id,
+                  ),
                 ),
                 SizedBox(
                   height: Get.height * Utils.getResponsiveHeight(50),

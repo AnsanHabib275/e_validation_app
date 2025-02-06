@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
+import '../../../models/login/login_model.dart';
 import '../../../repository/login_repository/login_repository.dart';
 import '../../../res/routes/routes_name.dart';
 import '../../../utils/utils.dart';
@@ -35,28 +36,23 @@ class LoginViewModel extends GetxController {
     };
     _api.loginApi(data).then((value) {
       loading.value = false;
-      if (value['errorcode'] == 4024) {
-        errorMessage.value = 'invalid_credentials'.tr;
-      } else if (value['errorcode'] == 1017) {
-        errorMessage.value = 'invalid_credentials'.tr;
-      } else if (value['errorcode'] == 3067) {
-        errorMessage.value = 'invalid_credentials'.tr;
-      } else if (value['errorcode'] == 1018) {
-        errorMessage.value = 'invalid_credentials'.tr;
+      if (value['isSuccessfull'] == false) {
+        errorMessage.value = value['message'];
+        // } else if (value['errorcode'] == 1017) {
+        //   errorMessage.value = 'invalid_credentials'.tr;
+        // } else if (value['errorcode'] == 1018) {
+        //   errorMessage.value = 'invalid_credentials'.tr;
       } else {
-        Utils.toastMessage("Success");
-        Get.toNamed(RoutesName.navigationScreen);
+        // Utils.toastMessage("Success");
+        // Get.toNamed(RoutesName.navigationScreen);
         errorMessage.value = '';
-        // UserModel userModel = UserModel(token: value['token'], isLogin: true);
-        // LoginModel loginModel = LoginModel.fromJson(value);
-        // userPreference.saveUser(loginModel).then((value) {
-        //   Get.delete<LoginViewModel>();
-        //   Get.toNamed(RoutesName.navigationScreen)!.then((value) {});
-        //   notificationServices.getDeviceToken().then((value) =>
-        //       registerTokenApi(loginModel.uid!, value, loginModel.apiKey!));
-        // }).onError((error, stackTrace) {
-        //   errorMessage.value = error.toString();
-        // });
+        LoginModel loginModel = LoginModel.fromJson(value);
+        userPreference.saveUser(loginModel).then((value) {
+          Get.delete<LoginViewModel>();
+          Get.toNamed(RoutesName.navigationScreen);
+        }).onError((error, stackTrace) {
+          errorMessage.value = error.toString();
+        });
       }
     }).onError((error, stackTrace) {
       loading.value = false;

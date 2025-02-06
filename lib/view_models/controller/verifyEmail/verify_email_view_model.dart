@@ -30,18 +30,18 @@ class VerifyEmailViewModel extends GetxController {
   RxString errorMessage = ''.obs;
   RxString from = ''.obs;
 
-  void checkOtpFilled(String email) {
+  void checkOtpFilled() {
     if (otpOneController.value.text.isNotEmpty &&
         otpTwoController.value.text.isNotEmpty &&
         otpThreeController.value.text.isNotEmpty &&
         otpFourController.value.text.isNotEmpty &&
         otpFiveController.value.text.isNotEmpty &&
         otpSixController.value.text.isNotEmpty) {
-      verifyEmailApi(email);
+      verifyEmailApi();
     }
   }
 
-  void verifyEmailApi(String email) {
+  void verifyEmailApi() {
     loading.value = true;
     final verificationCode = otpOneController.value.text +
         otpTwoController.value.text +

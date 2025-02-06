@@ -35,6 +35,8 @@ class User {
   String? mobileNumbre;
   String? dOB;
   String? gender;
+  String? countryCode;
+  String? imageURL;
 
   User(
       {this.fullName,
@@ -45,7 +47,9 @@ class User {
       this.lastName,
       this.mobileNumbre,
       this.dOB,
-      this.gender});
+      this.gender,
+      this.countryCode,
+      this.imageURL});
 
   User.fromJson(Map<String, dynamic> json) {
     fullName = json['FullName'];
@@ -57,6 +61,8 @@ class User {
     mobileNumbre = json['MobileNumbre'];
     dOB = json['DOB'];
     gender = json['Gender'];
+    countryCode = json['CountryCode'];
+    imageURL = json['ImageURL'];
   }
 
   Map<String, dynamic> toJson() {
@@ -70,6 +76,8 @@ class User {
     data['MobileNumbre'] = this.mobileNumbre;
     data['DOB'] = this.dOB;
     data['Gender'] = this.gender;
+    data['CountryCode'] = this.countryCode;
+    data['ImageURL'] = this.imageURL;
     return data;
   }
 }

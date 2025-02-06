@@ -27,14 +27,14 @@ class ForgetPasswordViewModel extends GetxController {
     };
     _api.forgetPasswordApi(data).then((value) {
       loading.value = false;
-      if (value['errorcode'] == 1006) {
+      if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
-      } else if (value['errorcode'] == 3084) {
-        errorMessage.value = 'email_verification_failed'.tr;
-      } else if (value['errorcode'] == 3064) {
-        errorMessage.value = 'invalid_email'.tr;
+        // } else if (value['errorcode'] == 3084) {
+        //   errorMessage.value = 'email_verification_failed'.tr;
+        // } else if (value['errorcode'] == 3064) {
+        //   errorMessage.value = 'invalid_email'.tr;
       } else {
-        Utils.toastMessage("Success");
+        Utils.toastMessage("OTP Sent To Your Email Account");
         Get.toNamed(RoutesName.otpScreen, arguments: {
           'e_id': value['E_Id'],
         })!

@@ -18,6 +18,8 @@ class UserPreference extends GetxController {
       sp.setString('user_eID', responseModel.user!.eID ?? '');
       sp.setString('user_dob', responseModel.user!.dOB ?? '');
       sp.setString('user_gender', responseModel.user!.gender ?? '');
+      sp.setString('user_CountryCode', responseModel.user!.countryCode ?? '');
+      sp.setString('user_ImageURL', responseModel.user!.imageURL ?? '');
     }
     sp.setInt('errorcode', responseModel.errorcode ?? 0);
     return true;
@@ -39,6 +41,8 @@ class UserPreference extends GetxController {
       eID: sp.getString('user_eID'),
       dOB: sp.getString('user_dob'),
       gender: sp.getString('user_gender'),
+      countryCode: sp.getString('user_CountryCode'),
+      imageURL: sp.getString('user_ImageURL'),
     );
 
     return LoginModel(

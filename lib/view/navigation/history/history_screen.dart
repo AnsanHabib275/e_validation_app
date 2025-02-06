@@ -1,3 +1,4 @@
+import 'package:e_validation/models/navigation/history/scan_history_model.dart';
 import 'package:e_validation/view/navigation/history/widget/history_cart_widget.dart';
 import 'package:e_validation/view_models/controller/navigation/history/history_view_model.dart';
 import 'package:flutter/material.dart';
@@ -68,35 +69,37 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       left: Get.width * Utils.getResponsiveWidth(16),
                       right: Get.width * Utils.getResponsiveWidth(16),
                       bottom: Get.height * Utils.getResponsiveHeight(70)),
-                  child: FutureBuilder<List<ComplaintsListModel>>(
+                  child: FutureBuilder<List<ScanHistoryModel>>(
                     future: historyVM.historyListApi(), // Call your function
                     builder: (context, snapshot) {
-                      // if (snapshot.connectionState == ConnectionState.waiting) {
-                      //   return Center(
-                      //       child:
-                      //           CircularProgressIndicator()); // Loading indicator
-                      // } else if (snapshot.hasError) {
-                      //   return Center(
-                      //       child: Text(
-                      //           'Error: ${snapshot.error}')); // Error message
-                      // } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                      //   return Center(
-                      //       child:
-                      //           Text('your_cart_is_empty'.tr)); // Empty state
-                      // } else {
-                      // final histories = snapshot.data!;
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(
+                            child:
+                                CircularProgressIndicator()); // Loading indicator
+                      } else if (snapshot.hasError) {
+                        return Center(
+                            child: Text(
+                                'Error: ${snapshot.error}')); // Error message
+                      } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                        return Center(
+                            child:
+                                Text('your_cart_is_empty'.tr)); // Empty state
+                      } else {
+                        final histories = snapshot.data!;
 
-                      return SizedBox(
-                        child: ListView.builder(
-                          scrollDirection: Axis.vertical,
-                          itemCount: 6,
-                          itemBuilder: (context, index) {
-                            // final history = histories[index];
-                            return HistoryCartWidget();
-                          },
-                        ),
-                      );
-                      // }
+                        return SizedBox(
+                          child: ListView.builder(
+                            scrollDirection: Axis.vertical,
+                            itemCount: histories.length,
+                            itemBuilder: (context, index) {
+                              final history = histories[index];
+                              return HistoryCartWidget(
+                                history: history,
+                              );
+                            },
+                          ),
+                        );
+                      }
                     },
                   ),
                 ),

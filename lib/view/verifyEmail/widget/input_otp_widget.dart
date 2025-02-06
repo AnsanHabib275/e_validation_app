@@ -6,13 +6,11 @@ import '../../../utils/utils.dart';
 import '../../../res/colors/app_color.dart';
 
 class InputOTPWidget extends StatelessWidget {
-  final String email;
   final TextEditingController controller;
   final FocusNode focusNode;
   final FocusNode? nextFocusNode; // Optional: The next focus node to move to
 
   InputOTPWidget({
-    required this.email,
     required this.controller,
     required this.focusNode,
     this.nextFocusNode,
@@ -35,7 +33,7 @@ class InputOTPWidget extends StatelessWidget {
           if (nextFocusNode != null) {
             Utils.fieldFocusChange(context, focusNode, nextFocusNode!);
           }
-          verifyEmailVM.checkOtpFilled(email);
+          verifyEmailVM.checkOtpFilled();
         }
       },
       style: TextStyle(

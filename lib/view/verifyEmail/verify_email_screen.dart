@@ -19,8 +19,7 @@ class VerifyEmailScreen extends StatefulWidget {
 class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   final verifyEmailVM = Get.put(VerifyEmailViewModel());
   final _formKey = GlobalKey<FormState>();
-  // final email = Get.arguments['email'];
-  final email = '';
+  final email = Get.arguments['email'] ?? '';
 
   @override
   void initState() {
@@ -100,7 +99,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           width: 40,
                           height: 50,
                           child: InputOTPWidget(
-                            email: email,
                             controller: verifyEmailVM.otpOneController.value,
                             focusNode: verifyEmailVM.otpOneFocusNode.value,
                             nextFocusNode: verifyEmailVM.otpTwoFocusNode.value,
@@ -110,7 +108,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           width: 40,
                           height: 50,
                           child: InputOTPWidget(
-                            email: email,
                             controller: verifyEmailVM.otpTwoController.value,
                             focusNode: verifyEmailVM.otpTwoFocusNode.value,
                             nextFocusNode:
@@ -121,7 +118,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           width: 40,
                           height: 50,
                           child: InputOTPWidget(
-                            email: email,
                             controller: verifyEmailVM.otpThreeController.value,
                             focusNode: verifyEmailVM.otpThreeFocusNode.value,
                             nextFocusNode: verifyEmailVM.otpFourFocusNode.value,
@@ -131,7 +127,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           width: 40,
                           height: 50,
                           child: InputOTPWidget(
-                            email: email,
                             controller: verifyEmailVM.otpFourController.value,
                             focusNode: verifyEmailVM.otpFourFocusNode.value,
                             nextFocusNode: verifyEmailVM.otpFiveFocusNode.value,
@@ -141,7 +136,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           width: 40,
                           height: 50,
                           child: InputOTPWidget(
-                            email: email,
                             controller: verifyEmailVM.otpFiveController.value,
                             focusNode: verifyEmailVM.otpFiveFocusNode.value,
                             nextFocusNode: verifyEmailVM.otpSixFocusNode.value,
@@ -151,7 +145,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           width: 40,
                           height: 50,
                           child: InputOTPWidget(
-                            email: email,
                             controller: verifyEmailVM.otpSixController.value,
                             focusNode: verifyEmailVM.otpSixFocusNode.value,
                             // nextFocusNode: verifyEmailVM.otpFourFocusNode.value,
@@ -164,14 +157,17 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                 SizedBox(
                   height: Get.height * Utils.getResponsiveHeight(40),
                 ),
-                Text(
-                  'resend_code'.tr,
-                  style: TextStyle(
-                      color: AppColor.colorPrimary,
-                      decoration: TextDecoration.underline,
-                      fontSize: Get.height * Utils.getResponsiveSize(18),
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500),
+                InkWell(
+                  onTap: () {},
+                  child: Text(
+                    'resend_code'.tr,
+                    style: TextStyle(
+                        color: AppColor.colorPrimary,
+                        decoration: TextDecoration.underline,
+                        fontSize: Get.height * Utils.getResponsiveSize(18),
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w500),
+                  ),
                 ),
                 SizedBox(
                   height: Get.height * Utils.getResponsiveHeight(70),

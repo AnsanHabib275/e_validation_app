@@ -21,10 +21,10 @@ class ResetPasswordButtonWidget extends StatelessWidget {
         title: 'reset_password'.tr,
         loading: resetPasswordVM.loading.value,
         onPress: () {
-          Get.toNamed(RoutesName.loginScreen);
-          // if (formkey.currentState!.validate()) {
-          //   resetPasswordVM.resetPasswordApi(e_id);
-          // }
+          // Get.toNamed(RoutesName.loginScreen);
+          if (formkey.currentState!.validate()) {
+            resetPasswordVM.resetPasswordApi(e_id);
+          }
         },
       );
     });

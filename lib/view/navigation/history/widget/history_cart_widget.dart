@@ -1,3 +1,4 @@
+import 'package:e_validation/models/navigation/history/scan_history_model.dart';
 import 'package:e_validation/res/assets/font_assets.dart';
 import 'package:e_validation/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -7,11 +8,11 @@ import '../../../../res/colors/app_color.dart';
 import '../../../../view_models/controller/navigation/history/history_view_model.dart';
 
 class HistoryCartWidget extends StatefulWidget {
-  // final HistoryListModel history;
+  final ScanHistoryModel history;
 
   const HistoryCartWidget({
     super.key,
-    // required this.history,
+    required this.history,
   });
 
   @override
@@ -51,7 +52,7 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
                         ),
                       ),
                       TextSpan(
-                        text: "55676", // The number
+                        text: '87589', // The number
                         style: TextStyle(
                           fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Poppins',

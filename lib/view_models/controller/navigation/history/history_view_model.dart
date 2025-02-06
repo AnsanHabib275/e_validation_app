@@ -3,16 +3,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../../../data/response/status.dart';
-import '../../../../models/navigation/history_list_model.dart';
+import '../../../../models/navigation/history/scan_history_model.dart';
 import '../../user_preference/user_preference_view_model.dart';
 
 class HistoryViewModel extends GetxController {
   final _api = HistoryRepository();
 
   final rxRequestStatus = Status.LOADING.obs;
-  List<ComplaintsListModel> _cartList = [];
+  List<ScanHistoryModel> _cartList = [];
 
-  List<ComplaintsListModel> get cartList => _cartList;
+  List<ScanHistoryModel> get cartList => _cartList;
   RxString error = ''.obs;
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;
@@ -20,11 +20,11 @@ class HistoryViewModel extends GetxController {
 
   void setRxRequestStatus(Status _value) => rxRequestStatus.value = _value;
 
-  void setCartList(List<ComplaintsListModel> carts) => _cartList = carts;
+  void setCartList(List<ScanHistoryModel> carts) => _cartList = carts;
 
   void setError(String _value) => error.value = _value;
 
-  Future<List<ComplaintsListModel>> historyListApi() {
+  Future<List<ScanHistoryModel>> historyListApi() {
     UserPreference userPreference = UserPreference();
     return userPreference.getUser().then((user) {
       return _api.historyListApi(user.user!.eID!).then((historyList) {
@@ -33,7 +33,7 @@ class HistoryViewModel extends GetxController {
       }).onError((error, stackTrace) {
         setError(error.toString());
         setRxRequestStatus(Status.ERROR);
-        throw Exception('failed_to_fetch_cart_list'.tr);
+        throw Exception('failed_to_fetch_history_list'.tr);
       });
     });
   }
