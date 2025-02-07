@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import '../res/colors/app_color.dart';
 
@@ -44,6 +45,33 @@ class Utils {
 
   static double getResponsiveSize(double figmaSize) {
     return (figmaSize / baseHeight);
+  }
+
+  static String apiFormatDate(String appDate) {
+    try {
+      DateTime parsedDate = DateTime.parse(appDate);
+      return DateFormat('yyyy-MM-dd').format(parsedDate);
+    } catch (e) {
+      return 'Invalid Date'; // Handle parsing errors gracefully
+    }
+  }
+
+  static String appFormatDate(String apiDate) {
+    try {
+      DateTime parsedDate = DateTime.parse(apiDate);
+      return DateFormat('MM-dd-yyyy').format(parsedDate);
+    } catch (e) {
+      return 'Invalid Date'; // Handle parsing errors gracefully
+    }
+  }
+
+  static String scanFormatDate(String apiDate) {
+    try {
+      DateTime parsedDate = DateTime.parse(apiDate);
+      return DateFormat('dd MMM,yyyy').format(parsedDate);
+    } catch (e) {
+      return 'Invalid Date'; // Handle parsing errors gracefully
+    }
   }
 }
 

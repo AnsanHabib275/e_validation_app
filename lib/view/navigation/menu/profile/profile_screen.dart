@@ -1,3 +1,4 @@
+import 'package:e_validation/models/login/login_model.dart';
 import 'package:e_validation/res/assets/icon_assets.dart';
 import 'package:e_validation/view/navigation/home/product/widget/done_button_widget.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import '../../../../res/assets/font_assets.dart';
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
+import '../../../../view_models/controller/user_preference/user_preference_view_model.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -17,6 +19,24 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getUserDetail();
+  }
+
+  late User loginUser;
+
+  Future<void> getUserDetail() async {
+    UserPreference userPreference = UserPreference();
+    userPreference.getUser().then((user) {
+      setState(() {
+        loginUser = user.user;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -43,14 +63,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: CircleAvatar(
                       radius: Get.height * Utils.getResponsiveSize(73),
                       backgroundColor: AppColor.lightGreyColor,
-                      backgroundImage: AssetImage(ImageAssets.dummy_profile),
+                      // backgroundImage: AssetImage(ImageAssets.dummy_profile),
+                      child: loginUser.imageURL.isEmpty
+                          ? SvgPicture.asset(
+                              ImageAssets
+                                  .img_profile, // Your default SVG image path
+                              fit: BoxFit.cover,
+                            )
+                          : ClipOval(
+                              child: Image.asset(
+                                loginUser
+                                    .imageURL, // The selected or updated image path
+                                fit: BoxFit.cover,
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(146),
+                                width:
+                                    Get.width * Utils.getResponsiveWidth(146),
+                              ),
+                            ),
                     ),
                   ),
                   SizedBox(
                     height: Get.height * Utils.getResponsiveHeight(30),
                   ),
                   Text(
-                    'George Oliver',
+                    loginUser.fullName,
                     textAlign: TextAlign.start,
                     style: TextStyle(
                         color: AppColor.textColorPrimary,
@@ -59,7 +96,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         fontWeight: FontWeight.w600),
                   ),
                   Text(
-                    'Georgeoliver@gmail.com',
+                    loginUser.email,
                     textAlign: TextAlign.start,
                     style: TextStyle(
                         color: AppColor.textGreyPrimary,
@@ -100,7 +137,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: Get.height * Utils.getResponsiveHeight(5),
                           ),
                           Text(
-                            'george oliver',
+                            loginUser.fullName,
                             style: TextStyle(
                                 color: AppColor.textGreyPrimary,
                                 fontSize:
@@ -124,7 +161,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: Get.height * Utils.getResponsiveHeight(5),
                           ),
                           Text(
-                            '+92345789902',
+                            '${loginUser.countryCode}${loginUser.mobileNumbre}',
                             style: TextStyle(
                                 color: AppColor.textGreyPrimary,
                                 fontSize:
@@ -148,7 +185,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: Get.height * Utils.getResponsiveHeight(5),
                           ),
                           Text(
-                            'georgeoliver@gmail.com',
+                            loginUser.email,
                             style: TextStyle(
                                 color: AppColor.textGreyPrimary,
                                 fontSize:
@@ -194,7 +231,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: Get.height * Utils.getResponsiveHeight(5),
                           ),
                           Text(
-                            '10-26-2001',
+                            Utils.appFormatDate(loginUser.dOB),
                             style: TextStyle(
                                 color: AppColor.textGreyPrimary,
                                 fontSize:

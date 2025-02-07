@@ -3,12 +3,13 @@ import 'package:e_validation/res/assets/font_assets.dart';
 import 'package:e_validation/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../res/colors/app_color.dart';
 import '../../../../view_models/controller/navigation/history/history_view_model.dart';
 
 class HistoryCartWidget extends StatefulWidget {
-  final ScanHistoryModel history;
+  final Data history;
 
   const HistoryCartWidget({
     super.key,
@@ -21,9 +22,16 @@ class HistoryCartWidget extends StatefulWidget {
 
 class _HistoryCartWidgetState extends State<HistoryCartWidget> {
   final historyVM = Get.put(HistoryViewModel());
-
+  // String formattedDate = '';
   @override
   Widget build(BuildContext context) {
+    // try {
+    //   DateTime parsedDate = DateFormat("MM/dd/yyyy")
+    //       .parse(widget.history.scanDateTime!); // Adjust format if necessary
+    //   formattedDate = DateFormat("yyyy-MM-dd").format(parsedDate);
+    // } catch (e) {
+    //   print("Invalid date format: ${widget.history.scanDateTime}");
+    // }
     return SizedBox(
       width: double.infinity,
       child: Card(
@@ -52,7 +60,7 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
                         ),
                       ),
                       TextSpan(
-                        text: '87589', // The number
+                        text: widget.history.scanId.toString(), // The number
                         style: TextStyle(
                           fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Poppins',
@@ -78,7 +86,8 @@ class _HistoryCartWidgetState extends State<HistoryCartWidget> {
                         ),
                       ),
                       TextSpan(
-                        text: '5 oct,2022', // The number
+                        text: Utils.scanFormatDate(
+                            widget.history.scanDateTime), // The number
                         style: TextStyle(
                           fontSize: Get.height * Utils.getResponsiveSize(12),
                           fontFamily: 'Poppins',

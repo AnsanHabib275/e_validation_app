@@ -22,6 +22,12 @@ class _HistoryScreenState extends State<HistoryScreen> {
   final historyVM = Get.put(HistoryViewModel());
 
   @override
+  void initState() {
+    super.initState();
+    historyVM.historyListApi();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MediaQuery(
         data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
@@ -69,39 +75,62 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       left: Get.width * Utils.getResponsiveWidth(16),
                       right: Get.width * Utils.getResponsiveWidth(16),
                       bottom: Get.height * Utils.getResponsiveHeight(70)),
-                  child: FutureBuilder<List<ScanHistoryModel>>(
-                    future: historyVM.historyListApi(), // Call your function
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return Center(
-                            child:
-                                CircularProgressIndicator()); // Loading indicator
-                      } else if (snapshot.hasError) {
-                        return Center(
-                            child: Text(
-                                'Error: ${snapshot.error}')); // Error message
-                      } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                        return Center(
-                            child:
-                                Text('your_cart_is_empty'.tr)); // Empty state
-                      } else {
-                        final histories = snapshot.data!;
+                  child: Obx(() {
+                    if (historyVM.loading.value) {
+                      print('loading');
+                      return const Center(child: CircularProgressIndicator());
+                    }
 
-                        return SizedBox(
-                          child: ListView.builder(
-                            scrollDirection: Axis.vertical,
-                            itemCount: histories.length,
-                            itemBuilder: (context, index) {
-                              final history = histories[index];
-                              return HistoryCartWidget(
-                                history: history,
-                              );
-                            },
-                          ),
-                        );
-                      }
-                    },
-                  ),
+                    if (historyVM.error.isNotEmpty) {
+                      print('error');
+                      return Center(child: Text(historyVM.error.value));
+                    }
+                    // if (historyVM.scanHistoryList.isEmpty) {
+                    //   print('empty');
+                    //   return Center(child: Text('No History'));
+                    // }
+
+                    return ListView.builder(
+                      itemCount: historyVM.historyDataList.length,
+                      itemBuilder: (context, index) {
+                        final item = historyVM.historyDataList[index];
+                        return HistoryCartWidget(history: item);
+                      },
+                    );
+                  }),
+                  // child: FutureBuilder<List<Data>>(
+                  //   future: historyVM.historyListApi(), // Call your function
+                  //   builder: (context, snapshot) {
+                  //     if (snapshot.connectionState == ConnectionState.waiting) {
+                  //       return Center(
+                  //           child:
+                  //               CircularProgressIndicator()); // Loading indicator
+                  //     } else if (snapshot.hasError) {
+                  //       return Center(
+                  //           child: Text(
+                  //               'Error: ${snapshot.error}')); // Error message
+                  //     } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                  //       return Center(
+                  //           child:
+                  //               Text('your_cart_is_empty'.tr)); // Empty state
+                  //     } else {
+                  //       // final histories = snapshot.data!;
+                  //       final List<Data> histories = snapshot.data!;
+                  //       return SizedBox(
+                  //         child: ListView.builder(
+                  //           scrollDirection: Axis.vertical,
+                  //           itemCount: histories.length,
+                  //           itemBuilder: (context, index) {
+                  //             final history = histories[index];
+                  //             return HistoryCartWidget(
+                  //               history: history,
+                  //             );
+                  //           },
+                  //         ),
+                  //       );
+                  //     }
+                  //   },
+                  // ),
                 ),
               ),
             ],

@@ -10,31 +10,48 @@ class HistoryViewModel extends GetxController {
   final _api = HistoryRepository();
 
   final rxRequestStatus = Status.LOADING.obs;
-  List<ScanHistoryModel> _cartList = [];
+  List<Data> _historyDataList = [];
 
-  List<ScanHistoryModel> get cartList => _cartList;
+  List<Data> get historyDataList => _historyDataList;
   RxString error = ''.obs;
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;
-  RxString errorMessage = ''.obs;
+  final scanHistoryList = <Data>[].obs;
 
   void setRxRequestStatus(Status _value) => rxRequestStatus.value = _value;
 
-  void setCartList(List<ScanHistoryModel> carts) => _cartList = carts;
+  void setHistoryList(List<Data> historyData) => _historyDataList = historyData;
 
   void setError(String _value) => error.value = _value;
-
-  Future<List<ScanHistoryModel>> historyListApi() {
-    UserPreference userPreference = UserPreference();
-    return userPreference.getUser().then((user) {
-      return _api.historyListApi(user.user!.eID!).then((historyList) {
-        setRxRequestStatus(Status.COMPLETED);
-        return historyList;
+  Future<void> historyListApi() async {
+    try {
+      UserPreference userPreference = UserPreference();
+      userPreference.getUser().then((user) async {
+        final result = await _api.historyListApi(user.user!.eID!);
+        setHistoryList(result);
+        // print(result as Iterable<Data>);
+        scanHistoryList.assignAll(result);
       }).onError((error, stackTrace) {
         setError(error.toString());
         setRxRequestStatus(Status.ERROR);
-        throw Exception('failed_to_fetch_history_list'.tr);
       });
-    });
+    } catch (e) {
+      setError(e.toString());
+    }
   }
+
+  // Future<ScanHistoryModel> historyListApi() {
+  //   UserPreference userPreference = UserPreference();
+  //   return userPreference.getUser().then((user) {
+  //     return _api.historyListApi(user.user!.eID!).then((historyList) {
+  //       setRxRequestStatus(Status.COMPLETED);
+  //       setCartList(historyList)
+  //       return historyList;
+  //     }).onError((error, stackTrace) {
+  //       setError(error.toString());
+  //       setRxRequestStatus(Status.ERROR);
+  //       throw Exception('failed_to_fetch_history_list'.tr);
+  //     });
+  //   });
+  // }
 }
