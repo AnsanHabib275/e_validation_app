@@ -19,23 +19,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getUserDetail();
-  }
-
-  late User loginUser;
-
-  Future<void> getUserDetail() async {
-    UserPreference userPreference = UserPreference();
-    userPreference.getUser().then((user) {
-      setState(() {
-        loginUser = user.user;
-      });
-    });
-  }
+  final userVM = Get.put(UserPreference());
 
   @override
   Widget build(BuildContext context) {
@@ -64,16 +48,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       radius: Get.height * Utils.getResponsiveSize(73),
                       backgroundColor: AppColor.lightGreyColor,
                       // backgroundImage: AssetImage(ImageAssets.dummy_profile),
-                      child: loginUser.imageURL.isEmpty
+                      child: userVM.user_ImageURL.isEmpty
                           ? SvgPicture.asset(
                               ImageAssets
                                   .img_profile, // Your default SVG image path
                               fit: BoxFit.cover,
                             )
                           : ClipOval(
-                              child: Image.asset(
-                                loginUser
-                                    .imageURL, // The selected or updated image path
+                              child: Image.network(
+                                userVM.user_ImageURL
+                                    .value, // The selected or updated image path
                                 fit: BoxFit.cover,
                                 height:
                                     Get.height * Utils.getResponsiveHeight(146),
@@ -87,7 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     height: Get.height * Utils.getResponsiveHeight(30),
                   ),
                   Text(
-                    loginUser.fullName,
+                    userVM.user_fullName.value,
                     textAlign: TextAlign.start,
                     style: TextStyle(
                         color: AppColor.textColorPrimary,
@@ -96,7 +80,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         fontWeight: FontWeight.w600),
                   ),
                   Text(
-                    loginUser.email,
+                    userVM.user_email.value,
                     textAlign: TextAlign.start,
                     style: TextStyle(
                         color: AppColor.textGreyPrimary,
@@ -137,7 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: Get.height * Utils.getResponsiveHeight(5),
                           ),
                           Text(
-                            loginUser.fullName,
+                            userVM.user_fullName.value,
                             style: TextStyle(
                                 color: AppColor.textGreyPrimary,
                                 fontSize:
@@ -161,7 +145,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: Get.height * Utils.getResponsiveHeight(5),
                           ),
                           Text(
-                            '${loginUser.countryCode}${loginUser.mobileNumbre}',
+                            '${userVM.user_CountryCode.value}${userVM.user_mobileNumber.value}',
                             style: TextStyle(
                                 color: AppColor.textGreyPrimary,
                                 fontSize:
@@ -185,7 +169,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: Get.height * Utils.getResponsiveHeight(5),
                           ),
                           Text(
-                            loginUser.email,
+                            userVM.user_email.value,
                             style: TextStyle(
                                 color: AppColor.textGreyPrimary,
                                 fontSize:
@@ -196,28 +180,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(12),
                           ),
-                          // Text(
-                          //   'gender'.tr,
-                          //   style: TextStyle(
-                          //       color: AppColor.textColorPrimary,
-                          //       fontSize: 20,
-                          //       fontFamily: 'Poppins',
-                          //       fontWeight: FontWeight.w500),
-                          // ),
-                          // SizedBox(
-                          //   height: Get.height * Utils.getResponsiveHeight(5),
-                          // ),
-                          // Text(
-                          //   'Male',
-                          //   style: TextStyle(
-                          //       color: AppColor.textBlackPrimary,
-                          //       fontSize: 16,
-                          //       fontFamily: 'Poppins',
-                          //       fontWeight: FontWeight.w400),
-                          // ),
-                          // SizedBox(
-                          //   height: Get.height * Utils.getResponsiveHeight(12),
-                          // ),
                           Text(
                             'date_of_birth'.tr,
                             style: TextStyle(
@@ -231,7 +193,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: Get.height * Utils.getResponsiveHeight(5),
                           ),
                           Text(
-                            Utils.appFormatDate(loginUser.dOB),
+                            Utils.appFormatDate(userVM.user_dob.value),
                             style: TextStyle(
                                 color: AppColor.textGreyPrimary,
                                 fontSize:

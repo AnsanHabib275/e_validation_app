@@ -12,8 +12,9 @@ class ScanProductViewModel extends GetxController {
   final navigationVM = Get.put(NavigationViewModel());
 
   RxBool loading = false.obs;
-  RxBool isVisible = true.obs;
-  RxString errorMessage = ''.obs;
+  RxString error = ''.obs;
+
+  void setError(String _value) => error.value = _value;
 
   void scanProductApi(String productHash, String eid) {
     loading.value = true;
@@ -30,15 +31,8 @@ class ScanProductViewModel extends GetxController {
       if (kDebugMode) {
         print(value);
       }
-      bool check = value["IsSuccessfull"];
-      if (check) {
-        if (kDebugMode) {
-          print('Status Code 200 and isSuccessfull is true');
-        }
-
-        // return scanmodelFromJson(value);
-        navigationVM.changeScreen(ProductVerifiedScreen());
-      } else {
+      // bool check = value["IsSuccessfull"];
+      if (value['ErrorCode'] == "1025") {
         Utils.toastMessage('Fake Product');
         String scanCount = value['ScanCount'] ?? '0';
 
@@ -48,26 +42,12 @@ class ScanProductViewModel extends GetxController {
           productid: productid,
           scanCount: scanCount,
         });
-        // return null;
+      } else {
+        navigationVM.changeScreen(ProductVerifiedScreen());
       }
-      // if (value['errorcode'] == 1023) {
-      //   errorMessage.value = value['message'];
-      // } else if (value['errorcode'] == 3084) {
-      //   errorMessage.value = 'email_verification_failed'.tr;
-      // } else if (value['errorcode'] == 3064) {
-      //   errorMessage.value = 'invalid_email'.tr;
-      // } else {
-      //   Utils.toastMessage(value['Message']);
-      //   Get.toNamed(RoutesName.productDetailScreen);
-      // }
     }).onError((error, stackTrace) {
-      if (kDebugMode) {
-        print(error.toString());
-      }
       loading.value = false;
-      errorMessage.value = error.toString();
-      // return null;
+      setError(error.toString());
     });
-    // return null;
   }
 }

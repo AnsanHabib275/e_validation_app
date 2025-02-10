@@ -1,9 +1,7 @@
 import 'package:e_validation/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
 import '../../../repository/change_password_repository/change_password_repository.dart';
-import '../../../res/routes/routes_name.dart';
 
 class ChangePasswordViewModel extends GetxController {
   final _api = ChangePasswordRepository();
@@ -18,22 +16,18 @@ class ChangePasswordViewModel extends GetxController {
   RxBool isVisible = true.obs;
   RxString errorMessage = ''.obs;
 
-  void changePasswordApi(String e_id) {
+  void changePasswordApi() {
     loading.value = true;
     Map data = {
       'OldPassword': oldPasswordController.value.text,
       'NewPassword': newPasswordController.value.text,
     };
-    _api.changePasswordApi(data, e_id).then((value) {
+    _api.changePasswordApi(data).then((value) {
       loading.value = false;
       if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
-        // } else if (value['errorcode'] == 3084) {
-        //   errorMessage.value = 'email_verification_failed'.tr;
-        // } else if (value['errorcode'] == 3064) {
-        //   errorMessage.value = 'invalid_email'.tr;
       } else {
-        Utils.toastMessage(value['message']);
+        Utils.toastMessage('password_changed_successfully'.tr);
         Get.back();
       }
     }).onError((error, stackTrace) {

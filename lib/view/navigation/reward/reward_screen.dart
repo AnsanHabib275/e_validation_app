@@ -1,13 +1,9 @@
-import 'package:e_validation/view/navigation/reward/widget/get_reward_button_widget.dart';
 import 'package:e_validation/view/navigation/reward/widget/reward_cart_widget.dart';
 import 'package:e_validation/view_models/controller/navigation/reward/reward_view_model.dart';
-import 'package:e_validation/view_models/controller/statusBar/status_bar_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
-import '../../../models/navigation/reward_list_model.dart';
-import '../../../res/assets/font_assets.dart';
+import '../../../models/navigation/rewards/reward_list_model.dart';
 import '../../../res/assets/image_assets.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
@@ -21,7 +17,11 @@ class RewardScreen extends StatefulWidget {
 
 class _RewardScreenState extends State<RewardScreen> {
   final rewardVM = Get.put(RewardViewModel());
-  final statusBarVM = Get.put(StatusBarViewModel());
+  final List<RewardListModel> rewardsItems = [
+    RewardListModel('+180', 'Product Scanned', '56'),
+    RewardListModel('+20', 'Complaints', '23'),
+    RewardListModel('+40', 'Solved Complaints', '10'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +34,8 @@ class _RewardScreenState extends State<RewardScreen> {
             height: Get.height * Utils.getResponsiveHeight(365),
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(ImageAssets
-                    .product_detail_bg), // Replace with your image path
-                fit: BoxFit.cover, // Adjust the image to fill the screen
+                image: AssetImage(ImageAssets.product_detail_bg),
+                fit: BoxFit.cover,
               ),
             ),
             child: Column(
@@ -68,37 +67,33 @@ class _RewardScreenState extends State<RewardScreen> {
               padding: EdgeInsets.symmetric(
                 horizontal: Get.width * Utils.getResponsiveWidth(16),
               ),
-              child: FutureBuilder<List<RewardListModel>>(
-                future: rewardVM.rewardListApi(), // Call your function
-                builder: (context, snapshot) {
-                  // if (snapshot.connectionState == ConnectionState.waiting) {
-                  //   return Center(
-                  //       child:
-                  //           CircularProgressIndicator()); // Loading indicator
-                  // } else if (snapshot.hasError) {
-                  //   return Center(
-                  //       child: Text(
-                  //           'Error: ${snapshot.error}')); // Error message
-                  // } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  //   return Center(
-                  //       child:
-                  //           Text('your_cart_is_empty'.tr)); // Empty state
-                  // } else {
-                  // final histories = snapshot.data!;
-
-                  return SizedBox(
-                    child: ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      itemCount: 3,
-                      itemBuilder: (context, index) {
-                        // final history = histories[index];
-                        return RewardCartWidget();
-                      },
-                    ),
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  return RewardCartWidget(
+                    rewards: rewardsItems[index],
                   );
-                  // }
                 },
               ),
+              // child: Obx(() {
+              //   if (rewardVM.loading.value) {
+              //     return const Center(child: CircularProgressIndicator());
+              //   }
+              //   if (rewardVM.error.isNotEmpty) {
+              //     return Center(child: Text(rewardVM.error.value));
+              //   }
+              //   if (rewardVM.rewardList.isEmpty) {
+              //     return Center(child: Text('no_rewards'.tr));
+              //   }
+              //   return ListView.builder(
+              //     itemCount: rewardVM.rewardList.length,
+              //     itemBuilder: (context, index) {
+              //       return RewardCartWidget(
+              //           rewards: rewardVM.rewardList[index]);
+              //     },
+              //   );
+              // }),
             ),
           ),
         ]),

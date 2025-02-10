@@ -116,10 +116,7 @@ class NetworkApiServicesNew extends BaseApiServicesNew {
       var uri = Uri.parse(url);
       var request = http.MultipartRequest('POST', uri);
       request.headers.addAll(headers);
-
-      // Add text fields
       request.fields.addAll(body);
-      // Add files (if any)
       if (files != null && files.isNotEmpty) {
         request.files.addAll(files);
       }
@@ -146,7 +143,6 @@ class NetworkApiServicesNew extends BaseApiServicesNew {
       case 400:
         dynamic responseJson = jsonDecode(response.body);
         return responseJson;
-      // throw InvalidUrlException;
       default:
         throw FetchDataException('error_while_communicating_with_server'.tr +
             response.statusCode.toString());
@@ -172,12 +168,9 @@ class NetworkApiServicesNew extends BaseApiServicesNew {
   }) {
     final bodyJson = jsonEncode(body);
     final bodyHash = sha256.convert(utf8.encode(bodyJson)).toString();
-
     final concatenatedString = '$apiKey$bodyHash$timestamp';
-
     final signature =
         sha256.convert(utf8.encode(concatenatedString)).toString();
-
     return signature;
   }
 

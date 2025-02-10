@@ -1,11 +1,9 @@
-import 'package:e_validation/models/navigation/notification_list_model.dart';
 import 'package:e_validation/view/navigation/notification/widget/notification_cart_widget.dart';
 import 'package:e_validation/view_models/controller/navigation/notification/notification_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
-import '../../../res/assets/font_assets.dart';
+import '../../../models/navigation/notification/notification_list_model.dart';
 import '../../../res/assets/image_assets.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
@@ -19,6 +17,20 @@ class NotificationScreen extends StatefulWidget {
 
 class _NotificationScreenState extends State<NotificationScreen> {
   final notificationVM = Get.put(NotificationViewModel());
+  final List<NotificationListModel> notificationsItems = [
+    NotificationListModel('435654', 'Solved'),
+    NotificationListModel('435654', 'Pending'),
+    NotificationListModel('435654', 'Solved'),
+    NotificationListModel('435654', 'Solved'),
+    NotificationListModel('435654', 'Solved'),
+    NotificationListModel('435654', 'Solved'),
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    notificationVM.notificationListApi();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +44,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 height: Get.height * Utils.getResponsiveHeight(365),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(ImageAssets
-                        .product_detail_bg), // Replace with your image path
-                    fit: BoxFit.cover, // Adjust the image to fill the screen
+                    image: AssetImage(ImageAssets.product_detail_bg),
+                    fit: BoxFit.cover,
                   ),
                 ),
                 child: Column(
@@ -68,38 +79,31 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       left: Get.width * Utils.getResponsiveWidth(16),
                       right: Get.width * Utils.getResponsiveWidth(16),
                       bottom: Get.height * Utils.getResponsiveHeight(70)),
-                  child: FutureBuilder<List<NotificationListModel>>(
-                    future: notificationVM
-                        .notificationListApi(), // Call your function
-                    builder: (context, snapshot) {
-                      // if (snapshot.connectionState == ConnectionState.waiting) {
-                      //   return Center(
-                      //       child:
-                      //           CircularProgressIndicator()); // Loading indicator
-                      // } else if (snapshot.hasError) {
-                      //   return Center(
-                      //       child: Text(
-                      //           'Error: ${snapshot.error}')); // Error message
-                      // } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                      //   return Center(
-                      //       child:
-                      //           Text('your_cart_is_empty'.tr)); // Empty state
-                      // } else {
-                      // final histories = snapshot.data!;
-
-                      return SizedBox(
-                        child: ListView.builder(
-                          scrollDirection: Axis.vertical,
-                          itemCount: 6,
-                          itemBuilder: (context, index) {
-                            // final history = histories[index];
-                            return NotificationCartWidget();
-                          },
-                        ),
-                      );
-                      // }
+                  child: ListView.builder(
+                    itemCount: 6,
+                    itemBuilder: (context, index) {
+                      return NotificationCartWidget(
+                          notifications: notificationsItems[index]);
                     },
                   ),
+                  // child: Obx(() {
+                  //   if (notificationVM.loading.value) {
+                  //     return const Center(child: CircularProgressIndicator());
+                  //   }
+                  //   if (notificationVM.error.isNotEmpty) {
+                  //     return Center(child: Text(notificationVM.error.value));
+                  //   }
+                  //   if (notificationVM.notificationList.isEmpty) {
+                  //     return Center(child: Text('no_notification'.tr));
+                  //   }
+                  //   return ListView.builder(
+                  //     itemCount: notificationVM.notificationList.length,
+                  //     itemBuilder: (context, index) {
+                  //       return NotificationCartWidget(
+                  //           notifications: notificationVM.notificationList[index]);
+                  //     },
+                  //   );
+                  // }),
                 ),
               ),
             ],

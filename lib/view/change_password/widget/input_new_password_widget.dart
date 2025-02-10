@@ -41,6 +41,9 @@ class InputNewPasswordWidget extends StatelessWidget {
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
           ),
+          errorText: changePasswordVM.errorMessage.value.isEmpty
+              ? null
+              : changePasswordVM.errorMessage.value,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(
                 Radius.circular(Get.height * Utils.getResponsiveSize(8))),
@@ -58,6 +61,14 @@ class InputNewPasswordWidget extends StatelessWidget {
             ),
           ),
           focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
+            borderSide: BorderSide(
+              color: AppColor.textColorPrimary, // Default border color
+              width: 1.0, // Default border width
+            ),
+          ),
+          errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(
                 Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(

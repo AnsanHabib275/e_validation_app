@@ -1,10 +1,6 @@
 import 'package:e_validation/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-
-import '../../../models/signUp/sign_up_model.dart';
-import '../../../repository/signup_repository/sign_up_repository.dart';
 import '../../../repository/verify_email_repository/verify_email_repository.dart';
 import '../../../res/routes/routes_name.dart';
 
@@ -54,14 +50,10 @@ class VerifyEmailViewModel extends GetxController {
     };
     _api.verifyEmailApi(data).then((value) {
       loading.value = false;
-      if (value['errorcode'] == 1006) {
+      if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
-      } else if (value['errorcode'] == 3084) {
-        errorMessage.value = 'email_verification_failed'.tr;
-      } else if (value['errorcode'] == 3064) {
-        errorMessage.value = 'invalid_email'.tr;
       } else {
-        Utils.toastMessage("Success");
+        Utils.toastMessage("USER VERIFIED SUCCESSFULLY");
         Get.toNamed(RoutesName.accountCreatedScreen);
       }
     }).onError((error, stackTrace) {

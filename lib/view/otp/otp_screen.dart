@@ -1,10 +1,10 @@
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/res/colors/app_color.dart';
-import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/utils/utils.dart';
 import 'package:e_validation/view/otp/widget/input_otp_widget.dart';
 import 'package:e_validation/view/otp/widget/verify_button_widget.dart';
 import 'package:e_validation/view_models/controller/otp/otp_view_model.dart';
+import 'package:e_validation/view_models/controller/resendCode/resend_code_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,14 +17,10 @@ class OTPScreen extends StatefulWidget {
 
 class _OTPScreenState extends State<OTPScreen> {
   final otpVM = Get.put(OTPViewModel());
+  final resendCodeVM = Get.put(ResendCodeViewModel());
   final _formKey = GlobalKey<FormState>();
   final e_id = Get.arguments['e_id'] ?? '';
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
+  final email = Get.arguments['email'] ?? '';
 
   @override
   Widget build(BuildContext context) {
@@ -161,14 +157,19 @@ class _OTPScreenState extends State<OTPScreen> {
                 SizedBox(
                   height: Get.height * Utils.getResponsiveHeight(40),
                 ),
-                Text(
-                  'resend_code'.tr,
-                  style: TextStyle(
-                      color: AppColor.colorPrimary,
-                      decoration: TextDecoration.underline,
-                      fontSize: Get.height * Utils.getResponsiveSize(18),
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500),
+                InkWell(
+                  onTap: () {
+                    resendCodeVM.resendCodeApi(email);
+                  },
+                  child: Text(
+                    'resend_code'.tr,
+                    style: TextStyle(
+                        color: AppColor.colorPrimary,
+                        decoration: TextDecoration.underline,
+                        fontSize: Get.height * Utils.getResponsiveSize(18),
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w500),
+                  ),
                 ),
                 SizedBox(
                   height: Get.height * Utils.getResponsiveHeight(70),

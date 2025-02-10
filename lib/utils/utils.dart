@@ -21,7 +21,7 @@ class Utils {
     Fluttertoast.showToast(
         msg: message,
         backgroundColor: AppColor.blackColor,
-        gravity: ToastGravity.BOTTOM);
+        gravity: ToastGravity.CENTER);
   }
 
   static toastMessageCenter(String message) {
@@ -52,32 +52,32 @@ class Utils {
       DateTime parsedDate = DateTime.parse(appDate);
       return DateFormat('yyyy-MM-dd').format(parsedDate);
     } catch (e) {
-      return 'Invalid Date'; // Handle parsing errors gracefully
+      return '';
     }
   }
 
   static String appFormatDate(String apiDate) {
     try {
-      DateTime parsedDate = DateTime.parse(apiDate);
+      DateTime parsedDate = DateTime.parse(apiDate).toLocal();
       return DateFormat('MM-dd-yyyy').format(parsedDate);
     } catch (e) {
-      return 'Invalid Date'; // Handle parsing errors gracefully
+      return '';
     }
   }
 
   static String scanFormatDate(String apiDate) {
     try {
-      DateTime parsedDate = DateTime.parse(apiDate);
+      DateTime parsedDate = DateTime.parse(apiDate).toLocal();
       return DateFormat('dd MMM,yyyy').format(parsedDate);
     } catch (e) {
-      return 'Invalid Date'; // Handle parsing errors gracefully
+      return '';
     }
   }
 }
 
 extension StringExtensions on String {
   String toTitleCase() {
-    return this.split(' ').map((word) {
+    return split(' ').map((word) {
       if (word.isEmpty) return word;
       return word[0].toUpperCase() + word.substring(1).toLowerCase();
     }).join(' ');

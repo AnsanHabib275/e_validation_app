@@ -20,11 +20,11 @@ class VoiceChatGptViewModel extends GetxController {
   final messageController = TextEditingController().obs;
   final scrollController = ScrollController().obs;
 
-  void setRxRequestStatus(Status _value) => rxRequestStatus.value = _value;
+  void setRxRequestStatus(Status value) => rxRequestStatus.value = value;
 
   void setChatList(List<VoiceChatGptModel> chat) => _chatList = chat;
 
-  void setError(String _value) => error.value = _value;
+  void setError(String value) => error.value = value;
 
   Future<List<VoiceChatGptModel>> chatListApi() {
     UserPreference userPreference = UserPreference();

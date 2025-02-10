@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
-import '../../../models/signUp/sign_up_model.dart';
 import '../../../repository/signup_repository/sign_up_repository.dart';
 import '../../../res/routes/routes_name.dart';
 import '../../../utils/utils.dart';
@@ -17,7 +14,6 @@ class SignUpViewModel extends GetxController {
   final countryCodeController = TextEditingController().obs;
   final phoneNumberController = TextEditingController().obs;
   final dateOfBirthController = TextEditingController().obs;
-  // final genderController = TextEditingController().obs;
   final passwordController = TextEditingController().obs;
 
   final firstNameFocusNode = FocusNode().obs;
@@ -26,7 +22,6 @@ class SignUpViewModel extends GetxController {
   final countryCodeFocusNode = FocusNode().obs;
   final phoneNumberFocusNode = FocusNode().obs;
   final dateOfBirthFocusNode = FocusNode().obs;
-  // final genderFocusNode = FocusNode().obs;
   final passwordFocusNode = FocusNode().obs;
 
   RxBool loading = false.obs;
@@ -53,7 +48,6 @@ class SignUpViewModel extends GetxController {
       'CountryCode': countryCodeController.value.text,
       'PhoneNumber': phoneNumberController.value.text,
       'DOB': formattedDOB,
-      // 'Gender': genderController.value.text,
       'password': passwordController.value.text,
     };
     print(data);
@@ -61,10 +55,6 @@ class SignUpViewModel extends GetxController {
       loading.value = false;
       if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
-        // } else if (value['errorcode'] == 1003) {
-        //   errorMessage.value = 'email_verification_failed'.tr;
-        // } else if (value['errorcode'] == 1004) {
-        //   errorMessage.value = 'invalid_email'.tr;
       } else {
         Utils.toastMessage("OTP Sent To Your Email Account");
         Get.toNamed(RoutesName.verifyEmailScreen);

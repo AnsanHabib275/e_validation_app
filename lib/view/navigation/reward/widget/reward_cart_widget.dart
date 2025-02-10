@@ -1,18 +1,17 @@
+import 'package:e_validation/models/navigation/rewards/reward_list_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
 import '../../../../view_models/controller/navigation/notification/notification_view_model.dart';
-import '../../../../view_models/controller/user_preference/user_preference_view_model.dart';
 
 class RewardCartWidget extends StatefulWidget {
-  // final HistoryListModel history;
+  final RewardListModel rewards;
 
   const RewardCartWidget({
     super.key,
-    // required this.history,
+    required this.rewards,
   });
 
   @override
@@ -51,7 +50,7 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        '+180',
+                        widget.rewards.points,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: AppColor.textWhite,
@@ -75,7 +74,7 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
               SizedBox(height: Get.width * Utils.getResponsiveWidth(16)),
               Expanded(
                 child: Text(
-                  'products_scanned'.tr,
+                  widget.rewards.name,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -89,7 +88,7 @@ class _RewardCartWidgetState extends State<RewardCartWidget> {
                 padding: EdgeInsets.symmetric(
                     horizontal: Get.width * Utils.getResponsiveWidth(14)),
                 child: Text(
-                  '56',
+                  widget.rewards.counts,
                   style: TextStyle(
                       color: AppColor.textGreyPrimary,
                       fontFamily: 'Poppins',

@@ -13,4 +13,6 @@ class AppUrl {
   static String submitComplaintUrl = "$baseUrl/api/SubmitComplaint/";
   static String scanHistoryUrl = "$baseUrl/api/GetScanHistory/";
   static String complaintStatusUrl = "$baseUrl/api/GetComplaintStatus/";
+  static String notificationUrl = "$baseUrl/api/GetNotifications/";
+  static String rewardUrl = "$baseUrl/api/GetRewards/";
 }

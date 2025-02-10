@@ -1,12 +1,8 @@
-import 'package:e_validation/models/navigation/history/scan_history_model.dart';
 import 'package:e_validation/view/navigation/history/widget/history_cart_widget.dart';
 import 'package:e_validation/view_models/controller/navigation/history/history_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
-import '../../../models/navigation/history_list_model.dart';
-import '../../../res/assets/font_assets.dart';
 import '../../../res/assets/image_assets.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
@@ -39,9 +35,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 height: Get.height * Utils.getResponsiveHeight(365),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(ImageAssets
-                        .product_detail_bg), // Replace with your image path
-                    fit: BoxFit.cover, // Adjust the image to fill the screen
+                    image: AssetImage(ImageAssets.product_detail_bg),
+                    fit: BoxFit.cover,
                   ),
                 ),
                 child: Column(
@@ -77,60 +72,22 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       bottom: Get.height * Utils.getResponsiveHeight(70)),
                   child: Obx(() {
                     if (historyVM.loading.value) {
-                      print('loading');
                       return const Center(child: CircularProgressIndicator());
                     }
-
                     if (historyVM.error.isNotEmpty) {
-                      print('error');
                       return Center(child: Text(historyVM.error.value));
                     }
-                    // if (historyVM.scanHistoryList.isEmpty) {
-                    //   print('empty');
-                    //   return Center(child: Text('No History'));
-                    // }
-
+                    if (historyVM.historyDataList.isEmpty) {
+                      return Center(child: Text('no_history'.tr));
+                    }
                     return ListView.builder(
                       itemCount: historyVM.historyDataList.length,
                       itemBuilder: (context, index) {
-                        final item = historyVM.historyDataList[index];
-                        return HistoryCartWidget(history: item);
+                        return HistoryCartWidget(
+                            history: historyVM.historyDataList[index]);
                       },
                     );
                   }),
-                  // child: FutureBuilder<List<Data>>(
-                  //   future: historyVM.historyListApi(), // Call your function
-                  //   builder: (context, snapshot) {
-                  //     if (snapshot.connectionState == ConnectionState.waiting) {
-                  //       return Center(
-                  //           child:
-                  //               CircularProgressIndicator()); // Loading indicator
-                  //     } else if (snapshot.hasError) {
-                  //       return Center(
-                  //           child: Text(
-                  //               'Error: ${snapshot.error}')); // Error message
-                  //     } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  //       return Center(
-                  //           child:
-                  //               Text('your_cart_is_empty'.tr)); // Empty state
-                  //     } else {
-                  //       // final histories = snapshot.data!;
-                  //       final List<Data> histories = snapshot.data!;
-                  //       return SizedBox(
-                  //         child: ListView.builder(
-                  //           scrollDirection: Axis.vertical,
-                  //           itemCount: histories.length,
-                  //           itemBuilder: (context, index) {
-                  //             final history = histories[index];
-                  //             return HistoryCartWidget(
-                  //               history: history,
-                  //             );
-                  //           },
-                  //         ),
-                  //       );
-                  //     }
-                  //   },
-                  // ),
                 ),
               ),
             ],

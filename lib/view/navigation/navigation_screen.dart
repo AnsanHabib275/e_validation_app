@@ -21,7 +21,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../models/navigation/menu_items_model.dart';
+import '../../models/navigation/menu/menu_items_model.dart';
 import '../../res/assets/icon_assets.dart';
 import '../../res/colors/app_color.dart';
 import '../../res/componants/MenuIcon.dart';
@@ -36,6 +36,7 @@ class NavigationScreen extends StatefulWidget {
 
 class _NavigationScreenState extends State<NavigationScreen> {
   final navigationVM = Get.put(NavigationViewModel());
+  final userVM = Get.put(UserPreference());
   final _formkey = GlobalKey<FormState>();
 
   final List<MenuItemsModel> items = [
@@ -104,11 +105,26 @@ class _NavigationScreenState extends State<NavigationScreen> {
                             CircleAvatar(
                               radius: Get.height * Utils.getResponsiveSize(40),
                               backgroundColor: AppColor.lightGreyColor,
-                              backgroundImage:
-                                  AssetImage(ImageAssets.dummy_profile),
+                              child: userVM.user_ImageURL.isEmpty
+                                  ? SvgPicture.asset(
+                                      ImageAssets
+                                          .img_profile, // Your default SVG image path
+                                      fit: BoxFit.cover,
+                                    )
+                                  : ClipOval(
+                                      child: Image.network(
+                                        userVM.user_ImageURL
+                                            .value, // The selected or updated image path
+                                        fit: BoxFit.cover,
+                                        height: Get.height *
+                                            Utils.getResponsiveHeight(80),
+                                        width: Get.width *
+                                            Utils.getResponsiveWidth(80),
+                                      ),
+                                    ),
                             ),
                             Text(
-                              'George Oliver',
+                              userVM.user_fullName.value,
                               textAlign: TextAlign.start,
                               style: TextStyle(
                                   color: AppColor.textBlackPrimary,
@@ -118,7 +134,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                                   fontWeight: FontWeight.w600),
                             ),
                             Text(
-                              'Georgeoliver@gmail.com',
+                              userVM.user_email.value,
                               textAlign: TextAlign.start,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,

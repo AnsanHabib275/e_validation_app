@@ -4,10 +4,10 @@ import 'package:e_validation/view/navigation/complaints/widget/complaints_cart_w
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
-import '../../../models/navigation/history_list_model.dart';
+import '../../../models/login/login_model.dart';
 import '../../../utils/utils.dart';
 import '../../../view_models/controller/navigation/complaints/complaints_view_model.dart';
+import '../../../view_models/controller/user_preference/user_preference_view_model.dart';
 
 class ComplaintsScreen extends StatefulWidget {
   const ComplaintsScreen({super.key});
@@ -18,6 +18,13 @@ class ComplaintsScreen extends StatefulWidget {
 
 class _ComplaintsScreenState extends State<ComplaintsScreen> {
   final complaintsVM = Get.put(ComplaintsViewModel());
+  final userVM = Get.put(UserPreference());
+
+  @override
+  void initState() {
+    super.initState();
+    complaintsVM.complaintsListApi();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +79,22 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                   CircleAvatar(
                     radius: Get.height * Utils.getResponsiveSize(42),
                     backgroundColor: AppColor.lightGreyColor,
-                    backgroundImage: AssetImage(ImageAssets.dummy_profile),
+                    child: userVM.user_ImageURL.isEmpty
+                        ? SvgPicture.asset(
+                            ImageAssets
+                                .img_profile, // Your default SVG image path
+                            fit: BoxFit.cover,
+                          )
+                        : ClipOval(
+                            child: Image.network(
+                              userVM.user_ImageURL
+                                  .value, // The selected or updated image path
+                              fit: BoxFit.cover,
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(84),
+                              width: Get.width * Utils.getResponsiveWidth(84),
+                            ),
+                          ),
                   ),
                   SizedBox(
                     width: Get.width * Utils.getResponsiveWidth(12),
@@ -82,14 +104,14 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'George Oliver',
+                        userVM.user_fullName.value,
                         style: TextStyle(
                             fontSize: Get.height * Utils.getResponsiveSize(20),
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                             color: AppColor.textColorPrimary),
                       ),
-                      Text('Georgeoliver@gmail.com',
+                      Text(userVM.user_email.value,
                           style: TextStyle(
                               fontSize:
                                   Get.height * Utils.getResponsiveSize(16),
@@ -107,38 +129,26 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                     left: Get.width * Utils.getResponsiveWidth(16),
                     right: Get.width * Utils.getResponsiveWidth(16),
                     bottom: Get.height * Utils.getResponsiveHeight(70)),
-                child: FutureBuilder<List<ComplaintsListModel>>(
-                  future:
-                      complaintsVM.complaintsListApi(), // Call your function
-                  builder: (context, snapshot) {
-                    // if (snapshot.connectionState == ConnectionState.waiting) {
-                    //   return Center(
-                    //       child:
-                    //           CircularProgressIndicator()); // Loading indicator
-                    // } else if (snapshot.hasError) {
-                    //   return Center(
-                    //       child: Text(
-                    //           'Error: ${snapshot.error}')); // Error message
-                    // } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                    //   return Center(
-                    //       child:
-                    //           Text('your_cart_is_empty'.tr)); // Empty state
-                    // } else {
-                    // final histories = snapshot.data!;
+                child: Obx(() {
+                  if (complaintsVM.loading.value) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
 
-                    return SizedBox(
-                      child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        itemCount: 6,
-                        itemBuilder: (context, index) {
-                          // final history = histories[index];
-                          return ComplaintsCartWidget();
-                        },
-                      ),
-                    );
-                    // }
-                  },
-                ),
+                  if (complaintsVM.error.isNotEmpty) {
+                    return Center(child: Text(complaintsVM.error.value));
+                  }
+                  if (complaintsVM.complaintsDataList.isEmpty) {
+                    return Center(child: Text('No Complaints'));
+                  }
+
+                  return ListView.builder(
+                    itemCount: complaintsVM.complaintsDataList.length,
+                    itemBuilder: (context, index) {
+                      return ComplaintsCartWidget(
+                          complaints: complaintsVM.complaintsDataList[index]);
+                    },
+                  );
+                }),
               ),
             ),
           ],

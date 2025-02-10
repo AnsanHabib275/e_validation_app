@@ -74,10 +74,7 @@ class NetworkApiServices extends BaseApiServices {
       var uri = Uri.parse(url);
       var request = http.MultipartRequest('POST', uri);
       request.headers.addAll(headers);
-
-      // Add text fields
       request.fields.addAll(data);
-      // Add files (if any)
       if (files != null && files.isNotEmpty) {
         request.files.addAll(files);
       }
@@ -104,7 +101,6 @@ class NetworkApiServices extends BaseApiServices {
       case 400:
         dynamic responseJson = jsonDecode(response.body);
         return responseJson;
-      // throw InvalidUrlException;
       default:
         throw FetchDataException('error_while_communicating_with_server'.tr +
             response.statusCode.toString());

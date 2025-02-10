@@ -1,3 +1,4 @@
+import 'package:e_validation/models/navigation/notification/notification_list_model.dart';
 import 'package:e_validation/res/assets/font_assets.dart';
 import 'package:e_validation/res/assets/icon_assets.dart';
 import 'package:flutter/material.dart';
@@ -11,11 +12,11 @@ import '../../../../view_models/controller/navigation/notification/notification_
 import '../../../../view_models/controller/user_preference/user_preference_view_model.dart';
 
 class NotificationCartWidget extends StatefulWidget {
-  // final HistoryListModel history;
+  final NotificationListModel notifications;
 
   const NotificationCartWidget({
     super.key,
-    // required this.history,
+    required this.notifications,
   });
 
   @override
@@ -59,7 +60,8 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                               ),
                             ),
                             TextSpan(
-                              text: "435654", // The number
+                              text: widget
+                                  .notifications.complaintNo, // The number
                               style: TextStyle(
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(16),
@@ -73,8 +75,7 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                         ),
                       ),
                       Text(
-                        'Solved',
-                        // widget.history.scanedOn,
+                        widget.notifications.status.toString(),
                         style: TextStyle(
                           fontSize: Get.height * Utils.getResponsiveSize(12),
                           fontFamily: 'Poppins',
@@ -87,7 +88,9 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                   ),
                 ),
                 SvgPicture.asset(
-                  IconAssets.ic_solved_complaint,
+                  widget.notifications.status == 'Solved'
+                      ? IconAssets.ic_solved_complaint
+                      : IconAssets.ic_pending_complaint,
                   height: Get.height * Utils.getResponsiveHeight(28),
                   width: Get.width * Utils.getResponsiveWidth(28),
                 )

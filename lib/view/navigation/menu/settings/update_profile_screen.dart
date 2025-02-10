@@ -1,7 +1,6 @@
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/view/navigation/menu/settings/widget/input_date_of_birth_widget.dart';
 import 'package:e_validation/view/navigation/menu/settings/widget/input_first_name_widget.dart';
-import 'package:e_validation/view/navigation/menu/settings/widget/input_gender_widget.dart';
 import 'package:e_validation/view/navigation/menu/settings/widget/input_last_name_widget.dart';
 import 'package:e_validation/view/navigation/menu/settings/widget/input_phone_number_widget.dart';
 import 'package:e_validation/view/navigation/menu/settings/widget/update_button_widget.dart';
@@ -9,8 +8,6 @@ import 'package:e_validation/view_models/controller/updateProfile/update_profile
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
-
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
 import '../../../../view_models/controller/user_preference/user_preference_view_model.dart';
@@ -24,23 +21,8 @@ class UpdateProfileScreen extends StatefulWidget {
 
 class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   final updateProfileVM = Get.put(UpdateProfileViewModel());
+  final userVM = Get.put(UserPreference());
   final _formkey = GlobalKey<FormState>();
-  String? eid = '';
-
-  Future<void> getUserDetail() async {
-    UserPreference userPreference = UserPreference();
-    userPreference.getUser().then((user) {
-      setState(() {
-        eid = user.user?.eID;
-      });
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getUserDetail();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +33,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
           FocusScope.of(context).unfocus();
         },
         child: Scaffold(
+          backgroundColor: AppColor.whiteColor,
           appBar: PreferredSize(
               preferredSize:
                   Size.fromHeight(Get.height * Utils.getResponsiveHeight(124)),
@@ -174,9 +157,6 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                         SizedBox(
                             height: Get.height * Utils.getResponsiveHeight(22)),
                         InputDateOfBirthWidget(),
-                        // SizedBox(
-                        //     height: Get.height * Utils.getResponsiveHeight(22)),
-                        // InputGenderWidget(),
                       ],
                     ),
                   ),
@@ -185,7 +165,6 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   ),
                   UpdateButtonWidget(
                     formkey: _formkey,
-                    eid: eid,
                   ),
                   SizedBox(
                     height: Get.height * Utils.getResponsiveHeight(50),

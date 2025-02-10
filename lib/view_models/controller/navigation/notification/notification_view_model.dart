@@ -1,8 +1,8 @@
-import 'package:e_validation/models/navigation/notification_list_model.dart';
 import 'package:e_validation/repository/notification_repository/notification_repository.dart';
 import 'package:get/get.dart';
 
 import '../../../../data/response/status.dart';
+import '../../../../models/navigation/notification/notification_list_model.dart';
 import '../../user_preference/user_preference_view_model.dart';
 
 class NotificationViewModel extends GetxController {
@@ -24,17 +24,22 @@ class NotificationViewModel extends GetxController {
 
   void setError(String _value) => error.value = _value;
 
-  Future<List<NotificationListModel>> notificationListApi() {
-    UserPreference userPreference = UserPreference();
-    return userPreference.getUser().then((user) {
-      return _api.notificationListApi(user.user!.eID!).then((notificationList) {
-        setRxRequestStatus(Status.COMPLETED);
-        return notificationList;
+  Future<void> notificationListApi() async {
+    loading.value = true;
+    try {
+      UserPreference userPreference = UserPreference();
+      userPreference.getUser().then((user) async {
+        var result = await _api.notificationListApi(user.user!.eID!);
+        loading.value = false;
+        setNotificationList(result);
       }).onError((error, stackTrace) {
+        loading.value = false;
         setError(error.toString());
         setRxRequestStatus(Status.ERROR);
-        throw Exception('failed_to_fetch_cart_list'.tr);
       });
-    });
+    } catch (e) {
+      loading.value = false;
+      setError(e.toString());
+    }
   }
 }

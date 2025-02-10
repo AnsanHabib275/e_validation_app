@@ -1,3 +1,4 @@
+import 'package:e_validation/models/navigation/complaints/complaints_list_model.dart';
 import 'package:e_validation/res/assets/icon_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -5,14 +6,13 @@ import 'package:get/get.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
 import '../../../../view_models/controller/navigation/notification/notification_view_model.dart';
-import '../../../../view_models/controller/user_preference/user_preference_view_model.dart';
 
 class ComplaintsCartWidget extends StatefulWidget {
-  // final HistoryListModel history;
+  final Data complaints;
 
   const ComplaintsCartWidget({
     super.key,
-    // required this.history,
+    required this.complaints,
   });
 
   @override
@@ -54,7 +54,8 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
                             ),
                           ),
                           TextSpan(
-                            text: "3342567", // The number
+                            text: widget.complaints.qrCodeId
+                                .toString(), // The number
                             style: TextStyle(
                               fontSize:
                                   Get.height * Utils.getResponsiveSize(16),
@@ -68,8 +69,7 @@ class _ComplaintsCartWidgetState extends State<ComplaintsCartWidget> {
                       ),
                     ),
                     Text(
-                      'Submitted',
-                      // widget.history.scanedOn,
+                      'submitted'.tr,
                       style: TextStyle(
                         fontSize: Get.height * Utils.getResponsiveSize(12),
                         fontFamily: 'Poppins',

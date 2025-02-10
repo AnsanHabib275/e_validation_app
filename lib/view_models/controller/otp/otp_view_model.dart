@@ -1,11 +1,7 @@
 import 'package:e_validation/repository/otp_repository/otp_repository.dart';
 import 'package:e_validation/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-
-import '../../../models/signUp/sign_up_model.dart';
-import '../../../repository/signup_repository/sign_up_repository.dart';
 import '../../../res/routes/routes_name.dart';
 
 class OTPViewModel extends GetxController {
@@ -57,10 +53,6 @@ class OTPViewModel extends GetxController {
       loading.value = false;
       if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
-        // } else if (value['errorcode'] == 3084) {
-        //   errorMessage.value = 'email_verification_failed'.tr;
-        // } else if (value['errorcode'] == 3064) {
-        //   errorMessage.value = 'invalid_email'.tr;
       } else {
         Utils.toastMessage("OTP VERIFIED SUCCESSFULLY");
         Get.toNamed(RoutesName.resetPasswordScreen);

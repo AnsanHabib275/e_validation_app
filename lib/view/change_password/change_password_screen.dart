@@ -1,6 +1,6 @@
 import 'package:e_validation/view/change_password/widget/input_old_password_widget.dart';
 import 'package:e_validation/view/change_password/widget/update_password_button_widget.dart';
-import 'package:e_validation/view/reset_password/widget/input_new_password_widget.dart';
+import 'package:e_validation/view/change_password/widget/input_new_password_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,8 +17,6 @@ class ChangePasswordScreen extends StatefulWidget {
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   final _formkey = GlobalKey<FormState>();
-  // final e_id = Get.arguments['e_id'];
-  final e_id = '';
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +95,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   SizedBox(
                     height: Get.height * Utils.getResponsiveHeight(50),
                   ),
-                  UpdatePasswordButtonWidget(formkey: _formkey, e_id: e_id),
+                  UpdatePasswordButtonWidget(formkey: _formkey),
                   SizedBox(
                     height: Get.height * Utils.getResponsiveHeight(50),
                   ),

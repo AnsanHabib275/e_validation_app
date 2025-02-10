@@ -1,16 +1,9 @@
-import 'dart:async';
-
+import 'package:e_validation/view_models/services/login_services.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
-import '../../res/assets/font_assets.dart';
 import '../../res/assets/image_assets.dart';
 import '../../res/colors/app_color.dart';
-import '../../res/routes/routes_name.dart';
 import '../../utils/utils.dart';
-import '../../view_models/controller/statusBar/status_bar_view_model.dart';
 
 class SplashScreenTwo extends StatefulWidget {
   const SplashScreenTwo({super.key});
@@ -20,13 +13,12 @@ class SplashScreenTwo extends StatefulWidget {
 }
 
 class _SplashScreenTwoState extends State<SplashScreenTwo> {
-  final statusBarVM = Get.put(StatusBarViewModel());
+  final loginServiceVM = Get.put(LoginServices());
+
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(milliseconds: 400), () {
-      Get.toNamed(RoutesName.welcomeScreen);
-    });
+    loginServiceVM.isLogin();
   }
 
   @override

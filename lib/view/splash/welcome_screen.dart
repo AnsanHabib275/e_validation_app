@@ -5,7 +5,6 @@ import '../../res/assets/image_assets.dart';
 import '../../res/colors/app_color.dart';
 import '../../res/routes/routes_name.dart';
 import '../../utils/utils.dart';
-import '../../view_models/controller/statusBar/status_bar_view_model.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -15,8 +14,6 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-  final statusBarVM = Get.put(StatusBarViewModel());
-
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -27,9 +24,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           width: Get.width * 1,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(
-                  ImageAssets.splash_bg), // Replace with your image path
-              fit: BoxFit.cover, // Adjust the image to fill the screen
+              image: AssetImage(ImageAssets.splash_bg),
+              fit: BoxFit.cover,
             ),
           ),
           child: Padding(
