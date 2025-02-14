@@ -9,6 +9,8 @@ import 'package:e_validation/view/navigation/home/product/widget/input_user_addr
 import 'package:e_validation/view/navigation/home/product/widget/input_user_lat_lng_widget.dart';
 import 'package:e_validation/view/navigation/home/product/widget/input_user_name_widget.dart';
 import 'package:e_validation/view/navigation/home/product/widget/submit_button_widget.dart';
+import 'package:e_validation/view_models/controller/scanProduct/scan_product_view_model.dart';
+import 'package:e_validation/view_models/controller/user_preference/user_preference_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,6 +25,8 @@ class ComplainScreen extends StatefulWidget {
 
 class _ComplainScreenState extends State<ComplainScreen> {
   final _formkey = GlobalKey<FormState>();
+  final userVM = Get.put(UserPreference());
+  final scanProductVM = Get.put(ScanProductViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +106,11 @@ class _ComplainScreenState extends State<ComplainScreen> {
                   SizedBox(
                     height: Get.height * Utils.getResponsiveHeight(92),
                   ),
-                  SubmitButtonWidget(formkey: _formkey),
+                  SubmitButtonWidget(
+                    formkey: _formkey,
+                    eid: userVM.user_eid.value,
+                    productHash: scanProductVM.productHashCode.value,
+                  ),
                   SizedBox(
                     height: MediaQuery.of(context).padding.bottom + 30,
                   ),

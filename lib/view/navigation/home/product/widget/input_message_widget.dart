@@ -20,7 +20,7 @@ class InputMessageWidget extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'message_cannot_be_blank'.tr;
+            return 'message_cannot_be_empty'.tr;
           }
           return null;
         },

@@ -9,7 +9,7 @@ class LoginServices extends GetxController {
 
   Future<void> isLogin() async {
     userPreference.getUser().then((user) {
-      if (user.user == null && user.user!.eID!.isEmpty) {
+      if (user.user!.eID!.isEmpty) {
         Timer(const Duration(milliseconds: 400),
             () => Get.toNamed(RoutesName.welcomeScreen));
       } else {

@@ -34,22 +34,12 @@ class UpdateProfileViewModel extends GetxController {
 
   void updateProfileApi(String eid) {
     loading.value = true;
-    String formattedDOB = "";
-    if (dateOfBirthController.value.text.isNotEmpty) {
-      try {
-        DateTime parsedDate = DateFormat("MM/dd/yyyy").parse(
-            dateOfBirthController.value.text); // Adjust format if necessary
-        formattedDOB = DateFormat("yyyy-MM-dd").format(parsedDate);
-      } catch (e) {
-        print("Invalid date format: ${dateOfBirthController.value.text}");
-      }
-    }
     Map data = {
       "E_ID": eid.toString(),
       "FirstName": firstNameController.value.text,
       "LastName": lastNameController.value.text,
       "MobileNumbre": phoneNumberController.value.text,
-      "DOB": formattedDOB,
+      "DOB": Utils.apiFormatDate(dateOfBirthController.value.text),
       "CountryCode": countryCodeController.value.text,
       "ImageURL": imagePath,
     };
@@ -57,12 +47,8 @@ class UpdateProfileViewModel extends GetxController {
       loading.value = false;
       if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
-        // } else if (value['errorcode'] == 3084) {
-        //   errorMessage.value = 'email_verification_failed'.tr;
-        // } else if (value['errorcode'] == 3064) {
-        //   errorMessage.value = 'invalid_email'.tr;
       } else {
-        Utils.toastMessage(value['Message']);
+        Utils.toastMessage('Profile Update Successfully');
         Get.toNamed(RoutesName.loginScreen);
       }
     }).onError((error, stackTrace) {

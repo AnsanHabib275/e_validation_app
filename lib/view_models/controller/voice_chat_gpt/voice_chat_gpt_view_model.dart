@@ -41,7 +41,7 @@ class VoiceChatGptViewModel extends GetxController {
     });
   }
 
-  Future<bool> sendMessageApi(String uid, String apiKey) async {
+  void sendMessageApi(String uid, String apiKey) async {
     loading.value = true;
     Map data = {
       'message_content': messageController.value.text,
@@ -50,34 +50,14 @@ class VoiceChatGptViewModel extends GetxController {
     try {
       final value = await _api.sendMessageApi(data, apiKey);
       loading.value = false;
-      if (value['error_code'] == 3087) {
-        //"PLEASE_ADD_QUANTITY_TO_CONTINUE" // when quantity not enter
-        Utils.toastMessage(value['error_message']);
-        return false;
-      } else if (value['error_code'] == 3028) {
-        //"INVALID_API_KEYS" when wrong api key enter
-        Utils.toastMessage(value['error_message']);
-        return false;
-      } else if (value['error_code'] == 3057) {
-        //"ACCOUNT_NOT_FOUND"  //when wrong uid enter
-        Utils.toastMessage(value['error_message']);
-        return false;
-      } else if (value['error_code'] == 3086) {
-        //"PLEASE_ADD_PRODUCTS_TO_CONTINUE" when product id not enter
-        Utils.toastMessage(value['error_message']);
-        return false;
-      } else if (value['error_code'] == 4003) {
-        //"INVALID_UID" // when uid not enter
-        Utils.toastMessage(value['error_message']);
-        return false;
+      if (value['isSuccessfull'] == false) {
+        error.value = value['message'];
       } else {
         Utils.toastMessage(value['Response']);
-        return true;
       }
     } catch (e) {
       loading.value = false;
-      Utils.toastMessage(e.toString());
-      return false;
+      error.value = e.toString();
     }
   }
 }

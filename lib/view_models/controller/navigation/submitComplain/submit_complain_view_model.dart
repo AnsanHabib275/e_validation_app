@@ -1,13 +1,13 @@
-import 'package:e_validation/repository/scan_product_repository/scan_product_repository.dart';
 import 'package:e_validation/repository/submit_complain_repository/submit_complain_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
-import '../../../../res/routes/routes_name.dart';
-import '../../../../utils/utils.dart';
+import 'package:image_picker/image_picker.dart';
+import '../../../../view/navigation/home/product/product_verify_done_screen.dart';
+import '../navigation_view_model.dart';
 
 class SubmitComplainViewModel extends GetxController {
   final _api = SubmitComplainRepository();
+  final navigationVM = Get.put(NavigationViewModel());
 
   final productIdController = TextEditingController().obs;
   final attachFileController = TextEditingController().obs;
@@ -32,29 +32,44 @@ class SubmitComplainViewModel extends GetxController {
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;
   RxString errorMessage = ''.obs;
+  RxString imagePath = ''.obs;
 
-  void submitComplaintApi(String? productHash, String eid) {
+  void submitComplaintApi(String productHash, String eid) {
     loading.value = true;
     Map data = {
-      'productHash': productHash,
-      'deviceIp': "",
-      'deviceIdentity': "",
+      'Detail': messageController.value.text,
+      'ProductId': productIdController.value.text,
+      'QRCodeHash': productHash,
+      'ComplaintImage': attachFileController.value.text,
     };
     _api.submitComplaintApi(data, eid).then((value) {
       loading.value = false;
-      if (value['errorcode'] == 1023) {
+      if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
-      } else if (value['errorcode'] == 3084) {
-        errorMessage.value = 'email_verification_failed'.tr;
-      } else if (value['errorcode'] == 3064) {
-        errorMessage.value = 'invalid_email'.tr;
       } else {
-        Utils.toastMessage(value['Message']);
-        Get.toNamed(RoutesName.productDetailScreen);
+        navigationVM.changeScreen(ProductVerifyDoneScreen());
       }
     }).onError((error, stackTrace) {
       loading.value = false;
       errorMessage.value = error.toString();
     });
+  }
+
+  Future getImageFromGallery() async {
+    final ImagePicker _picker = ImagePicker();
+    final image = await _picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      imagePath.value = image.path.toString();
+      attachFileController.value.text = image.path.toString();
+    }
+  }
+
+  Future takeImageFromCamera() async {
+    final ImagePicker _picker = ImagePicker();
+    final image = await _picker.pickImage(source: ImageSource.camera);
+    if (image != null) {
+      imagePath.value = image.path.toString();
+      attachFileController.value.text = image.path.toString();
+    }
   }
 }

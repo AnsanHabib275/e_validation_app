@@ -29,70 +29,11 @@ class _ScanProductScreenState extends State<ScanProductScreen>
     with SingleTickerProviderStateMixin {
   final navigationVM = Get.put(NavigationViewModel());
   final scanProductVM = Get.put(ScanProductViewModel());
-  bool _camState = false;
+  final userVM = Get.put(UserPreference());
 
-  Scanmodel? model;
-  String? productid;
   String? originalString;
   String? modifiedString;
-
-  // _qrCallback(code) {
-  //   setState(() {
-  //     _camState = false;
-  //     _qrInfo = code;
-  //   });
-  // }
-
-  _scanCode() {
-    setState(() {
-      _camState = true;
-    });
-  }
-
-  String? eid = '';
-
-  Future<void> getUserDetail() async {
-    UserPreference userPreference = UserPreference();
-    userPreference.getUser().then((user) {
-      setState(() {
-        eid = user.user?.eID;
-      });
-    });
-  }
-
-  // void _handleScan(String? code) async {
-  //   if (code == null || code.isEmpty) return;
-  //   print(code);
-  //   // Remove specific substrings (if necessary).
-  //   final processedCode =
-  //       code.length > 4 ? code.substring(2, code.length - 2) : code;
-  //   print(processedCode);
-  //   final scanModel = await scanProductVM.scanProductApi(processedCode, eid!);
-  //
-  //   // Update UI based on scan result.
-  //   if (scanModel != null) {
-  //     setState(() {
-  //       model = scanModel;
-  //       _camState = false;
-  //     });
-  //
-  //     // Navigate to appropriate screen based on model data.
-  //     if (scanModel.data != null) {
-  //       navigationVM.changeScreen(ProductVerifiedScreen());
-  //     } else {
-  //       navigationVM.changeScreen(FakeProductScreen());
-  //     }
-  //   } else {
-  //     log("Failed to scan product");
-  //   }
-  // }
-
-  @override
-  void initState() {
-    super.initState();
-    getUserDetail();
-    // _scanCode();
-  }
+  bool _isScanning = false;
 
   @override
   Widget build(BuildContext context) {
@@ -114,17 +55,14 @@ class _ScanProductScreenState extends State<ScanProductScreen>
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors
-                            .white, // Add a background color for visibility
-                        shape: BoxShape.circle, // Makes it rounded (optional)
+                        color: Colors.white,
+                        shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black
-                                .withOpacity(0.3), // Shadow color with opacity
-                            blurRadius: 8, // Soften the shadow
-                            spreadRadius: 2, // Extend the shadow
-                            offset:
-                                Offset(2, 4), // Moves shadow to bottom-right
+                            color: Colors.black.withOpacity(0.3),
+                            blurRadius: 8,
+                            spreadRadius: 2,
+                            offset: Offset(2, 4),
                           ),
                         ],
                       ),
@@ -139,15 +77,11 @@ class _ScanProductScreenState extends State<ScanProductScreen>
                   left: Get.width * Utils.getResponsiveWidth(70),
                   right: Get.width * Utils.getResponsiveWidth(70),
                   bottom: Get.height * Utils.getResponsiveHeight(70),
-                  child: InkWell(
-                      onTap: () {
-                        navigationVM.changeScreen(ProductVerifiedScreen());
-                      },
-                      child: Image.asset(
-                        ImageAssets.scan_bg,
-                        height: Get.height * Utils.getResponsiveHeight(675),
-                        width: Get.width * Utils.getResponsiveWidth(305),
-                      )),
+                  child: Image.asset(
+                    ImageAssets.scan_bg,
+                    height: Get.height * Utils.getResponsiveHeight(675),
+                    width: Get.width * Utils.getResponsiveWidth(305),
+                  ),
                 ),
                 Positioned(
                   left: Get.width * Utils.getResponsiveWidth(75),
@@ -159,51 +93,25 @@ class _ScanProductScreenState extends State<ScanProductScreen>
                             error.toString(),
                             style: const TextStyle(color: Colors.red),
                           ),
-                      // qrCodeCallback: _handleScan,
                       qrCodeCallback: (code) async {
-                        // _qrCallback(code);
+                        if (_isScanning) return;
+                        _isScanning = true;
 
                         originalString = code;
                         if (code!.length > 4) {
                           modifiedString = originalString!
                               .substring(2, originalString!.length - 2);
-                          // log(modifiedString!.toString());
                           scanProductVM.scanProductApi(
-                              modifiedString.toString(), eid!);
+                              modifiedString.toString(), userVM.user_eid.value);
                         } else {
                           scanProductVM.scanProductApi(
-                              originalString.toString(), eid!);
+                              originalString.toString(), userVM.user_eid.value);
                         }
-
-                        // final Scanmodel? scanmodel = await scanProductVM
-                        //     .scanProductApi(modifiedString.toString(), eid!);
-                        //
-                        // if (scanmodel != null) {
-                        //   setState(() {
-                        //     model = scanmodel;
-                        //   });
-                        // }
                       }),
                 ),
               ],
             ),
-          )
-          // : model == null
-          //     ? Center(
-          //         child: Text(
-          //           'No valid product found',
-          //           style: TextStyle(
-          //               fontSize: Get.height * Utils.getResponsiveSize(18),
-          //               color: Colors.red),
-          //         ),
-          //       )
-          //     : Container(),
-          //     ? Center(
-          //     navigationVM.changeScreen(ProductVerifiedScreen());
-          // ): Center(
-          //     navigationVM.changeScreen(FakeProductScreen());
-          // )
-          ),
+          )),
     );
   }
 }

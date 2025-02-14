@@ -38,13 +38,7 @@ class LoginViewModel extends GetxController {
       loading.value = false;
       if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
-        // } else if (value['errorcode'] == 1017) {
-        //   errorMessage.value = 'invalid_credentials'.tr;
-        // } else if (value['errorcode'] == 1018) {
-        //   errorMessage.value = 'invalid_credentials'.tr;
       } else {
-        // Utils.toastMessage("Success");
-        // Get.toNamed(RoutesName.navigationScreen);
         errorMessage.value = '';
         LoginModel loginModel = LoginModel.fromJson(value);
         userPreference.saveUser(loginModel).then((value) {

@@ -19,7 +19,6 @@ class LoginButtonWidget extends StatelessWidget {
         title: 'login'.tr,
         loading: loginVM.loading.value,
         onPress: () {
-          // Get.toNamed(RoutesName.navigationScreen);
           if (formkey.currentState!.validate()) {
             loginVM.loginApi();
           }

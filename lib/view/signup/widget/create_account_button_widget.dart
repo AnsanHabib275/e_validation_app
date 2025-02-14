@@ -7,8 +7,7 @@ import '../../../res/componants/RoundButton.dart';
 import '../../../view_models/controller/signup/sign_up_view_model.dart';
 
 class CreateAccountButtonWidget extends StatelessWidget {
-  CreateAccountButtonWidget({Key? key, required this.formkey})
-      : super(key: key);
+  CreateAccountButtonWidget({super.key, required this.formkey});
 
   final formkey;
   final signUpVM = Get.put(SignUpViewModel());
@@ -20,7 +19,6 @@ class CreateAccountButtonWidget extends StatelessWidget {
         title: 'create_account'.tr,
         loading: signUpVM.loading.value,
         onPress: () {
-          // Get.toNamed(RoutesName.verifyEmailScreen);
           if (formkey.currentState!.validate()) {
             signUpVM.signUpApi();
           }

@@ -1,4 +1,3 @@
-import 'package:e_validation/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../../../repository/verify_email_repository/verify_email_repository.dart';
@@ -53,7 +52,6 @@ class VerifyEmailViewModel extends GetxController {
       if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
       } else {
-        Utils.toastMessage("USER VERIFIED SUCCESSFULLY");
         Get.toNamed(RoutesName.accountCreatedScreen);
       }
     }).onError((error, stackTrace) {

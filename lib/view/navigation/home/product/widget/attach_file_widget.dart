@@ -16,7 +16,8 @@ class AttachFileWidget extends StatelessWidget {
       return TextFormField(
         controller: submitComplaintVM.attachFileController.value,
         focusNode: submitComplaintVM.attachFileFocusNode.value,
-        enableSuggestions: true,
+        // enableSuggestions: true,
+        readOnly: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         style: TextStyle(
           color: AppColor.textGreyPrimary,
@@ -70,18 +71,52 @@ class AttachFileWidget extends StatelessWidget {
               size: Get.height * Utils.getResponsiveSize(27),
             ),
             onPressed: () {
-              // submitComplaintVM.isVisible.value = !submitComplaintVM.isVisible.value;
+              _showImageSourceDialog(context);
             },
           ),
         ),
         keyboardType: TextInputType.none,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'attach_file_invalid'.tr;
+            return 'attach_file_cannot_be_empty'.tr;
           }
-          return null; // Return null if there is no error
+          return null;
         },
       );
     });
+  }
+
+  Future<void> _showImageSourceDialog(BuildContext context) async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('select_image_source'.tr),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ListTile(
+                leading: const Icon(Icons.camera_alt),
+                title: Text('camera'.tr),
+                onTap: () {
+                  Get.back();
+                  submitComplaintVM.takeImageFromCamera();
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.photo),
+                title: Text('gallery'.tr),
+                onTap: () {
+                  Get.back();
+                  submitComplaintVM.getImageFromGallery();
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

@@ -9,11 +9,17 @@ import '../../../../../view_models/controller/navigation/navigation_view_model.d
 import '../../../../../view_models/controller/navigation/submitComplain/submit_complain_view_model.dart';
 
 class SubmitButtonWidget extends StatelessWidget {
-  SubmitButtonWidget({Key? key, required this.formkey}) : super(key: key);
+  SubmitButtonWidget(
+      {Key? key,
+      required this.formkey,
+      required this.eid,
+      required this.productHash})
+      : super(key: key);
 
   final formkey;
+  final eid;
+  final productHash;
   final submitComplaintVM = Get.put(SubmitComplainViewModel());
-  final navigationVM = Get.put(NavigationViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +28,9 @@ class SubmitButtonWidget extends StatelessWidget {
         title: 'submit'.tr,
         loading: submitComplaintVM.loading.value,
         onPress: () {
-          navigationVM.changeScreen(ProductVerifyDoneScreen());
-          // Get.to(() => const ProductVerifyDoneScreen());
-          // if (formkey.currentState!.validate()) {
-          //   signUpVM.signUpApi();
-          // }
+          if (formkey.currentState!.validate()) {
+            submitComplaintVM.submitComplaintApi(productHash, eid);
+          }
         },
       );
     });

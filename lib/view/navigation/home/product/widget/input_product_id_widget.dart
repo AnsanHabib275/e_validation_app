@@ -21,7 +21,7 @@ class InputProductIdWidget extends StatelessWidget {
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'email_not_valid'.tr;
+              return 'product_id_cannot_be_empty'.tr;
             }
             return null;
           },

@@ -138,7 +138,7 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                     return Center(child: Text(complaintsVM.error.value));
                   }
                   if (complaintsVM.complaintsDataList.isEmpty) {
-                    return Center(child: Text('No Complaints'));
+                    return Center(child: Text('no_complaints'.tr));
                   }
 
                   return ListView.builder(

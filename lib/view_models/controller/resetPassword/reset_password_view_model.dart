@@ -28,10 +28,6 @@ class ResetPasswordViewModel extends GetxController {
       loading.value = false;
       if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
-        // } else if (value['errorcode'] == 3084) {
-        //   errorMessage.value = 'email_verification_failed'.tr;
-        // } else if (value['errorcode'] == 3064) {
-        //   errorMessage.value = 'invalid_email'.tr;
       } else {
         Utils.toastMessage('PASSWORD RESET SUCCESSFULLY');
         Get.toNamed(RoutesName.loginScreen);

@@ -171,6 +171,9 @@ class Languages extends Translations {
           'no_notification': 'No Notification',
           'no_rewards': 'No Rewards',
           'password_changed_successfully': 'Password Changed Successfully',
+          'product_id_cannot_be_empty': 'ProductId cannot be empty',
+          'attach_file_cannot_be_empty': 'Attach file cannot be empty',
+          'message_cannot_be_empty': 'Message cannot be empty',
         },
         'ur_PK': {
           'splash_screen': 'سپلیش اسکرین',

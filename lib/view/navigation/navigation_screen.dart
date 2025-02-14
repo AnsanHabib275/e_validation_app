@@ -16,6 +16,7 @@ import 'package:e_validation/view/navigation/widget/delete_button_widget.dart';
 import 'package:e_validation/view/navigation/widget/input_email_widget.dart';
 import 'package:e_validation/view/navigation/widget/no_button_widget.dart';
 import 'package:e_validation/view/navigation/widget/yes_button_widget.dart';
+import 'package:e_validation/view_models/controller/navigation/history/history_view_model.dart';
 import 'package:e_validation/view_models/controller/navigation/navigation_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -53,15 +54,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
   Widget? _child;
   int _currentIndex = 2;
 
-  String? eid = '';
-
-  Future<void> getUserDetail() async {
-    UserPreference userPreference = UserPreference();
-    userPreference.getUser().then((user) {
-      setState(() {
-        eid = user.user?.eID;
-      });
-    });
+  @override
+  void initState() {
+    super.initState();
+    userVM.fetchUserDetails();
   }
 
   @override
@@ -439,7 +435,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                       Expanded(
                         child: DeleteButtonWidget(
                           formkey: _formkey,
-                          eid: eid,
+                          eid: userVM.user_eid,
                         ),
                       ),
                       SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
