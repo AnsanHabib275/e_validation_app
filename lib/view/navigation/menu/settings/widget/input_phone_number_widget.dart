@@ -35,9 +35,6 @@ class InputPhoneNumberWidget extends StatelessWidget {
                     String countryCode = '+${country.phoneCode}';
                     updateProfileVM.countryCodeController.value.text =
                         countryCode;
-                    // setState(() {
-                    //   _selectedCountryCode = countryCode;
-                    // });
                   },
                 );
               },
