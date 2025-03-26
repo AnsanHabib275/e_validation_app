@@ -35,7 +35,7 @@ class InputOTPWidget extends StatelessWidget {
           if (nextFocusNode != null) {
             Utils.fieldFocusChange(context, focusNode, nextFocusNode!);
           }
-          otpVM.checkOtpFilled(e_id);
+          otpVM.checkOtpFilled();
         }
       },
       style: TextStyle(

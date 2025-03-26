@@ -160,6 +160,7 @@ class _OTPScreenState extends State<OTPScreen> {
                 InkWell(
                   onTap: () {
                     resendCodeVM.resendCodeApi(email);
+                    otpVM.clearFields();
                   },
                   child: Text(
                     'resend_code'.tr,

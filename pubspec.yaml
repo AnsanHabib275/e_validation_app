@@ -45,6 +45,8 @@ dependencies:
   http: ^1.2.2
   flutter_qr_bar_scanner: ^3.0.2
   image_picker: ^1.1.2
+  image: ^4.5.3
+  camera: ^0.11.1
   crypto: ^3.0.6
   expandable: ^5.0.1
   intl_phone_field: ^3.2.0

@@ -23,6 +23,7 @@ class ProductVerifiedScreen extends StatefulWidget {
 
 class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
   final navigationVM = Get.put(NavigationViewModel());
+  final code = Get.arguments['code'] ?? '';
 
   @override
   void initState() {

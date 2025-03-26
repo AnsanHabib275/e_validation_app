@@ -33,7 +33,6 @@ class _ScanProductScreenState extends State<ScanProductScreen>
 
   String? originalString;
   String? modifiedString;
-  bool _isScanning = false;
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +49,8 @@ class _ScanProductScreenState extends State<ScanProductScreen>
                   top: Get.height * Utils.getResponsiveHeight(30),
                   child: InkWell(
                     onTap: () {
-                      // navigationVM.changeScreen(HomeScreen());
-                      navigationVM.changeScreen(ProductVerifiedScreen());
+                      navigationVM.changeScreen(HomeScreen());
+                      // navigationVM.changeScreen(ProductVerifiedScreen());
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -93,19 +92,14 @@ class _ScanProductScreenState extends State<ScanProductScreen>
                             error.toString(),
                             style: const TextStyle(color: Colors.red),
                           ),
-                      qrCodeCallback: (code) async {
-                        if (_isScanning) return;
-                        _isScanning = true;
-
+                      qrCodeCallback: (code) {
                         originalString = code;
                         if (code!.length > 4) {
                           modifiedString = originalString!
                               .substring(2, originalString!.length - 2);
-                          scanProductVM.scanProductApi(
-                              modifiedString.toString(), userVM.user_eid.value);
+                          scanProductVM.processQRCode(modifiedString ?? '');
                         } else {
-                          scanProductVM.scanProductApi(
-                              originalString.toString(), userVM.user_eid.value);
+                          scanProductVM.processQRCode(originalString ?? '');
                         }
                       }),
                 ),

@@ -9,6 +9,7 @@ class UserPreference extends GetxController {
   RxString user_email = ''.obs;
   RxString user_firstName = ''.obs;
   RxString user_lastName = ''.obs;
+  RxString user_name = ''.obs;
   RxString user_ImageURL = ''.obs;
   RxString user_mobileNumber = ''.obs;
   RxString user_CountryCode = ''.obs;
@@ -27,6 +28,7 @@ class UserPreference extends GetxController {
     user_email.value = user.user?.email ?? '';
     user_firstName.value = user.user?.firstName ?? '';
     user_lastName.value = user.user?.lastName ?? '';
+    user_name.value = user.user?.name ?? '';
     user_ImageURL.value = user.user?.imageURL ?? '';
     user_mobileNumber.value = user.user?.mobileNumbre ?? '';
     user_CountryCode.value = user.user?.countryCode ?? '';
@@ -41,6 +43,7 @@ class UserPreference extends GetxController {
     sp.setString('user_email', responseModel.user?.email ?? '');
     sp.setString('user_firstName', responseModel.user?.firstName ?? '');
     sp.setString('user_lastName', responseModel.user?.lastName ?? '');
+    sp.setString('user_name', responseModel.user?.name ?? '');
     sp.setString('user_mobileNumber', responseModel.user?.mobileNumbre ?? '');
     sp.setString('user_creationDate', responseModel.user?.creationDate ?? '');
     sp.setString('user_eID', responseModel.user?.eID ?? '');
@@ -63,6 +66,7 @@ class UserPreference extends GetxController {
       email: sp.getString('user_email') ?? '',
       firstName: sp.getString('user_firstName') ?? '',
       lastName: sp.getString('user_lastName') ?? '',
+      name: sp.getString('user_name') ?? '',
       mobileNumbre: sp.getString('user_mobileNumber') ?? '',
       creationDate: sp.getString('user_creationDate') ?? '',
       eID: sp.getString('user_eID') ?? '',

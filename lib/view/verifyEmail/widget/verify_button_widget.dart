@@ -20,7 +20,7 @@ class VerifyButtonWidget extends StatelessWidget {
         onPress: () {
           // Get.toNamed(RoutesName.accountCreatedScreen);
           if (formKey.currentState!.validate()) {
-            verifyEmailVM.checkOtpFilled();
+            verifyEmailVM.verifyEmailApi();
           }
         },
       );

@@ -8,4 +8,9 @@ class VerifyEmailRepository {
     dynamic response = await _apiServices.postApi(data, AppUrl.verifyEmailUrl);
     return response;
   }
+
+  Future<dynamic> resendCodeApi(var data) async {
+    dynamic response = await _apiServices.postApi(data, AppUrl.resendCodeUrl);
+    return response;
+  }
 }

@@ -115,7 +115,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                                             fit: BoxFit.cover,
                                           )
                                         : ClipOval(
-                                            child: Image.asset(
+                                            child: Image.network(
                                               updateProfileVM.imagePath
                                                   .value, // The selected or updated image path
                                               fit: BoxFit.cover,
@@ -194,7 +194,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                 title: Text('camera'.tr),
                 onTap: () {
                   Get.back();
-                  updateProfileVM.takeImageFromCamera();
+                  updateProfileVM.takeImageFromCamera(userVM.user_eid.value);
                 },
               ),
               ListTile(
@@ -202,7 +202,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                 title: Text('gallery'.tr),
                 onTap: () {
                   Get.back();
-                  updateProfileVM.getImageFromGallery();
+                  updateProfileVM.getImageFromGallery(userVM.user_eid.value);
                 },
               ),
             ],

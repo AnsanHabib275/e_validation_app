@@ -19,13 +19,7 @@ class VerifyEmailScreen extends StatefulWidget {
 class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   final verifyEmailVM = Get.put(VerifyEmailViewModel());
   final _formKey = GlobalKey<FormState>();
-  final email = Get.arguments['email'] ?? '';
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
+  final Accountid = Get.arguments['Accountid'] ?? '';
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +152,10 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                   height: Get.height * Utils.getResponsiveHeight(40),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    verifyEmailVM.resendCodeApi(Accountid);
+                    verifyEmailVM.clearFields();
+                  },
                   child: Text(
                     'resend_code'.tr,
                     style: TextStyle(

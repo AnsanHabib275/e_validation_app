@@ -1,9 +1,14 @@
 import 'package:e_validation/repository/submit_complain_repository/submit_complain_repository.dart';
+import 'package:e_validation/res/routes/routes_name.dart';
+import 'package:e_validation/res/urls/app_url.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+// import 'package:get/get_connect/http/src/multipart/multipart_file.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import '../../../../view/navigation/home/product/product_verify_done_screen.dart';
 import '../navigation_view_model.dart';
+import 'package:http/http.dart' as http;
+import 'dart:io';
 
 class SubmitComplainViewModel extends GetxController {
   final _api = SubmitComplainRepository();
@@ -34,20 +39,33 @@ class SubmitComplainViewModel extends GetxController {
   RxString errorMessage = ''.obs;
   RxString imagePath = ''.obs;
 
-  void submitComplaintApi(String productHash, String eid) {
+  Future<void> submitComplaintApi(String productHash, String eid) async {
     loading.value = true;
-    Map data = {
-      'Detail': messageController.value.text,
-      'ProductId': productIdController.value.text,
-      'QRCodeHash': productHash,
-      'ComplaintImage': attachFileController.value.text,
+    Map<String, String> data = {
+      'Detail': messageController.value.text.trim(),
+      'ProductId': productIdController.value.text.trim(),
+      'QRCodeHash': productHash.trim(),
+      'ComplaintImage':
+          '${AppUrl.baseUrl}/Uploads/571e8e55-5423-4b72-8c64-eed7155272ae.png'
+              .trim(),
+      // 'ComplaintImage': AppUrl.baseUrl + attachFileController.value.text,
     };
-    _api.submitComplaintApi(data, eid).then((value) {
+    List<http.MultipartFile> files = [];
+    if (attachFileController.value.text.isNotEmpty) {
+      var file = await http.MultipartFile.fromPath(
+        'ComplaintImage', // API فیلڈ کا نام
+        attachFileController.value.text,
+      );
+      files.add(file);
+    }
+    print(data);
+    _api.submitComplaintApi(data, files, eid).then((value) {
       loading.value = false;
       if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
       } else {
-        navigationVM.changeScreen(ProductVerifyDoneScreen());
+        Get.toNamed(RoutesName.productVerifyDoneScreen);
+        // navigationVM.changeScreen(ProductVerifyDoneScreen());
       }
     }).onError((error, stackTrace) {
       loading.value = false;

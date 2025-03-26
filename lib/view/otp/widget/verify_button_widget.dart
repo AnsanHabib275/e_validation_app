@@ -21,8 +21,8 @@ class VerifyButtonWidget extends StatelessWidget {
         loading: otpVM.loading.value,
         onPress: () {
           // Get.toNamed(RoutesName.resetPasswordScreen);
-          if (formKey.currentState!.validate()) {
-            otpVM.checkOtpFilled(e_id);
+          if (otpVM.isOtpFilled.value) {
+            otpVM.otpApi(e_id);
           }
         },
       );

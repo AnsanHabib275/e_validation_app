@@ -5,6 +5,7 @@ import 'package:e_validation/view/navigation/home/product/widget/product_verify_
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../models/navigation/scanProduct/scan_product_model.dart';
 import '../../../../res/assets/font_assets.dart';
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
@@ -20,6 +21,7 @@ class ProductDetailScreen extends StatefulWidget {
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   final navigationVM = Get.put(NavigationViewModel());
+  final ScanProductModel scanProductModel = Get.arguments as ScanProductModel;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +47,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   alignment: Alignment.center,
                   child: InkWell(
                     onTap: () {
-                      navigationVM.changeScreen(FakeProductScreen());
+                      // navigationVM.changeScreen(FakeProductScreen());
                     },
                     child: Image.asset(
                       ImageAssets.product_with_qr_code,
@@ -107,7 +109,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     ),
                                     Spacer(),
                                     Text(
-                                      'lorem ipsum',
+                                      scanProductModel.data!.productName ?? '',
                                       style: TextStyle(
                                           color: AppColor.textLightGreyPrimary,
                                           fontSize: Get.height *
@@ -134,7 +136,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     ),
                                     Spacer(),
                                     Text(
-                                      '3425168789',
+                                      scanProductModel
+                                              .data!.productIdentityHash ??
+                                          '',
                                       style: TextStyle(
                                           color: AppColor.textLightGreyPrimary,
                                           fontSize: Get.height *
@@ -161,7 +165,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     ),
                                     Spacer(),
                                     Text(
-                                      '24-mb04',
+                                      scanProductModel.data!.productCatogary ??
+                                          '',
                                       style: TextStyle(
                                           color: AppColor.textLightGreyPrimary,
                                           fontSize: Get.height *
@@ -188,7 +193,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     ),
                                     Spacer(),
                                     Text(
-                                      'lorem ipsum',
+                                      scanProductModel
+                                              .data!.productManufacturerName ??
+                                          '',
                                       style: TextStyle(
                                           color: AppColor.textLightGreyPrimary,
                                           fontSize: Get.height *
@@ -215,7 +222,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     ),
                                     Spacer(),
                                     Text(
-                                      '10-24-2022',
+                                      Utils.appFormatDate(scanProductModel
+                                              .data!.productCreatedDateTime ??
+                                          ''),
                                       style: TextStyle(
                                           color: AppColor.textLightGreyPrimary,
                                           fontSize: Get.height *
@@ -242,7 +251,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     ),
                                     Spacer(),
                                     Text(
-                                      '10-24-2022',
+                                      Utils.appFormatDate(scanProductModel
+                                              .data!.productExpiryDate ??
+                                          ''),
                                       style: TextStyle(
                                           color: AppColor.textLightGreyPrimary,
                                           fontSize: Get.height *

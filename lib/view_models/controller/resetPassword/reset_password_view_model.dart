@@ -16,6 +16,7 @@ class ResetPasswordViewModel extends GetxController {
 
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;
+  RxBool isConfirmPasswordVisible = true.obs;
   RxString errorMessage = ''.obs;
 
   void resetPasswordApi(String e_id) {
@@ -24,6 +25,7 @@ class ResetPasswordViewModel extends GetxController {
       'E_id': e_id,
       'NewPassword': newPasswordController.value.text,
     };
+    print(data);
     _api.resetPasswordApi(data).then((value) {
       loading.value = false;
       if (value['isSuccessfull'] == false) {
@@ -35,6 +37,7 @@ class ResetPasswordViewModel extends GetxController {
     }).onError((error, stackTrace) {
       loading.value = false;
       errorMessage.value = error.toString();
+      print(error.toString());
     });
   }
 }

@@ -32,6 +32,7 @@ class User {
   String? eID;
   String? firstName;
   String? lastName;
+  String? name;
   String? mobileNumbre;
   String? dOB;
   String? gender;
@@ -45,6 +46,7 @@ class User {
       this.eID,
       this.firstName,
       this.lastName,
+      this.name,
       this.mobileNumbre,
       this.dOB,
       this.gender,
@@ -58,6 +60,7 @@ class User {
     eID = json['E_ID'];
     firstName = json['FirstName'];
     lastName = json['LastName'];
+    name = json['Name'];
     mobileNumbre = json['MobileNumbre'];
     dOB = json['DOB'];
     gender = json['Gender'];
@@ -73,6 +76,7 @@ class User {
     data['E_ID'] = this.eID;
     data['FirstName'] = this.firstName;
     data['LastName'] = this.lastName;
+    data['Name'] = this.name;
     data['MobileNumbre'] = this.mobileNumbre;
     data['DOB'] = this.dOB;
     data['Gender'] = this.gender;

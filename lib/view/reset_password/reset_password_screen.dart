@@ -19,8 +19,8 @@ class ResetPasswordScreen extends StatefulWidget {
 
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   final _formkey = GlobalKey<FormState>();
-  // final e_id = Get.arguments['e_id'];
-  final e_id = '';
+  final eID = Get.arguments['eID'] ?? '';
+  // final e_id = '';
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +99,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   SizedBox(
                     height: Get.height * Utils.getResponsiveHeight(50),
                   ),
-                  ResetPasswordButtonWidget(formkey: _formkey, e_id: e_id),
+                  ResetPasswordButtonWidget(formkey: _formkey, e_id: eID),
                   SizedBox(
                     height: Get.height * Utils.getResponsiveHeight(50),
                   ),

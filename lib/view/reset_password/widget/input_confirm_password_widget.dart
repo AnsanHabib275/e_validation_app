@@ -69,18 +69,18 @@ class InputConfirmPasswordWidget extends StatelessWidget {
           ),
           suffixIcon: IconButton(
             icon: SvgPicture.asset(
-              resetPasswordVM.isVisible.value
+              resetPasswordVM.isConfirmPasswordVisible.value
                   ? IconAssets.ic_invisible_password
                   : IconAssets.ic_visible_password,
             ),
             onPressed: () {
-              resetPasswordVM.isVisible.value =
-                  !resetPasswordVM.isVisible.value;
+              resetPasswordVM.isConfirmPasswordVisible.value =
+                  !resetPasswordVM.isConfirmPasswordVisible.value;
             },
           ),
         ),
         keyboardType: TextInputType.visiblePassword,
-        obscureText: resetPasswordVM.isVisible.value,
+        obscureText: resetPasswordVM.isConfirmPasswordVisible.value,
         textInputAction: TextInputAction.done,
         validator: (value) {
           if (value == null || value.isEmpty || value.length < 7) {

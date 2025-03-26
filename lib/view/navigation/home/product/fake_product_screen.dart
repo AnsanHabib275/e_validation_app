@@ -8,13 +8,31 @@ import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
 
 class FakeProductScreen extends StatefulWidget {
-  const FakeProductScreen({super.key});
+  final Map<String, dynamic> arguments;
 
+  FakeProductScreen({Key? key})
+      : arguments = Get.arguments ?? {},
+        super(key: key);
+  // FakeProductScreen(
+  //     {super.key,
+  //     required this.code,
+  //     required this.productId,
+  //     required this.scanCount,
+  //     required this.message});
+  // final code;
+  // final productId;
+  // final scanCount;
+  // final message;
   @override
   State<FakeProductScreen> createState() => _FakeProductScreenState();
 }
 
 class _FakeProductScreenState extends State<FakeProductScreen> {
+  final code = Get.arguments['code'] ?? '';
+  final productId = Get.arguments['productId'] ?? '';
+  final scanCount = Get.arguments['scanCount'] ?? '';
+  final message = Get.arguments['message'] ?? '';
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -42,102 +60,121 @@ class _FakeProductScreenState extends State<FakeProductScreen> {
                   ),
                 ),
               ),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(29),
-                      ),
-                      Text(
-                        'fake_product'.tr,
-                        style: TextStyle(
-                            color: AppColor.textColorPrimary,
-                            fontSize: Get.height * Utils.getResponsiveSize(22),
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600),
-                      ),
-                      SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(8),
-                      ),
-                      Card(
-                        elevation: 1,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal:
-                                  Get.width * Utils.getResponsiveWidth(10),
-                              vertical:
-                                  Get.height * Utils.getResponsiveHeight(12)),
-                          child: Row(
+              Expanded(child: LayoutBuilder(builder: (context, constraints) {
+                return SingleChildScrollView(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: constraints.maxHeight,
+                    ),
+                    child: IntrinsicHeight(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: Get.height * Utils.getResponsiveHeight(29),
+                          ),
+                          Text(
+                            'fake_product'.tr,
+                            style: TextStyle(
+                                color: AppColor.textColorPrimary,
+                                fontSize:
+                                    Get.height * Utils.getResponsiveSize(22),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600),
+                          ),
+                          SizedBox(
+                            height: Get.height * Utils.getResponsiveHeight(8),
+                          ),
+                          Card(
+                            elevation: 1,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      Get.width * Utils.getResponsiveWidth(10),
+                                  vertical: Get.height *
+                                      Utils.getResponsiveHeight(12)),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'product_scanned'.tr,
+                                    style: TextStyle(
+                                        color: AppColor.textLightGreyPrimary,
+                                        fontSize: Get.height *
+                                            Utils.getResponsiveSize(16),
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                  Spacer(),
+                                  Text(
+                                    scanCount,
+                                    style: TextStyle(
+                                        color: AppColor.textRedPrimary,
+                                        fontSize: Get.height *
+                                            Utils.getResponsiveSize(16),
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: Get.height * Utils.getResponsiveHeight(10),
+                          ),
+                          Card(
+                            elevation: 1,
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: Get.width *
+                                        Utils.getResponsiveWidth(10),
+                                    vertical: Get.height *
+                                        Utils.getResponsiveHeight(12)),
+                                child: Text(
+                                  message,
+                                  // "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                                  style: TextStyle(
+                                      color: AppColor.textLightGreyPrimary,
+                                      fontSize: Get.height *
+                                          Utils.getResponsiveSize(16),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: Get.height * Utils.getResponsiveHeight(20),
+                          ),
+                          Spacer(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text(
-                                'product_scanned'.tr,
-                                style: TextStyle(
-                                    color: AppColor.textLightGreyPrimary,
-                                    fontSize: Get.height *
-                                        Utils.getResponsiveSize(16),
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400),
+                              Expanded(child: LeaveButtonWidget()),
+                              SizedBox(
+                                width: Get.width * Utils.getResponsiveWidth(12),
                               ),
-                              Spacer(),
-                              Text(
-                                '5',
-                                style: TextStyle(
-                                    color: AppColor.textRedPrimary,
-                                    fontSize: Get.height *
-                                        Utils.getResponsiveSize(16),
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400),
-                              ),
+                              Expanded(
+                                  child: ComplainButtonWidget(
+                                code: code,
+                                productId: productId,
+                                scanCount: scanCount,
+                                message: message,
+                              )),
                             ],
                           ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(10),
-                      ),
-                      Card(
-                        elevation: 1,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal:
-                                  Get.width * Utils.getResponsiveWidth(10),
-                              vertical:
-                                  Get.height * Utils.getResponsiveHeight(12)),
-                          child: Text(
-                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-                            style: TextStyle(
-                                color: AppColor.textLightGreyPrimary,
-                                fontSize:
-                                    Get.height * Utils.getResponsiveSize(16),
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(106),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(child: LeaveButtonWidget()),
                           SizedBox(
-                            width: Get.width * Utils.getResponsiveWidth(12),
+                            height: MediaQuery.of(context).padding.bottom,
                           ),
-                          Expanded(child: ComplainButtonWidget()),
                         ],
                       ),
-                      SizedBox(
-                        height: MediaQuery.of(context).padding.bottom,
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-              )
+                );
+              })),
 
               // LeaveButtonWidget(),
               // ComplainButtonWidget(),

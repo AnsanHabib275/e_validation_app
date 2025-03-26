@@ -104,7 +104,7 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        userVM.user_fullName.value,
+                        userVM.user_name.value,
                         style: TextStyle(
                             fontSize: Get.height * Utils.getResponsiveSize(20),
                             fontFamily: 'Poppins',

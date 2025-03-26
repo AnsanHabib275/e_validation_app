@@ -57,7 +57,10 @@ class SignUpViewModel extends GetxController {
         errorMessage.value = value['message'];
       } else {
         Utils.toastMessage("OTP Sent To Your Email Account");
-        Get.toNamed(RoutesName.verifyEmailScreen);
+        // Accountid
+        Get.toNamed(RoutesName.verifyEmailScreen, arguments: {
+          'Accountid': value['Accountid'],
+        });
       }
     }).onError((error, stackTrace) {
       loading.value = false;

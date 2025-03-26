@@ -119,7 +119,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                                       ),
                               ),
                               Text(
-                                userVM.user_fullName.value,
+                                userVM.user_name.value,
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                     color: AppColor.textBlackPrimary,
