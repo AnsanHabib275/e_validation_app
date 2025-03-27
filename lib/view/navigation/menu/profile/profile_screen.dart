@@ -1,5 +1,6 @@
 import 'package:e_validation/models/login/login_model.dart';
 import 'package:e_validation/res/assets/icon_assets.dart';
+import 'package:e_validation/res/urls/app_url.dart';
 import 'package:e_validation/view/navigation/home/product/widget/done_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,7 +20,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  final userVM = Get.put(UserPreference());
+  final userVM = Get.find<UserPreference>();
 
   @override
   Widget build(BuildContext context) {
@@ -56,8 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             )
                           : ClipOval(
                               child: Image.network(
-                                userVM.user_ImageURL
-                                    .value, // The selected or updated image path
+                                AppUrl.baseUrl + userVM.user_ImageURL.value,
                                 fit: BoxFit.cover,
                                 height:
                                     Get.height * Utils.getResponsiveHeight(146),

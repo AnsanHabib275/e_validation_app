@@ -15,6 +15,7 @@ class UpdateProfileRepository {
       var data, List<http.MultipartFile> files) async {
     dynamic response = await _apiServices.postFormDataApi(
         data, files: files, AppUrl.uploadProfilePhotoUrl);
+    print(response);
     return response;
   }
 }

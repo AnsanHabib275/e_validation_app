@@ -85,6 +85,9 @@ class InputConfirmPasswordWidget extends StatelessWidget {
         validator: (value) {
           if (value == null || value.isEmpty || value.length < 7) {
             return 'confirm_password_format_invalid'.tr;
+          } else if (value !=
+              resetPasswordVM.newPasswordController.value.text) {
+            return 'confirm_password_not_match'.tr;
           }
           return null; // Return null if there is no error
         },

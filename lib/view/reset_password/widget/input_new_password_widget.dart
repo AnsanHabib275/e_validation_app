@@ -86,7 +86,7 @@ class InputNewPasswordWidget extends StatelessWidget {
           if (value == null || value.isEmpty || value.length < 7) {
             return 'new_password_format_invalid'.tr;
           }
-          return null; // Return null if there is no error
+          return null;
         },
         onFieldSubmitted: (value) {
           Utils.fieldFocusChange(

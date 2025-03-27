@@ -15,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../utils/utils.dart';
+import '../../../../view_models/controller/navigation/navigation_view_model.dart';
 import '../../../../view_models/controller/navigation/submitComplain/submit_complain_view_model.dart';
 
 class ComplainScreen extends StatefulWidget {
@@ -29,14 +30,17 @@ class _ComplainScreenState extends State<ComplainScreen> {
   final userVM = Get.put(UserPreference());
   final scanProductVM = Get.put(ScanProductViewModel());
   final submitComplaintVM = Get.put(SubmitComplainViewModel());
-  final code = Get.arguments['code'] ?? '';
-  final productId = Get.arguments['productId'] ?? '';
-  final scanCount = Get.arguments['scanCount'] ?? '';
-  final message = Get.arguments['message'] ?? '';
-
+  late String hashCodeStr;
   @override
   void initState() {
     super.initState();
+    final navVM = Get.find<NavigationViewModel>();
+    final args = navVM.screenArguments as Map<String, dynamic>? ?? {};
+    final code = args['code'] ?? '';
+    final productId = args['productId'] ?? '';
+    final scanCount = args['scanCount'] ?? '';
+    final message = args['message'] ?? '';
+    hashCodeStr = code;
     submitComplaintVM.productIdController.value.text = productId;
     submitComplaintVM.messageController.value.text = message;
   }
@@ -122,7 +126,7 @@ class _ComplainScreenState extends State<ComplainScreen> {
                   SubmitButtonWidget(
                     formkey: _formkey,
                     eid: userVM.user_eid.value,
-                    productHash: code,
+                    productHash: hashCodeStr,
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).padding.bottom + 30,

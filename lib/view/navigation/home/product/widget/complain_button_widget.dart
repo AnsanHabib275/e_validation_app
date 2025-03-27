@@ -1,9 +1,7 @@
 import 'package:e_validation/view/navigation/home/product/complain_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../../res/componants/RoundButtonBorder.dart';
-import '../../../../../res/routes/routes_name.dart';
 import '../../../../../view_models/controller/navigation/navigation_view_model.dart';
 
 class ComplainButtonWidget extends StatelessWidget {
@@ -26,16 +24,16 @@ class ComplainButtonWidget extends StatelessWidget {
       width: 188,
       title: 'complain'.tr,
       onPress: () {
-        Get.toNamed(
-          RoutesName.complainScreen,
-          arguments: {
-            'code': code,
-            'productId': productId,
-            'scanCount': scanCount,
-            'message': message,
-          },
+        final arguments = {
+          'code': code,
+          'productId': productId,
+          'scanCount': scanCount,
+          'message': message,
+        };
+        navigationVM.changeScreen(
+          ComplainScreen(),
+          arguments: arguments,
         );
-        navigationVM.changeScreen(ComplainScreen());
       },
     );
   }

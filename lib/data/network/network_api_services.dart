@@ -75,11 +75,6 @@ class NetworkApiServices extends BaseApiServices {
       var request = http.MultipartRequest('POST', uri);
       request.headers.addAll(headers);
       request.fields.addAll(data);
-      // request.fields.addAll({
-      //   'Detail': messageController.text,
-      //   'ProductId': productIdController.text,
-      //   'QRCodeHash': productHash,
-      // });
 
       if (files != null && files.isNotEmpty) {
         request.files.addAll(files);

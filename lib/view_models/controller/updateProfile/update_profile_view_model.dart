@@ -1,5 +1,6 @@
 import 'package:e_validation/res/urls/app_url.dart';
 import 'package:e_validation/utils/utils.dart';
+import 'package:e_validation/view_models/controller/user_preference/user_preference_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
@@ -7,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../models/login/login_model.dart';
 import '../../../repository/reset_password_repository/reset_password_repository.dart';
 import '../../../repository/update_profile_repository/update_profile_repository.dart';
 import '../../../res/routes/routes_name.dart';
@@ -36,22 +38,33 @@ class UpdateProfileViewModel extends GetxController {
 
   void updateProfileApi(String eid) {
     loading.value = true;
-    Map data = {
+    Map<String, String> data = {
       "E_ID": eid.toString(),
       "FirstName": firstNameController.value.text,
       "LastName": lastNameController.value.text,
       "MobileNumbre": phoneNumberController.value.text,
       "DOB": Utils.apiFormatDate(dateOfBirthController.value.text),
       "CountryCode": countryCodeController.value.text,
-      "ImageURL": imagePath,
+      "ImageURL": imagePath.value,
     };
+    print(data);
     _api.updateProfileApi(data).then((value) {
       loading.value = false;
       if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
       } else {
         Utils.toastMessage('Profile Update Successfully');
-        Get.toNamed(RoutesName.loginScreen);
+        LoginModel loginModel = LoginModel.fromJson(value);
+        Get.find<UserPreference>().saveUser(loginModel).then((value) {
+          Get.delete<UpdateProfileViewModel>();
+          Get.find<UserPreference>().fetchUserDetails();
+          Get.back();
+        }).onError((error, stackTrace) {
+          errorMessage.value = error.toString();
+        });
+        // Get.back();
+        // Get.find<UserPreference>().removeUser();
+        // Get.offAllNamed(RoutesName.loginScreen);
       }
     }).onError((error, stackTrace) {
       loading.value = false;
@@ -64,7 +77,7 @@ class UpdateProfileViewModel extends GetxController {
     final image = await _picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
       // imagePath.value = AppUrl.baseUrl + image.path.toString();
-      uploadProfileImageApi(eid, AppUrl.baseUrl + image.path);
+      uploadProfileImageApi(eid, image.path);
       if (kDebugMode) {
         print('image :${image.path}');
       }
@@ -76,28 +89,27 @@ class UpdateProfileViewModel extends GetxController {
     final image = await _picker.pickImage(source: ImageSource.camera);
     if (image != null) {
       print(image.path);
-      uploadProfileImageApi(eid, AppUrl.baseUrl + image.path);
+      uploadProfileImageApi(eid, image.path);
       // imagePath.value = AppUrl.baseUrl+image.path.toString();
     }
   }
 
   Future<void> uploadProfileImageApi(String eid, String imagePathStr) async {
-    // loading.value = true;
-    Map data = {
-      "E_ID": eid.toString(),
-      // "file": imagePathStr,
+    loading.value = true;
+    Map<String, String> data = {
+      'E_ID': eid.trim(),
     };
     List<http.MultipartFile> files = [];
     if (imagePathStr.isNotEmpty) {
       var file = await http.MultipartFile.fromPath(
-        'file', // API فیلڈ کا نام
+        'file',
         imagePathStr,
       );
       files.add(file);
     }
     print(data);
     _api.uploadProfileImageApi(data, files).then((value) {
-      // loading.value = false;
+      loading.value = false;
       if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
       } else {
@@ -108,7 +120,7 @@ class UpdateProfileViewModel extends GetxController {
         print(AppUrl.baseUrl + imageUrl);
       }
     }).onError((error, stackTrace) {
-      // loading.value = false;
+      loading.value = false;
       errorMessage.value = error.toString();
     });
   }

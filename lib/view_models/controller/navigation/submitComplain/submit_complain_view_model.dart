@@ -45,15 +45,11 @@ class SubmitComplainViewModel extends GetxController {
       'Detail': messageController.value.text.trim(),
       'ProductId': productIdController.value.text.trim(),
       'QRCodeHash': productHash.trim(),
-      'ComplaintImage':
-          '${AppUrl.baseUrl}/Uploads/571e8e55-5423-4b72-8c64-eed7155272ae.png'
-              .trim(),
-      // 'ComplaintImage': AppUrl.baseUrl + attachFileController.value.text,
     };
     List<http.MultipartFile> files = [];
     if (attachFileController.value.text.isNotEmpty) {
       var file = await http.MultipartFile.fromPath(
-        'ComplaintImage', // API فیلڈ کا نام
+        'ComplaintImage',
         attachFileController.value.text,
       );
       files.add(file);
@@ -64,8 +60,8 @@ class SubmitComplainViewModel extends GetxController {
       if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
       } else {
-        Get.toNamed(RoutesName.productVerifyDoneScreen);
-        // navigationVM.changeScreen(ProductVerifyDoneScreen());
+        // Get.toNamed(RoutesName.productVerifyDoneScreen);
+        navigationVM.changeScreen(ProductVerifyDoneScreen());
       }
     }).onError((error, stackTrace) {
       loading.value = false;

@@ -1,4 +1,5 @@
 import 'package:e_validation/res/assets/image_assets.dart';
+import 'package:e_validation/res/urls/app_url.dart';
 import 'package:e_validation/utils/utils.dart';
 import 'package:e_validation/view/navigation/complaints/complaints_screen.dart';
 import 'package:e_validation/view/navigation/history/history_screen.dart';
@@ -62,237 +63,244 @@ class _NavigationScreenState extends State<NavigationScreen> {
   Widget build(BuildContext context) {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-      child: GestureDetector(
-        onTap: () {
-          FocusScope.of(context).unfocus();
+      child: WillPopScope(
+        onWillPop: () async {
+          navigationVM.changeScreen(HomeScreen());
+          return false;
         },
-        child: Scaffold(
-            extendBody: true,
-            extendBodyBehindAppBar: true,
-            drawer: Drawer(
-              width: Get.width * Utils.getResponsiveWidth(270),
-              child: ListView(
-                children: [
-                  Container(
-                    height: Get.height * Utils.getResponsiveHeight(200),
-                    child: DrawerHeader(
-                      margin: EdgeInsets.zero,
-                      padding: EdgeInsets.zero,
-                      child: Stack(fit: StackFit.expand, children: [
-                        Positioned(
-                            top: 0,
-                            right: Get.width * Utils.getResponsiveWidth(10),
-                            child: InkWell(
-                                onTap: () {
-                                  Get.back();
-                                },
-                                child: SvgPicture.asset(
-                                    IconAssets.ic_close_circle))),
-                        Positioned(
-                          left: Get.width * Utils.getResponsiveWidth(20),
-                          top: Get.height * Utils.getResponsiveHeight(26),
-                          right: Get.width * Utils.getResponsiveWidth(20),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              CircleAvatar(
-                                radius:
-                                    Get.height * Utils.getResponsiveSize(40),
-                                backgroundColor: AppColor.lightGreyColor,
-                                child: userVM.user_ImageURL.isEmpty
-                                    ? SvgPicture.asset(
-                                        ImageAssets
-                                            .img_profile, // Your default SVG image path
-                                        fit: BoxFit.cover,
-                                      )
-                                    : ClipOval(
-                                        child: Image.network(
-                                          userVM.user_ImageURL
-                                              .value, // The selected or updated image path
+        child: GestureDetector(
+          onTap: () {
+            FocusScope.of(context).unfocus();
+          },
+          child: Scaffold(
+              extendBody: true,
+              extendBodyBehindAppBar: true,
+              drawer: Drawer(
+                width: Get.width * Utils.getResponsiveWidth(270),
+                child: ListView(
+                  children: [
+                    Container(
+                      height: Get.height * Utils.getResponsiveHeight(200),
+                      child: DrawerHeader(
+                        margin: EdgeInsets.zero,
+                        padding: EdgeInsets.zero,
+                        child: Stack(fit: StackFit.expand, children: [
+                          Positioned(
+                              top: 0,
+                              right: Get.width * Utils.getResponsiveWidth(10),
+                              child: InkWell(
+                                  onTap: () {
+                                    Get.back();
+                                  },
+                                  child: SvgPicture.asset(
+                                      IconAssets.ic_close_circle))),
+                          Positioned(
+                            left: Get.width * Utils.getResponsiveWidth(20),
+                            top: Get.height * Utils.getResponsiveHeight(26),
+                            right: Get.width * Utils.getResponsiveWidth(20),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                CircleAvatar(
+                                  radius:
+                                      Get.height * Utils.getResponsiveSize(40),
+                                  backgroundColor: AppColor.lightGreyColor,
+                                  child: userVM.user_ImageURL.isEmpty
+                                      ? SvgPicture.asset(
+                                          ImageAssets
+                                              .img_profile, // Your default SVG image path
                                           fit: BoxFit.cover,
-                                          height: Get.height *
-                                              Utils.getResponsiveHeight(80),
-                                          width: Get.width *
-                                              Utils.getResponsiveWidth(80),
+                                        )
+                                      : ClipOval(
+                                          child: Image.network(
+                                            AppUrl.baseUrl +
+                                                userVM.user_ImageURL
+                                                    .value, // The selected or updated image path
+                                            fit: BoxFit.cover,
+                                            height: Get.height *
+                                                Utils.getResponsiveHeight(80),
+                                            width: Get.width *
+                                                Utils.getResponsiveWidth(80),
+                                          ),
                                         ),
-                                      ),
-                              ),
-                              Text(
-                                userVM.user_name.value,
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                    color: AppColor.textBlackPrimary,
-                                    fontSize: Get.height *
-                                        Utils.getResponsiveSize(20),
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              Text(
-                                userVM.user_email.value,
-                                textAlign: TextAlign.start,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    color: AppColor.textBlackPrimary,
-                                    fontSize: Get.height *
-                                        Utils.getResponsiveSize(16),
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ],
+                                ),
+                                Text(
+                                  userVM.user_name.value,
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      color: AppColor.textBlackPrimary,
+                                      fontSize: Get.height *
+                                          Utils.getResponsiveSize(20),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Text(
+                                  userVM.user_email.value,
+                                  textAlign: TextAlign.start,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      color: AppColor.textBlackPrimary,
+                                      fontSize: Get.height *
+                                          Utils.getResponsiveSize(16),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ]),
+                        ]),
+                      ),
                     ),
+                    ...items.asMap().entries.map((entry) {
+                      int index = entry.key;
+                      MenuItemsModel item = entry.value;
+                      return Column(
+                        children: [
+                          ListTile(
+                            leading: Image.asset(item.imagePath,
+                                width: 30, height: 30),
+                            title: Text(
+                              item.name,
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w500,
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(18),
+                                  color: AppColor.textBlackPrimary),
+                            ),
+                            onTap: () {
+                              _handleDrawerNavigationChange(item.name);
+                            },
+                          )
+                        ],
+                      );
+                    }).toList()
+                  ],
+                ),
+              ),
+              body: Stack(
+                children: [
+                  Center(
+                    child: Obx(
+                        () => navigationVM.currentScreen.value ?? SizedBox()),
                   ),
-                  ...items.asMap().entries.map((entry) {
-                    int index = entry.key;
-                    MenuItemsModel item = entry.value;
-                    return Column(
+                  SafeArea(
+                    top: false,
+                    child: Stack(
                       children: [
-                        ListTile(
-                          leading: Image.asset(item.imagePath,
-                              width: 30, height: 30),
-                          title: Text(
-                            item.name,
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w500,
-                                fontSize:
-                                    Get.height * Utils.getResponsiveSize(18),
-                                color: AppColor.textBlackPrimary),
-                          ),
-                          onTap: () {
-                            _handleDrawerNavigationChange(item.name);
-                          },
-                        )
+                        Positioned(
+                            top: Get.height * Utils.getResponsiveHeight(60),
+                            left: 0,
+                            right: 0,
+                            child: Divider(
+                              height: Get.height * Utils.getResponsiveHeight(1),
+                              thickness: 1,
+                              color: AppColor.textBlack10Per,
+                            )),
+                        Positioned(
+                            top: Get.height * Utils.getResponsiveHeight(60),
+                            left: 0,
+                            child: const MenuIcon()),
                       ],
-                    );
-                  }).toList()
+                    ),
+                    // child: const MenuIcon(),
+                  ),
                 ],
               ),
-            ),
-            body: Stack(
-              children: [
-                Center(
-                  child:
-                      Obx(() => navigationVM.currentScreen.value ?? SizedBox()),
-                ),
-                SafeArea(
-                  top: false,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                          top: Get.height * Utils.getResponsiveHeight(60),
-                          left: 0,
-                          right: 0,
-                          child: Divider(
-                            height: Get.height * Utils.getResponsiveHeight(1),
-                            thickness: 1,
-                            color: AppColor.textBlack10Per,
-                          )),
-                      Positioned(
-                          top: Get.height * Utils.getResponsiveHeight(60),
-                          left: 0,
-                          child: const MenuIcon()),
-                    ],
-                  ),
-                  // child: const MenuIcon(),
-                ),
-              ],
-            ),
-            bottomNavigationBar: Obx(() {
-              return BottomNavigationBar(
-                onTap: _handleNavigationChange,
-                currentIndex: navigationVM.currentIndex.value,
-                type: BottomNavigationBarType.fixed,
-                backgroundColor: AppColor.transparent,
-                elevation: 0,
-                items: [
-                  BottomNavigationBarItem(
-                      icon: Image.asset(IconAssets.ic_bn_reward),
-                      activeIcon: Container(
-                        padding: EdgeInsets.all(
-                            Get.height * Utils.getResponsiveHeight(10)),
-                        decoration: BoxDecoration(
-                          color: AppColor.colorPrimary,
-                          borderRadius: BorderRadius.circular(
-                              Get.height * Utils.getResponsiveSize(6)),
+              bottomNavigationBar: Obx(() {
+                return BottomNavigationBar(
+                  onTap: _handleNavigationChange,
+                  currentIndex: navigationVM.currentIndex.value,
+                  type: BottomNavigationBarType.fixed,
+                  backgroundColor: AppColor.transparent,
+                  elevation: 0,
+                  items: [
+                    BottomNavigationBarItem(
+                        icon: Image.asset(IconAssets.ic_bn_reward),
+                        activeIcon: Container(
+                          padding: EdgeInsets.all(
+                              Get.height * Utils.getResponsiveHeight(10)),
+                          decoration: BoxDecoration(
+                            color: AppColor.colorPrimary,
+                            borderRadius: BorderRadius.circular(
+                                Get.height * Utils.getResponsiveSize(6)),
+                          ),
+                          child: Image.asset(
+                            IconAssets.ic_bn_reward,
+                            color: AppColor.whiteColor,
+                          ),
                         ),
-                        child: Image.asset(
-                          IconAssets.ic_bn_reward,
-                          color: AppColor.whiteColor,
+                        label: ''),
+                    BottomNavigationBarItem(
+                        icon: Image.asset(IconAssets.ic_bn_history),
+                        activeIcon: Container(
+                          padding: EdgeInsets.all(
+                              Get.height * Utils.getResponsiveHeight(10)),
+                          decoration: BoxDecoration(
+                            color: AppColor.colorPrimary,
+                            borderRadius: BorderRadius.circular(
+                                Get.height * Utils.getResponsiveSize(6)),
+                          ),
+                          child: Image.asset(
+                            IconAssets.ic_bn_history,
+                            color: AppColor.whiteColor,
+                          ),
                         ),
-                      ),
-                      label: ''),
-                  BottomNavigationBarItem(
-                      icon: Image.asset(IconAssets.ic_bn_history),
-                      activeIcon: Container(
-                        padding: EdgeInsets.all(
-                            Get.height * Utils.getResponsiveHeight(10)),
-                        decoration: BoxDecoration(
-                          color: AppColor.colorPrimary,
-                          borderRadius: BorderRadius.circular(
-                              Get.height * Utils.getResponsiveSize(6)),
+                        label: ''),
+                    BottomNavigationBarItem(
+                        icon: Image.asset(IconAssets.ic_bn_home),
+                        activeIcon: Container(
+                          padding: EdgeInsets.all(
+                              Get.height * Utils.getResponsiveHeight(10)),
+                          decoration: BoxDecoration(
+                            color: AppColor.colorPrimary,
+                            borderRadius: BorderRadius.circular(
+                                Get.height * Utils.getResponsiveSize(6)),
+                          ),
+                          child: Image.asset(
+                            IconAssets.ic_bn_home,
+                            color: AppColor.whiteColor,
+                          ),
                         ),
-                        child: Image.asset(
-                          IconAssets.ic_bn_history,
-                          color: AppColor.whiteColor,
+                        label: ''),
+                    BottomNavigationBarItem(
+                        icon: Image.asset(IconAssets.ic_bn_notification),
+                        activeIcon: Container(
+                          padding: EdgeInsets.all(
+                              Get.height * Utils.getResponsiveHeight(10)),
+                          decoration: BoxDecoration(
+                            color: AppColor.colorPrimary,
+                            borderRadius: BorderRadius.circular(
+                                Get.height * Utils.getResponsiveSize(6)),
+                          ),
+                          child: Image.asset(
+                            IconAssets.ic_bn_notification,
+                            color: AppColor.whiteColor,
+                          ),
                         ),
-                      ),
-                      label: ''),
-                  BottomNavigationBarItem(
-                      icon: Image.asset(IconAssets.ic_bn_home),
-                      activeIcon: Container(
-                        padding: EdgeInsets.all(
-                            Get.height * Utils.getResponsiveHeight(10)),
-                        decoration: BoxDecoration(
-                          color: AppColor.colorPrimary,
-                          borderRadius: BorderRadius.circular(
-                              Get.height * Utils.getResponsiveSize(6)),
+                        label: ''),
+                    BottomNavigationBarItem(
+                        icon: Image.asset(IconAssets.ic_bn_complaint),
+                        activeIcon: Container(
+                          padding: EdgeInsets.all(
+                              Get.height * Utils.getResponsiveHeight(10)),
+                          decoration: BoxDecoration(
+                            color: AppColor.colorPrimary,
+                            borderRadius: BorderRadius.circular(
+                                Get.height * Utils.getResponsiveSize(6)),
+                          ),
+                          child: Image.asset(
+                            IconAssets.ic_bn_complaint,
+                            color: AppColor.whiteColor,
+                          ),
                         ),
-                        child: Image.asset(
-                          IconAssets.ic_bn_home,
-                          color: AppColor.whiteColor,
-                        ),
-                      ),
-                      label: ''),
-                  BottomNavigationBarItem(
-                      icon: Image.asset(IconAssets.ic_bn_notification),
-                      activeIcon: Container(
-                        padding: EdgeInsets.all(
-                            Get.height * Utils.getResponsiveHeight(10)),
-                        decoration: BoxDecoration(
-                          color: AppColor.colorPrimary,
-                          borderRadius: BorderRadius.circular(
-                              Get.height * Utils.getResponsiveSize(6)),
-                        ),
-                        child: Image.asset(
-                          IconAssets.ic_bn_notification,
-                          color: AppColor.whiteColor,
-                        ),
-                      ),
-                      label: ''),
-                  BottomNavigationBarItem(
-                      icon: Image.asset(IconAssets.ic_bn_complaint),
-                      activeIcon: Container(
-                        padding: EdgeInsets.all(
-                            Get.height * Utils.getResponsiveHeight(10)),
-                        decoration: BoxDecoration(
-                          color: AppColor.colorPrimary,
-                          borderRadius: BorderRadius.circular(
-                              Get.height * Utils.getResponsiveSize(6)),
-                        ),
-                        child: Image.asset(
-                          IconAssets.ic_bn_complaint,
-                          color: AppColor.whiteColor,
-                        ),
-                      ),
-                      label: ''),
-                ],
-              );
-            })),
+                        label: ''),
+                  ],
+                );
+              })),
+        ),
       ),
     );
   }

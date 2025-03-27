@@ -86,58 +86,64 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   SizedBox(
                     height: Get.height * Utils.getResponsiveHeight(36),
                   ),
-                  Container(
-                    height: Get.height * Utils.getResponsiveHeight(145),
-                    width: Get.width * Utils.getResponsiveWidth(127),
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          child: InkWell(
-                            onTap: () {
-                              _showImageSourceDialog(context);
-                            },
-                            child: SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(127),
-                                width:
-                                    Get.width * Utils.getResponsiveWidth(127),
-                                child: Obx(() {
-                                  return CircleAvatar(
-                                    radius: Get.height *
-                                        Utils.getResponsiveSize(62),
-                                    child: updateProfileVM.imagePath.isEmpty
-                                        ? SvgPicture.asset(
-                                            ImageAssets
-                                                .img_profile, // Your default SVG image path
-                                            fit: BoxFit.cover,
-                                          )
-                                        : ClipOval(
-                                            child: Image.network(
-                                              updateProfileVM.imagePath
-                                                  .value, // The selected or updated image path
-                                              fit: BoxFit.cover,
-                                              height: Get.height *
-                                                  Utils.getResponsiveHeight(
-                                                      127),
-                                              width: Get.width *
-                                                  Utils.getResponsiveWidth(127),
-                                            ),
-                                          ),
-                                  );
-                                })),
-                          ),
-                        ),
-                        // child: SvgPicture.asset(
-                        //     ImageAssets.img_profile)))),
-                        Positioned(
-                            bottom: 0,
+                  InkWell(
+                    onTap: () {
+                      _showImageSourceDialog(context);
+                    },
+                    child: SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(145),
+                      width: Get.width * Utils.getResponsiveWidth(127),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 0,
                             left: 0,
                             right: 0,
-                            child: SvgPicture.asset(ImageAssets.img_add_photo))
-                      ],
+                            child: InkWell(
+                              onTap: () {
+                                _showImageSourceDialog(context);
+                              },
+                              child: SizedBox(
+                                  height: Get.height *
+                                      Utils.getResponsiveHeight(127),
+                                  width:
+                                      Get.width * Utils.getResponsiveWidth(127),
+                                  child: Obx(() {
+                                    return CircleAvatar(
+                                      radius: Get.height *
+                                          Utils.getResponsiveSize(62),
+                                      child: updateProfileVM.imagePath.isEmpty
+                                          ? SvgPicture.asset(
+                                              ImageAssets.img_profile,
+                                              fit: BoxFit.cover,
+                                            )
+                                          : ClipOval(
+                                              child: Image.network(
+                                                updateProfileVM.imagePath
+                                                    .value, // The selected or updated image path
+                                                fit: BoxFit.cover,
+                                                height: Get.height *
+                                                    Utils.getResponsiveHeight(
+                                                        127),
+                                                width: Get.width *
+                                                    Utils.getResponsiveWidth(
+                                                        127),
+                                              ),
+                                            ),
+                                    );
+                                  })),
+                            ),
+                          ),
+                          // child: SvgPicture.asset(
+                          //     ImageAssets.img_profile)))),
+                          Positioned(
+                              bottom: 0,
+                              left: 0,
+                              right: 0,
+                              child:
+                                  SvgPicture.asset(ImageAssets.img_add_photo))
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(

@@ -1,5 +1,6 @@
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/res/colors/app_color.dart';
+import 'package:e_validation/res/urls/app_url.dart';
 import 'package:e_validation/view/navigation/complaints/widget/complaints_cart_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -87,8 +88,9 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> {
                           )
                         : ClipOval(
                             child: Image.network(
-                              userVM.user_ImageURL
-                                  .value, // The selected or updated image path
+                              AppUrl.baseUrl +
+                                  userVM.user_ImageURL
+                                      .value, // The selected or updated image path
                               fit: BoxFit.cover,
                               height:
                                   Get.height * Utils.getResponsiveHeight(84),
