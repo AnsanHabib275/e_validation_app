@@ -174,6 +174,11 @@ class Languages extends Translations {
           'product_id_cannot_be_empty': 'ProductId cannot be empty',
           'attach_file_cannot_be_empty': 'Attach file cannot be empty',
           'message_cannot_be_empty': 'Message cannot be empty',
+          'please_select_country_code_first':
+              'Please select country code first',
+          'invalid_phone_number_format': 'Invalid phone number format',
+          'invalid_phone_number': 'Invalid phone number',
+          'hint_country_code': '+92',
         },
         'ur_PK': {
           'splash_screen': 'سپلیش اسکرین',

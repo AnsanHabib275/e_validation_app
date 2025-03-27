@@ -1,12 +1,10 @@
 import 'package:e_validation/res/assets/image_assets.dart';
 import 'package:e_validation/res/colors/app_color.dart';
-import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/utils/utils.dart';
 import 'package:e_validation/view/verifyEmail/widget/input_otp_widget.dart';
 import 'package:e_validation/view/verifyEmail/widget/verify_button_widget.dart';
 import 'package:e_validation/view_models/controller/verifyEmail/verify_email_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
 class VerifyEmailScreen extends StatefulWidget {
@@ -19,7 +17,8 @@ class VerifyEmailScreen extends StatefulWidget {
 class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   final verifyEmailVM = Get.put(VerifyEmailViewModel());
   final _formKey = GlobalKey<FormState>();
-  final Accountid = Get.arguments['Accountid'] ?? '';
+  final Accountid =
+      int.tryParse(Get.arguments['Accountid'].toString() ?? '0') ?? 0;
 
   @override
   Widget build(BuildContext context) {
@@ -71,115 +70,132 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                   ),
                 ],
               )),
-          body: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(36),
-                ),
-                Image.asset(ImageAssets.img_verify),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(58),
-                ),
-                Obx(() {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * Utils.getResponsiveWidth(30)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        SizedBox(
-                          width: 40,
-                          height: 50,
-                          child: InputOTPWidget(
-                            controller: verifyEmailVM.otpOneController.value,
-                            focusNode: verifyEmailVM.otpOneFocusNode.value,
-                            nextFocusNode: verifyEmailVM.otpTwoFocusNode.value,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 40,
-                          height: 50,
-                          child: InputOTPWidget(
-                            controller: verifyEmailVM.otpTwoController.value,
-                            focusNode: verifyEmailVM.otpTwoFocusNode.value,
-                            nextFocusNode:
-                                verifyEmailVM.otpThreeFocusNode.value,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 40,
-                          height: 50,
-                          child: InputOTPWidget(
-                            controller: verifyEmailVM.otpThreeController.value,
-                            focusNode: verifyEmailVM.otpThreeFocusNode.value,
-                            nextFocusNode: verifyEmailVM.otpFourFocusNode.value,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 40,
-                          height: 50,
-                          child: InputOTPWidget(
-                            controller: verifyEmailVM.otpFourController.value,
-                            focusNode: verifyEmailVM.otpFourFocusNode.value,
-                            nextFocusNode: verifyEmailVM.otpFiveFocusNode.value,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 40,
-                          height: 50,
-                          child: InputOTPWidget(
-                            controller: verifyEmailVM.otpFiveController.value,
-                            focusNode: verifyEmailVM.otpFiveFocusNode.value,
-                            nextFocusNode: verifyEmailVM.otpSixFocusNode.value,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 40,
-                          height: 50,
-                          child: InputOTPWidget(
-                            controller: verifyEmailVM.otpSixController.value,
-                            focusNode: verifyEmailVM.otpSixFocusNode.value,
-                            // nextFocusNode: verifyEmailVM.otpFourFocusNode.value,
-                          ),
-                        ),
-                      ],
+          body: Obx(() {
+            if (!verifyEmailVM.loading.value) {
+              return SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(36),
                     ),
-                  );
-                }),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(40),
+                    Image.asset(ImageAssets.img_verify),
+                    SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(58),
+                    ),
+                    Obx(() {
+                      return Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal:
+                                Get.width * Utils.getResponsiveWidth(30)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              width: 40,
+                              height: 50,
+                              child: InputOTPWidget(
+                                controller:
+                                    verifyEmailVM.otpOneController.value,
+                                focusNode: verifyEmailVM.otpOneFocusNode.value,
+                                nextFocusNode:
+                                    verifyEmailVM.otpTwoFocusNode.value,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 40,
+                              height: 50,
+                              child: InputOTPWidget(
+                                controller:
+                                    verifyEmailVM.otpTwoController.value,
+                                focusNode: verifyEmailVM.otpTwoFocusNode.value,
+                                nextFocusNode:
+                                    verifyEmailVM.otpThreeFocusNode.value,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 40,
+                              height: 50,
+                              child: InputOTPWidget(
+                                controller:
+                                    verifyEmailVM.otpThreeController.value,
+                                focusNode:
+                                    verifyEmailVM.otpThreeFocusNode.value,
+                                nextFocusNode:
+                                    verifyEmailVM.otpFourFocusNode.value,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 40,
+                              height: 50,
+                              child: InputOTPWidget(
+                                controller:
+                                    verifyEmailVM.otpFourController.value,
+                                focusNode: verifyEmailVM.otpFourFocusNode.value,
+                                nextFocusNode:
+                                    verifyEmailVM.otpFiveFocusNode.value,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 40,
+                              height: 50,
+                              child: InputOTPWidget(
+                                controller:
+                                    verifyEmailVM.otpFiveController.value,
+                                focusNode: verifyEmailVM.otpFiveFocusNode.value,
+                                nextFocusNode:
+                                    verifyEmailVM.otpSixFocusNode.value,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 40,
+                              height: 50,
+                              child: InputOTPWidget(
+                                controller:
+                                    verifyEmailVM.otpSixController.value,
+                                focusNode: verifyEmailVM.otpSixFocusNode.value,
+                                // nextFocusNode: verifyEmailVM.otpFourFocusNode.value,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+                    SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(40),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        verifyEmailVM.resendCodeApi(Accountid);
+                        verifyEmailVM.clearFields();
+                      },
+                      child: Text(
+                        'resend_code'.tr,
+                        style: TextStyle(
+                            color: AppColor.colorPrimary,
+                            decoration: TextDecoration.underline,
+                            fontSize: Get.height * Utils.getResponsiveSize(18),
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                    SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(70),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: Get.width * Utils.getResponsiveWidth(30)),
+                      child: VerifyButtonWidget(formKey: _formKey),
+                    ),
+                    SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(50),
+                    ),
+                  ],
                 ),
-                InkWell(
-                  onTap: () {
-                    verifyEmailVM.resendCodeApi(Accountid);
-                    verifyEmailVM.clearFields();
-                  },
-                  child: Text(
-                    'resend_code'.tr,
-                    style: TextStyle(
-                        color: AppColor.colorPrimary,
-                        decoration: TextDecoration.underline,
-                        fontSize: Get.height * Utils.getResponsiveSize(18),
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500),
-                  ),
-                ),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(70),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: Get.width * Utils.getResponsiveWidth(30)),
-                  child: VerifyButtonWidget(formKey: _formKey),
-                ),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(50),
-                ),
-              ],
-            ),
-          ),
+              );
+            }
+            return Center(child: CircularProgressIndicator());
+          }),
         ),
       ),
     );

@@ -81,7 +81,7 @@ class VerifyEmailViewModel extends GetxController {
     });
   }
 
-  void resendCodeApi(String accountId) {
+  void resendCodeApi(int accountId) {
     loading.value = true;
     Map data = {
       'U_Id': accountId,

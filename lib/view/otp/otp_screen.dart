@@ -72,123 +72,129 @@ class _OTPScreenState extends State<OTPScreen> {
                   ),
                 ],
               )),
-          body: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(36),
-                ),
-                Image.asset(ImageAssets.img_verify),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(58),
-                ),
-                Obx(() {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * Utils.getResponsiveWidth(30)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        SizedBox(
-                          width: 40,
-                          height: 50,
-                          child: InputOTPWidget(
-                            e_id: e_id,
-                            controller: otpVM.otpOneController.value,
-                            focusNode: otpVM.otpOneFocusNode.value,
-                            nextFocusNode: otpVM.otpTwoFocusNode.value,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 40,
-                          height: 50,
-                          child: InputOTPWidget(
-                            e_id: e_id,
-                            controller: otpVM.otpTwoController.value,
-                            focusNode: otpVM.otpTwoFocusNode.value,
-                            nextFocusNode: otpVM.otpThreeFocusNode.value,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 40,
-                          height: 50,
-                          child: InputOTPWidget(
-                            e_id: e_id,
-                            controller: otpVM.otpThreeController.value,
-                            focusNode: otpVM.otpThreeFocusNode.value,
-                            nextFocusNode: otpVM.otpFourFocusNode.value,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 40,
-                          height: 50,
-                          child: InputOTPWidget(
-                            e_id: e_id,
-                            controller: otpVM.otpFourController.value,
-                            focusNode: otpVM.otpFourFocusNode.value,
-                            nextFocusNode: otpVM.otpFiveFocusNode.value,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 40,
-                          height: 50,
-                          child: InputOTPWidget(
-                            e_id: e_id,
-                            controller: otpVM.otpFiveController.value,
-                            focusNode: otpVM.otpFiveFocusNode.value,
-                            nextFocusNode: otpVM.otpSixFocusNode.value,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 40,
-                          height: 50,
-                          child: InputOTPWidget(
-                            e_id: e_id,
-                            controller: otpVM.otpSixController.value,
-                            focusNode: otpVM.otpSixFocusNode.value,
-                            // nextFocusNode: otpVM.otpFourFocusNode.value,
-                          ),
-                        ),
-                      ],
+          body: Obx(() {
+            if (!resendCodeVM.loading.value) {
+              return SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(36),
                     ),
-                  );
-                }),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(40),
+                    Image.asset(ImageAssets.img_verify),
+                    SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(58),
+                    ),
+                    Obx(() {
+                      return Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal:
+                                Get.width * Utils.getResponsiveWidth(30)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              width: 40,
+                              height: 50,
+                              child: InputOTPWidget(
+                                e_id: e_id,
+                                controller: otpVM.otpOneController.value,
+                                focusNode: otpVM.otpOneFocusNode.value,
+                                nextFocusNode: otpVM.otpTwoFocusNode.value,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 40,
+                              height: 50,
+                              child: InputOTPWidget(
+                                e_id: e_id,
+                                controller: otpVM.otpTwoController.value,
+                                focusNode: otpVM.otpTwoFocusNode.value,
+                                nextFocusNode: otpVM.otpThreeFocusNode.value,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 40,
+                              height: 50,
+                              child: InputOTPWidget(
+                                e_id: e_id,
+                                controller: otpVM.otpThreeController.value,
+                                focusNode: otpVM.otpThreeFocusNode.value,
+                                nextFocusNode: otpVM.otpFourFocusNode.value,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 40,
+                              height: 50,
+                              child: InputOTPWidget(
+                                e_id: e_id,
+                                controller: otpVM.otpFourController.value,
+                                focusNode: otpVM.otpFourFocusNode.value,
+                                nextFocusNode: otpVM.otpFiveFocusNode.value,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 40,
+                              height: 50,
+                              child: InputOTPWidget(
+                                e_id: e_id,
+                                controller: otpVM.otpFiveController.value,
+                                focusNode: otpVM.otpFiveFocusNode.value,
+                                nextFocusNode: otpVM.otpSixFocusNode.value,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 40,
+                              height: 50,
+                              child: InputOTPWidget(
+                                e_id: e_id,
+                                controller: otpVM.otpSixController.value,
+                                focusNode: otpVM.otpSixFocusNode.value,
+                                // nextFocusNode: otpVM.otpFourFocusNode.value,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+                    SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(40),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        resendCodeVM.resendCodeApi(email);
+                        otpVM.clearFields();
+                      },
+                      child: Text(
+                        'resend_code'.tr,
+                        style: TextStyle(
+                            color: AppColor.colorPrimary,
+                            decoration: TextDecoration.underline,
+                            fontSize: Get.height * Utils.getResponsiveSize(18),
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                    SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(70),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: Get.width * Utils.getResponsiveWidth(30)),
+                      child: VerifyButtonWidget(
+                        formKey: _formKey,
+                        e_id: e_id,
+                      ),
+                    ),
+                    SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(50),
+                    ),
+                  ],
                 ),
-                InkWell(
-                  onTap: () {
-                    resendCodeVM.resendCodeApi(email);
-                    otpVM.clearFields();
-                  },
-                  child: Text(
-                    'resend_code'.tr,
-                    style: TextStyle(
-                        color: AppColor.colorPrimary,
-                        decoration: TextDecoration.underline,
-                        fontSize: Get.height * Utils.getResponsiveSize(18),
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500),
-                  ),
-                ),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(70),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: Get.width * Utils.getResponsiveWidth(30)),
-                  child: VerifyButtonWidget(
-                    formKey: _formKey,
-                    e_id: e_id,
-                  ),
-                ),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(50),
-                ),
-              ],
-            ),
-          ),
+              );
+            }
+            return Center(child: CircularProgressIndicator());
+          }),
         ),
       ),
     );

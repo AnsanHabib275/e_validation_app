@@ -75,110 +75,122 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   ),
                 ],
               )),
-          body: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: Get.width * Utils.getResponsiveWidth(30)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: Get.height * Utils.getResponsiveHeight(36),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      _showImageSourceDialog(context);
-                    },
-                    child: SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(145),
-                      width: Get.width * Utils.getResponsiveWidth(127),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: 0,
-                            left: 0,
-                            right: 0,
-                            child: InkWell(
-                              onTap: () {
-                                _showImageSourceDialog(context);
-                              },
-                              child: SizedBox(
-                                  height: Get.height *
-                                      Utils.getResponsiveHeight(127),
-                                  width:
-                                      Get.width * Utils.getResponsiveWidth(127),
-                                  child: Obx(() {
-                                    return CircleAvatar(
-                                      radius: Get.height *
-                                          Utils.getResponsiveSize(62),
-                                      child: updateProfileVM.imagePath.isEmpty
-                                          ? SvgPicture.asset(
-                                              ImageAssets.img_profile,
-                                              fit: BoxFit.cover,
-                                            )
-                                          : ClipOval(
-                                              child: Image.network(
-                                                updateProfileVM.imagePath
-                                                    .value, // The selected or updated image path
-                                                fit: BoxFit.cover,
-                                                height: Get.height *
-                                                    Utils.getResponsiveHeight(
-                                                        127),
-                                                width: Get.width *
-                                                    Utils.getResponsiveWidth(
-                                                        127),
-                                              ),
-                                            ),
-                                    );
-                                  })),
-                            ),
-                          ),
-                          // child: SvgPicture.asset(
-                          //     ImageAssets.img_profile)))),
-                          Positioned(
-                              bottom: 0,
-                              left: 0,
-                              right: 0,
-                              child:
-                                  SvgPicture.asset(ImageAssets.img_add_photo))
-                        ],
+          body: Obx(() {
+            if (!updateProfileVM.loading.value) {
+              return SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Get.width * Utils.getResponsiveWidth(30)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(36),
                       ),
-                    ),
+                      InkWell(
+                        onTap: () {
+                          _showImageSourceDialog(context);
+                        },
+                        child: SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(145),
+                          width: Get.width * Utils.getResponsiveWidth(127),
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                child: InkWell(
+                                  onTap: () {
+                                    _showImageSourceDialog(context);
+                                  },
+                                  child: SizedBox(
+                                      height: Get.height *
+                                          Utils.getResponsiveHeight(127),
+                                      width: Get.width *
+                                          Utils.getResponsiveWidth(127),
+                                      child: Obx(() {
+                                        return CircleAvatar(
+                                          radius: Get.height *
+                                              Utils.getResponsiveSize(62),
+                                          child:
+                                              updateProfileVM.imagePath.isEmpty
+                                                  ? SvgPicture.asset(
+                                                      ImageAssets.img_profile,
+                                                      fit: BoxFit.cover,
+                                                    )
+                                                  : ClipOval(
+                                                      child: Image.network(
+                                                        updateProfileVM
+                                                            .imagePath
+                                                            .value, // The selected or updated image path
+                                                        fit: BoxFit.cover,
+                                                        height: Get.height *
+                                                            Utils
+                                                                .getResponsiveHeight(
+                                                                    127),
+                                                        width: Get.width *
+                                                            Utils
+                                                                .getResponsiveWidth(
+                                                                    127),
+                                                      ),
+                                                    ),
+                                        );
+                                      })),
+                                ),
+                              ),
+                              // child: SvgPicture.asset(
+                              //     ImageAssets.img_profile)))),
+                              Positioned(
+                                  bottom: 0,
+                                  left: 0,
+                                  right: 0,
+                                  child: SvgPicture.asset(
+                                      ImageAssets.img_add_photo))
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(70),
+                      ),
+                      Form(
+                        key: _formkey,
+                        child: Column(
+                          children: [
+                            InputFirstNameWidget(),
+                            SizedBox(
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(22)),
+                            InputLastNameWidget(),
+                            SizedBox(
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(22)),
+                            InputPhoneNumberWidget(),
+                            SizedBox(
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(22)),
+                            InputDateOfBirthWidget(),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(50),
+                      ),
+                      UpdateButtonWidget(
+                        formkey: _formkey,
+                      ),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(50),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    height: Get.height * Utils.getResponsiveHeight(70),
-                  ),
-                  Form(
-                    key: _formkey,
-                    child: Column(
-                      children: [
-                        InputFirstNameWidget(),
-                        SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(22)),
-                        InputLastNameWidget(),
-                        SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(22)),
-                        InputPhoneNumberWidget(),
-                        SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(22)),
-                        InputDateOfBirthWidget(),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: Get.height * Utils.getResponsiveHeight(50),
-                  ),
-                  UpdateButtonWidget(
-                    formkey: _formkey,
-                  ),
-                  SizedBox(
-                    height: Get.height * Utils.getResponsiveHeight(50),
-                  ),
-                ],
-              ),
-            ),
-          ),
+                ),
+              );
+            }
+            return Center(child: CircularProgressIndicator());
+          }),
         ),
       ),
     );
