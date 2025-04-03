@@ -2,8 +2,6 @@ import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
-import '../../res/assets/font_assets.dart';
 import '../../res/assets/image_assets.dart';
 import '../../res/colors/app_color.dart';
 import '../../utils/utils.dart';

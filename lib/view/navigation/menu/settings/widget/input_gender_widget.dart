@@ -36,6 +36,12 @@ class InputGenderWidget extends StatelessWidget {
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w400,
         ),
+        errorStyle: TextStyle(
+          color: AppColor.redColor,
+          fontSize: Get.height * Utils.getResponsiveSize(14),
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w400,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(
               Radius.circular(Get.height * Utils.getResponsiveSize(8))),

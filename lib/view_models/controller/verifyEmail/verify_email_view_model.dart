@@ -25,17 +25,6 @@ class VerifyEmailViewModel extends GetxController {
   RxBool isVisible = true.obs;
   RxString errorMessage = ''.obs;
   RxString from = ''.obs;
-
-  // void checkOtpFilled() {
-  //   if (otpOneController.value.text.isNotEmpty &&
-  //       otpTwoController.value.text.isNotEmpty &&
-  //       otpThreeController.value.text.isNotEmpty &&
-  //       otpFourController.value.text.isNotEmpty &&
-  //       otpFiveController.value.text.isNotEmpty &&
-  //       otpSixController.value.text.isNotEmpty) {
-  //     verifyEmailApi();
-  //   }
-  // }
   RxBool isOtpFilled = false.obs;
 
   void checkOtpFilled() {
@@ -72,12 +61,14 @@ class VerifyEmailViewModel extends GetxController {
       loading.value = false;
       if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
+        Utils.toastMessage(value['message']);
       } else {
         Get.toNamed(RoutesName.accountCreatedScreen);
       }
     }).onError((error, stackTrace) {
       loading.value = false;
       errorMessage.value = error.toString();
+      Utils.toastMessage(error.toString());
     });
   }
 
@@ -90,12 +81,14 @@ class VerifyEmailViewModel extends GetxController {
       loading.value = false;
       if (value['isSuccessfull'] == false) {
         errorMessage.value = value['message'];
+        Utils.toastMessage(value['message']);
       } else {
         Utils.toastMessage("OTP Sent To Your Email Account");
       }
     }).onError((error, stackTrace) {
       loading.value = false;
       errorMessage.value = error.toString();
+      Utils.toastMessage(error.toString());
     });
   }
 }

@@ -72,6 +72,22 @@ class InputOTPWidget extends StatelessWidget {
             Radius.circular(Get.height * Utils.getResponsiveSize(8)),
           ),
         ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+              Radius.circular(Get.height * Utils.getResponsiveSize(8))),
+          borderSide: BorderSide(
+            color: AppColor.redColor, // Default border color
+            width: 1.0,
+          ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+              Radius.circular(Get.height * Utils.getResponsiveSize(8))),
+          borderSide: BorderSide(
+            color: AppColor.redColor, // Default border color
+            width: 1.0, // Default border width
+          ),
+        ),
       ),
       textAlign: TextAlign.center,
       maxLength: 1,

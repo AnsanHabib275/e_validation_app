@@ -44,6 +44,12 @@ class InputOldPasswordWidget extends StatelessWidget {
           errorText: changePasswordVM.errorMessage.value.isEmpty
               ? null
               : changePasswordVM.errorMessage.value,
+          errorStyle: TextStyle(
+            color: AppColor.redColor,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w400,
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(
                 Radius.circular(Get.height * Utils.getResponsiveSize(8))),
@@ -72,7 +78,15 @@ class InputOldPasswordWidget extends StatelessWidget {
             borderRadius: BorderRadius.all(
                 Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
-              color: AppColor.textColorPrimary, // Default border color
+              color: AppColor.redColor, // Default border color
+              width: 1.0,
+            ),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
+            borderSide: BorderSide(
+              color: AppColor.redColor, // Default border color
               width: 1.0, // Default border width
             ),
           ),

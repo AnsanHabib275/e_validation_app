@@ -53,9 +53,15 @@ class InputEmailWidget extends StatelessWidget {
           errorText: loginVM.errorMessage.value.isEmpty
               ? null
               : loginVM.errorMessage.value,
+          errorStyle: TextStyle(
+            color: AppColor.redColor,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w400,
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(
-                Radius.circular(Get.height * Utils.getResponsiveSize(6))),
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
@@ -63,7 +69,7 @@ class InputEmailWidget extends StatelessWidget {
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(
-                Radius.circular(Get.height * Utils.getResponsiveSize(6))),
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
@@ -71,7 +77,7 @@ class InputEmailWidget extends StatelessWidget {
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(
-                Radius.circular(Get.height * Utils.getResponsiveSize(6))),
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
               width: 1.0, // Default border width
@@ -79,7 +85,15 @@ class InputEmailWidget extends StatelessWidget {
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(
-                Radius.circular(Get.height * Utils.getResponsiveSize(6))),
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
+            borderSide: BorderSide(
+              color: AppColor.redColor, // Default border color
+              width: 1.0, // Default border width
+            ),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.redColor, // Default border color
               width: 1.0, // Default border width

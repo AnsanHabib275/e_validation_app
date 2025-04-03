@@ -51,6 +51,12 @@ class InputUserAddressWidget extends StatelessWidget {
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
           ),
+          errorStyle: TextStyle(
+            color: AppColor.redColor,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w400,
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(
                 Radius.circular(Get.height * Utils.getResponsiveSize(8))),
@@ -72,6 +78,22 @@ class InputUserAddressWidget extends StatelessWidget {
                 Radius.circular(Get.height * Utils.getResponsiveSize(8))),
             borderSide: BorderSide(
               color: AppColor.textColorPrimary, // Default border color
+              width: 1.0, // Default border width
+            ),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
+            borderSide: BorderSide(
+              color: AppColor.redColor, // Default border color
+              width: 1.0,
+            ),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+                Radius.circular(Get.height * Utils.getResponsiveSize(8))),
+            borderSide: BorderSide(
+              color: AppColor.redColor, // Default border color
               width: 1.0, // Default border width
             ),
           ),
