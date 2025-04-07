@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:e_validation/repository/scan_product_repository/scan_product_repository.dart';
+import 'package:e_validation/utils/utils.dart';
 import 'package:e_validation/view/navigation/home/product/fake_product_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_verified_screen.dart';
 import 'package:e_validation/view_models/controller/navigation/navigation_view_model.dart';
@@ -97,20 +98,24 @@ class ScanProductViewModel extends GetxController {
           arguments: scanProductModel,
         );
       } else {
-        error.value = 'Invalid QR Code';
+        Utils.toastMessage('Invalid QR Code');
       }
     } else if (response.statusCode == 400) {
       final errorData = jsonDecode(response.body);
-      final arguments = {
-        'code': code,
-        'productId': errorData['ProductId'] ?? '---',
-        'scanCount': errorData['ScanCount'] ?? '0',
-        'message': errorData['Message'] ?? '',
-      };
-      navigationVM.changeScreen(
-        FakeProductScreen(),
-        arguments: arguments,
-      );
+      if (errorData['ErrorCode'] == "1025") {
+        final arguments = {
+          'code': code,
+          'productId': errorData['ProductId'] ?? '---',
+          'scanCount': errorData['ScanCount'] ?? '0',
+          'message': errorData['Message'] ?? '',
+        };
+        navigationVM.changeScreen(
+          FakeProductScreen(),
+          arguments: arguments,
+        );
+      } else {
+        Utils.toastMessage('Invalid QR Code');
+      }
     } else {
       error.value = 'Scan failed: ${response.statusCode}';
     }

@@ -34,9 +34,6 @@ class _ScanProductScreenState extends State<ScanProductScreen>
         backgroundColor: Colors.white,
         body: SafeArea(
           child: Obx(() {
-            if (scanProductVM.error.isNotEmpty) {
-              return Center(child: Text(scanProductVM.error.value));
-            }
             if (!scanProductVM.loading.value) {
               return Stack(
                 children: [
@@ -89,7 +86,7 @@ class _ScanProductScreenState extends State<ScanProductScreen>
                             ),
                         qrCodeCallback: (code) {
                           originalString = code;
-                          if (code!.length > 4) {
+                          if (originalString!.length > 4) {
                             modifiedString = originalString!
                                 .substring(2, originalString!.length - 2);
                             scanProductVM.processQRCode(modifiedString ?? '');

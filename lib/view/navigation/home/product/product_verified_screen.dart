@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
+import '../../../../models/navigation/scanProduct/scan_product_model.dart';
 import '../../../../res/assets/font_assets.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
@@ -23,13 +24,17 @@ class ProductVerifiedScreen extends StatefulWidget {
 
 class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
   final navigationVM = Get.put(NavigationViewModel());
-  final code = Get.arguments['code'] ?? '';
+  final ScanProductModel scanProductModel = Get.arguments as ScanProductModel;
 
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(milliseconds: 900),
-        () => navigationVM.changeScreen(ProductDetailScreen()));
+    Timer(
+        const Duration(milliseconds: 900),
+        () => navigationVM.changeScreen(
+              ProductDetailScreen(),
+              arguments: scanProductModel,
+            ));
   }
 
   @override
@@ -54,32 +59,17 @@ class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        InkWell(
-                            onTap: () {
-                              navigationVM.changeScreen(ProductDetailScreen());
-                              // Get.to(() => const ProductDetailScreen());
-                              // Get.toNamed(RoutesName.productDetailScreen);
-                            },
-                            child: SvgPicture.asset(
-                                ImageAssets.account_created_logo)),
+                        SvgPicture.asset(ImageAssets.account_created_logo),
                         SizedBox(
                           height: Get.height * Utils.getResponsiveHeight(36),
                         ),
-                        InkWell(
-                          onTap: () {
-                            navigationVM.changeScreen(FakeProductScreen());
-                            // Get.to(() => const FakeProductScreen());
-                            // Get.toNamed(RoutesName.productDetailScreen);
-                          },
-                          child: Text(
-                            'product_verified'.tr,
-                            style: TextStyle(
-                              color: AppColor.textColorPrimary,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(30),
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                            ),
+                        Text(
+                          'product_verified'.tr,
+                          style: TextStyle(
+                            color: AppColor.textColorPrimary,
+                            fontSize: Get.height * Utils.getResponsiveSize(30),
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600,
                           ),
                         )
                       ],
