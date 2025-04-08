@@ -1,7 +1,9 @@
 import 'package:camera/camera.dart';
 import 'package:e_validation/repository/scan_product_repository/scan_product_repository.dart';
+import 'package:e_validation/res/routes/routes_name.dart';
 import 'package:e_validation/utils/utils.dart';
 import 'package:e_validation/view/navigation/home/product/fake_product_screen.dart';
+import 'package:e_validation/view/navigation/home/product/product_detail_screen.dart';
 import 'package:e_validation/view/navigation/home/product/product_verified_screen.dart';
 import 'package:e_validation/view_models/controller/navigation/navigation_view_model.dart';
 import 'package:flutter/foundation.dart';
@@ -86,23 +88,27 @@ class ScanProductViewModel extends GetxController {
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       if (data["IsSuccessfull"]) {
-        // if (data['ErrorCode'] == "1024") {
-        // if (data['ErrorCode'] == "1025") {
-        // if (data['ErrorCode'] == "1027") {
-        ScanProductModel scanProductModel = ScanProductModel.fromJson(data);
-
-        // Get.toNamed(RoutesName.productDetailScreen,
-        //     arguments: scanProductModel);
         navigationVM.changeScreen(
           ProductVerifiedScreen(),
-          arguments: scanProductModel,
+          arguments: {
+            'productImage': data['Data']['Product_Image_Url1'],
+            'scanCount': data['Data']['Scan_Count'],
+            'productName': data['Data']['Product_Name'],
+            'barcode': data['Data']['Product_Identity_Hash'],
+            'productSKU': data['Data']['Product_Catogary'],
+            'supplier': data['Data']['Product_Manufacturer_Name'],
+            'createdAt': data['Data']['Product_CreatedDateTime'],
+            'expiryDate': data['Data']['Product_Expiry_Date'],
+          },
         );
       } else {
         Utils.toastMessage('Invalid QR Code');
       }
     } else if (response.statusCode == 400) {
       final errorData = jsonDecode(response.body);
-      if (errorData['ErrorCode'] == "1025") {
+      if (errorData['ErrorCode'] == "1024") {
+        Utils.toastMessage('Invalid QR Code');
+      } else if (errorData['ErrorCode'] == "1025") {
         final arguments = {
           'code': code,
           'productId': errorData['ProductId'] ?? '---',
@@ -113,8 +119,11 @@ class ScanProductViewModel extends GetxController {
           FakeProductScreen(),
           arguments: arguments,
         );
+      } else if (errorData['ErrorCode'] == "1026") {
+        Utils.toastMessage('Invalid Api Key Need Login Again');
+        Get.offAllNamed(RoutesName.loginScreen);
       } else {
-        Utils.toastMessage('Invalid QR Code');
+        Utils.toastMessage('Something went wrong');
       }
     } else {
       error.value = 'Scan failed: ${response.statusCode}';

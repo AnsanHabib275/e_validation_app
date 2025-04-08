@@ -20,11 +20,25 @@ class ProductDetailScreen extends StatefulWidget {
 }
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
-  final navigationVM = Get.put(NavigationViewModel());
-  final ScanProductModel scanProductModel = Get.arguments as ScanProductModel;
+  late final Map<String, dynamic> args;
+
+  @override
+  void initState() {
+    super.initState();
+    final navigationVM = Get.find<NavigationViewModel>();
+    args = navigationVM.screenArguments as Map<String, dynamic>? ?? {};
+  }
 
   @override
   Widget build(BuildContext context) {
+    final productImage = args['productImage'] ?? '';
+    final scanCount = args['scanCount'] ?? '';
+    final productName = args['productName'] ?? '';
+    final barcode = args['barcode'] ?? '';
+    final productSKU = args['productSKU'] ?? '';
+    final supplier = args['supplier'] ?? '';
+    final createdAt = args['createdAt'] ?? '';
+    final expiryDate = args['expiryDate'] ?? '';
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: Scaffold(
@@ -109,7 +123,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     ),
                                     Spacer(),
                                     Text(
-                                      scanProductModel.data!.productName ?? '',
+                                      productName,
                                       style: TextStyle(
                                           color: AppColor.textLightGreyPrimary,
                                           fontSize: Get.height *
@@ -135,16 +149,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                           fontWeight: FontWeight.w400),
                                     ),
                                     Spacer(),
-                                    Text(
-                                      scanProductModel
-                                              .data!.productIdentityHash ??
-                                          '',
-                                      style: TextStyle(
-                                          color: AppColor.textLightGreyPrimary,
-                                          fontSize: Get.height *
-                                              Utils.getResponsiveSize(16),
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w400),
+                                    Expanded(
+                                      child: Text(
+                                        barcode,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                            color:
+                                                AppColor.textLightGreyPrimary,
+                                            fontSize: Get.height *
+                                                Utils.getResponsiveSize(16),
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.w400),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -165,8 +182,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     ),
                                     Spacer(),
                                     Text(
-                                      scanProductModel.data!.productCatogary ??
-                                          '',
+                                      productSKU,
                                       style: TextStyle(
                                           color: AppColor.textLightGreyPrimary,
                                           fontSize: Get.height *
@@ -193,9 +209,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     ),
                                     Spacer(),
                                     Text(
-                                      scanProductModel
-                                              .data!.productManufacturerName ??
-                                          '',
+                                      supplier,
                                       style: TextStyle(
                                           color: AppColor.textLightGreyPrimary,
                                           fontSize: Get.height *
@@ -222,9 +236,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     ),
                                     Spacer(),
                                     Text(
-                                      Utils.appFormatDate(scanProductModel
-                                              .data!.productCreatedDateTime ??
-                                          ''),
+                                      Utils.appFormatDate(createdAt),
                                       style: TextStyle(
                                           color: AppColor.textLightGreyPrimary,
                                           fontSize: Get.height *
@@ -251,9 +263,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     ),
                                     Spacer(),
                                     Text(
-                                      Utils.appFormatDate(scanProductModel
-                                              .data!.productExpiryDate ??
-                                          ''),
+                                      Utils.appFormatDate(expiryDate),
                                       style: TextStyle(
                                           color: AppColor.textLightGreyPrimary,
                                           fontSize: Get.height *

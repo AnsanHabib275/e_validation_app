@@ -70,7 +70,7 @@ flutter_icons:
   ios: true
 flutter_native_splash:
   image: assets/images/splash_screen_logo.png
-  imageLogo: assets/images/block_chain_logo.png
+#  imageLogo: assets/images/block_chain_logo.png
   android: true
   ios: true
 

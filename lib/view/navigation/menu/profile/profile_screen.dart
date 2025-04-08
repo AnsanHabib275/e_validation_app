@@ -71,7 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     height: Get.height * Utils.getResponsiveHeight(30),
                   ),
                   Text(
-                    userVM.user_name.value,
+                    '${userVM.user_firstName.value}${userVM.user_lastName.value}',
                     textAlign: TextAlign.start,
                     style: TextStyle(
                         color: AppColor.textColorPrimary,
@@ -121,7 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: Get.height * Utils.getResponsiveHeight(5),
                           ),
                           Text(
-                            userVM.user_name.value,
+                            '${userVM.user_firstName.value}${userVM.user_lastName.value}',
                             style: TextStyle(
                                 color: AppColor.textGreyPrimary,
                                 fontSize:

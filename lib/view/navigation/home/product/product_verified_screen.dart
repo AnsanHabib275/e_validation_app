@@ -23,17 +23,33 @@ class ProductVerifiedScreen extends StatefulWidget {
 }
 
 class _ProductVerifiedScreenState extends State<ProductVerifiedScreen> {
-  final navigationVM = Get.put(NavigationViewModel());
-  final ScanProductModel scanProductModel = Get.arguments as ScanProductModel;
-
+  final navigationVM = Get.find<NavigationViewModel>();
   @override
   void initState() {
     super.initState();
+    final args = navigationVM.screenArguments as Map<String, dynamic>? ?? {};
+    final productImage = args['productImage'] ?? '';
+    final scanCount = args['scanCount'] ?? '';
+    final productName = args['productName'] ?? '';
+    final barcode = args['barcode'] ?? '';
+    final productSKU = args['productSKU'] ?? '';
+    final supplier = args['supplier'] ?? '';
+    final createdAt = args['createdAt'] ?? '';
+    final expiryDate = args['expiryDate'] ?? '';
     Timer(
         const Duration(milliseconds: 900),
         () => navigationVM.changeScreen(
               ProductDetailScreen(),
-              arguments: scanProductModel,
+              arguments: {
+                'productImage': productImage,
+                'scanCount': scanCount,
+                'productName': productName,
+                'barcode': barcode,
+                'productSKU': productSKU,
+                'supplier': supplier,
+                'createdAt': createdAt,
+                'expiryDate': expiryDate,
+              },
             ));
   }
 
