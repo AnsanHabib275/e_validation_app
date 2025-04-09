@@ -26,16 +26,6 @@ class OTPViewModel extends GetxController {
   RxString errorMessage = ''.obs;
   RxString from = ''.obs;
 
-  // void checkOtpFilled(String e_id) {
-  //   if (otpOneController.value.text.isNotEmpty &&
-  //       otpTwoController.value.text.isNotEmpty &&
-  //       otpThreeController.value.text.isNotEmpty &&
-  //       otpFourController.value.text.isNotEmpty &&
-  //       otpFiveController.value.text.isNotEmpty &&
-  //       otpSixController.value.text.isNotEmpty) {
-  //     otpApi(e_id);
-  //   }
-  // }
   RxBool isOtpFilled = false.obs;
 
   void checkOtpFilled() {
